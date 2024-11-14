@@ -1,4 +1,3 @@
-// page.tsx
 import { DataTable, columns, Payment } from "./components/table";
 
 async function getData(): Promise<Payment[]> {
@@ -41,8 +40,12 @@ export default async function Home() {
   const data = await getData();
 
   return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
+    <div className="flex items-center justify-center min-h-screen p-8">
+      <div className="w-full sm:w-1/3 bg-gray-900 text-white rounded-lg shadow-lg p-6">
+        <main className="flex flex-col gap-8">
+          <DataTable columns={columns} data={data} />
+        </main>
+      </div>
     </div>
   );
 }
