@@ -1,49 +1,29 @@
-import { DataTable, columns, Payment } from "./components/table";
+import { dataParser } from "@/parsers";
+import { DataTable, columns, StatusInvestData } from "./components/table";
 
-async function getData(): Promise<Payment[]> {
+async function getData(): Promise<StatusInvestData[]> {
   // Dados de exemplo ou a chamada para sua API
-  return [
-    {
-      id: "m5gr84i9",
-      amount: 316,
-      status: "success",
-      email: "ken99@yahoo.com",
-    },
-    {
-      id: "3u1reuv4",
-      amount: 242,
-      status: "success",
-      email: "Abe45@gmail.com",
-    },
-    {
-      id: "derv1ws0",
-      amount: 837,
-      status: "processing",
-      email: "Monserrat44@gmail.com",
-    },
-    {
-      id: "5kma53ae",
-      amount: 874,
-      status: "success",
-      email: "Silas22@gmail.com",
-    },
-    {
-      id: "bhqecj4p",
-      amount: 721,
-      status: "failed",
-      email: "carmella@hotmail.com",
-    },
-  ];
+  try {
+    const response = await fetch("http://localhost:3000/api/fetch-csv", {
+      next: { revalidate: 600 }
+    })
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 }
 
 export default async function Home() {
   const data = await getData();
+  const parsedData = await dataParser(data);
 
   return (
     <div className="flex items-center justify-center min-h-screen p-8">
-      <div className="w-full sm:w-1/3 bg-gray-900 text-white rounded-lg shadow-lg p-6">
+      <div className="w-full bg-gray-900 text-white rounded-lg shadow-lg p-6">
         <main className="flex flex-col gap-8">
-          <DataTable columns={columns} data={data} />
+          <DataTable columns={columns} data={parsedData} />
         </main>
       </div>
     </div>
