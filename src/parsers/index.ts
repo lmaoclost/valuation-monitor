@@ -1,0 +1,1 @@
+export { dataParser } from "./dataParser";
