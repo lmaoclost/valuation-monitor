@@ -1,6 +1,32 @@
-export type Payment = {
-  id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
-  email: string;
+export type StatusInvestData = {
+  TICKER: string;
+  PRECO: string;
+  DY: string;
+  'P/L': string;
+  'P/VP': string;
+  'P/ATIVOS': string;
+  'MARGEM BRUTA': string;
+  'MARGEM EBIT': string;
+  'MARG. LIQUIDA': string;
+  'P/EBIT': string;
+  'EV/EBIT': string;
+  'DIVIDA LIQUIDA / EBIT': string;
+  'DIV. LIQ. / PATRI.': string;
+  PSR: string;
+  'P/CAP. GIRO': string;
+  'P. AT CIR. LIQ.': string;
+  'LIQ. CORRENTE': string;
+  ROE: string;
+  ROA: string;
+  ROIC: string;
+  'PATRIMONIO / ATIVOS': string;
+  'PASSIVOS / ATIVOS': string;
+  'GIRO ATIVOS': string;
+  'CAGR RECEITAS 5 ANOS': string;
+  'CAGR LUCROS 5 ANOS': string;
+  ' LIQUIDEZ MEDIA DIARIA': string;
+  ' VPA': string;
+  ' LPA': string;
+  ' PEG Ratio': string;
+  ' VALOR DE MERCADO': string;
 };
