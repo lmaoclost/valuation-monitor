@@ -1,5 +1,4 @@
 import { StatusInvestData } from "@/app/components/table";
-import { Row } from "@tanstack/react-table";
 import { calculateDamoradanGrowth } from "./calculateDamodaramGrowth";
 import { calculateCagrProfit } from "./calculateCagrProfit";
 

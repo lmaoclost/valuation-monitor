@@ -77,7 +77,7 @@ export const dataParser = async (tableData: StatusInvestData[]): Promise<ParsedD
     const d1 = calculateD1(row);
     const gordonFairPrice = calculateGordonFairPrice(row, risk!);
     const gordonCeelingPrice = calculateGordonCeelingPrice(row, risk!);
-    const peg = calculatePEG(row)
+    const peg = calculatePEG(row);
 
     // Aplicando formatações e lógica de exibição
     const formatPercentage = (value: number | null) =>
