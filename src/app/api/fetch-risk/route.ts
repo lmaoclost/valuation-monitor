@@ -1,10 +1,10 @@
 // src/pages/api/getRisk.ts
 import { NextResponse } from "next/server";
-import { getRisk } from "@/utils/getRisk";
+import { fetchRiskData } from "@/services/riskService";
 
 export async function GET() {
   try {
-    const risk = await getRisk();
+    const risk = await fetchRiskData();
     return NextResponse.json({ risk });
   } catch (error) {
     console.error("Erro ao obter risco:", error);
