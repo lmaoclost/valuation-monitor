@@ -9,7 +9,7 @@ export const calculateGordonFairPrice = (
   const d1 = calculateD1(value);
   const growthAverage = calculateGrowthAverage(value);
 
-  const fairPrice = d1 / (risk / 100 - growthAverage / 100);
+  const fairPrice = d1 / (risk - growthAverage);
 
-  return fairPrice;
+  return fairPrice * 100;
 };

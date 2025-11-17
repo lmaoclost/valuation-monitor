@@ -11,6 +11,20 @@ const calculateFieldColor = (value: number, thresholds: number[]) => {
   return "text-green-600";
 };
 
+const calculatePEGColor = (value: number, thresholds: number[]) => {
+  if (value < thresholds[0] || value > thresholds[2]) return "text-red-600";
+  if (value >= thresholds[1] || value <= thresholds[2])
+    return "text-yellow-600";
+  if (value >= thresholds[0] || value <= thresholds[1]) return "text-blue-600";
+  return "text-green-600";
+};
+
+const calculatePSRColor = (value: number, thresholds: number[]) => {
+  if (value > thresholds[0]) return "text-red-600";
+  if (value === thresholds[0]) return "text-yellow-600";
+  if (value < thresholds[0]) return "text-green-600";
+};
+
 export const columns: ColumnDef<ParsedData>[] = [
   {
     accessorKey: "TICKER",
@@ -242,11 +256,25 @@ export const columns: ColumnDef<ParsedData>[] = [
   },
   {
     accessorKey: "peg",
-    header: "Preço teto Gordon",
+    header: "PEG",
     cell: ({ row }) => {
-      const value = row.getValue("peg");
+      const value = row.getValue("peg") as number;
+      const fieldColor = calculatePEGColor(value, [0, 0.5, 2]);
       return (
-        <div>
+        <div className={fieldColor}>
+          <>{value}</>
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "psr",
+    header: "PSR",
+    cell: ({ row }) => {
+      const value = row.getValue("psr") as number;
+      const fieldColor = calculatePSRColor(value, [1]);
+      return (
+        <div className={fieldColor}>
           <>{value}</>
         </div>
       );

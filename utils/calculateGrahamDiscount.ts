@@ -7,5 +7,5 @@ export const calculateGrahamDiscount = (value: StatusInvestDataType) => {
   const price = convertStringToFloat(value.PRECO);
 
   const discount = (grahamFairPrice - price) / grahamFairPrice;
-  return discount * 100;
+  return discount;
 };

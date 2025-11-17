@@ -7,5 +7,5 @@ export const calculateDamoradanGrowth = (value: StatusInvestDataType) => {
   const roe = value.ROE;
   const formattedROE = convertStringToFloat(roe);
 
-  return (1 - payout / 100) * formattedROE;
+  return (1 - payout) * formattedROE;
 };

@@ -11,5 +11,5 @@ export const calculateGordonDiscount = (
 
   const discount = (gordonFairPrice - price) / gordonFairPrice;
 
-  return discount * 100;
+  return discount;
 };

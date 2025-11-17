@@ -7,7 +7,5 @@ export const calculateDPA = (value: StatusInvestDataType) => {
   const price = convertStringToFloat(value.PRECO);
   const dpa = (price * dy) / 100;
 
-  console.log(typeof dy);
-
   return dpa;
 };

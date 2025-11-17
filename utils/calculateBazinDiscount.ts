@@ -7,5 +7,5 @@ export const calculateBazinDiscount = (value: StatusInvestDataType) => {
   const price = convertStringToFloat(value.PRECO);
 
   const discount = (bazinFairPrice - price) / bazinFairPrice;
-  return discount * 100;
+  return discount;
 };

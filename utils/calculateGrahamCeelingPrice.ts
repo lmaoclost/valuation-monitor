@@ -6,5 +6,6 @@ export const calculateGrahamCeelingPrice = (value: StatusInvestDataType) => {
   const discountMargin = 0.3;
 
   const ceelingPrice = grahamFairPrice / (1 + discountMargin);
-  return ceelingPrice;
+
+  return ceelingPrice * 100;
 };

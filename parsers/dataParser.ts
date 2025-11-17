@@ -18,10 +18,12 @@ import {
   calculateGordonCeelingPrice,
   calculatePEG,
   getDY,
+  getPL,
+  getROE,
+  getPSR,
 } from "@/utils";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { formatPercentage } from "@/utils/formatPercentage";
-import { getPL } from "@/utils/getPL";
 
 export type ParsedData = StatusInvestDataType & {
   dy: string;
@@ -42,6 +44,8 @@ export type ParsedData = StatusInvestDataType & {
   d1: string;
   gordon_fair_price: string;
   gordon_ceeling_price: string;
+  peg: string;
+  psr: string;
 };
 
 export const dataParser = async (
@@ -52,6 +56,7 @@ export const dataParser = async (
     // Cálculos derivados
     const dy = getDY(row) / 100;
     const pl = getPL(row);
+    const roe = getROE(row);
     const dpa = calculateDPA(row);
     const payout = calculatePayout(row);
     const growthDividend = growthOrDividend(row);
@@ -69,19 +74,21 @@ export const dataParser = async (
     const gordonFairPrice = calculateGordonFairPrice(row, risk);
     const gordonCeelingPrice = calculateGordonCeelingPrice(row, risk);
     const peg = calculatePEG(row);
+    const psr = getPSR(row);
 
     return {
       ...row,
       risco: formatPercentage(risk / 100),
       discount_margin: formatPercentage(0.3),
       dy: formatPercentage(dy),
-      pl: formatPercentage(pl),
+      pl: formatPercentage(pl / 100),
       dpa: dpa.toFixed(2),
       payout: formatPercentage(payout),
       growth_or_dividend: growthDividend,
-      cagr_profit: formatPercentage(cagrProfit),
-      damodaram_growth: formatPercentage(damodaramGrowth),
-      growth_average: formatPercentage(growthAverage),
+      roe: formatPercentage(roe),
+      cagr_profit: formatPercentage(cagrProfit / 100),
+      damodaram_growth: formatPercentage(damodaramGrowth / 100),
+      growth_average: formatPercentage(growthAverage / 100),
       bazin_discount: formatPercentage(bazinDiscount),
       bazin_fair_price: formatCurrency(bazinFairPrice),
       bazin_ceeling_price: formatCurrency(bazinCeelingPrice),
@@ -93,6 +100,7 @@ export const dataParser = async (
       gordon_fair_price: formatCurrency(gordonFairPrice),
       gordon_ceeling_price: formatCurrency(gordonCeelingPrice),
       peg: peg.toFixed(2),
+      psr: psr,
     };
   });
 };

@@ -17,3 +17,6 @@ export { convertFloatToCurrency } from "./convertFloatToCurrency";
 export { getDY } from "./getDY";
 export { growthOrDividend } from "./growthOrDividend";
 export { calculatePEG } from "./calculatePEG";
+export { getPL } from "./getPL";
+export { getROE } from "./getROE";
+export { getPSR } from "./getPSR";
