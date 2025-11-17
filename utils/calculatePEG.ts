@@ -1,4 +1,3 @@
-import { convertStringToFloat } from "@/utils/convertStringToFloat";
 import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
 import { calculateGrowthAverage } from "./calculateGrowthAverage";
 import { getPL } from "./getPL";

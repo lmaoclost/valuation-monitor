@@ -2,7 +2,7 @@ import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.ty
 import { calculateGordonFairPrice } from "./calculateGordonFairPrice";
 
 export const calculateGordonCeelingPrice = (
-  value: StatusInvestData,
+  value: StatusInvestDataType,
   risk: number,
 ) => {
   const bazinFairPrice = calculateGordonFairPrice(value, risk);

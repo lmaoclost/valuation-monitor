@@ -3,7 +3,7 @@ import { calculateD1 } from "./calculateD1";
 import { calculateGrowthAverage } from "./calculateGrowthAverage";
 
 export const calculateGordonFairPrice = (
-  value: StatusInvestData,
+  value: StatusInvestDataType,
   risk: number,
 ) => {
   const d1 = calculateD1(value);

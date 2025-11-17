@@ -3,7 +3,7 @@ import { calculateGordonFairPrice } from "./calculateGordonFairPrice";
 import { convertStringToFloat } from "./convertStringToFloat";
 
 export const calculateGordonDiscount = (
-  value: StatusInvestData,
+  value: StatusInvestDataType,
   risk: number,
 ) => {
   const gordonFairPrice = calculateGordonFairPrice(value, risk);
