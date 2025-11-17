@@ -75,7 +75,7 @@ export const dataParser = async (
       risco: formatPercentage(risk / 100),
       discount_margin: formatPercentage(0.3),
       dy: formatPercentage(dy),
-      pl: pl,
+      pl: formatPercentage(pl),
       dpa: dpa.toFixed(2),
       payout: formatPercentage(payout),
       growth_or_dividend: growthDividend,
