@@ -100,7 +100,7 @@ export const dataParser = async (
       gordon_fair_price: formatCurrency(gordonFairPrice),
       gordon_ceeling_price: formatCurrency(gordonCeelingPrice),
       peg: peg.toFixed(2),
-      psr: psr,
+      psr: psr.toFixed(2),
     };
   });
 };
