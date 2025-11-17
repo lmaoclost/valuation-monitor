@@ -1,4 +1,4 @@
-import { StatusInvestData } from "@/app/components/table";
+import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
 import { calculateDPA } from "./calculateDPA";
 import { calculateGrowthAverage } from "./calculateGrowthAverage";
 
