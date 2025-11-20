@@ -4,34 +4,6 @@ import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 
-const calculateFieldColor = (value: number, thresholds: number[]) => {
-  if (value < thresholds[0]) return "text-red-600";
-  if (value <= thresholds[1]) return "text-yellow-600";
-  if (value <= thresholds[2]) return "text-blue-600";
-  return "text-green-600";
-};
-
-const calculatePEGColor = (value: number, thresholds: number[]) => {
-  if (value < thresholds[0] || value > thresholds[2]) return "text-red-600";
-  if (value >= thresholds[1] || value <= thresholds[2])
-    return "text-yellow-600";
-  if (value >= thresholds[0] || value <= thresholds[1]) return "text-blue-600";
-  return "text-green-600";
-};
-
-const calculatePSRColor = (value: number, thresholds: number[]) => {
-  if (value > thresholds[0]) return "text-red-600";
-  if (value === thresholds[0]) return "text-yellow-600";
-  if (value < thresholds[0]) return "text-green-600";
-};
-
-const calculateGrowthAverageColor = (value: number, thresholds: number[]) => {
-  if (value < thresholds[0]) return "text-red-600";
-  if (value >= thresholds[0] && value < thresholds[1]) return "text-yellow-600";
-  if (value >= thresholds[1] && value <= thresholds[2]) return "text-blue-600";
-  return "text-green-600";
-};
-
 export const columns: ColumnDef<StocksFormattedDataType>[] = [
   {
     accessorKey: "ticker",
@@ -155,16 +127,15 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
     header: "Média de Crescimento",
     cell: ({ row }) => {
       const value = row.getValue("growthAverage") as string;
-      const raw = row.getValue("growthAverageRaw") as number;
-      const fieldColor = calculateGrowthAverageColor(raw, [0, 10, 20]);
+      const fieldColor = row.getValue("growthAverageColor") as string;
 
       return <div className={fieldColor}>{value}</div>;
     },
   },
   {
-    accessorKey: "growthAverageRaw",
+    accessorKey: "growthAverageColor",
     header: "",
-    enableHiding: true,
+    enableHiding: false,
     size: 0,
     cell: () => null,
   },
@@ -173,15 +144,15 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
     header: "Desc Bazin",
     cell: ({ row }) => {
       const value = row.getValue("bazinDiscount") as string;
-      const raw = row.getValue("bazinDiscountRaw") as number;
-      const fieldColor = calculateFieldColor(raw, [0, 30]);
+      const fieldColor = row.getValue("bazinDiscountColor") as string;
+
       return <div className={fieldColor}>{value}</div>;
     },
   },
   {
-    accessorKey: "bazinDiscountRaw",
+    accessorKey: "bazinDiscountColor",
     header: "",
-    enableHiding: true,
+    enableHiding: false,
     size: 0,
     cell: () => null,
   },
@@ -214,16 +185,15 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
     header: "Desc Graham",
     cell: ({ row }) => {
       const value = row.getValue("grahamDiscount") as string;
-      const raw = row.getValue("grahamDiscountRaw") as number;
-      const fieldColor = calculateFieldColor(raw, [0, 30]);
+      const fieldColor = row.getValue("grahamDiscountColor") as string;
 
       return <div className={fieldColor}>{value}</div>;
     },
   },
   {
-    accessorKey: "grahamDiscountRaw",
+    accessorKey: "grahamDiscountColor",
     header: "",
-    enableHiding: true,
+    enableHiding: false,
     size: 0,
     cell: () => null,
   },
@@ -256,16 +226,15 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
     header: "Desc Gordon",
     cell: ({ row }) => {
       const value = row.getValue("gordonDiscount") as string;
-      const raw = row.getValue("gordonDiscountRaw") as number;
-      const fieldColor = calculateFieldColor(raw, [0, 30]);
+      const fieldColor = row.getValue("gordonDiscountColor") as string;
 
       return <div className={fieldColor}>{value}</div>;
     },
   },
   {
-    accessorKey: "gordonDiscountRaw",
+    accessorKey: "gordonDiscountColor",
     header: "",
-    enableHiding: true,
+    enableHiding: false,
     size: 0,
     cell: () => null,
   },
@@ -298,7 +267,7 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
     header: "PEG",
     cell: ({ row }) => {
       const value = row.getValue("peg") as number;
-      const fieldColor = calculatePEGColor(value, [0, 0.5, 2]);
+      const fieldColor = row.getValue("pegColor") as string;
       return (
         <div className={fieldColor}>
           <>{value}</>
@@ -307,16 +276,30 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
     },
   },
   {
+    accessorKey: "pegColor",
+    header: "",
+    enableHiding: false,
+    size: 0,
+    cell: () => null,
+  },
+  {
     accessorKey: "psr",
     header: "PSR",
     cell: ({ row }) => {
       const value = row.getValue("psr") as number;
-      const fieldColor = calculatePSRColor(value, [1]);
+      const fieldColor = row.getValue("psrColor") as string;
       return (
         <div className={fieldColor}>
           <>{value}</>
         </div>
       );
     },
+  },
+  {
+    accessorKey: "psrColor",
+    header: "",
+    enableHiding: false,
+    size: 0,
+    cell: () => null,
   },
 ];

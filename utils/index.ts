@@ -27,3 +27,7 @@ export { getPSR } from "./getPSR";
 export { convertFloatToCurrency } from "./convertFloatToCurrency";
 export { formatCurrency } from "./formatCurrency";
 export { formatPercentage } from "./formatPercentage";
+export { calculateFieldColor } from "./calculateFieldColor";
+export { calculateGrowthAverageColor } from "./calculateGrowthAverageColor";
+export { calculatePEGColor } from "./calculatePEGColor";
+export { calculatePSRColor } from "./calculatePSRColor";

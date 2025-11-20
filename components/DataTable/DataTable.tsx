@@ -7,7 +7,6 @@ import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
-  getPaginationRowModel,
   getSortedRowModel,
   SortingState,
   useReactTable,
@@ -42,7 +41,31 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
+    companyname: false,
+    sectorname: false,
+    segmentname: false,
+    cicle: false,
+    dy: false,
+    pl: false,
+    lpa: false,
+    vpa: false,
+    dpa: false,
+    risk: false,
+    discount_margin: false,
+    payout: false,
+    growthDividend: false,
+    roe: false,
+    cagrProfit: false,
+    damodaramGrowth: false,
+    bazinFairPrice: false,
+    bazinCeelingPrice: false,
+    grahamFairPrice: false,
+    grahamCeelingPrice: false,
+    gordonFairPrice: false,
+    gordonCeelingPrice: false,
+    d1: false,
+  });
   const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
@@ -51,7 +74,6 @@ export function DataTable<TData, TValue>({
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
@@ -61,18 +83,6 @@ export function DataTable<TData, TValue>({
       columnFilters,
       columnVisibility,
       rowSelection,
-    },
-    initialState: {
-      columnVisibility: {
-        companyname: false,
-        sectorname: false,
-        segmentname: false,
-        cicle: false,
-        growthAverageRaw: false,
-        bazinDiscountRaw: false,
-        grahamDiscountRaw: false,
-        gordonDiscountRaw: false,
-      },
     },
   });
 
@@ -107,7 +117,9 @@ export function DataTable<TData, TValue>({
                       column.toggleVisibility(!!value)
                     }
                   >
-                    {column.id}
+                    {typeof column.columnDef.header === "string"
+                      ? column.columnDef.header
+                      : column.id}
                   </DropdownMenuCheckboxItem>
                 );
               })}
