@@ -2,7 +2,7 @@ import { unstable_cache } from "next/cache";
 import * as cheerio from "cheerio";
 import { revalidateDay } from "@/constants";
 
-const ipcaUrl = "https://www.ibge.gov.br/explica/inflacao.php";
+const ipcaUrl = process.env.IPCA_URL!;
 
 export const getIPCAData = unstable_cache(
   async () => {

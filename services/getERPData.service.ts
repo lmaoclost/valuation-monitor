@@ -2,7 +2,7 @@ import { unstable_cache } from "next/cache";
 import * as cheerio from "cheerio";
 import { revalidateDay } from "@/constants";
 
-const erpUrl = "https://ceqef.fgv.br/banco-de-dados";
+const erpUrl = process.env.ERP_URL!;
 
 export const getERPData = unstable_cache(
   async () => {
