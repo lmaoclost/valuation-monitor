@@ -2,7 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
-import { ParsedData } from "@/parsers/dataParser";
+import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 
 const calculateFieldColor = (value: number, thresholds: number[]) => {
   if (value < thresholds[0]) return "text-red-600";
@@ -25,18 +25,25 @@ const calculatePSRColor = (value: number, thresholds: number[]) => {
   if (value < thresholds[0]) return "text-green-600";
 };
 
-export const columns: ColumnDef<ParsedData>[] = [
+const calculateGrowthAverageColor = (value: number, thresholds: number[]) => {
+  if (value < thresholds[0]) return "text-red-600";
+  if (value >= thresholds[0] && value < thresholds[1]) return "text-yellow-600";
+  if (value >= thresholds[1] && value <= thresholds[2]) return "text-blue-600";
+  return "text-green-600";
+};
+
+export const columns: ColumnDef<StocksFormattedDataType>[] = [
   {
-    accessorKey: "TICKER",
+    accessorKey: "ticker",
     header: "Ações",
     cell: ({ row }) => {
       return (
         <div className="uppercase font-semibold">
           <Link
             target="_blank"
-            href={`https://br.tradingview.com/chart/?symbol=BMFBOVESPA%3A${row.getValue("TICKER")}`}
+            href={`https://br.tradingview.com/chart/?symbol=BMFBOVESPA%3A${row.getValue("ticker")}`}
           >
-            {row.getValue("TICKER")}
+            {row.getValue("ticker")}
           </Link>
         </div>
       );
@@ -65,9 +72,9 @@ export const columns: ColumnDef<ParsedData>[] = [
     cell: ({ row }) => <div>{row.getValue("segmentname")}</div>,
   },*/
   {
-    accessorKey: "PRECO",
+    accessorKey: "price",
     header: "Preço",
-    cell: ({ row }) => <div>R${row.getValue("PRECO")}</div>,
+    cell: ({ row }) => <div>{row.getValue("price")}</div>,
   },
   {
     accessorKey: "dy",
@@ -84,14 +91,14 @@ export const columns: ColumnDef<ParsedData>[] = [
     },
   },
   {
-    accessorKey: " LPA",
+    accessorKey: "lpa",
     header: "LPA",
-    cell: ({ row }) => <div>{row.getValue(" LPA")}</div>,
+    cell: ({ row }) => <div>{row.getValue("lpa")}</div>,
   },
   {
-    accessorKey: " VPA",
+    accessorKey: "vpa",
     header: "VPA",
-    cell: ({ row }) => <div>{row.getValue(" VPA")}</div>,
+    cell: ({ row }) => <div>{row.getValue("vpa")}</div>,
   },
   {
     accessorKey: "dpa",
@@ -99,9 +106,9 @@ export const columns: ColumnDef<ParsedData>[] = [
     cell: ({ row }) => <div>{row.getValue("dpa")}</div>,
   },
   {
-    accessorKey: "risco",
+    accessorKey: "risk",
     header: "Risco",
-    cell: ({ row }) => <div>{row.getValue("risco")}</div>,
+    cell: ({ row }) => <div>{row.getValue("risk")}</div>,
   },
   {
     accessorKey: "discount_margin",
@@ -116,119 +123,151 @@ export const columns: ColumnDef<ParsedData>[] = [
     },
   },
   {
-    accessorKey: "growth_or_dividend",
+    accessorKey: "growthDividend",
     header: "Crescimento/Dividendos",
     cell: ({ row }) => {
-      return <div>{row.getValue("growth_or_dividend")}</div>;
+      return <div>{row.getValue("growthDividend")}</div>;
     },
   },
   {
-    accessorKey: "ROE",
+    accessorKey: "roe",
     header: "ROE",
     cell: ({ row }) => {
-      return <div>{row.getValue("ROE")}</div>;
+      return <div>{row.getValue("roe")}</div>;
     },
   },
   {
-    accessorKey: "CAGR LUCROS 5 ANOS",
+    accessorKey: "cagrProfit",
     header: "CAGR LUCRO 5A",
     cell: ({ row }) => {
-      return <div>{row.getValue("CAGR LUCROS 5 ANOS")}</div>;
+      return <div>{row.getValue("cagrProfit")}</div>;
     },
   },
   {
-    accessorKey: "damodaram_growth",
+    accessorKey: "damodaramGrowth",
     header: "Crescimento Damodaram",
     cell: ({ row }) => {
-      return <div>{row.getValue("damodaram_growth")}</div>;
+      return <div>{row.getValue("damodaramGrowth")}</div>;
     },
   },
   {
-    accessorKey: "growth_average",
+    accessorKey: "growthAverage",
     header: "Média de Crescimento",
     cell: ({ row }) => {
-      const value = row.getValue("growth_average") as number;
-      const fieldColor = calculateFieldColor(value, [0, 10, 20]);
+      const value = row.getValue("growthAverage") as string;
+      const raw = row.getValue("growthAverageRaw") as number;
+      const fieldColor = calculateGrowthAverageColor(raw, [0, 10, 20]);
 
       return <div className={fieldColor}>{value}</div>;
     },
   },
   {
-    accessorKey: "bazin_discount",
+    accessorKey: "growthAverageRaw",
+    header: "",
+    enableHiding: true,
+    size: 0,
+    cell: () => null,
+  },
+  {
+    accessorKey: "bazinDiscount",
     header: "Desc Bazin",
     cell: ({ row }) => {
-      const value = row.getValue("bazin_discount") as number;
-      const fieldColor = calculateFieldColor(value, [0, 30]);
+      const value = row.getValue("bazinDiscount") as string;
+      const raw = row.getValue("bazinDiscountRaw") as number;
+      const fieldColor = calculateFieldColor(raw, [0, 30]);
       return <div className={fieldColor}>{value}</div>;
     },
   },
   {
-    accessorKey: "bazin_fair_price",
+    accessorKey: "bazinDiscountRaw",
+    header: "",
+    enableHiding: true,
+    size: 0,
+    cell: () => null,
+  },
+  {
+    accessorKey: "bazinFairPrice",
     header: "Preço justo Bazin",
     cell: ({ row }) => {
-      const bazinFairPrice = row.getValue("bazin_fair_price");
+      const bazinFairPrice = row.getValue("bazinFairPrice");
       return (
         <div>
-          <>{bazinFairPrice ? bazinFairPrice : "NaN"}</>
+          <>{bazinFairPrice}</>
         </div>
       );
     },
   },
   {
-    accessorKey: "bazin_ceeling_price",
+    accessorKey: "bazinCeelingPrice",
     header: "Preço teto Bazin",
     cell: ({ row }) => {
-      const bazinCeelingPrice = row.getValue("bazin_ceeling_price");
+      const bazinCeelingPrice = row.getValue("bazinCeelingPrice");
       return (
         <div>
-          <>{bazinCeelingPrice ? bazinCeelingPrice : "NaN"}</>
+          <>{bazinCeelingPrice}</>
         </div>
       );
     },
   },
   {
-    accessorKey: "graham_discount",
+    accessorKey: "grahamDiscount",
     header: "Desc Graham",
     cell: ({ row }) => {
-      const value = row.getValue("graham_discount") as number;
-      const fieldColor = calculateFieldColor(value, [0, 30]);
+      const value = row.getValue("grahamDiscount") as string;
+      const raw = row.getValue("grahamDiscountRaw") as number;
+      const fieldColor = calculateFieldColor(raw, [0, 30]);
 
-      return <div className={fieldColor}>{value ? `${value}` : "NaN"}</div>;
+      return <div className={fieldColor}>{value}</div>;
     },
   },
   {
-    accessorKey: "graham_fair_price",
+    accessorKey: "grahamDiscountRaw",
+    header: "",
+    enableHiding: true,
+    size: 0,
+    cell: () => null,
+  },
+  {
+    accessorKey: "grahamFairPrice",
     header: "Preço justo Graham",
     cell: ({ row }) => {
-      const grahamFairPrice = row.getValue("graham_fair_price");
+      const grahamFairPrice = row.getValue("grahamFairPrice");
       return (
         <div>
-          <>{grahamFairPrice ? grahamFairPrice : "NaN"}</>
+          <>{grahamFairPrice}</>
         </div>
       );
     },
   },
   {
-    accessorKey: "graham_ceeling_price",
+    accessorKey: "grahamCeelingPrice",
     header: "Preço teto Graham",
     cell: ({ row }) => {
-      const grahamCeelingPrice = row.getValue("graham_ceeling_price");
+      const grahamCeelingPrice = row.getValue("grahamCeelingPrice");
       return (
         <div>
-          <>{grahamCeelingPrice ? grahamCeelingPrice : "NaN"}</>
+          <>{grahamCeelingPrice}</>
         </div>
       );
     },
   },
   {
-    accessorKey: "gordon_discount",
+    accessorKey: "gordonDiscount",
     header: "Desc Gordon",
     cell: ({ row }) => {
-      const value = row.getValue("gordon_discount") as number;
-      const fieldColor = calculateFieldColor(value, [0, 30]);
+      const value = row.getValue("gordonDiscount") as string;
+      const raw = row.getValue("gordonDiscountRaw") as number;
+      const fieldColor = calculateFieldColor(raw, [0, 30]);
 
-      return <div className={fieldColor}>{value ? `${value}` : "NaN"}</div>;
+      return <div className={fieldColor}>{value}</div>;
     },
+  },
+  {
+    accessorKey: "gordonDiscountRaw",
+    header: "",
+    enableHiding: true,
+    size: 0,
+    cell: () => null,
   },
   {
     accessorKey: "d1",
@@ -237,19 +276,19 @@ export const columns: ColumnDef<ParsedData>[] = [
       const d1 = row.getValue("d1");
       return (
         <div>
-          <>{d1 ? d1 : "NaN"}</>
+          <>{d1}</>
         </div>
       );
     },
   },
   {
-    accessorKey: "gordon_fair_price",
+    accessorKey: "gordonFairPrice",
     header: "Preço justo Gordon",
     cell: ({ row }) => {
-      const gordonFairPrice = row.getValue("gordon_fair_price");
+      const gordonFairPrice = row.getValue("gordonFairPrice");
       return (
         <div>
-          <>{gordonFairPrice ? gordonFairPrice : "NaN"}</>
+          <>{gordonFairPrice}</>
         </div>
       );
     },

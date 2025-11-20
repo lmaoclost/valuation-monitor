@@ -1,0 +1,28 @@
+export type StocksType = {
+  ticker: string;
+  price: string;
+  dy: string;
+  pl: string;
+  lpa: number;
+  vpa: number;
+  dpa: string;
+  discount_margin: string;
+  payout: string;
+  growth_or_dividend: string;
+  roe: string;
+  cagr_profit: string;
+  damodaram_growth: string;
+  growth_average: string;
+  bazin_discount: string;
+  bazin_fair_price: string;
+  bazin_ceeling_price: string;
+  graham_discount: string;
+  graham_fair_price: string;
+  graham_ceeling_price: string;
+  gordon_discount: string;
+  gordon_fair_price: string;
+  gordon_ceeling_price: string;
+  d1: string;
+  peg: string;
+  psr: string;
+};

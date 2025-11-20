@@ -1,12 +1,10 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 import { calculateDPA } from "./calculateDPA";
-import { convertStringToFloat } from "./convertStringToFloat";
 
-export const calculatePayout = (value: StatusInvestDataType) => {
+export const calculatePayout = (value: StatusInvestNormalizedDataType) => {
   const dpa = calculateDPA(value);
   const lpa = value[" LPA"];
-  const formattedLPA = convertStringToFloat(lpa);
-  const payout = dpa / formattedLPA;
+  const payout = dpa / lpa;
 
   return payout ? payout : 0;
 };

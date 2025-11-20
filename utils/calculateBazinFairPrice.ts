@@ -1,9 +1,11 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 import { calculateDPA } from "./calculateDPA";
 
-export const calculateBazinFairPrice = (value: StatusInvestDataType) => {
+export const calculateBazinFairPrice = (
+  value: StatusInvestNormalizedDataType,
+) => {
   const dpa = calculateDPA(value);
-  const fairPrice = (dpa / 6) * 100;
+  const fairPrice = dpa / 0.06;
 
   return fairPrice;
 };

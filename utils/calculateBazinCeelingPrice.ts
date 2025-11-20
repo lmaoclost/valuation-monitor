@@ -1,9 +1,12 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 import { calculateBazinFairPrice } from "./calculateBazinFairPrice";
+import { getDiscountMargin } from "./getDiscountMargin";
 
-export const calculateBazinCeelingPrice = (value: StatusInvestDataType) => {
+export const calculateBazinCeelingPrice = (
+  value: StatusInvestNormalizedDataType,
+) => {
   const bazinFairPrice = calculateBazinFairPrice(value);
-  const discountMargin = 0.3;
+  const discountMargin = getDiscountMargin();
 
   const ceelingPrice = bazinFairPrice / (1 + discountMargin);
   return ceelingPrice;

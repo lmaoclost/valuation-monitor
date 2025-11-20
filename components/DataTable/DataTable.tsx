@@ -68,6 +68,10 @@ export function DataTable<TData, TValue>({
         sectorname: false,
         segmentname: false,
         cicle: false,
+        growthAverageRaw: false,
+        bazinDiscountRaw: false,
+        grahamDiscountRaw: false,
+        gordonDiscountRaw: false,
       },
     },
   });
@@ -77,9 +81,9 @@ export function DataTable<TData, TValue>({
       <div className="flex items-center py-4">
         <Input
           placeholder="Filtre a ação"
-          value={(table.getColumn("TICKER")?.getFilterValue() as string) ?? ""}
+          value={(table.getColumn("ticker")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("TICKER")?.setFilterValue(event.target.value)
+            table.getColumn("ticker")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />

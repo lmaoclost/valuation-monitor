@@ -5,7 +5,7 @@ import {
   fetchIPCAData,
   fetchRiskData,
 } from "@/services";
-import { dataParser } from "@/parsers";
+import { stocksParser } from "@/parsers/stocks/stocksParser";
 import { unstable_cache } from "next/cache";
 
 export async function GET() {
@@ -19,11 +19,10 @@ export async function GET() {
         ]);
 
         const risk = fetchRiskData(ipca, erp);
-        return dataParser(csv, risk);
+        return stocksParser(csv, risk);
       },
-      ["parsed-data"],
+      ["parsed-stock-data"],
       //{ revalidate: 86400 },
-      { revalidate: 2 },
     );
 
     const parsedData = await fetchData();

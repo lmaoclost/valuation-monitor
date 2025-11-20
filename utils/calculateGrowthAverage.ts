@@ -1,8 +1,10 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 import { calculateDamoradanGrowth } from "./calculateDamodaramGrowth";
 import { calculateCagrProfit } from "./calculateCagrProfit";
 
-export const calculateGrowthAverage = (value: StatusInvestDataType) => {
+export const calculateGrowthAverage = (
+  value: StatusInvestNormalizedDataType,
+) => {
   const cagr = calculateCagrProfit(value);
   const damodaranGrowth = calculateDamoradanGrowth(value);
 

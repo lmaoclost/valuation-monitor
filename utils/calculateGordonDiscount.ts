@@ -1,13 +1,12 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 import { calculateGordonFairPrice } from "./calculateGordonFairPrice";
-import { convertStringToFloat } from "./convertStringToFloat";
 
 export const calculateGordonDiscount = (
-  value: StatusInvestDataType,
+  value: StatusInvestNormalizedDataType,
   risk: number,
 ) => {
   const gordonFairPrice = calculateGordonFairPrice(value, risk);
-  const price = convertStringToFloat(value.PRECO);
+  const price = value.PRECO;
 
   const discount = (gordonFairPrice - price) / gordonFairPrice;
 

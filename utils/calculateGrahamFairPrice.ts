@@ -1,12 +1,11 @@
-import { convertStringToFloat } from "@/utils/convertStringToFloat";
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 
-export const calculateGrahamFairPrice = (value: StatusInvestDataType) => {
+export const calculateGrahamFairPrice = (
+  value: StatusInvestNormalizedDataType,
+) => {
   const lpa = value[" LPA"];
   const vpa = value[" VPA"];
-  const formattedLPA = convertStringToFloat(lpa);
-  const formattedVPA = convertStringToFloat(vpa);
-  const fairPrice = Math.sqrt(22.5 * formattedLPA * formattedVPA);
+  const fairPrice = Math.sqrt(22.5 * lpa * vpa);
 
   return fairPrice;
 };

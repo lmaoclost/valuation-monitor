@@ -1,9 +1,7 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
-import { convertStringToFloat } from "./convertStringToFloat";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 
-export const calculateCagrProfit = (value: StatusInvestDataType) => {
+export const calculateCagrProfit = (value: StatusInvestNormalizedDataType) => {
   const lucroCagr = value["CAGR LUCROS 5 ANOS"];
-  const formattedCagr = convertStringToFloat(lucroCagr);
 
-  return formattedCagr;
+  return lucroCagr;
 };

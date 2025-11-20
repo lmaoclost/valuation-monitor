@@ -1,9 +1,9 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 import { calculateD1 } from "./calculateD1";
 import { calculateGrowthAverage } from "./calculateGrowthAverage";
 
 export const calculateGordonFairPrice = (
-  value: StatusInvestDataType,
+  value: StatusInvestNormalizedDataType,
   risk: number,
 ) => {
   const d1 = calculateD1(value);
@@ -11,5 +11,5 @@ export const calculateGordonFairPrice = (
 
   const fairPrice = d1 / (risk - growthAverage);
 
-  return fairPrice * 100;
+  return fairPrice;
 };

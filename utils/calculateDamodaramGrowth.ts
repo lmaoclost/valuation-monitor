@@ -1,11 +1,11 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 import { calculatePayout } from "./calculatePayout";
-import { convertStringToFloat } from "./convertStringToFloat";
 
-export const calculateDamoradanGrowth = (value: StatusInvestDataType) => {
+export const calculateDamoradanGrowth = (
+  value: StatusInvestNormalizedDataType,
+) => {
   const payout = calculatePayout(value);
   const roe = value.ROE;
-  const formattedROE = convertStringToFloat(roe);
 
-  return (1 - payout) * formattedROE;
+  return (1 - payout) * roe;
 };

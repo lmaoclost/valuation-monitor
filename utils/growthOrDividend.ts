@@ -1,7 +1,7 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 import { calculatePayout } from "./calculatePayout";
 
-export const growthOrDividend = (value: StatusInvestDataType) => {
+export const growthOrDividend = (value: StatusInvestNormalizedDataType) => {
   const payout = calculatePayout(value);
   switch (true) {
     case payout <= 40:

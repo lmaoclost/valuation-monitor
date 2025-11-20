@@ -1,9 +1,7 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
-import { convertStringToFloat } from "./convertStringToFloat";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 
-export const getPSR = (value: StatusInvestDataType) => {
+export const getPSR = (value: StatusInvestNormalizedDataType) => {
   const psr = value["PSR"];
-  const convertedPSR = convertStringToFloat(psr);
 
-  return convertedPSR;
+  return psr;
 };

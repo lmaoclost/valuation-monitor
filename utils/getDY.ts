@@ -1,9 +1,7 @@
-import { StatusInvestDataType } from "@/components/DataTable/StatusInvestData.types";
-import { convertStringToFloat } from "./convertStringToFloat";
+import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 
-export const getDY = (value: StatusInvestDataType) => {
-  const dy = value["DY"];
-  const convertedDY = convertStringToFloat(dy);
+export const getDY = (value: StatusInvestNormalizedDataType) => {
+  const dy = value["DY"] / 100;
 
-  return convertedDY;
+  return dy;
 };
