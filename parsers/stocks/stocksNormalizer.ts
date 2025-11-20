@@ -1,4 +1,4 @@
-import { StatusInvestDataType } from "@/@types/StatusInvestData.type";
+import { StatusInvestDataType } from "@/@types/StatusInvestDataType";
 import { StatusInvestNormalizedDataType } from "@/@types/StatusInvestNormalizedDataType";
 
 export const stocksNormalizer = (
