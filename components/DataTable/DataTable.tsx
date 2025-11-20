@@ -35,12 +35,18 @@ import { stocksFilters } from "@/constants";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  complementarData: {
+    risk: string;
+    ipca: string;
+    erp: string;
+  };
   onApplyPreset: (preset: string) => void;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  complementarData,
   onApplyPreset,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -97,6 +103,11 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
+        <div className="flex gap-4">
+          <span>IPCA: {complementarData?.ipca} </span>
+          <span>ERP: {complementarData?.erp}</span>
+          <span>Premio Risco: {complementarData?.risk} </span>
+        </div>
         <div className="flex gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

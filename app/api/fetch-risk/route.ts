@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
-import { getStocksData } from "@/services";
+import { getERPData, getIPCAData, getRiskData } from "@/services";
 
 export async function GET() {
   try {
-    const parsedData = await getStocksData();
+    const erpData = await getERPData();
+    const ipcaData = await getIPCAData();
+    const riskData = getRiskData(ipcaData, erpData);
 
-    return NextResponse.json(parsedData);
+    return NextResponse.json(riskData);
   } catch (error) {
     console.error("Error processing Data:", error);
     return NextResponse.json(

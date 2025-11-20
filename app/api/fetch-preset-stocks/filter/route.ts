@@ -1,5 +1,5 @@
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
-import { getStocksData } from "@/services/getStocksData.service";
+import { getStocksData } from "@/services";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {

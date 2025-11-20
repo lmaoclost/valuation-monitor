@@ -8,10 +8,20 @@ export function TableWrapper() {
   const queryClient = useQueryClient();
 
   const { data, isLoading } = useQuery({
-    queryKey: ["parsed-data"],
+    queryKey: ["stocks-and-complementary"],
     queryFn: async () => {
-      const res = await fetch("/api/fetch-stocks");
-      return res.json();
+      const [stocksRes, compRes] = await Promise.all([
+        fetch("/api/fetch-stocks"),
+        fetch("/api/fetch-complementar-data"),
+      ]);
+
+      const [stocks, comp] = await Promise.all([
+        stocksRes.json(),
+        compRes.json(),
+      ]);
+
+      // Se precisar mesclar os dois datasets, faça aqui
+      return { stocks, comp };
     },
     staleTime: 24 * 60 * 60 * 1000,
     gcTime: 24 * 60 * 60 * 1000,
@@ -24,12 +34,20 @@ export function TableWrapper() {
     );
     const filtered = await response.json();
 
-    queryClient.setQueryData(["parsed-data"], filtered);
+    queryClient.setQueryData(["stocks-and-complementary"], (old) => ({
+      ...(old ?? {}),
+      stocks: filtered,
+    }));
   };
 
   if (isLoading) return "Carregando...";
 
   return (
-    <DataTable columns={columns} data={data} onApplyPreset={applyPreset} />
+    <DataTable
+      columns={columns}
+      data={data?.stocks}
+      complementarData={data?.comp}
+      onApplyPreset={applyPreset}
+    />
   );
 }
