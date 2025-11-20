@@ -22,7 +22,7 @@ export async function GET() {
         return stocksParser(csv, risk);
       },
       ["parsed-stock-data"],
-      //{ revalidate: 86400 },
+      { revalidate: 86400 },
     );
 
     const parsedData = await fetchData();

@@ -11,8 +11,8 @@ export function TableWrapper() {
       const res = await fetch("/api/fetch-table-data");
       return res.json();
     },
-    //staleTime: 24 * 60 * 60 * 1000, // 1 dia
-    //gcTime: 24 * 60 * 60 * 1000, // mantém no cache por 1 dia
+    staleTime: 24 * 60 * 60 * 1000, // 1 dia
+    gcTime: 24 * 60 * 60 * 1000, // mantém no cache por 1 dia
     refetchOnWindowFocus: false,
   });
 
