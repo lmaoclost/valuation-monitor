@@ -1,5 +1,9 @@
 export type StocksFormattedDataType = {
   ticker: string;
+  companyname: string;
+  sectorname: string;
+  segmentname: string;
+  cicle: string;
   price: string;
   dy: string;
   pl: string;

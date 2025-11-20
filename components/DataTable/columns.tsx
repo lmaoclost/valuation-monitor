@@ -21,28 +21,38 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
       );
     },
   },
-  /*{
+  {
     accessorKey: "companyname", //TODO: Enum dos dados do Mira
     header: "Nome da empresa",
-    cell: ({ row }) => (
-      <div className="font-medium">{row.getValue("companyname")}</div>
-    ),
+    cell: ({ row }) => {
+      const companyName = row.getValue("companyname") as string;
+      return (
+        <div className="font-medium" title={companyName}>
+          {companyName.substring(0, 15)}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "sectorname", //TODO: Enum dos dados do Mira
     header: "Setor",
-    cell: ({ row }) => <div>{row.getValue("sectorname")}</div>,
+    cell: ({ row }) => {
+      return <div>{row.getValue("sectorname")}</div>;
+    },
   },
   {
     accessorKey: "segmentname", //TODO: Enum dos dados do Mira
     header: "Segmento",
-    cell: ({ row }) => <div>{row.getValue("segmentname")}</div>,
+    cell: ({ row }) => {
+      const segmentName = row.getValue("segmentname") as string;
+      return <div title={segmentName}>{segmentName.substring(0, 15)}</div>;
+    },
   },
   {
     accessorKey: "cicle", //TODO: Enum dos dados do Mira
     header: "Cíclico",
-    cell: ({ row }) => <div>{row.getValue("segmentname")}</div>,
-  },*/
+    cell: ({ row }) => <div>{row.getValue("cicle")}</div>,
+  },
   {
     accessorKey: "price",
     header: "Preço",
