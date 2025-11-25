@@ -1,13 +1,11 @@
-import { stocksDomain, stocksFormatter, stocksNormalizer } from ".";
-import { StatusInvestDataType } from "@/@types/StatusInvestDataType";
+import { stocksDomain, stocksFormatter } from ".";
+import { StatusInvestNormalizedSchema } from "./schema";
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
+import { z } from "zod";
 
 export const stocksParser = async (
-  stocksData: StatusInvestDataType[],
+  stocksData: z.infer<typeof StatusInvestNormalizedSchema>,
   risk: number,
 ): Promise<StocksFormattedDataType[]> => {
-  return stocksData
-    .map(stocksNormalizer)
-    .map((row) => stocksDomain(row, risk))
-    .map(stocksFormatter);
+  return stocksData.map((row) => stocksDomain(row, risk)).map(stocksFormatter);
 };
