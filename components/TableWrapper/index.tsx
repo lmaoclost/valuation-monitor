@@ -13,7 +13,7 @@ export function TableWrapper() {
 
   const { data, isLoading } = useQuery({
     queryKey: ["stocks-and-complementary"],
-    queryFn: () => getStocksAndComplementary(),
+    queryFn: async () => await getStocksAndComplementary(),
     staleTime: 24 * 60 * 60 * 1000,
     gcTime: 24 * 60 * 60 * 1000,
     refetchOnWindowFocus: false,

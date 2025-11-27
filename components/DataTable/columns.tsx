@@ -22,7 +22,7 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
     },
   },
   {
-    accessorKey: "companyname", //TODO: Enum dos dados do Mira
+    accessorKey: "companyname",
     header: "Nome da empresa",
     cell: ({ row }) => {
       const companyName = row.getValue("companyname") as string;
@@ -34,14 +34,14 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
     },
   },
   {
-    accessorKey: "sectorname", //TODO: Enum dos dados do Mira
+    accessorKey: "sectorname",
     header: "Setor",
     cell: ({ row }) => {
       return <div>{row.getValue("sectorname")}</div>;
     },
   },
   {
-    accessorKey: "segmentname", //TODO: Enum dos dados do Mira
+    accessorKey: "segmentname",
     header: "Segmento",
     cell: ({ row }) => {
       const segmentName = row.getValue("segmentname") as string;
@@ -49,7 +49,7 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
     },
   },
   {
-    accessorKey: "cicle", //TODO: Enum dos dados do Mira
+    accessorKey: "cicle",
     header: "Cíclico",
     cell: ({ row }) => <div>{row.getValue("cicle")}</div>,
   },
