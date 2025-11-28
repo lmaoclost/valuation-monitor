@@ -94,7 +94,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between py-4">
+      <div className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between">
         <Input
           placeholder="Filtre a ação"
           value={(table.getColumn("ticker")?.getFilterValue() as string) ?? ""}
@@ -103,12 +103,12 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4 text-sm">
           <span>IPCA: {complementarData?.ipca} </span>
           <span>ERP: {complementarData?.erp}</span>
           <span>Premio Risco: {complementarData?.risk} </span>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
@@ -156,8 +156,8 @@ export function DataTable<TData, TValue>({
           </DropdownMenu>
         </div>
       </div>
-      <div className="overflow-hidden rounded-md border">
-        <Table>
+      <div className="w-full overflow-x-auto rounded-md border">
+        <Table className="min-w-[1200px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
