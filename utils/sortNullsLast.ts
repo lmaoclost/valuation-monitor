@@ -1,20 +1,45 @@
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 import { SortingFn } from "@tanstack/react-table";
 
+function parsePossibleNumber(raw?: unknown): number | null {
+  if (raw == null) return null;
+  const s = String(raw).trim();
+  if (s === "") return null;
+
+  const clean = s
+    .replace("%", "")
+    .replace("R$", "")
+    .replace(/\s/g, "")
+    .replace(/\./g, "")
+    .replace(",", ".")
+    .trim();
+
+  const n = Number(clean);
+  return Number.isFinite(n) ? n : null;
+}
+
 export const sortNullsLast: SortingFn<StocksFormattedDataType> = (
   rowA,
   rowB,
   columnId,
 ) => {
-  const a = rowA.getValue<string>(columnId);
-  const b = rowB.getValue<string>(columnId);
+  const rawA = rowA.getValue<string>(columnId);
+  const rawB = rowB.getValue<string>(columnId);
 
-  const aIsEmpty = a === "" || a == null;
-  const bIsEmpty = b === "" || b == null;
+  const aEmpty = rawA === "" || rawA == null;
+  const bEmpty = rawB === "" || rawB == null;
 
-  if (aIsEmpty && !bIsEmpty) return 1;
-  if (!aIsEmpty && bIsEmpty) return -1;
-  if (aIsEmpty && bIsEmpty) return 0;
+  if (aEmpty && !bEmpty) return 1;
+  if (!aEmpty && bEmpty) return -1;
+  if (aEmpty && bEmpty) return 0;
 
-  return a > b ? 1 : -1;
+  const numA = parsePossibleNumber(rawA);
+  const numB = parsePossibleNumber(rawB);
+
+  if (numA !== null && numB !== null) return numA - numB;
+
+  return String(rawA).localeCompare(String(rawB), "pt-BR", {
+    sensitivity: "base",
+    numeric: true,
+  });
 };

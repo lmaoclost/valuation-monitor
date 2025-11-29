@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   getStocksAndComplementary,
   getPresetStocks,
@@ -19,16 +19,17 @@ export function TableWrapper() {
     refetchOnWindowFocus: false,
   });
 
-  const applyPreset = async (preset: string) => {
-    const filtered = await getPresetStocks(preset);
+  const { mutateAsync: applyPreset, isPending: isPresetLoading } = useMutation({
+    mutationFn: async (preset: string) => await getPresetStocks(preset),
+    onSuccess: (filtered) => {
+      queryClient.setQueryData(["stocks-and-complementary"], (old) => ({
+        ...(old ?? {}),
+        stocks: filtered,
+      }));
+    },
+  });
 
-    queryClient.setQueryData(["stocks-and-complementary"], (old) => ({
-      ...(old ?? {}),
-      stocks: filtered,
-    }));
-  };
-
-  if (isLoading) return "Carregando...";
+  if (isLoading || isPresetLoading) return "Carregando...";
 
   return (
     <DataTable
