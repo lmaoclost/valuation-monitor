@@ -3,4 +3,5 @@ export const stocksFilters = [
   { id: "Bancos" },
   { id: "Energia elétrica" },
   { id: "Água e saneamento" },
+  { id: "Seguradoras" },
 ];
