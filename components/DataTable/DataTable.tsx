@@ -12,7 +12,7 @@ import {
   useReactTable,
   VisibilityState,
 } from "@tanstack/react-table";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -52,6 +52,7 @@ export function DataTable<TData, TValue>({
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
+    price: false,
     dy: false,
     pl: false,
     lpa: false,
@@ -163,13 +164,30 @@ export function DataTable<TData, TValue>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext(),
-                          )}
+                    <TableHead
+                      key={header.id}
+                      className="cursor-pointer select-none"
+                      onClick={header.column.getToggleSortingHandler()}
+                    >
+                      <div className="flex items-center gap-1">
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+
+                        <ArrowUp
+                          size={14}
+                          className={`
+                            transition-all duration-200
+                            ${header.column.getIsSorted() === false ? "opacity-0" : "opacity-100"}
+                            ${
+                              header.column.getIsSorted() === "asc"
+                                ? "rotate-180"
+                                : "rotate-0"
+                            }
+                          `}
+                        />
+                      </div>
                     </TableHead>
                   );
                 })}
@@ -182,6 +200,7 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  className="cursor-pointer"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
