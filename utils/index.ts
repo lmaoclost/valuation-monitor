@@ -31,3 +31,4 @@ export { calculateFieldColor } from "./calculateFieldColor";
 export { calculateGrowthAverageColor } from "./calculateGrowthAverageColor";
 export { calculatePEGColor } from "./calculatePEGColor";
 export { calculatePSRColor } from "./calculatePSRColor";
+export { sortNullsLast } from "./sortNullsLast";
