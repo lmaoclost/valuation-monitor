@@ -1,3 +1,3 @@
 export { stockMeta } from "./stockMeta";
-export { stocksFilters } from "./stocksFilters";
+export { stocksPresets } from "./stocksPresets";
 export { revalidateDay } from "./revalidateDay";

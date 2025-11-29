@@ -30,7 +30,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { stocksFilters } from "@/constants";
+import { stocksPresets } from "@/constants";
+import { PresetKey } from "@/constants/stocksPresets";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -85,6 +86,7 @@ export function DataTable<TData, TValue>({
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
+    enableMultiSort: false,
     state: {
       sorting,
       columnFilters,
@@ -117,12 +119,12 @@ export function DataTable<TData, TValue>({
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              {stocksFilters.map((preset) => (
+              {Object.keys(stocksPresets).map((key) => (
                 <DropdownMenuItem
-                  key={preset.id}
-                  onClick={() => onApplyPreset(preset.id)}
+                  key={key}
+                  onClick={() => onApplyPreset(key as PresetKey)}
                 >
-                  {preset.id}
+                  {key}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>

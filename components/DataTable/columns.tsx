@@ -56,7 +56,6 @@ export const columns: ColumnDef<StocksFormattedDataType>[] = [
   {
     accessorKey: "cicle",
     header: "Cíclico",
-    sortingFn: sortNullsLast,
     cell: ({ row }) => <div>{row.getValue("cicle")}</div>,
   },
   {
