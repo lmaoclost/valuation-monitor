@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Valuation Monitor
 
-## Getting Started
+O **Valuation Monitor** é uma aplicação construída em **Next.js** com o objetivo de auxiliar investidores a **filtrar ações** da bolsa de valores utilizando **indicadores clássicos de valuation**.
 
-First, run the development server:
+A proposta do projeto não é recomendar compra ou venda de ativos, mas sim **servir como um radar fundamentalista**, ajudando o investidor a decidir **quais ações merecem uma análise mais profunda**, especialmente quando combinadas com **análise gráfica posterior**.
+
+---
+
+## 🎯 Objetivo do Projeto
+
+Facilitar a análise inicial de ações a partir de:
+
+* Dados fundamentalistas obtidos via **CSV do Status Invest**
+* Indicadores adicionais coletados por **raspagem de dados**
+* Cálculo de preços justos com base em modelos consagrados
+
+Tudo isso com foco em **investimento em valor (Value Investing)**, mantendo uma abordagem conservadora e transparente.
+
+---
+
+## 📊 Indicadores Utilizados
+
+O projeto calcula e exibe parâmetros baseados em metodologias clássicas:
+
+### 🔹 Desconto de Bazin
+
+Utiliza dividendos históricos para estimar um preço justo baseado em retorno desejado.
+
+### 🔹 Modelo de Graham
+
+Avalia o preço justo considerando lucro por ação (LPA) e valor patrimonial por ação (VPA).
+
+### 🔹 Modelo de Gordon (Dividend Discount Model)
+
+Projeta o valor da ação com base no crescimento esperado dos dividendos.
+
+> ⚠️ Importante: Todos os cálculos são **estimativas** e dependem diretamente da qualidade dos dados de entrada.
+
+---
+
+## 👥 Público-Alvo
+
+* Investidores pessoa física
+* Interessados em **value investing**
+* Usuários que já possuem noções básicas de mercado financeiro
+
+Este projeto **não é voltado para traders de curto prazo** nem para iniciantes absolutos.
+
+---
+
+## 🚫 O Que Este Projeto NÃO Faz
+
+* ❌ Não fornece recomendações de compra ou venda
+* ❌ Não substitui análise gráfica
+* ❌ Não substitui avaliação de riscos individuais
+* ❌ Não garante rentabilidade ou previsões de mercado
+
+O uso da ferramenta é de **inteira responsabilidade do usuário**.
+
+---
+
+## 🧱 Arquitetura Geral
+
+De forma simplificada, o fluxo do projeto é:
+
+1. Entrada de dados via CSV (Status Invest)
+2. Coleta complementar de dados via scraping
+3. Processamento e cálculo dos indicadores
+4. Exibição dos resultados para análise do usuário
+
+A aplicação foi estruturada para manter **separação clara entre coleta, processamento e visualização**.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Next.js**
+* **TypeScript**
+* Processamento de CSV
+* Raspagem de dados (web scraping)
+
+---
+
+## ▶️ Como Executar o Projeto
 
 ```bash
+# instalar dependências
+npm install
+
+# rodar em ambiente de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A aplicação ficará disponível em:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📌 Limitações Conhecidas
 
-To learn more about Next.js, take a look at the following resources:
+* Dependência de fontes externas (CSV e sites raspados)
+* Mudanças nos sites podem quebrar o scraping
+* Resultados dependem da atualização e consistência dos dados
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📈 Próximos Passos (Ideias Futuras)
 
-## Deploy on Vercel
+* Melhorar tratamento de erros na coleta de dados
+* Histórico de resultados por ativo
+* Comparação entre múltiplos ativos
+* Exportação dos dados analisados
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 Aviso Legal
+
+Este projeto possui **caráter educacional e informativo**.
+
+Nenhuma informação apresentada deve ser interpretada como recomendação de investimento. Sempre faça sua própria análise e, se necessário, consulte um profissional certificado.
