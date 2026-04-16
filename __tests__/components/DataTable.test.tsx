@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { DataTable } from '@/components/DataTable/DataTable';
@@ -67,7 +67,7 @@ describe('DataTable Component', () => {
     vi.clearAllMocks();
   });
 
-  it('should render the table with data', () => {
+  it('should render the table with data', async () => {
     const columns = createMockColumns();
     const handlePreset = vi.fn();
 
@@ -80,7 +80,9 @@ describe('DataTable Component', () => {
       />
     );
 
-    expect(screen.getByText('PETR4')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('PETR4')).toBeInTheDocument();
+    });
     expect(screen.getByText('VALE5')).toBeInTheDocument();
     expect(screen.getByText('Petrobras')).toBeInTheDocument();
   });
@@ -159,7 +161,7 @@ describe('DataTable Component', () => {
     expect(buttons).toBeDefined();
   });
 
-  it('should render correct number of rows', () => {
+  it('should render correct number of rows', async () => {
     const columns = createMockColumns();
     const handlePreset = vi.fn();
 
@@ -172,8 +174,10 @@ describe('DataTable Component', () => {
       />
     );
 
-    const rows = screen.queryAllByRole('row');
-    // Header row + 2 data rows
-    expect(rows.length).toBeGreaterThanOrEqual(2);
+    await waitFor(() => {
+      const rows = screen.queryAllByRole('row');
+      // Header row + at least some data rows visible in viewport
+      expect(rows.length).toBeGreaterThanOrEqual(2);
+    });
   });
 });
