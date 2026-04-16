@@ -17,9 +17,9 @@ vi.mock('@/utils', () => ({
 
 vi.mock('@/constants/stocksPresets', () => ({
   stocksPresets: {
-    dividendo: (stock: any) => stock.DY > 0.05,
-    crescimento: (stock: any) => stock['P/L'] < 10,
-    popular: (stock: any) => stock.PRECO < 50,
+    dividendo: (stock: Record<string, any>) => stock.DY > 0.05,
+    crescimento: (stock: Record<string, any>) => stock['P/L'] < 10,
+    popular: (stock: Record<string, any>) => stock.PRECO < 50,
   },
 }));
 

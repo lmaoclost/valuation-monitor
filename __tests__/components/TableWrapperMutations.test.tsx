@@ -24,7 +24,7 @@ vi.mock('@/app/actions/stock.actions', () => ({
 
 // Mock DataTable component
 vi.mock('@/components/DataTable', () => ({
-  DataTable: ({ data, onApplyPreset }: any) => (
+  DataTable: ({ data, onApplyPreset }: Record<string, any>) => (
     <div data-testid="data-table">
       <button onClick={() => onApplyPreset('test-preset')}>Apply Preset</button>
       <div>{data?.length || 0} items</div>
@@ -47,7 +47,7 @@ describe('TableWrapper - Query and Mutation Coverage', () => {
   let useQueryMock: ReturnType<typeof vi.fn>;
   let useMutationMock: ReturnType<typeof vi.fn>;
   let useQueryClientMock: ReturnType<typeof vi.fn>;
-  let mockQueryClient: any;
+  let mockQueryClient: Record<string, any>;
   let mockSetQueryData: ReturnType<typeof vi.fn>;
 
   beforeEach(() => {
@@ -186,7 +186,7 @@ describe('TableWrapper - Query and Mutation Coverage', () => {
       isPending: false,
     } as any);
 
-    useMutationMock.mockImplementationOnce((config: any) => {
+    useMutationMock.mockImplementationOnce((config: Record<string, any>) => {
       // Store the config for verification
       mockMutationConfig.mutationFn = config.mutationFn;
       mockMutationConfig.onSuccess = config.onSuccess;

@@ -10,9 +10,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { stocksPresets } from "@/constants";
 import { PresetKey } from "@/constants/stocksPresets";
+import type { GenericTanStackTable, GenericTanStackColumn } from "@/@types/TanStackTableTypes";
 
 interface TableControlsProps {
-  table: any;
+  table: GenericTanStackTable;
   complementarData?: {
     risk: string;
     ipca: string;
@@ -74,8 +75,8 @@ export function TableControls({
           <DropdownMenuContent align="end">
             {table
               .getAllColumns()
-              .filter((column: any) => column.getCanHide())
-              .map((column: any) => {
+              .filter((column: GenericTanStackColumn) => column.getCanHide())
+              .map((column: GenericTanStackColumn) => {
                 return (
                   <DropdownMenuCheckboxItem
                     key={column.id}

@@ -3,16 +3,17 @@ import { useVirtualizer } from "@tanstack/react-virtual";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { flexRender } from "@tanstack/react-table";
 import { DataTableHeader } from "./TableHeader";
+import type { GenericTanStackTable, GenericTanStackRow, GenericTanStackHeaderGroup, GenericTanStackCell } from "@/@types/TanStackTableTypes";
 
 const ROW_HEIGHT = 45;
-const CONTAINER_HEIGHT = '80vh'; // Fixed height in pixels for consistent virtualization
+const CONTAINER_HEIGHT = '80vh';
 const OVERSCAN_COUNT = 10;
 
 interface VirtualizedTableBodyProps {
-  table: any;
-  rows: any[];
-  columns: any[];
-  headerGroups: any[];
+  table: GenericTanStackTable;
+  rows: GenericTanStackRow[];
+  columns: readonly any[];
+  headerGroups: GenericTanStackHeaderGroup[];
 }
 
 export function VirtualizedTableBody({
@@ -67,7 +68,7 @@ export function VirtualizedTableBody({
                 className="cursor-pointer"
                 style={{ height: `${ROW_HEIGHT}px` }}
               >
-                {row.getVisibleCells().map((cell: any) => (
+                {row.getVisibleCells().map((cell: GenericTanStackCell) => (
                   <TableCell key={cell.id}>
                     {flexRender(
                       cell.column.columnDef.cell,

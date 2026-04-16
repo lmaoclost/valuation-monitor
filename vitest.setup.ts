@@ -44,7 +44,7 @@ vi.mock('@/components/DataTable/VirtualizedTableBody', async () => {
       rows,
       columns,
       headerGroups,
-    }: any) => {
+    }: Record<string, any>) => {
       return React.createElement(
         'div',
         { style: { overflow: 'auto' } },
@@ -55,8 +55,8 @@ vi.mock('@/components/DataTable/VirtualizedTableBody', async () => {
           React.createElement(
             TableBody,
             {},
-            rows.map((row: any) => {
-              const rowProps: any = {
+            rows.map((row: Record<string, any>) => {
+              const rowProps: Record<string, any> = {
                 key: row.id,
                 className: 'cursor-pointer',
               };
@@ -66,7 +66,7 @@ vi.mock('@/components/DataTable/VirtualizedTableBody', async () => {
               return React.createElement(
                 TableRow,
                 rowProps,
-                row.getVisibleCells().map((cell: any) =>
+                row.getVisibleCells().map((cell: Record<string, any>) =>
                   React.createElement(
                     TableCell,
                     { key: cell.id },

@@ -18,7 +18,7 @@ vi.mock('@/app/actions/stock.actions', () => ({
 
 // Mock DataTable component
 vi.mock('@/components/DataTable', () => ({
-  DataTable: ({ data, columns }: any) => (
+  DataTable: ({ data, columns }: Record<string, any>) => (
     <div data-testid="data-table">
       <div>{data.length} rows</div>
       <div>{columns.length} columns</div>

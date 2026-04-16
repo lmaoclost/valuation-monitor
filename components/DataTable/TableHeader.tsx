@@ -1,9 +1,10 @@
 import { flexRender } from "@tanstack/react-table";
 import { ArrowUp } from "lucide-react";
 import { TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import type { GenericTanStackHeaderGroup, GenericTanStackHeader } from "@/@types/TanStackTableTypes";
 
 interface TableHeaderProps {
-  headerGroups: any[];
+  headerGroups: GenericTanStackHeaderGroup[];
   sticky?: boolean;
 }
 
@@ -12,7 +13,7 @@ export function DataTableHeader({ headerGroups, sticky = false }: TableHeaderPro
     <TableHeader className={sticky ? "sticky top-0 bg-background z-10" : ""}>
       {headerGroups.map((headerGroup) => (
         <TableRow key={headerGroup.id}>
-          {headerGroup.headers.map((header: any) => {
+          {headerGroup.headers.map((header: GenericTanStackHeader) => {
             return (
               <TableHead
                 key={header.id}

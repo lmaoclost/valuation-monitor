@@ -4,7 +4,7 @@ import { StocksFormattedDataType } from '@/@types/StocksFormattedDataType';
 
 describe('sortNullsLast - Complete Coverage', () => {
   // Mock row structure for testing
-  const createMockRow = (value: any) => ({
+  const createMockRow = (value: Record<string, any> | null | string) => ({
     getValue: (columnId: string) => value,
   });
 

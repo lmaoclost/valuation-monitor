@@ -8,7 +8,7 @@ import { ColumnDef } from '@tanstack/react-table';
 
 // Mock next/link
 vi.mock('next/link', () => ({
-  default: ({ children, href, ...props }: any) => (
+  default: ({ children, href, ...props }: Record<string, any>) => (
     <a href={href} {...props}>
       {children}
     </a>
