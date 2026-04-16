@@ -10,14 +10,14 @@ interface TableHeaderProps {
 
 export function DataTableHeader({ headerGroups, sticky = false }: TableHeaderProps) {
   return (
-    <TableHeader className={sticky ? "sticky top-0 bg-background z-10" : ""}>
+    <TableHeader className={sticky ? "sticky top-0 z-10" : ""}>
       {headerGroups.map((headerGroup) => (
-        <TableRow key={headerGroup.id}>
+        <TableRow key={headerGroup.id} className={sticky ? "bg-background" : ""}>
           {headerGroup.headers.map((header: GenericTanStackHeader) => {
             return (
               <TableHead
                 key={header.id}
-                className="cursor-pointer select-none"
+                className={`cursor-pointer select-none ${sticky ? "bg-background" : ""}`}
                 onClick={header.column.getToggleSortingHandler()}
               >
                 <div className="flex items-center gap-1">

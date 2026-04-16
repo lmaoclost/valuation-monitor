@@ -46,10 +46,10 @@ export function VirtualizedTableBody({
         height: CONTAINER_HEIGHT,
         overflow: "auto",
       }}
-      className="overflow-x-auto"
+      className="relative"
     >
-      <Table className="min-w-[1200px]">
-        <DataTableHeader headerGroups={headerGroups} sticky />
+      <Table className="min-w-300 w-full caption-bottom text-sm border-collapse">
+        <DataTableHeader headerGroups={headerGroups} sticky={true} />
         <TableBody>
           {paddingTop > 0 && (
             <TableRow>
