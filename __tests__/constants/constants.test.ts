@@ -51,4 +51,46 @@ describe('Constants - stocksPresets', () => {
     expect(stocksPresets).toHaveProperty('Limpar');
     expect(stocksPresets.Limpar).toBeNull();
   });
+
+  it('Bancos filter matches banks segment', () => {
+    const filter = stocksPresets.Bancos;
+    expect(filter).toBeDefined();
+    expect(filter!({ segmentname: 'Bancos' } as any)).toBe(true);
+    expect(filter!({ segmentname: 'Outros' } as any)).toBe(false);
+  });
+
+  it('Energia elétrica filter matches', () => {
+    const filter = stocksPresets['Energia elétrica'];
+    expect(filter).toBeDefined();
+    expect(filter!({ segmentname: 'Energia elétrica' } as any)).toBe(true);
+    expect(filter!({ segmentname: 'Outros' } as any)).toBe(false);
+  });
+
+  it('Água e saneamento filter matches', () => {
+    const filter = stocksPresets['Água e saneamento'];
+    expect(filter).toBeDefined();
+    expect(filter!({ segmentname: 'Água e saneamento' } as any)).toBe(true);
+    expect(filter!({ segmentname: 'Outros' } as any)).toBe(false);
+  });
+
+  it('Seguradoras filter matches', () => {
+    const filter = stocksPresets.Seguradoras;
+    expect(filter).toBeDefined();
+    expect(filter!({ segmentname: 'Seguradoras' } as any)).toBe(true);
+    expect(filter!({ segmentname: 'Outros' } as any)).toBe(false);
+  });
+
+  it('Cíclico filter matches', () => {
+    const filter = stocksPresets.Cíclico;
+    expect(filter).toBeDefined();
+    expect(filter!({ cicle: 'SIM' } as any)).toBe(true);
+    expect(filter!({ cicle: 'NÃO' } as any)).toBe(false);
+  });
+
+  it('Não Cíclico filter matches', () => {
+    const filter = stocksPresets['Não Cíclico'];
+    expect(filter).toBeDefined();
+    expect(filter!({ cicle: 'NÃO' } as any)).toBe(true);
+    expect(filter!({ cicle: 'SIM' } as any)).toBe(false);
+  });
 });
