@@ -80,8 +80,8 @@ export function DataTable<TData, TValue>({
         onApplyPreset?.(preset);
     }, [onApplyPreset]);
 
-    const rows = useMemo(() => table.getRowModel().rows, [table]);
-    const headerGroups = useMemo(() => table.getHeaderGroups(), [table]);
+    const rows = useMemo(() => table.getRowModel().rows, [table, columnVisibility]);
+    const headerGroups = useMemo(() => table.getHeaderGroups(), [table, columnVisibility]);
 
     return (
         <div className="w-full">

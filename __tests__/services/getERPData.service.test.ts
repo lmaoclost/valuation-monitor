@@ -85,5 +85,35 @@ describe('getERPData Service', () => {
       const result = await getERPData();
       expect(result).toBeDefined();
     });
+
+    it('should return 0 when ERP text format is invalid', async () => {
+      global.fetch = vi.fn().mockResolvedValueOnce({
+        ok: true,
+        text: vi.fn().mockResolvedValueOnce('<p>No match here</p>'),
+      });
+
+      const result = await getERPData();
+      expect(result).toBe(0);
+    });
+
+    it('should return 0 when ERP text is empty', async () => {
+      global.fetch = vi.fn().mockResolvedValueOnce({
+        ok: true,
+        text: vi.fn().mockResolvedValueOnce('<p></p>'),
+      });
+
+      const result = await getERPData();
+      expect(result).toBe(0);
+    });
+
+    it('should return 0 when ERP regex does not match', async () => {
+      global.fetch = vi.fn().mockResolvedValueOnce({
+        ok: true,
+        text: vi.fn().mockResolvedValueOnce('<p>Different format 10%</p>'),
+      });
+
+      const result = await getERPData();
+      expect(result).toBe(0);
+    });
   });
 });

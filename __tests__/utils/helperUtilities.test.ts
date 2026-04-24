@@ -272,15 +272,17 @@ describe('Helper Utilities', () => {
     });
 
     it('should return "Indefinido" for payout between 40% and 60%', () => {
+      // payout = (50 * 0.05) / 2.5 = 1.0 = 100% → wait, calculatePayout uses different logic
+      // Let's check what calculatePayout does
       const data = {
         ...baseMockData,
-        DY: 2.0, // Very high dividend yield
+        DY: 0.05,
         PRECO: 100,
-        ' LPA': 3.0
+        ' LPA': 10.0
       };
       const result = growthOrDividend(data);
-      // payout = (100 * 2.0) / 3.0 = 66.67, which is > 60, so Dividendos
-      expect(['Crescimento', 'Indefinido', 'Dividendos']).toContain(result);
+      // payout = (100 * 0.05) / 10 = 0.5 = 0.5 * 100 = 50%
+      expect(result).toBe('Indefinido');
     });
 
     it('should return "Dividendos" for payout > 60%', () => {
@@ -291,26 +293,23 @@ describe('Helper Utilities', () => {
         ' LPA': 5.0
       };
       const result = growthOrDividend(data);
-      expect(['Crescimento', 'Indefinido', 'Dividendos']).toContain(result);
+      // payout = (100 * 0.10) / 5 = 2 = 200%
+      expect(result).toBe('Dividendos');
     });
 
-    it('should return string value', () => {
-      const result = growthOrDividend(baseMockData);
-      expect(typeof result).toBe('string');
-    });
-
-    it('should handle exactly 40% payout', () => {
+    it('should return "Crescimento" for exactly 40% payout', () => {
       const data = {
         ...baseMockData,
-        DY: 0.02,
-        PRECO: 50,
-        ' LPA': 2.5
+        DY: 0.04,
+        PRECO: 100,
+        ' LPA': 10.0
       };
       const result = growthOrDividend(data);
+      // payout = 4 / 10 = 0.4 = 40%
       expect(result).toBe('Crescimento');
     });
 
-    it('should handle exactly 60% payout', () => {
+    it('should return "Indefinido" for exactly 60% payout', () => {
       const data = {
         ...baseMockData,
         DY: 0.06,
@@ -318,9 +317,8 @@ describe('Helper Utilities', () => {
         ' LPA': 10.0
       };
       const result = growthOrDividend(data);
-      // payout = (100 * 0.06) / 10 = 0.6, which is <= 40? No. <= 60? No (0.6 is not <= 60).
-      // So default: Dividendos
-      expect(['Crescimento', 'Indefinido', 'Dividendos']).toContain(result);
+      // payout = 6 / 10 = 0.6 = 60%
+      expect(result).toBe('Indefinido');
     });
 
     it('should handle zero DY (low payout)', () => {
@@ -334,7 +332,7 @@ describe('Helper Utilities', () => {
       expect(result).toBe('Crescimento');
     });
 
-    it('should handle high DY (high payout)', () => {
+    it('should handle very high DY (very high payout)', () => {
       const data = {
         ...baseMockData,
         DY: 0.15,
@@ -342,20 +340,35 @@ describe('Helper Utilities', () => {
         ' LPA': 5.0
       };
       const result = growthOrDividend(data);
-      // payout = (100 * 0.15) / 5 = 3, which is <= 40, so Crescimento
-      expect(['Crescimento', 'Indefinido', 'Dividendos']).toContain(result);
-    });
-
-    it('should return one of three valid categories', () => {
-      const validCategories = ['Crescimento', 'Indefinido', 'Dividendos'];
-      const result = growthOrDividend(baseMockData);
-      expect(validCategories).toContain(result);
+      expect(result).toBe('Dividendos');
     });
 
     it('should be deterministic', () => {
       const result1 = growthOrDividend(baseMockData);
       const result2 = growthOrDividend(baseMockData);
       expect(result1).toBe(result2);
+    });
+
+    it('should handle boundary: just below 40%', () => {
+      const data = {
+        ...baseMockData,
+        DY: 0.039,
+        PRECO: 100,
+        ' LPA': 10.0
+      };
+      const result = growthOrDividend(data);
+      expect(result).toBe('Crescimento');
+    });
+
+    it('should handle boundary: just above 60%', () => {
+      const data = {
+        ...baseMockData,
+        DY: 0.061,
+        PRECO: 100,
+        ' LPA': 10.0
+      };
+      const result = growthOrDividend(data);
+      expect(result).toBe('Dividendos');
     });
   });
 
