@@ -10,6 +10,38 @@ afterEach(() => {
 // Mock fetch globally for all tests
 global.fetch = vi.fn();
 
+// Mock next/link - return a simple function component
+vi.mock('next/link', () => {
+  return {
+    __esModule: true,
+    default: (props: { children: React.ReactNode; href: string; [key: string]: unknown }) => {
+      return null;
+    },
+  };
+});
+
+// Mock Next.js font - Google Fonts cause issues in test environment
+vi.mock('next/font/google', () => ({
+  Playfair_Display: () => ({
+    subsets: () => ({ variable: '--font-display' }),
+  }),
+  Lora: () => ({
+    subsets: () => ({ variable: '--font-body' }),
+  }),
+  JetBrains_Mono: () => ({
+    subsets: () => ({ variable: '--font-mono' }),
+  }),
+}));
+
+// Mock Next.js cache functions - they're imported by services
+vi.mock('next/cache', () => ({
+  cacheTag: vi.fn(),
+  cacheLife: vi.fn(),
+  revalidateTag: vi.fn(),
+  revalidatePath: vi.fn(),
+  unstable_cache: vi.fn(),
+}));
+
 // Mock Next.js router
 vi.mock('next/router', () => ({
   useRouter: () => ({

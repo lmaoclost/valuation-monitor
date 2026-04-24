@@ -111,7 +111,7 @@ describe('TableWrapper - Query and Mutation Coverage', () => {
     } as any);
 
     render(<TableWrapper />);
-    expect(screen.getByText('Carregando...')).toBeInTheDocument();
+    expect(screen.getByText('Carregando dados...')).toBeInTheDocument();
   });
 
   it('should show loading state when preset is pending', () => {
@@ -126,7 +126,7 @@ describe('TableWrapper - Query and Mutation Coverage', () => {
     } as any);
 
     render(<TableWrapper />);
-    expect(screen.getByText('Carregando...')).toBeInTheDocument();
+    expect(screen.getByText('Carregando dados...')).toBeInTheDocument();
   });
 
   it('should render DataTable when data is loaded', () => {

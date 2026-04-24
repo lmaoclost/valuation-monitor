@@ -1,13 +1,12 @@
 import { cacheTag, cacheLife } from "next/cache";
 import Papa from "papaparse";
 
-const csvUrl = process.env.CSV_URL!;
-
 export const getCSVData = async () => {
   "use cache";
   cacheTag("parsed-csv-data");
   cacheLife("days");
 
+  const csvUrl = process.env.CSV_URL!;
   const response = await fetch(csvUrl);
   const csvText = await response.text();
 

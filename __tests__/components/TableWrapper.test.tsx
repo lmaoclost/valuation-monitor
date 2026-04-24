@@ -56,7 +56,7 @@ describe('TableWrapper Component', () => {
     vi.mocked(useQueryClient).mockReturnValueOnce({} as any);
 
     render(<TableWrapper />);
-    expect(screen.getByText('Carregando...')).toBeInTheDocument();
+    expect(screen.getByText('Carregando dados...')).toBeInTheDocument();
   });
 
   it('should render DataTable when data loads', async () => {
@@ -141,7 +141,7 @@ describe('TableWrapper Component', () => {
     render(<TableWrapper />);
 
     await waitFor(() => {
-      expect(screen.getByText('Carregando...')).toBeInTheDocument();
+      expect(screen.getByText('Carregando dados...')).toBeInTheDocument();
     });
   });
 

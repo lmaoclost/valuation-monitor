@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import {
     ColumnDef,
     ColumnFiltersState,
@@ -76,16 +76,19 @@ export function DataTable<TData, TValue>({
         },
     });
 
-    // Virtual scrolling setup
-    const rows = table.getRowModel().rows;
-    const headerGroups = table.getHeaderGroups();
+    const handleApplyPreset = useCallback((preset: string) => {
+        onApplyPreset?.(preset);
+    }, [onApplyPreset]);
+
+    const rows = useMemo(() => table.getRowModel().rows, [table]);
+    const headerGroups = useMemo(() => table.getHeaderGroups(), [table]);
 
     return (
         <div className="w-full">
             <TableControls
                 table={table}
                 complementarData={complementarData}
-                onApplyPreset={onApplyPreset}
+                onApplyPreset={handleApplyPreset}
             />
             <div className="w-full rounded-md border">
                 <VirtualizedTableBody
