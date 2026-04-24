@@ -1,35 +1,15 @@
 "use client";
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { Suspense } from "react";
 import {
     getStocksAndComplementary,
     getPresetStocks,
 } from "@/app/actions/stock.actions";
 import { DataTable } from "@/components/DataTable";
 import { createColumns } from "@/components/DataTable/columns";
+import { LoadingState, ErrorState } from "@/components/ui/states";
 import { useMemo, useCallback } from "react";
-
-function LoadingState() {
-    return (
-        <div className="flex items-center justify-center min-h-[400px]">
-            <div className="text-center space-y-4">
-                <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
-                <p className="font-body text-muted-foreground">Carregando dados...</p>
-            </div>
-        </div>
-    );
-}
-
-function ErrorState({ error }: { error: Error }) {
-    return (
-        <div className="flex items-center justify-center min-h-[400px]">
-            <div className="text-center space-y-2">
-                <p className="font-body text-destructive">Erro ao carregar dados</p>
-                <p className="font-mono text-xs text-muted-foreground">{error.message}</p>
-            </div>
-        </div>
-    );
-}
 
 export function TableWrapper() {
     const queryClient = useQueryClient();
@@ -68,11 +48,13 @@ export function TableWrapper() {
     if (isError) return <ErrorState error={error as Error} />;
 
     return (
-        <DataTable
-            columns={memoizedColumns}
-            data={memoizedData}
-            complementarData={data?.comp}
-            onApplyPreset={handleApplyPreset}
-        />
+        <Suspense fallback={<LoadingState />}>
+            <DataTable
+                columns={memoizedColumns}
+                data={memoizedData}
+                complementarData={data?.comp}
+                onApplyPreset={handleApplyPreset}
+            />
+        </Suspense>
     );
 }
