@@ -1,4 +1,6 @@
 import Link from "next/link";
+import React from "react";
+import { Github } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -29,7 +31,7 @@ export default function LandingPage() {
           <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up animate-delay-100">
             Análise detalhada de valuation usando modelos consagrados: Bazin,
             Graham e Gordon. Identifique oportunidades antes que outros
- percebam.
+            percebam.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 animate-fade-in-up animate-delay-200">
@@ -174,8 +176,8 @@ export default function LandingPage() {
                   <span className="text-red-500">9,80</span>
                 </div>
                 <div className="text-xs text-muted-foreground mt-4 pt-2 border-t border-border">
-                  <span className="text-muted-foreground">+</span> 243
-                  ações · Filtros ativos: P/L &lt; 10
+                  <span className="text-muted-foreground">+</span> 243 ações ·
+                  Filtros ativos: P/L &lt; 10
                 </div>
               </div>
             </div>
@@ -183,9 +185,31 @@ export default function LandingPage() {
         </div>
 
         <footer className="mt-32 py-8 text-center border-t border-border w-full max-w-4xl">
-          <p className="font-mono text-xs text-muted-foreground">
-            ferramenta de apoio à decisão · não substitui análise profissional
-          </p>
+          <div className="font-mono text-xs text-muted-foreground space-y-2">
+            <p>
+              ferramenta de apoio à decisão · não substitui análise profissional
+            </p>
+            <p className="pt-2">
+              built by{" "}
+              <a
+                href="https://www.linkedin.com/in/renansmoliveira/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                Renan Oliveira
+              </a>{" "}
+              ·{" "}
+              <a
+                href="https://github.com/lmaoclost/valuation-monitor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80"
+              >
+                <Github className="w-4 h-4 inline" />
+              </a>
+            </p>
+          </div>
         </footer>
       </main>
 
