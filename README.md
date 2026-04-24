@@ -121,3 +121,17 @@ http://localhost:3000
 Este projeto possui **caráter educacional e informativo**.
 
 Nenhuma informação apresentada deve ser interpretada como recomendação de investimento. Sempre faça sua própria análise e, se necessário, consulte um profissional certificado.
+
+---
+
+## 📜 Licença
+
+AGPL v3 - GNU Affero General Public License v3
+
+Copyright (C) 2026 Renan Oliveira
+
+Este programa é software livre: você pode redistribuí-lo e/ou modificá-lo sob os termos da [GNU Affero General Public License v3](https://www.gnu.org/licenses/agpl-3.0.html) publicada pela Free Software Foundation, seja versão 3 da Licença, ou (à sua opção) qualquer versão posterior.
+
+Este programa é distribuído na esperança de que seja útil, mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de COMERCIABILIDADE ou ADEQUAÇÃO A UM PROPÓSITO PARTICULAR. Veja a GNU Affero General Public License para mais detalhes.
+
+Você deve ter recebido uma cópia da GNU Affero General Public License junto com este programa. Se não, veja [LICENSE](LICENSE) ou <https://www.gnu.org/licenses/>.
