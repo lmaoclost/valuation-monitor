@@ -14,7 +14,7 @@ import { useMemo, useCallback, useEffect } from "react";
 export function TableWrapper() {
     const queryClient = useQueryClient();
 
-    const { data, isLoading, isError, error, isFetching } = useQuery({
+    const { data, isLoading, isError, error } = useQuery({
         queryKey: ["stocks-and-complementary"],
         queryFn: async () => await getStocksAndComplementary(),
         staleTime: 24 * 60 * 60 * 1000,
