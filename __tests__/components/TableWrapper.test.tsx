@@ -4,11 +4,16 @@ import '@testing-library/jest-dom';
 import { TableWrapper } from '@/components/TableWrapper';
 
 // Mock React Query
-vi.mock('@tanstack/react-query', () => ({
-  useQuery: vi.fn(),
-  useMutation: vi.fn(),
-  useQueryClient: vi.fn(),
-}));
+vi.mock('@tanstack/react-query', async () => {
+  const actual = await vi.importActual('@tanstack/react-query');
+  return {
+    ...actual,
+    useQuery: vi.fn(),
+    useMutation: vi.fn(),
+    useQueryClient: vi.fn(),
+    keepPreviousData: true,
+  };
+});
 
 // Mock actions
 vi.mock('@/app/actions/stock.actions', () => ({
@@ -53,7 +58,10 @@ describe('TableWrapper Component', () => {
       isPending: false,
     } as any);
 
-    vi.mocked(useQueryClient).mockReturnValueOnce({} as any);
+    vi.mocked(useQueryClient).mockReturnValueOnce({
+      setQueryData: vi.fn(),
+      prefetchQuery: vi.fn(),
+    } as any);
 
     render(<TableWrapper />);
     expect(screen.getByText('Carregando dados...')).toBeInTheDocument();
@@ -82,7 +90,10 @@ describe('TableWrapper Component', () => {
       isPending: false,
     } as any);
 
-    vi.mocked(useQueryClient).mockReturnValueOnce({} as any);
+    vi.mocked(useQueryClient).mockReturnValueOnce({
+      setQueryData: vi.fn(),
+      prefetchQuery: vi.fn(),
+    } as any);
 
     render(<TableWrapper />);
 
@@ -111,7 +122,10 @@ describe('TableWrapper Component', () => {
       isPending: false,
     } as any);
 
-    vi.mocked(useQueryClient).mockReturnValueOnce({} as any);
+    vi.mocked(useQueryClient).mockReturnValueOnce({
+      setQueryData: vi.fn(),
+      prefetchQuery: vi.fn(),
+    } as any);
 
     render(<TableWrapper />);
 
@@ -136,7 +150,10 @@ describe('TableWrapper Component', () => {
       isPending: true, // Loading during preset application
     } as any);
 
-    vi.mocked(useQueryClient).mockReturnValueOnce({} as any);
+    vi.mocked(useQueryClient).mockReturnValueOnce({
+      setQueryData: vi.fn(),
+      prefetchQuery: vi.fn(),
+    } as any);
 
     render(<TableWrapper />);
 
@@ -161,7 +178,10 @@ describe('TableWrapper Component', () => {
       isPending: false,
     } as any);
 
-    vi.mocked(useQueryClient).mockReturnValueOnce({} as any);
+    vi.mocked(useQueryClient).mockReturnValueOnce({
+      setQueryData: vi.fn(),
+      prefetchQuery: vi.fn(),
+    } as any);
 
     render(<TableWrapper />);
 
@@ -186,7 +206,10 @@ describe('TableWrapper Component', () => {
       isPending: false,
     } as any);
 
-    vi.mocked(useQueryClient).mockReturnValueOnce({} as any);
+    vi.mocked(useQueryClient).mockReturnValueOnce({
+      setQueryData: vi.fn(),
+      prefetchQuery: vi.fn(),
+    } as any);
 
     render(<TableWrapper />);
 

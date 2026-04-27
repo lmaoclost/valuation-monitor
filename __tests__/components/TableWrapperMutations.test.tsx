@@ -13,6 +13,7 @@ vi.mock('@tanstack/react-query', async () => {
     useQuery: vi.fn(),
     useMutation: vi.fn(),
     useQueryClient: vi.fn(),
+    keepPreviousData: true,
   };
 });
 
@@ -56,6 +57,7 @@ describe('TableWrapper - Query and Mutation Coverage', () => {
     mockSetQueryData = vi.fn();
     mockQueryClient = {
       setQueryData: mockSetQueryData,
+      prefetchQuery: vi.fn(),
     };
 
     useQueryMock = vi.mocked(useQuery);
