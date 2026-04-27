@@ -29,12 +29,23 @@ No separate typecheck command (handled by Next.js build).
 
 ## Architecture
 - `app/` — Next.js App Router (pages, API routes, actions)
+  - `app/stocks/` — Stock analysis pages (shared layout)
+    - `br/` — BR stocks
+    - `usa/` — USA stocks
+    - `br-fii/` — BR FIIs (WIP)
+    - `usa-reit/` — USA REITs (WIP)
 - `services/` — Data fetching services (stocks, ERP, IPCA, risk data)
 - `parsers/` — CSV/data parsing logic
+  - `stocks/` — Stock parsing (BR + USA formatters)
 - `components/` — UI components (uses shadcn/ui + TanStack Table + TanStack Query)
-- `lib/` — Utilities (`fetchWithSecret.ts`, `utils.ts`)
-- `constants/` — Shared constants
+- `lib/` — Utilities (`fetchWithSecret.ts`, `utils.ts`, `marketConfig.ts`)
+- `constants/` — Shared constants (stockMeta, stockUSAMeta, presets)
 - `__tests__/` — Tests (mirrors source structure)
+
+## Market Abstraction
+The system supports multiple markets via configuration in `lib/marketConfig.ts`:
+- **BR Stocks** — Dynamic risk premium (ERP + IPCA), Bazin rate 6%
+- **USA Stocks** — Fixed risk premium 6%, Bazin rate 3%, USD currency
 
 ## API Routes (`app/api/`)
 All under `/api/` and proxied via `proxy.ts` which requires:
@@ -48,7 +59,8 @@ All under `/api/` and proxied via `proxy.ts` which requires:
 - `zod` — Schema validation
 
 ## Environment Variables
-- `CSV_URL` — StatusInvest CSV export URL
+- `CSV_URL` — StatusInvest BR CSV export URL
+- `CSV_USA_STOCKS_URL` — StatusInvest USA CSV export URL
 - `ERP_URL` — FGV ERP scraping URL
 - `IPCA_URL` — IBGE IPCA scraping URL
 - `NEXT_PUBLIC_API_URL` — Allowed origin for proxy
@@ -60,7 +72,7 @@ All under `/api/` and proxied via `proxy.ts` which requires:
 - React Query client-side: `staleTime: 24h`, `gcTime: 24h`
 
 ## External Data Sources
-- **StatusInvest** — CSV export with fundamentalista data
+- **StatusInvest** — CSV export with fundamentalista data (BR + USA)
 - **FGV** — ERP (Equity Risk Premium) scraping
 - **IBGE** — IPCA (inflation index) scraping
 
