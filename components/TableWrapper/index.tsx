@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient, keepPreviousData } from "@tanstack/react-query";
 import { Suspense } from "react";
 import {
     getStocksAndComplementary,
@@ -9,18 +9,31 @@ import {
 import { DataTable } from "@/components/DataTable";
 import { createColumns } from "@/components/DataTable/columns";
 import { LoadingState, ErrorState } from "@/components/ui/states";
-import { useMemo, useCallback } from "react";
+import { useMemo, useCallback, useEffect } from "react";
 
 export function TableWrapper() {
     const queryClient = useQueryClient();
 
-    const { data, isLoading, isError, error } = useQuery({
+    const { data, isLoading, isError, error, isFetching } = useQuery({
         queryKey: ["stocks-and-complementary"],
         queryFn: async () => await getStocksAndComplementary(),
         staleTime: 24 * 60 * 60 * 1000,
         gcTime: 24 * 60 * 60 * 1000,
         refetchOnWindowFocus: false,
+        placeholderData: keepPreviousData,
     });
+
+    // Prefetch preset data on mount for faster preset switching
+    useEffect(() => {
+        const presets = ["acoes", "small-caps", "mid-caps", "large-caps"];
+        presets.forEach((preset) => {
+            queryClient.prefetchQuery({
+                queryKey: ["preset-stocks", preset],
+                queryFn: () => getPresetStocks(preset),
+                staleTime: 24 * 60 * 60 * 1000,
+            });
+        });
+    }, [queryClient]);
 
     const { mutateAsync: applyPreset, isPending: isPresetLoading } =
         useMutation({
