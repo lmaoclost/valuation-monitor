@@ -1,14 +1,18 @@
 import * as cheerio from "cheerio";
 import { cacheTag, cacheLife } from "next/cache";
-
-const ipcaUrl = process.env.IPCA_URL!;
+import { fetchWithTimeout } from "@/lib/fetch-timeout";
 
 export const getIPCAData = async () => {
   "use cache";
   cacheTag("parsed-ipca-data");
   cacheLife("days");
 
-  const response = await fetch(ipcaUrl);
+  const ipcaUrl = process.env.IPCA_URL!;
+
+  const response = await fetchWithTimeout(ipcaUrl, {
+    timeout: 10000,
+  });
+
   if (!response.ok) {
     throw new Error(`Erro ao acessar o site do IBGE: ${response.status}`);
   }

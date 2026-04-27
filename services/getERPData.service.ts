@@ -1,14 +1,18 @@
 import * as cheerio from "cheerio";
 import { cacheTag, cacheLife } from "next/cache";
-
-const erpUrl = process.env.ERP_URL!;
+import { fetchWithTimeout } from "@/lib/fetch-timeout";
 
 export const getERPData = async () => {
   "use cache";
   cacheTag("parsed-erp-data");
   cacheLife("days");
 
-  const response = await fetch(erpUrl);
+  const erpUrl = process.env.ERP_URL!;
+
+  const response = await fetchWithTimeout(erpUrl, {
+    timeout: 10000,
+  });
+
   if (!response.ok) {
     throw new Error(`Erro ao acessar o site da FGV: ${response.status}`);
   }

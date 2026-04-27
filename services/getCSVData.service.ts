@@ -1,5 +1,6 @@
 import { cacheTag, cacheLife } from "next/cache";
 import Papa from "papaparse";
+import { fetchWithTimeout } from "@/lib/fetch-timeout";
 
 export const getCSVData = async () => {
   "use cache";
@@ -7,7 +8,11 @@ export const getCSVData = async () => {
   cacheLife("days");
 
   const csvUrl = process.env.CSV_URL!;
-  const response = await fetch(csvUrl);
+
+  const response = await fetchWithTimeout(csvUrl, {
+    timeout: 15000,
+  });
+
   const csvText = await response.text();
 
   const parsedData = Papa.parse(csvText, {
