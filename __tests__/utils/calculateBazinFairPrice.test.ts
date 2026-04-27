@@ -46,4 +46,24 @@ describe('calculateBazinFairPrice', () => {
     const result2 = calculateBazinFairPrice(baseMockData);
     expect(result1).toBe(result2);
   });
+
+  it('should use default rate 0.06 when no rate provided', () => {
+    const dpa = baseMockData['PRECO'] * baseMockData.DY;
+    const expected = dpa / 0.06;
+    const result = calculateBazinFairPrice(baseMockData);
+    expect(result).toBe(expected);
+  });
+
+  it('should use custom rate when provided', () => {
+    const dpa = baseMockData['PRECO'] * baseMockData.DY;
+    const expected = dpa / 0.03;
+    const result = calculateBazinFairPrice(baseMockData, 0.03);
+    expect(result).toBe(expected);
+  });
+
+  it('should return higher fair price with lower rate', () => {
+    const withDefaultRate = calculateBazinFairPrice(baseMockData);
+    const withLowerRate = calculateBazinFairPrice(baseMockData, 0.03);
+    expect(withLowerRate).toBeGreaterThan(withDefaultRate);
+  });
 });

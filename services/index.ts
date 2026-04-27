@@ -4,3 +4,5 @@ export { getIPCAData } from "./getIPCAData.service";
 export { getRiskData } from "./getRiskData.service";
 export { getStocksData } from "./getStocksData.service";
 export { getComplementarData } from "./getComplementarData.service";
+export { getUSACSVData } from "./getUSACSVData.service";
+export { getUSAStocksData } from "./getUSAStocksData.service";

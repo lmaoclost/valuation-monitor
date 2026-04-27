@@ -1,14 +1,17 @@
-const currency_with_two_decimal_places = new Intl.NumberFormat("pt-BR", {
-  style: "currency",
-  currency: "BRL",
-  maximumFractionDigits: 2,
-  minimumFractionDigits: 2,
-});
+type Currency = "BRL" | "USD";
 
-export const formatCurrency = (value: number) => {
+const createCurrencyFormatter = (currency: Currency) =>
+  new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency,
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2,
+  });
+
+export const formatCurrency = (value: number, currency: Currency = "BRL") => {
   if (!Number.isFinite(value) || Number.isNaN(value) || value === 0) {
     return "";
   }
 
-  return currency_with_two_decimal_places.format(value);
+  return createCurrencyFormatter(currency).format(value);
 };

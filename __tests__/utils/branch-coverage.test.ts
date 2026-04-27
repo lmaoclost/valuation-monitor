@@ -104,9 +104,7 @@ describe('Branch Coverage - Conditional Logic', () => {
     it('should handle edge case values', () => {
       const thresholds = [1, 2, 3];
       const result = calculatePEGColor(1, thresholds);
-      expect(['text-red-600', 'text-yellow-600', 'text-blue-600']).toContain(
-        result
-      );
+      expect(result).toBe('text-green-600');
     });
   });
 

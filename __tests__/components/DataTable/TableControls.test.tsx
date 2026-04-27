@@ -121,6 +121,7 @@ describe('TableControls', () => {
     render(
       <TableControls
         table={mockTable as any}
+        onGlobalFilterChange={vi.fn()}
         onApplyPreset={vi.fn()}
       />
     );
@@ -128,6 +129,6 @@ describe('TableControls', () => {
     const input = screen.getByPlaceholderText('Filtre a ação');
     fireEvent.change(input, { target: { value: 'PETR' } });
     
-    expect(mockTable.getColumn).toHaveBeenCalledWith('ticker');
+    expect(mockTable.getColumn).not.toHaveBeenCalled();
   });
 });

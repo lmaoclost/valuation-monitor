@@ -9,34 +9,38 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { stocksPresets } from "@/constants";
-import { PresetKey } from "@/constants/stocksPresets";
 import type { GenericTanStackTable, GenericTanStackColumn } from "@/@types/TanStackTableTypes";
 
 interface TableControlsProps {
   table: GenericTanStackTable;
+  globalFilter?: string;
+  onGlobalFilterChange?: (value: string) => void;
   complementarData?: {
     risk: string;
     ipca: string;
     erp: string;
   };
+  riskDisplay?: string;
   onApplyPreset?: (preset: string) => void;
+  presets?: Record<string, unknown>;
 }
 
 export function TableControls({
   table,
+  globalFilter,
+  onGlobalFilterChange,
   complementarData,
+  riskDisplay,
   onApplyPreset,
+  presets,
 }: TableControlsProps) {
+  const activePresets = presets ?? stocksPresets;
   return (
     <div className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between">
       <Input
         placeholder="Filtre a ação"
-        value={
-          (table.getColumn("ticker")?.getFilterValue() as string) ?? ""
-        }
-        onChange={(event) =>
-          table.getColumn("ticker")?.setFilterValue(event.target.value)
-        }
+        value={globalFilter ?? ""}
+        onChange={(event) => onGlobalFilterChange?.(event.target.value)}
         className="max-w-sm"
       />
       {complementarData && (
@@ -44,6 +48,11 @@ export function TableControls({
           <span>IPCA: {complementarData?.ipca} </span>
           <span>ERP: {complementarData?.erp}</span>
           <span>Premio Risco: {complementarData?.risk} </span>
+        </div>
+      )}
+      {riskDisplay && (
+        <div className="flex flex-wrap gap-4 text-sm">
+          <span>Premio Risco: {riskDisplay} </span>
         </div>
       )}
       <div className="flex flex-wrap gap-2">
@@ -55,10 +64,10 @@ export function TableControls({
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              {Object.keys(stocksPresets).map((key) => (
+              {Object.keys(activePresets).map((key) => (
                 <DropdownMenuItem
                   key={key}
-                  onClick={() => onApplyPreset(key as PresetKey)}
+                  onClick={() => onApplyPreset?.(key)}
                 >
                   {key}
                 </DropdownMenuItem>

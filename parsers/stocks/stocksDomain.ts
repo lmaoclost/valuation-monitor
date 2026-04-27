@@ -32,6 +32,7 @@ import {
 export const stocksDomain = (
   row: StatusInvestNormalizedDataType,
   risk: number,
+  bazinRate: number = 0.06,
 ): StocksCalculatedDataType => {
   return {
     ticker: getTicker(row),
@@ -49,9 +50,9 @@ export const stocksDomain = (
     cagrProfit: calculateCagrProfit(row),
     damodaramGrowth: calculateDamoradanGrowth(row),
     growthAverage: calculateGrowthAverage(row),
-    bazinDiscount: calculateBazinDiscount(row),
-    bazinFairPrice: calculateBazinFairPrice(row),
-    bazinCeelingPrice: calculateBazinCeelingPrice(row),
+    bazinDiscount: calculateBazinDiscount(row, bazinRate),
+    bazinFairPrice: calculateBazinFairPrice(row, bazinRate),
+    bazinCeelingPrice: calculateBazinCeelingPrice(row, bazinRate),
     grahamDiscount: calculateGrahamDiscount(row),
     grahamFairPrice: calculateGrahamFairPrice(row),
     grahamCeelingPrice: calculateGrahamCeelingPrice(row),

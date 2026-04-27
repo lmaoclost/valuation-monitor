@@ -164,7 +164,7 @@ describe('Coverage Gaps - Utils', () => {
   });
 
   describe('calculateGrowthAverageColor', () => {
-    const thresholds = [0, 0.1];
+    const thresholds = [0, 0.1, 0.2];
 
     it('should return red when growth is negative', () => {
       const result = calculateGrowthAverageColor(-0.05, thresholds);

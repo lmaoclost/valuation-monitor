@@ -34,7 +34,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Valuation Monitor",
-  description: "Radar fundamentalista para análise de ações brasileiras",
+  description: "Radar fundamentalista para análise de ações",
 };
 
 export default function RootLayout({

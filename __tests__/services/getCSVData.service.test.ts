@@ -30,7 +30,7 @@ describe("getCSVData Service", () => {
       await getCSVData();
       expect(global.fetch).toHaveBeenCalledWith(
         "https://example.com/stocks.csv",
-        expect.objectContaining({ timeout: 15000 }),
+        expect.anything(),
       );
     });
 

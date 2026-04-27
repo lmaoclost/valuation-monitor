@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github } from "lucide-react";
+import { Github, Globe, Building2, Landmark } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -10,21 +10,39 @@ export default function LandingPage() {
         <div className="font-display text-xl tracking-widest text-foreground">
           VALUATION MONITOR
         </div>
-        <Link
-          href="/br-stocks"
-          className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
-        >
-          Acessar →
-        </Link>
+        <nav className="flex gap-6 font-mono text-sm">
+          <Link
+            href="/stocks/br"
+            className="text-foreground hover:text-primary transition-colors"
+          >
+            BR Stocks
+          </Link>
+          <Link
+            href="/stocks/usa"
+            className="text-foreground hover:text-primary transition-colors"
+          >
+            USA Stocks
+          </Link>
+          <Link
+            href="/stocks/br-fii"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            BR FII
+          </Link>
+          <Link
+            href="/stocks/usa-reit"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            USA REIT
+          </Link>
+        </nav>
       </header>
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20">
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-tight text-foreground animate-fade-in-up">
             Radar fundamentalista
-            <span className="block text-primary mt-4">
-              para ações brasileiras
-            </span>
+            <span className="block text-primary mt-4">para ações</span>
           </h1>
 
           <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up animate-delay-100">
@@ -69,7 +87,7 @@ export default function LandingPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up animate-delay-300">
             <Link
-              href="/br-stocks"
+              href="/stocks/br"
               className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-display text-lg hover:bg-primary/90 transition-colors"
             >
               Iniciar Análise
@@ -80,6 +98,53 @@ export default function LandingPage() {
             >
               Como funciona
             </a>
+          </div>
+        </div>
+
+        <div
+          id="novidades"
+          className="max-w-5xl mx-auto mt-32 w-full animate-fade-in-up"
+        >
+          <h2 className="font-display text-3xl md:text-4xl text-foreground text-center mb-12">
+            Novidades
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Link
+              href="/stocks/usa"
+              className="bg-card border border-border p-6 hover:border-primary transition-colors group"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Globe className="w-6 h-6 text-blue-500" />
+                <span className="font-mono text-xs text-blue-500">NOVO</span>
+              </div>
+              <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                Ações Americanas
+              </h3>
+              <p className="font-body text-sm text-muted-foreground">
+                Análise de stocks NASDAQ com indicadores adaptadas para o
+                mercado americano. Premio de risco fixo e taxa Bazin de 3%.
+              </p>
+            </Link>
+
+            <Link
+              href="/stocks/br-fii"
+              className="bg-card border border-border p-6 hover:border-primary transition-colors group opacity-70"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Building2 className="w-6 h-6 text-amber-500" />
+                <span className="font-mono text-xs text-amber-500">
+                  EM BREVE
+                </span>
+              </div>
+              <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                Fundos Imobiliários
+              </h3>
+              <p className="font-body text-sm text-muted-foreground">
+                Análise de FIIs brasileiros com métricas específicas: dividend
+                yield histórico, Vacância e Gestão patrimonial.
+              </p>
+            </Link>
           </div>
         </div>
 
