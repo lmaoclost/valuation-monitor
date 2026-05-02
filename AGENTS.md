@@ -33,7 +33,7 @@ No separate typecheck command (handled by Next.js build).
     - `br/` — BR stocks
     - `usa/` — USA stocks
     - `br-fii/` — BR FIIs (WIP)
-    - `usa-reit/` — USA REITs (WIP)
+    - `usa-reit/` — USA REITs
 - `services/` — Data fetching services (stocks, ERP, IPCA, risk data)
 - `parsers/` — CSV/data parsing logic
   - `stocks/` — Stock parsing (BR + USA formatters)
@@ -46,6 +46,7 @@ No separate typecheck command (handled by Next.js build).
 The system supports multiple markets via configuration in `lib/marketConfig.ts`:
 - **BR Stocks** — Dynamic risk premium (ERP + IPCA), Bazin rate 6%
 - **USA Stocks** — Fixed risk premium 6%, Bazin rate 3%, USD currency
+- **USA REITs** — Fixed risk premium 6%, Bazin rate 3%, USD currency, FFO metrics
 
 ## API Routes (`app/api/`)
 All under `/api/` and proxied via `proxy.ts` which requires:
@@ -61,6 +62,7 @@ All under `/api/` and proxied via `proxy.ts` which requires:
 ## Environment Variables
 - `CSV_URL` — StatusInvest BR CSV export URL
 - `CSV_USA_STOCKS_URL` — StatusInvest USA CSV export URL
+- `CSV_USA_REIT_URL` — StatusInvest USA REIT CSV export URL
 - `ERP_URL` — FGV ERP scraping URL
 - `IPCA_URL` — IBGE IPCA scraping URL
 - `NEXT_PUBLIC_API_URL` — Allowed origin for proxy
