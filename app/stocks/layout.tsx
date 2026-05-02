@@ -22,7 +22,7 @@ export default async function StocksLayout({ children }: StocksLayoutProps) {
             <a href="/stocks/br-fii" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
               BR FII
             </a>
-            <a href="/stocks/usa-reit" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a href="/stocks/usa-reit" className="font-mono text-sm text-foreground hover:text-primary transition-colors">
               USA REIT
             </a>
           </nav>

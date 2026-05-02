@@ -31,7 +31,7 @@ export default function LandingPage() {
           </Link>
           <Link
             href="/stocks/usa-reit"
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="text-foreground hover:text-primary transition-colors"
           >
             USA REIT
           </Link>
@@ -124,6 +124,23 @@ export default function LandingPage() {
               <p className="font-body text-sm text-muted-foreground">
                 Análise de stocks NASDAQ com indicadores adaptadas para o
                 mercado americano. Premio de risco fixo e taxa Bazin de 3%.
+              </p>
+            </Link>
+
+            <Link
+              href="/stocks/usa-reit"
+              className="bg-card border border-border p-6 hover:border-primary transition-colors group"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Building2 className="w-6 h-6 text-indigo-500" />
+                <span className="font-mono text-xs text-indigo-500">NOVO</span>
+              </div>
+              <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                REITs Americanos
+              </h3>
+              <p className="font-body text-sm text-muted-foreground">
+                Análise de REITs NASDAQ com métricas de FFO, taxa de
+                distribuição e valuation. Premio de risco 6% e taxa Bazin de 3%.
               </p>
             </Link>
 
