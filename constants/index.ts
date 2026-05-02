@@ -1,5 +1,5 @@
-export { stockMeta } from "./stockMeta";
-export { stockUSAMeta } from "./stockUSAMeta";
-export { stocksPresets } from "./stocksPresets";
+export { brazilianStocksMetadata } from "./brazilianStocksMetadata";
+export { usaStocksMetadata } from "./usaStocksMetadata";
+export { stocksPresets } from "./brazilianStocksPresets";
 export { usaStocksPresets } from "./usaStocksPresets";
 export { revalidateDay } from "./revalidateDay";

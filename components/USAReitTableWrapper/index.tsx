@@ -15,7 +15,7 @@ import { DataTable } from "@/components/DataTable";
 import { createUSAReitColumns } from "@/components/DataTable/usaReitColumns";
 import { LoadingState, ErrorState } from "@/components/ui/states";
 import { useMemo, useCallback, useEffect } from "react";
-import { usaReitPresets } from "@/constants/usaReitPresets";
+import { usaReitPresets } from "@/constants/usaReitsPresets";
 import { USA_REIT_RISK_PREMIUM } from "@/lib/marketConfig";
 
 export function USAReitTableWrapper() {

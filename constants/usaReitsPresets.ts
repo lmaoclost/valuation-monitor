@@ -1,9 +1,9 @@
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 
-export type USAReitPresetKey = "Limpar" | "Discounted" | "Discounted PEG";
+export type USAReitsPresetKey = "Limpar" | "Discounted" | "Discounted PEG";
 
 export const usaReitPresets: Record<
-  USAReitPresetKey,
+  USAReitsPresetKey,
   null | ((item: StocksFormattedDataType) => boolean)
 > = {
   Limpar: null,

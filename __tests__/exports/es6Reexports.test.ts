@@ -26,9 +26,9 @@ describe('Re-export Modules - ES6 Imports', () => {
   });
 
   describe('constants/index exports', () => {
-    it('should export stockMeta', () => {
-      expect(constants.stockMeta).toBeDefined();
-      expect(typeof constants.stockMeta).toBe('object');
+    it('should export brazilianStocksMetadata', () => {
+      expect(constants.brazilianStocksMetadata).toBeDefined();
+      expect(typeof constants.brazilianStocksMetadata).toBe('object');
     });
 
     it('should export stocksPresets', () => {

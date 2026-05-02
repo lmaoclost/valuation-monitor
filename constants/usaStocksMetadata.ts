@@ -1,6 +1,6 @@
-import { StockUSAMetaItem } from "@/@types/stockUSAMetaType";
+import { USAStockMetadataType } from "@/@types/USAStockMetadataType";
 
-export const stockUSAMeta: Record<string, StockUSAMetaItem> = {
+export const usaStocksMetadata: Record<string, USAStockMetadataType> = {
   A: {
     code: "A",
     name: "AGILENT TECHNOL",

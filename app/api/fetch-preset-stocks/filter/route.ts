@@ -1,4 +1,4 @@
-import { stocksPresets } from "@/constants/stocksPresets";
+import { stocksPresets } from "@/constants/brazilianStocksPresets";
 import { getStocksData } from "@/services";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -7,10 +7,7 @@ export async function GET(req: NextRequest) {
   const preset = searchParams.get("preset");
 
   if (!preset) {
-    return NextResponse.json(
-      { error: "Preset obrigatório" },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Preset obrigatório" }, { status: 400 });
   }
 
   const allData = await getStocksData();

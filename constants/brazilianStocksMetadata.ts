@@ -1,6 +1,9 @@
-import { StockMetaItem } from "@/@types/stockMetaType";
+import { BrazilianStockMetadataItem } from "@/@types/BrazilianStockMetadataType";
 
-export const stockMeta: Record<string, StockMetaItem> = {
+export const brazilianStocksMetadata: Record<
+  string,
+  BrazilianStockMetadataItem
+> = {
   RRRP3: {
     code: "RRRP3",
     name: "3r Petroleum",

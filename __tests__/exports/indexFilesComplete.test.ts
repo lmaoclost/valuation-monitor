@@ -134,9 +134,9 @@ describe('Index File Re-exports - Full Coverage', () => {
   });
 
   describe('constants/index - All Exports', () => {
-    it('should export stockMeta from constants', () => {
-      expect(constants.stockMeta).toBeDefined();
-      expect(typeof constants.stockMeta).toBe('object');
+    it('should export brazilianStocksMetadata from constants', () => {
+      expect(constants.brazilianStocksMetadata).toBeDefined();
+      expect(typeof constants.brazilianStocksMetadata).toBe('object');
     });
 
     it('should export stocksPresets from constants', () => {

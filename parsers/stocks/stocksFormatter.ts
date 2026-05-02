@@ -1,6 +1,6 @@
 import { StocksCalculatedDataType } from "@/@types/StocksCalculatedDataType";
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
-import { stockMeta } from "@/constants";
+import { brazilianStocksMetadata } from "@/constants";
 import {
   calculateFieldColor,
   calculateGrowthAverageColor,
@@ -13,7 +13,7 @@ import {
 export const stocksFormatter = (
   row: StocksCalculatedDataType,
 ): StocksFormattedDataType => {
-  const meta = stockMeta[row.ticker];
+  const meta = brazilianStocksMetadata[row.ticker];
 
   return {
     ticker: row.ticker,
