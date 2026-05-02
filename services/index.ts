@@ -6,3 +6,5 @@ export { getStocksData } from "./getStocksData.service";
 export { getComplementarData } from "./getComplementarData.service";
 export { getUSACSVData } from "./getUSACSVData.service";
 export { getUSAStocksData } from "./getUSAStocksData.service";
+export { getUSAReitCSVData } from "./getUSAReitCSVData.service";
+export { getUSAReitData } from "./getUSAReitData.service";
