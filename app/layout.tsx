@@ -18,6 +18,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Lora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { LgpdBanner } from "@/components/lgpd-banner";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -47,7 +48,10 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${lora.variable} ${jetbrains.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <LgpdBanner />
+        </Providers>
       </body>
     </html>
   );
