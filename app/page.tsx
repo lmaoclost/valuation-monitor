@@ -289,6 +289,13 @@ export default function LandingPage() {
               >
                 <Github className="w-4 h-4 inline" />
               </a>
+              <span className="mx-2">·</span>
+              <Link
+                href="/privacidade"
+                className="text-primary hover:underline"
+              >
+                Privacidade
+              </Link>
             </p>
           </div>
         </footer>

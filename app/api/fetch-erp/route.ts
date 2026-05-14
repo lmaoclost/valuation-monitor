@@ -7,7 +7,7 @@ export async function GET() {
 
     return NextResponse.json(erpData);
   } catch (error) {
-    console.error("Error processing Data:", error);
+    console.error("Error processing Data:", error instanceof Error ? error.message : String(error));
     return NextResponse.json(
       { error: "Error processing Data" },
       { status: 500 },
