@@ -69,7 +69,7 @@ describe('TableControls', () => {
     
     expect(screen.getByText(/IPCA:/)).toBeInTheDocument();
     expect(screen.getByText(/ERP:/)).toBeInTheDocument();
-    expect(screen.getByText(/Premio Risco:/)).toBeInTheDocument();
+    expect(screen.getByText(/Prêmio Risco:/)).toBeInTheDocument();
   });
 
   it('does not render complementary data when not provided', () => {

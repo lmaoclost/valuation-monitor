@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { stocksPresets } from "@/constants";
+import { useTranslations } from "next-intl";
 import type { GenericTanStackTable, GenericTanStackColumn } from "@/@types/TanStackTableTypes";
 
 interface TableControlsProps {
@@ -32,15 +35,16 @@ export function TableControls({
   onGlobalFilterChange,
   complementarData,
   riskDisplay,
-  riskLabel = "Premio Risco",
+  riskLabel,
   onApplyPreset,
   presets,
 }: TableControlsProps) {
+  const t = useTranslations("TableControls");
   const activePresets = presets ?? stocksPresets;
   return (
     <div className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between">
       <Input
-        placeholder="Filtre a ação"
+        placeholder={t("filterPlaceholder")}
         value={globalFilter ?? ""}
         onChange={(event) => onGlobalFilterChange?.(event.target.value)}
         className="max-w-sm"
@@ -49,12 +53,12 @@ export function TableControls({
         <div className="flex flex-wrap gap-4 text-sm">
           <span>IPCA: {complementarData?.ipca} </span>
           {complementarData?.erp && <span>ERP: {complementarData?.erp}</span>}
-          <span>{riskLabel}: {complementarData?.risk} </span>
+          <span>{riskLabel ?? t("riskLabel")}: {complementarData?.risk} </span>
         </div>
       )}
       {riskDisplay && (
         <div className="flex flex-wrap gap-4 text-sm">
-          <span>{riskLabel}: {riskDisplay} </span>
+          <span>{riskLabel ?? t("riskLabel")}: {riskDisplay} </span>
         </div>
       )}
       <div className="flex flex-wrap gap-2">
@@ -62,7 +66,7 @@ export function TableControls({
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
-                Filtros <ChevronDown />
+                {t("filterButton")} <ChevronDown />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -80,7 +84,7 @@ export function TableControls({
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
-              Colunas <ChevronDown />
+              {t("columnsButton")} <ChevronDown />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

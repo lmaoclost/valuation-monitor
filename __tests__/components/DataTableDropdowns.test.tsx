@@ -90,7 +90,7 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
 
     expect(screen.getByText(/IPCA:/)).toBeInTheDocument();
     expect(screen.getByText(/ERP:/)).toBeInTheDocument();
-    expect(screen.getByText(/Premio Risco:/)).toBeInTheDocument();
+    expect(screen.getByText(/Prêmio Risco:/)).toBeInTheDocument();
     expect(screen.getByText(/4.5%/)).toBeInTheDocument();
   });
 

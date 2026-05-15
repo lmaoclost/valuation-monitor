@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient, keepPreviousData } from "@tanstack/react-query";
 import { Suspense } from "react";
+import { useTranslations } from "next-intl";
 import { getFiiTijolo, getFiiPapel, getFiiFiagro, getFiiFiInfra, getFiiFof, getFiiRisk, getFiiPreset } from "@/app/actions/fii.actions";
 import { DataTable } from "@/components/DataTable";
 import { createTijoloColumns } from "@/components/DataTable/tijoloColumns";
@@ -14,13 +15,7 @@ import { fiiTijoloPresets, fiiPapelPresets, fiiFiagroPresets, fiiFiInfraPresets,
 
 type FiiTab = "tijolo" | "papel" | "fiagro" | "fi-infra" | "fof";
 
-const TABS: { id: FiiTab; label: string }[] = [
-  { id: "tijolo", label: "Tijolo" },
-  { id: "papel", label: "Papel" },
-  { id: "fiagro", label: "Fiagro" },
-  { id: "fi-infra", label: "FI-Infra" },
-  { id: "fof", label: "Fundo de Fundos" },
-];
+const TAB_IDS: FiiTab[] = ["tijolo", "papel", "fiagro", "fi-infra", "fof"];
 
 const TAB_TO_API_TYPE: Record<string, string> = {
   fiagro: "agronegócio",
@@ -45,6 +40,7 @@ const TAB_TO_PRESETS: Record<string, Record<string, null | ((item: any) => boole
 export function FIITableWrapper() {
   const [activeTab, setActiveTab] = useState<FiiTab>("tijolo");
   const queryClient = useQueryClient();
+  const t = useTranslations("Tabs");
 
   const tijoloQuery = useQuery({
     queryKey: ["fii-tijolo"],
@@ -150,7 +146,7 @@ export function FIITableWrapper() {
   };
 
   if (tabQueries[activeTab].isLoading || isPresetLoading) return <LoadingState />;
-  if (tabQueries[activeTab].isError) return <ErrorState error={new Error("Não foi possível carregar os dados")} />;
+  if (tabQueries[activeTab].isError) return <ErrorState error={new Error(t("errorMsg"))} />;
 
   const renderTab = () => {
     switch (activeTab) {
@@ -165,7 +161,7 @@ export function FIITableWrapper() {
               risk: riskQuery.data?.tesouro ?? "",
               erp: "",
             }}
-            riskLabel="Tesouro IPCA+2035"
+            riskLabel={t("tesouroLabel")}
             initialColumnVisibility={fiiTijoloColumnVisibility}
             onApplyPreset={handleApplyPreset}
             presets={activePresets}
@@ -182,7 +178,7 @@ export function FIITableWrapper() {
               risk: riskQuery.data?.tesouro ?? "",
               erp: "",
             }}
-            riskLabel="Tesouro IPCA+2035"
+            riskLabel={t("tesouroLabel")}
             initialColumnVisibility={fiiPapelColumnVisibility}
             onApplyPreset={handleApplyPreset}
             presets={activePresets}
@@ -201,7 +197,7 @@ export function FIITableWrapper() {
               risk: riskQuery.data?.tesouro ?? "",
               erp: "",
             }}
-            riskLabel="Tesouro IPCA+2035"
+            riskLabel={t("tesouroLabel")}
             onApplyPreset={handleApplyPreset}
             presets={activePresets}
           />
@@ -212,17 +208,17 @@ export function FIITableWrapper() {
   return (
     <div className="w-full">
       <div className="flex gap-1 border-b border-border mb-6">
-        {TABS.map((tab) => (
+        {TAB_IDS.map((tab) => (
           <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            key={tab}
+            onClick={() => setActiveTab(tab)}
             className={`px-4 py-2 font-mono text-sm transition-colors ${
-              activeTab === tab.id
+              activeTab === tab
                 ? "border-b-2 border-primary text-foreground"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            {tab.label}
+            {t(tab)}
           </button>
         ))}
       </div>

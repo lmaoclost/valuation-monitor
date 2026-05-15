@@ -113,3 +113,21 @@ vi.mock('@/components/DataTable/VirtualizedTableBody', async () => {
     },
   };
 });
+
+// Mock next-intl to provide translation context
+vi.mock('next-intl', async () => {
+  const actual = await vi.importActual('next-intl');
+  const pt: Record<string, string> = {
+    filterPlaceholder: "Filtre a ação",
+    filterButton: "Filtros",
+    columnsButton: "Colunas",
+    riskLabel: "Prêmio Risco",
+    loading: "Carregando dados...",
+    error: "Erro ao carregar dados",
+  };
+  return {
+    ...(actual as Record<string, unknown>),
+    useTranslations: () => (key: string) => pt[key] ?? key,
+    useLocale: () => 'pt-BR',
+  };
+});
