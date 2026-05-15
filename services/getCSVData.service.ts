@@ -9,9 +9,7 @@ export const getCSVData = async () => {
 
   const csvUrl = process.env.CSV_URL!;
 
-  const response = await fetchWithTimeout(csvUrl, {
-    timeout: 15000,
-  });
+  const response = await fetchWithTimeout(csvUrl);
 
   const csvText = await response.text();
 

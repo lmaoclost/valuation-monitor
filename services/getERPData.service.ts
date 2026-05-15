@@ -9,9 +9,7 @@ export const getERPData = async () => {
 
   const erpUrl = process.env.ERP_URL!;
 
-  const response = await fetchWithTimeout(erpUrl, {
-    timeout: 10000,
-  });
+  const response = await fetchWithTimeout(erpUrl);
 
   if (!response.ok) {
     throw new Error(`Erro ao acessar o site da FGV: ${response.status}`);
