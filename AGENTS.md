@@ -74,9 +74,9 @@ All under `/api/` and proxied via `proxy.ts` which requires:
 - React Query client-side: `staleTime: 24h`, `gcTime: 24h`
 
 ## External Data Sources
-- **StatusInvest** — CSV export with fundamentalista data (BR + USA)
+- **StatusInvest** — CSV export with fundamentalista data (BR, USA, FIIs), Tesouro IPCA+ rate, IPCA index
+- **Fundamentus** — FII segment and property data (tijolo)
 - **FGV** — ERP (Equity Risk Premium) scraping
-- **IBGE** — IPCA (inflation index) scraping
 
 ## License
 This project is licensed under **AGPL-3.0**. See `LICENSE` file for full text.

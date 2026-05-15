@@ -9,10 +9,30 @@ vi.mock('@/services', () => ({
   getIPCAData: vi.fn(),
   getRiskData: vi.fn(),
   getCSVData: vi.fn(),
+  getFiiTijoloData: vi.fn(),
+  getFiiPapelData: vi.fn(),
+  getFiiListData: vi.fn(),
+  getRiskFIIData: vi.fn(),
+}));
+
+vi.mock('@/constants/fiiPresets', () => ({
+  fiiTijoloPresets: { Limpar: null, "Top Gestores": () => true },
+  fiiPapelPresets: { Limpar: null, "Top Gestores": () => true },
+  fiiFiagroPresets: { Limpar: null, "Top Gestores": () => true },
+  fiiFiInfraPresets: { Limpar: null, "Top Gestores": () => true },
+  fiiFofPresets: { Limpar: null, "Top Gestores": () => true },
 }));
 
 vi.mock('@/utils', () => ({
   formatPercentage: (value: number) => `${(value * 100).toFixed(2)}%`,
+}));
+
+vi.mock('@/services/getFiiComplementarData.service', () => ({
+  getFiiComplementarData: vi.fn(async () => ({ tesouro: 0.0747, ipca: 4.39 })),
+}));
+
+vi.mock('@/services/getRiskFIIData.service', () => ({
+  getRiskFIIData: vi.fn(),
 }));
 
 vi.mock('@/constants/stocksPresets', () => ({
@@ -30,6 +50,13 @@ import { GET as getERPData } from '@/app/api/fetch-erp/route';
 import { GET as getIPCAData } from '@/app/api/fetch-ipca/route';
 import { GET as getRiskData } from '@/app/api/fetch-risk/route';
 import { GET as getPresetStocks } from '@/app/api/fetch-preset-stocks/filter/route';
+import { GET as getFiiTijolo } from '@/app/api/fetch-fii/tijolo/route';
+import { GET as getFiiPapel } from '@/app/api/fetch-fii/papel/route';
+import { GET as getFiiFiagro } from '@/app/api/fetch-fii/fiagro/route';
+import { GET as getFiiFiInfra } from '@/app/api/fetch-fii/fi-infra/route';
+import { GET as getFiiFof } from '@/app/api/fetch-fii/fof/route';
+import { GET as getFiiRisk } from '@/app/api/fetch-fii-risk/route';
+import { GET as getFiiPreset } from '@/app/api/fetch-fii-preset/filter/route';
 
 // Get mocked services
 const mockedServices = {
@@ -280,6 +307,166 @@ describe('API Routes - Integration Tests', () => {
         // Error is expected during fetch failure
         expect(error).toBeDefined();
       }
+    });
+  });
+
+  describe('GET /api/fetch-fii/tijolo', () => {
+    it('should return tijolo FII data', async () => {
+      const mockData = [{ ticker: 'HGLG11', category: 'Logisticos', price: 'R$ 150,00' }];
+      const { getFiiTijoloData: service } = await import('@/services');
+      vi.mocked(service).mockResolvedValueOnce(mockData);
+
+      const response = await getFiiTijolo();
+      const result = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(Array.isArray(result)).toBe(true);
+      expect(result[0].ticker).toBe('HGLG11');
+    });
+
+    it('should handle errors', async () => {
+      const { getFiiTijoloData: service } = await import('@/services');
+      vi.mocked(service).mockRejectedValueOnce(new Error('Error'));
+
+      const response = await getFiiTijolo();
+      const result = await response.json();
+
+      expect(response.status).toBe(500);
+    });
+  });
+
+  describe('GET /api/fetch-fii/papel', () => {
+    it('should return papel FII data', async () => {
+      const mockData = [{ ticker: 'KNIP11', category: 'Recebíveis Imobiliários' }];
+      const { getFiiPapelData: service } = await import('@/services');
+      vi.mocked(service).mockResolvedValueOnce(mockData);
+
+      const response = await getFiiPapel();
+      const result = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(Array.isArray(result)).toBe(true);
+    });
+
+    it('should handle errors', async () => {
+      const { getFiiPapelData: service } = await import('@/services');
+      vi.mocked(service).mockRejectedValueOnce(new Error('Error'));
+
+      const response = await getFiiPapel();
+      const result = await response.json();
+
+      expect(response.status).toBe(500);
+    });
+  });
+
+  describe('GET /api/fetch-fii/fiagro', () => {
+    it('should return agronegócio FII data', async () => {
+      const mockData = [{ ticker: 'KNCA11', category: 'Agronegócio' }];
+      const { getFiiListData: service } = await import('@/services');
+      vi.mocked(service).mockResolvedValueOnce(mockData);
+
+      const response = await getFiiFiagro();
+      const result = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(Array.isArray(result)).toBe(true);
+    });
+
+    it('should handle errors', async () => {
+      const { getFiiListData: service } = await import('@/services');
+      vi.mocked(service).mockRejectedValueOnce(new Error('Error'));
+
+      const response = await getFiiFiagro();
+      const result = await response.json();
+
+      expect(response.status).toBe(500);
+    });
+  });
+
+  describe('GET /api/fetch-fii/fi-infra', () => {
+    it('should return infra FII data', async () => {
+      const mockData = [{ ticker: 'KDIF11', category: 'Recebíveis de Infraestrutura' }];
+      const { getFiiListData: service } = await import('@/services');
+      vi.mocked(service).mockResolvedValueOnce(mockData);
+
+      const response = await getFiiFiInfra();
+      const result = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(Array.isArray(result)).toBe(true);
+    });
+  });
+
+  describe('GET /api/fetch-fii/fof', () => {
+    it('should return fundo de fundos data', async () => {
+      const mockData = [{ ticker: 'BCFF11', category: 'Fundo de Fundos' }];
+      const { getFiiListData: service } = await import('@/services');
+      vi.mocked(service).mockResolvedValueOnce(mockData);
+
+      const response = await getFiiFof();
+      const result = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(Array.isArray(result)).toBe(true);
+    });
+  });
+
+  describe('GET /api/fetch-fii-risk', () => {
+    it('should return FII risk data', async () => {
+      const { getRiskFIIData: service } = await import('@/services/getRiskFIIData.service');
+      vi.mocked(service).mockResolvedValueOnce({ ipca: '4,39%', tesouro: '7,48%' });
+
+      const response = await getFiiRisk();
+      const result = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(result.ipca).toBe('4,39%');
+      expect(result.tesouro).toBe('7,48%');
+    });
+
+    it('should handle errors', async () => {
+      const { getRiskFIIData: service } = await import('@/services/getRiskFIIData.service');
+      vi.mocked(service).mockRejectedValueOnce(new Error('Error'));
+
+      const response = await getFiiRisk();
+      const result = await response.json();
+
+      expect(response.status).toBe(500);
+    });
+  });
+
+  describe('GET /api/fetch-fii-preset/filter', () => {
+    it('should return 400 when preset is missing', async () => {
+      const req = new NextRequest('http://localhost/api/fetch-fii-preset/filter');
+      const response = await getFiiPreset(req);
+      const result = await response.json();
+
+      expect(response.status).toBe(400);
+    });
+
+    it('should filter by preset for tijolo type', async () => {
+      const mockData = [{ ticker: 'HGLG11', isTopManager: 'SIM' }];
+      const { getFiiTijoloData: service } = await import('@/services');
+      vi.mocked(service).mockResolvedValueOnce(mockData);
+
+      const req = new NextRequest(
+        'http://localhost/api/fetch-fii-preset/filter?type=tijolo&preset=Top Gestores'
+      );
+      const response = await getFiiPreset(req);
+      const result = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(Array.isArray(result)).toBe(true);
+    });
+
+    it('should return 400 for invalid type', async () => {
+      const req = new NextRequest(
+        'http://localhost/api/fetch-fii-preset/filter?type=invalid&preset=Top Gestores'
+      );
+      const response = await getFiiPreset(req);
+      const result = await response.json();
+
+      expect(response.status).toBe(400);
     });
   });
 });

@@ -39,9 +39,9 @@ export default function PrivacyPage() {
               ou qualquer informação pessoal identificável.
             </p>
             <p className="text-muted-foreground leading-relaxed mt-2">
-              O site processa exclusivamente dados financeiros públicos
-              provenientes de terceiros (StatusInvest, FGV, IBGE) para fins de
-              exibição de indicadores de valuation.
+            O site processa exclusivamente dados financeiros públicos
+            provenientes de terceiros (StatusInvest, Fundamentus, FGV)
+            para fins de exibição de indicadores de valuation.
             </p>
           </section>
 
@@ -78,7 +78,7 @@ export default function PrivacyPage() {
             <p className="text-muted-foreground leading-relaxed">
               Não compartilhamos dados pessoais com terceiros. Dados
               financeiros exibidos são obtidos diretamente de fontes públicas
-              (StatusInvest, FGV, IBGE) via suas APIs públicas e páginas web.
+              (StatusInvest, Fundamentus, FGV) via suas APIs públicas e páginas web.
             </p>
           </section>
 
