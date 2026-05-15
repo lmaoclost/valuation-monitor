@@ -21,9 +21,10 @@ describe("getFiiListData Service", () => {
     expect(result[0].ticker).toBe("KNCA11");
   });
 
-  it("should throw when fetch fails", async () => {
+  it("should return empty array when fetch fails", async () => {
     global.fetch = vi.fn().mockRejectedValueOnce(new Error("Network error"));
 
-    await expect(getFiiListData("agronegócio")).rejects.toThrow();
+    const result = await getFiiListData("agronegócio");
+    expect(result).toEqual([]);
   });
 });

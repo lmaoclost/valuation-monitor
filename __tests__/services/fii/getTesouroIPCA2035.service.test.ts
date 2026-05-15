@@ -14,6 +14,7 @@ const mockHTML = `
 describe("getTesouroIPCA2035 Service", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    process.env.STATUS_INVEST_IPCA2035_URL = "https://example.com/tesouro-ipca-2035";
   });
 
   it("should parse tesouro IPCA+ rate from HTML", async () => {
@@ -36,17 +37,19 @@ describe("getTesouroIPCA2035 Service", () => {
     expect(result).toBe(0.0747);
   });
 
-  it("should throw when rate not found in HTML", async () => {
+  it("should return 0 when rate not found in HTML", async () => {
     global.fetch = vi.fn().mockResolvedValueOnce({
       text: vi.fn().mockResolvedValueOnce("<html><body>No rate here</body></html>"),
     });
 
-    await expect(getTesouroIPCA2035()).rejects.toThrow("Could not find Tesouro IPCA+ 2035 rate");
+    const result = await getTesouroIPCA2035();
+    expect(result).toBe(0);
   });
 
-  it("should throw when fetch fails", async () => {
+  it("should return 0 when fetch fails", async () => {
     global.fetch = vi.fn().mockRejectedValueOnce(new Error("Network error"));
 
-    await expect(getTesouroIPCA2035()).rejects.toThrow();
+    const result = await getTesouroIPCA2035();
+    expect(result).toBe(0);
   });
 });

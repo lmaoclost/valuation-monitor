@@ -14,28 +14,33 @@ export const getFundamentusFiiData = async () => {
   cacheTag("parsed-fundamentus-fii-data");
   cacheLife("days");
 
-  const fundamentusURL = process.env.FUNDAMENTUS_URL!;
+  try {
+    const fundamentusURL = process.env.FUNDAMENTUS_URL!;
 
-  const html = await getHtmlDecoded(fundamentusURL);
+    const html = await getHtmlDecoded(fundamentusURL);
 
-  const $ = cheerio.load(html);
+    const $ = cheerio.load(html);
 
-  const headers: string[] = [];
-  const data: Record<string, string>[] = [];
+    const headers: string[] = [];
+    const data: Record<string, string>[] = [];
 
-  $("#tabelaResultado thead tr th").each((_, el) => {
-    headers.push($(el).text().trim());
-  });
+    $("#tabelaResultado thead tr th").each((_, el) => {
+      headers.push($(el).text().trim());
+    });
 
-  $("#tabelaResultado tbody tr").each((_, tr) => {
-    const row: Record<string, string> = {};
-    $(tr)
-      .find("td")
-      .each((i, td) => {
-        row[headers[i]] = $(td).text().trim();
-      });
-    data.push(row);
-  });
+    $("#tabelaResultado tbody tr").each((_, tr) => {
+      const row: Record<string, string> = {};
+      $(tr)
+        .find("td")
+        .each((i, td) => {
+          row[headers[i]] = $(td).text().trim();
+        });
+      data.push(row);
+    });
 
-  return data;
+    return data;
+  } catch (error) {
+    console.warn("Fundamentus unavailable, using fallback []:", (error as Error).message);
+    return [];
+  }
 };

@@ -7,28 +7,32 @@ export const getERPData = async () => {
   cacheTag("parsed-erp-data");
   cacheLife("days");
 
-  const erpUrl = process.env.ERP_URL!;
+  try {
+    const erpUrl = process.env.ERP_URL!;
 
-  const response = await fetchWithTimeout(erpUrl);
+    const response = await fetchWithTimeout(erpUrl);
 
-  if (!response.ok) {
-    throw new Error(`Erro ao acessar o site da FGV: ${response.status}`);
+    if (!response.ok) {
+      console.warn(`ERP: FGV returned status ${response.status}`);
+      return 0;
+    }
+
+    const html = await response.text();
+    const $ = cheerio.load(html);
+
+    const erpText = $("p")
+      .filter((_, el) =>
+        $(el).text().includes("o Equity Risk Premium (ERP) ficou em "),
+      )
+      .text()
+      .trim();
+
+    const erpMatch = erpText.match(/ficou em (\d{1,2},\d{1,2})%/);
+    const erpValue = erpMatch ? parseFloat(erpMatch[1].replace(",", ".")) : 0;
+
+    return erpValue;
+  } catch (error) {
+    console.warn("ERP unavailable, using fallback 0:", (error as Error).message);
+    return 0;
   }
-
-  // Carregar o HTML na Cheerio
-  const html = await response.text();
-  const $ = cheerio.load(html);
-
-  // Procurar o valor do ERP
-  const erpText = $("p")
-    .filter((_, el) =>
-      $(el).text().includes("o Equity Risk Premium (ERP) ficou em "),
-    )
-    .text()
-    .trim();
-
-  const erpMatch = erpText.match(/ficou em (\d{1,2},\d{1,2})%/);
-  const erpValue = erpMatch ? parseFloat(erpMatch[1].replace(",", ".")) : 0;
-
-  return erpValue;
 };

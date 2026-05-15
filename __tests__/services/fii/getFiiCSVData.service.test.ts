@@ -9,43 +9,48 @@ describe("getFiiCSVData Service", () => {
     process.env.FII_CSV_URL = "https://example.com/fii.csv";
   });
 
-  it("should return parsed CSV data array", async () => {
-    global.fetch = vi.fn().mockResolvedValueOnce({
-      text: vi.fn().mockResolvedValueOnce(mockCSV),
+  describe("successful CSV fetch", () => {
+    it("should return parsed CSV data array", async () => {
+      global.fetch = vi.fn().mockResolvedValueOnce({
+        text: vi.fn().mockResolvedValueOnce(mockCSV),
+      });
+
+      const result = await getFiiCSVData();
+
+      expect(Array.isArray(result)).toBe(true);
+      expect(result.length).toBeGreaterThan(0);
     });
 
-    const result = await getFiiCSVData();
+    it("should call fetch with correct URL", async () => {
+      global.fetch = vi.fn().mockResolvedValueOnce({
+        text: vi.fn().mockResolvedValueOnce(mockCSV),
+      });
 
-    expect(Array.isArray(result)).toBe(true);
-    expect(result.length).toBeGreaterThan(0);
-  });
+      await getFiiCSVData();
 
-  it("should call fetch with correct URL", async () => {
-    global.fetch = vi.fn().mockResolvedValueOnce({
-      text: vi.fn().mockResolvedValueOnce(mockCSV),
+      expect(global.fetch).toHaveBeenCalledWith(
+        "https://example.com/fii.csv",
+        expect.anything(),
+      );
     });
 
-    await getFiiCSVData();
+    it("should handle empty CSV", async () => {
+      global.fetch = vi.fn().mockResolvedValueOnce({
+        text: vi.fn().mockResolvedValueOnce(""),
+      });
 
-    expect(global.fetch).toHaveBeenCalledWith(
-      "https://example.com/fii.csv",
-      expect.anything(),
-    );
-  });
+      const result = await getFiiCSVData();
 
-  it("should handle empty CSV", async () => {
-    global.fetch = vi.fn().mockResolvedValueOnce({
-      text: vi.fn().mockResolvedValueOnce(""),
+      expect(Array.isArray(result)).toBe(true);
     });
-
-    const result = await getFiiCSVData();
-
-    expect(Array.isArray(result)).toBe(true);
   });
 
-  it("should throw when fetch fails", async () => {
-    global.fetch = vi.fn().mockRejectedValueOnce(new Error("Network error"));
+  describe("error handling", () => {
+    it("should return empty array when fetch fails", async () => {
+      global.fetch = vi.fn().mockRejectedValueOnce(new Error("Network error"));
 
-    await expect(getFiiCSVData()).rejects.toThrow();
+      const result = await getFiiCSVData();
+      expect(result).toEqual([]);
+    });
   });
 });

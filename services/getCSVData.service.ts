@@ -7,20 +7,25 @@ export const getCSVData = async () => {
   cacheTag("parsed-csv-data");
   cacheLife("days");
 
-  const csvUrl = process.env.CSV_URL!;
+  try {
+    const csvUrl = process.env.CSV_URL!;
 
-  const response = await fetchWithTimeout(csvUrl);
+    const response = await fetchWithTimeout(csvUrl);
 
-  const csvText = await response.text();
+    const csvText = await response.text();
 
-  const parsedData = Papa.parse(csvText, {
-    header: true,
-    skipEmptyLines: true,
-  });
+    const parsedData = Papa.parse(csvText, {
+      header: true,
+      skipEmptyLines: true,
+    });
 
-  const cleanData = parsedData.data.map((row) =>
-    JSON.parse(JSON.stringify(row)),
-  );
+    const cleanData = parsedData.data.map((row) =>
+      JSON.parse(JSON.stringify(row)),
+    );
 
-  return cleanData;
+    return cleanData;
+  } catch (error) {
+    console.warn("CSV unavailable, using fallback []:", (error as Error).message);
+    return [];
+  }
 };

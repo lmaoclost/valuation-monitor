@@ -14,6 +14,7 @@ const mockHTML = `
 describe("getFundamentusFiiData Service", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    process.env.FUNDAMENTUS_URL = "https://example.com/fundamentus.php";
   });
 
   it("should return parsed Fundamentus data array", async () => {
@@ -40,9 +41,10 @@ describe("getFundamentusFiiData Service", () => {
     expect(result[0].Segmento).toBe("Logisticos");
   });
 
-  it("should throw when fetch fails", async () => {
+  it("should return empty array when fetch fails", async () => {
     global.fetch = vi.fn().mockRejectedValueOnce(new Error("Network error"));
 
-    await expect(getFundamentusFiiData()).rejects.toThrow();
+    const result = await getFundamentusFiiData();
+    expect(result).toEqual([]);
   });
 });

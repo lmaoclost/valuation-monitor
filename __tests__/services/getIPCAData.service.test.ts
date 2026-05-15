@@ -60,33 +60,37 @@ describe('getIPCAData Service', () => {
   });
 
   describe('error handling', () => {
-    it('should throw on network error', async () => {
+    it('should return 0 on network error', async () => {
       global.fetch = vi.fn().mockRejectedValueOnce(new Error('Network error'));
-      await expect(getIPCAData()).rejects.toThrow('Network error');
+      const result = await getIPCAData();
+      expect(result).toBe(0);
     });
 
-    it('should throw on HTTP error', async () => {
+    it('should return 0 on HTTP error', async () => {
       global.fetch = vi.fn().mockResolvedValueOnce({
         ok: false,
         status: 404,
         text: vi.fn().mockResolvedValueOnce('Not found'),
       });
 
-      await expect(getIPCAData()).rejects.toThrow();
+      const result = await getIPCAData();
+      expect(result).toBe(0);
     });
 
-    it('should handle response text parsing failure', async () => {
+    it('should return 0 on response text parsing failure', async () => {
       global.fetch = vi.fn().mockResolvedValueOnce({
         ok: true,
         text: vi.fn().mockRejectedValueOnce(new Error('Parse failed')),
       });
 
-      await expect(getIPCAData()).rejects.toThrow();
+      const result = await getIPCAData();
+      expect(result).toBe(0);
     });
 
-    it('should handle timeout errors', async () => {
+    it('should return 0 on timeout errors', async () => {
       global.fetch = vi.fn().mockRejectedValueOnce(new Error('Timeout'));
-      await expect(getIPCAData()).rejects.toThrow('Timeout');
+      const result = await getIPCAData();
+      expect(result).toBe(0);
     });
   });
 
