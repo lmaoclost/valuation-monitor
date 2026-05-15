@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TableWrapper } from "@/components/TableWrapper";
+import { LanguageToggle } from "@/components/LanguageToggle";
 
 interface StocksLayoutProps {
   children: React.ReactNode;
@@ -48,6 +49,7 @@ export default async function StocksLayout({ children }: StocksLayoutProps) {
           >
             ← Voltar
           </Link>
+          <LanguageToggle />
         </div>
       </header>
       <main className="container mx-auto px-4 py-8">{children}</main>

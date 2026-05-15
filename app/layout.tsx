@@ -1,24 +1,9 @@
-// Valuation Monitor - A fundamentalist radar for filtering Brazilian stocks
-// Copyright (C) 2026  Renan
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-//
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 import type { Metadata } from "next";
 import { Playfair_Display, Lora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { LgpdBanner } from "@/components/lgpd-banner";
+import { I18nClientProvider } from "@/components/I18nClientProvider";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -48,10 +33,12 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${lora.variable} ${jetbrains.variable} antialiased`}
       >
-        <Providers>
-          {children}
-          <LgpdBanner />
-        </Providers>
+        <I18nClientProvider>
+          <Providers>
+            {children}
+            <LgpdBanner />
+          </Providers>
+        </I18nClientProvider>
       </body>
     </html>
   );
