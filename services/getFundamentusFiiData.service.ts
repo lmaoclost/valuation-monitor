@@ -14,9 +14,9 @@ export const getFundamentusFiiData = async () => {
   cacheTag("parsed-fundamentus-fii-data");
   cacheLife("days");
 
-  const html = await getHtmlDecoded(
-    "https://www.fundamentus.com.br/fii_resultado.php",
-  );
+  const fundamentusURL = process.env.FUNDAMENTUS_URL!;
+
+  const html = await getHtmlDecoded(fundamentusURL);
 
   const $ = cheerio.load(html);
 
