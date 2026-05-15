@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { Github, Globe, Building2, Landmark } from "lucide-react";
+import {
+  Github,
+  Globe,
+  Building2,
+  Landmark,
+  TrendingUp,
+  ArrowRight,
+} from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -39,10 +46,16 @@ export default function LandingPage() {
       </header>
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-tight text-foreground animate-fade-in-up">
-            Radar fundamentalista
-            <span className="block text-primary mt-4">para ações</span>
+        <div className="max-w-5xl mx-auto text-center space-y-12">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-foreground animate-fade-in-up">
+            <span className="bg-gradient-to-r from-foreground via-primary to-primary/60 bg-clip-text text-transparent">
+              Radar
+            </span>
+            <br />
+            <span className="text-foreground">fundamentalista</span>
+            <span className="block text-3xl md:text-4xl lg:text-5xl text-primary mt-6 font-normal">
+              para ações e FIIs
+            </span>
           </h1>
 
           <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up animate-delay-100">
@@ -51,9 +64,29 @@ export default function LandingPage() {
             percebam.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 animate-fade-in-up animate-delay-200">
-            <div className="bg-card border border-border p-6 text-left hover:border-primary transition-colors group">
-              <div className="font-mono text-xs text-primary mb-2">01</div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up animate-delay-200">
+            <Link
+              href="/stocks/br"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-display text-lg hover:bg-primary/90 transition-all"
+            >
+              Iniciar Análise
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <a
+              href="#novidades"
+              className="inline-flex items-center justify-center px-8 py-4 border border-border text-foreground font-body hover:border-primary hover:text-primary transition-colors"
+            >
+              Novidades
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-16 animate-fade-in-up animate-delay-300">
+            <div className="bg-card/50 border border-border p-6 text-left hover:border-primary transition-all group hover:bg-card">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <span className="font-mono text-sm text-primary font-bold">
+                  01
+                </span>
+              </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
                 Método Bazin
               </h3>
@@ -63,8 +96,12 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="bg-card border border-border p-6 text-left hover:border-primary transition-colors group">
-              <div className="font-mono text-xs text-primary mb-2">02</div>
+            <div className="bg-card/50 border border-border p-6 text-left hover:border-primary transition-all group hover:bg-card">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <span className="font-mono text-sm text-primary font-bold">
+                  02
+                </span>
+              </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
                 Modelo Graham
               </h3>
@@ -74,8 +111,12 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="bg-card border border-border p-6 text-left hover:border-primary transition-colors group">
-              <div className="font-mono text-xs text-primary mb-2">03</div>
+            <div className="bg-card/50 border border-border p-6 text-left hover:border-primary transition-all group hover:bg-card">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <span className="font-mono text-sm text-primary font-bold">
+                  03
+                </span>
+              </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
                 Modelo Gordon
               </h3>
@@ -84,82 +125,98 @@ export default function LandingPage() {
               </p>
             </div>
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up animate-delay-300">
-            <Link
-              href="/stocks/br"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-display text-lg hover:bg-primary/90 transition-colors"
-            >
-              Iniciar Análise
-            </Link>
-            <a
-              href="#como-funciona"
-              className="inline-flex items-center justify-center px-8 py-4 border border-border text-foreground font-body hover:border-primary hover:text-primary transition-colors"
-            >
-              Como funciona
-            </a>
-          </div>
         </div>
 
-        <div
-          id="novidades"
-          className="max-w-5xl mx-auto mt-32 w-full animate-fade-in-up"
-        >
-          <h2 className="font-display text-3xl md:text-4xl text-foreground text-center mb-12">
+        <div id="novidades" className="max-w-5xl mx-auto mt-32 w-full">
+          <h2 className="font-display text-3xl md:text-4xl text-foreground text-center mb-4 animate-fade-in-up">
             Novidades
           </h2>
+          <p className="font-body text-muted-foreground text-center mb-12 max-w-xl mx-auto animate-fade-in-up animate-delay-100">
+            Novos mercados e ferramentas adicionados recentemente
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fade-in-up animate-delay-200">
             <Link
-              href="/stocks/usa"
-              className="bg-card border border-border p-6 hover:border-primary transition-colors group"
+              href="/stocks/br"
+              className="bg-card border border-border p-6 hover:border-primary transition-all group"
             >
               <div className="flex items-center gap-3 mb-4">
-                <Globe className="w-6 h-6 text-blue-500" />
-                <span className="font-mono text-xs text-blue-500">NOVO</span>
+                <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                  <Landmark className="w-5 h-5 text-emerald-500" />
+                </div>
+                <span className="font-mono text-xs text-emerald-500 tracking-wider">
+                  ORIGINAL
+                </span>
+              </div>
+              <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                Ações Brasileiras
+              </h3>
+              <p className="font-body text-sm text-muted-foreground">
+                Análise fundamentalista completa com modelos Bazin, Graham e
+                Gordon. Dados atualizados diariamente, ERP dinâmico e IPCA.
+              </p>
+            </Link>
+
+            <Link
+              href="/stocks/usa"
+              className="bg-card border border-border p-6 hover:border-primary transition-all group"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                  <Globe className="w-5 h-5 text-blue-500" />
+                </div>
+                <span className="font-mono text-xs text-blue-500 tracking-wider">
+                  NOVO
+                </span>
               </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
                 Ações Americanas
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Análise de stocks NASDAQ com indicadores adaptadas para o
-                mercado americano. Premio de risco fixo e taxa Bazin de 3%.
-              </p>
-            </Link>
-
-            <Link
-              href="/stocks/usa-reit"
-              className="bg-card border border-border p-6 hover:border-primary transition-colors group"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <Building2 className="w-6 h-6 text-indigo-500" />
-                <span className="font-mono text-xs text-indigo-500">NOVO</span>
-              </div>
-              <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                REITs Americanos
-              </h3>
-              <p className="font-body text-sm text-muted-foreground">
-                Análise de REITs NASDAQ com métricas de FFO, taxa de
-                distribuição e valuation. Premio de risco 6% e taxa Bazin de 3%.
+                Análise de stocks NASDAQ com indicadores adaptados para o
+                mercado americano. Prêmio de risco fixo e taxa Bazin de 3%.
               </p>
             </Link>
 
             <Link
               href="/stocks/br-fii"
-              className="bg-card border border-border p-6 hover:border-primary transition-colors group opacity-70"
+              className="bg-card border border-border p-6 hover:border-primary transition-all group"
             >
               <div className="flex items-center gap-3 mb-4">
-                <Building2 className="w-6 h-6 text-amber-500" />
-                <span className="font-mono text-xs text-amber-500">
-                  EM BREVE
+                <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-amber-500" />
+                </div>
+                <span className="font-mono text-xs text-amber-500 tracking-wider">
+                  NOVO
                 </span>
               </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
                 Fundos Imobiliários
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Análise de FIIs brasileiros com métricas específicas: dividend
-                yield histórico, Vacância e Gestão patrimonial.
+                Análise de FIIs brasileiros com Tijolo (DCF) e Papel. Tesouro
+                IPCA+ como referência e CAGR histórico.
+              </p>
+            </Link>
+
+            <Link
+              href="/stocks/usa-reit"
+              className="bg-card border border-border p-6 hover:border-primary transition-all group"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                  <Building2 className="w-5 h-5 text-indigo-500" />
+                </div>
+                <span className="font-mono text-xs text-indigo-500 tracking-wider">
+                  NOVO
+                </span>
+              </div>
+              <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                REITs Americanos
+              </h3>
+              <p className="font-body text-sm text-muted-foreground">
+                Análise de REITs NASDAQ com métricas de FFO, taxa de
+                distribuição e valuation. Prêmio de risco 6% e taxa Bazin de 3%.
               </p>
             </Link>
           </div>
@@ -167,7 +224,7 @@ export default function LandingPage() {
 
         <div
           id="como-funciona"
-          className="max-w-5xl mx-auto mt-32 w-full animate-fade-in-up animate-delay-400"
+          className="max-w-5xl mx-auto mt-32 w-full animate-fade-in-up animate-delay-100"
         >
           <h2 className="font-display text-3xl md:text-4xl text-foreground text-center mb-12">
             Como funciona
@@ -175,24 +232,28 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="flex gap-6">
-                <div className="font-mono text-2xl text-primary shrink-0 w-8">
-                  01
+              <div className="flex gap-6 group">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <span className="font-mono text-lg text-primary font-bold">
+                    01
+                  </span>
                 </div>
                 <div>
                   <h3 className="font-display text-xl text-foreground mb-2">
-                    Dados atualizados daily
+                    Dados atualizados diariamente
                   </h3>
                   <p className="font-body text-muted-foreground">
-                    Coleta e recalcula indicadores valuation diariamente.
+                    Coleta e recalcula indicadores de valuation diariamente.
                     Informações sempre atualizadas para sua análise.
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-6">
-                <div className="font-mono text-2xl text-primary shrink-0 w-8">
-                  02
+              <div className="flex gap-6 group">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <span className="font-mono text-lg text-primary font-bold">
+                    02
+                  </span>
                 </div>
                 <div>
                   <h3 className="font-display text-xl text-foreground mb-2">
@@ -205,23 +266,25 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <div className="flex gap-6">
-                <div className="font-mono text-2xl text-primary shrink-0 w-8">
-                  03
+              <div className="flex gap-6 group">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <span className="font-mono text-lg text-primary font-bold">
+                    03
+                  </span>
                 </div>
                 <div>
                   <h3 className="font-display text-xl text-foreground mb-2">
                     Filtragem avançada
                   </h3>
                   <p className="font-body text-muted-foreground">
-                    Aplique filtros por setor, indicador, faixa de preço e muito
-                    mais. Encontre ações subvalorizadas em segundos.
+                    Aplique filtros por indicador, faixa de preço, setor e muito
+                    mais. Encontre ativos subvalorizados em segundos.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-4 shadow-2xl">
+            <div className="bg-card/50 border border-border rounded-lg p-4 shadow-2xl">
               <div className="font-mono text-xs text-muted-foreground mb-3 border-b border-border pb-2">
                 PREVIEW · Tabela de Ações
               </div>
@@ -257,8 +320,8 @@ export default function LandingPage() {
                   <span className="text-red-500">9,80</span>
                 </div>
                 <div className="text-xs text-muted-foreground mt-4 pt-2 border-t border-border">
-                  <span className="text-muted-foreground">+</span> 243 ações ·
-                  Filtros ativos: P/L &lt; 10
+                  <span className="text-muted-foreground">+</span> 4 mercados ·
+                  Filtros por indicador
                 </div>
               </div>
             </div>
@@ -303,6 +366,8 @@ export default function LandingPage() {
 
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float animate-delay-200" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-primary/5 rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/5 rounded-full" />
     </div>
   );
 }
