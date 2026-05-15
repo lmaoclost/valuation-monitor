@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { TableWrapper } from "@/components/TableWrapper";
 
 interface StocksLayoutProps {
@@ -9,31 +10,47 @@ export default async function StocksLayout({ children }: StocksLayoutProps) {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <a href="/" className="font-display text-lg tracking-widest text-foreground hover:text-primary transition-colors">
+          <Link
+            href="/"
+            className="font-display text-lg tracking-widest text-foreground hover:text-primary transition-colors"
+          >
             VALUATION MONITOR
-          </a>
+          </Link>
           <nav className="flex gap-4">
-            <a href="/stocks/br" className="font-mono text-sm text-foreground hover:text-primary transition-colors">
+            <a
+              href="/stocks/br"
+              className="font-mono text-sm text-foreground hover:text-primary transition-colors"
+            >
               BR Stocks
             </a>
-            <a href="/stocks/usa" className="font-mono text-sm text-foreground hover:text-primary transition-colors">
+            <a
+              href="/stocks/usa"
+              className="font-mono text-sm text-foreground hover:text-primary transition-colors"
+            >
               USA Stocks
             </a>
-            <a href="/stocks/br-fii" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a
+              href="/stocks/br-fii"
+              className="font-mono text-sm text-foreground hover:text-primary transition-colors"
+            >
               BR FII
             </a>
-            <a href="/stocks/usa-reit" className="font-mono text-sm text-foreground hover:text-primary transition-colors">
+            <a
+              href="/stocks/usa-reit"
+              className="font-mono text-sm text-foreground hover:text-primary transition-colors"
+            >
               USA REIT
             </a>
           </nav>
-          <a href="/" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
+          <Link
+            href="/"
+            className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
             ← Voltar
-          </a>
+          </Link>
         </div>
       </header>
-      <main className="container mx-auto px-4 py-8">
-        {children}
-      </main>
+      <main className="container mx-auto px-4 py-8">{children}</main>
     </div>
   );
 }
