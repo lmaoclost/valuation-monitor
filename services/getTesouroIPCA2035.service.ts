@@ -7,10 +7,9 @@ export const getTesouroIPCA2035 = async () => {
   cacheTag("parsed-tesouro-ipca2035");
   cacheLife("days");
 
-  const response = await fetchWithTimeout(
-    "https://statusinvest.com.br/tesouro/tesouro-ipca-2035",
-    { timeout: 10000 },
-  );
+  const url = process.env.STATUS_INVEST_IPCA2035_URL || "";
+
+  const response = await fetchWithTimeout(url);
 
   const html = await response.text();
   const $ = cheerio.load(html);
