@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { LanguageToggle } from "@/components/LanguageToggle";
 import {
   Github,
   Globe,
@@ -9,6 +13,7 @@ import {
 } from "lucide-react";
 
 export default function LandingPage() {
+  const t = useTranslations("LandingPage");
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       <div className="grain" />
@@ -42,26 +47,29 @@ export default function LandingPage() {
           >
             USA REIT
           </Link>
+          <LanguageToggle />
         </nav>
       </header>
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20">
         <div className="max-w-5xl mx-auto text-center space-y-12">
+          <div className="animate-fade-in-up">
+            <span className="inline-block font-mono text-xs text-primary tracking-[0.3em] uppercase mb-6">
+              {t("subtitle")}
+            </span>
+          </div>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-foreground animate-fade-in-up">
             <span className="bg-linear-to-r from-foreground via-primary to-primary/60 bg-clip-text text-transparent">
-              Radar
+              {t("title1")}
             </span>
             <br />
-            <span className="text-foreground">fundamentalista</span>
+            <span className="text-foreground">{t("title2")}</span>
             <span className="block text-3xl md:text-4xl lg:text-5xl text-primary mt-6 font-normal">
-              para ações e FIIs
+              {t("title3")}
             </span>
           </h1>
-
           <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up animate-delay-100">
-            Análise detalhada de valuation usando modelos consagrados: Bazin,
-            Graham e Gordon. Identifique oportunidades antes que outros
-            percebam.
+            {t("description")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up animate-delay-200">
@@ -69,18 +77,42 @@ export default function LandingPage() {
               href="/stocks/br"
               className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-display text-lg hover:bg-primary/90 transition-all"
             >
-              Iniciar Análise
+              {t("cta")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <a
               href="#novidades"
               className="inline-flex items-center justify-center px-8 py-4 border border-border text-foreground font-body hover:border-primary hover:text-primary transition-colors"
             >
-              Novidades
+              {t("novidades")}
             </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-16 animate-fade-in-up animate-delay-300">
+            {(
+              [
+                "method1Title",
+                "method1Desc",
+                "method2Title",
+                "method2Desc",
+                "method3Title",
+                "method3Desc",
+              ] as const
+            ).reduce(
+              (acc, key, i) => {
+                const idx = Math.floor(i / 2);
+                if (i % 2 === 0) {
+                  acc.push({
+                    title: t(key),
+                    desc: t(`method${idx + 1}Desc` as any),
+                  });
+                }
+                return acc;
+              },
+              [] as { title: string; desc: string }[],
+            ).length === 0
+              ? null
+              : null}
             <div className="bg-card/50 border border-border p-6 text-left hover:border-primary transition-all group hover:bg-card">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <span className="font-mono text-sm text-primary font-bold">
@@ -88,14 +120,12 @@ export default function LandingPage() {
                 </span>
               </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                Método Bazin
+                {t("method1Title")}
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Preço justo baseado em dividend yield histórico e taxa de
-                retorno desejada.
+                {t("method1Desc")}
               </p>
             </div>
-
             <div className="bg-card/50 border border-border p-6 text-left hover:border-primary transition-all group hover:bg-card">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <span className="font-mono text-sm text-primary font-bold">
@@ -103,14 +133,12 @@ export default function LandingPage() {
                 </span>
               </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                Modelo Graham
+                {t("method2Title")}
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Valor intrínseco calculado com LPA e VPA segundo fórmula
-                clássica.
+                {t("method2Desc")}
               </p>
             </div>
-
             <div className="bg-card/50 border border-border p-6 text-left hover:border-primary transition-all group hover:bg-card">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <span className="font-mono text-sm text-primary font-bold">
@@ -118,10 +146,10 @@ export default function LandingPage() {
                 </span>
               </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                Modelo Gordon
+                {t("method3Title")}
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Discounted dividend model projetando crescimento de dividendos.
+                {t("method3Desc")}
               </p>
             </div>
           </div>
@@ -129,12 +157,11 @@ export default function LandingPage() {
 
         <div id="novidades" className="max-w-5xl mx-auto mt-32 w-full">
           <h2 className="font-display text-3xl md:text-4xl text-foreground text-center mb-4 animate-fade-in-up">
-            Novidades
+            {t("novidades")}
           </h2>
           <p className="font-body text-muted-foreground text-center mb-12 max-w-xl mx-auto animate-fade-in-up animate-delay-100">
-            Novos mercados e ferramentas adicionados recentemente
+            {t("novidadesSub")}
           </p>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fade-in-up animate-delay-200">
             <Link
               href="/stocks/br"
@@ -145,18 +172,16 @@ export default function LandingPage() {
                   <Landmark className="w-5 h-5 text-emerald-500" />
                 </div>
                 <span className="font-mono text-xs text-emerald-500 tracking-wider">
-                  ORIGINAL
+                  {t("badgeOriginal")}
                 </span>
               </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                Ações Brasileiras
+                {t("cardBrStocks")}
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Análise fundamentalista completa com modelos Bazin, Graham e
-                Gordon. Dados atualizados diariamente, ERP dinâmico e IPCA.
+                {t("cardBrStocksDesc")}
               </p>
             </Link>
-
             <Link
               href="/stocks/usa"
               className="bg-card border border-border p-6 hover:border-primary transition-all group"
@@ -166,18 +191,16 @@ export default function LandingPage() {
                   <Globe className="w-5 h-5 text-blue-500" />
                 </div>
                 <span className="font-mono text-xs text-blue-500 tracking-wider">
-                  NOVO
+                  {t("badgeNew")}
                 </span>
               </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                Ações Americanas
+                {t("cardUsaStocks")}
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Análise de stocks NASDAQ com indicadores adaptados para o
-                mercado americano. Prêmio de risco fixo e taxa Bazin de 3%.
+                {t("cardUsaStocksDesc")}
               </p>
             </Link>
-
             <Link
               href="/stocks/br-fii"
               className="bg-card border border-border p-6 hover:border-primary transition-all group"
@@ -187,18 +210,16 @@ export default function LandingPage() {
                   <TrendingUp className="w-5 h-5 text-amber-500" />
                 </div>
                 <span className="font-mono text-xs text-amber-500 tracking-wider">
-                  NOVO
+                  {t("badgeNew")}
                 </span>
               </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                Fundos Imobiliários
+                {t("cardBrFii")}
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Análise de FIIs brasileiros com Tijolo (DCF) e Papel. Tesouro
-                IPCA+ como referência e CAGR histórico.
+                {t("cardBrFiiDesc")}
               </p>
             </Link>
-
             <Link
               href="/stocks/usa-reit"
               className="bg-card border border-border p-6 hover:border-primary transition-all group"
@@ -208,15 +229,14 @@ export default function LandingPage() {
                   <Building2 className="w-5 h-5 text-indigo-500" />
                 </div>
                 <span className="font-mono text-xs text-indigo-500 tracking-wider">
-                  NOVO
+                  {t("badgeNew")}
                 </span>
               </div>
               <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                REITs Americanos
+                {t("cardUsaReit")}
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Análise de REITs NASDAQ com métricas de FFO, taxa de
-                distribuição e valuation. Prêmio de risco 6% e taxa Bazin de 3%.
+                {t("cardUsaReitDesc")}
               </p>
             </Link>
           </div>
@@ -227,101 +247,59 @@ export default function LandingPage() {
           className="max-w-5xl mx-auto mt-32 w-full animate-fade-in-up animate-delay-100"
         >
           <h2 className="font-display text-3xl md:text-4xl text-foreground text-center mb-12">
-            Como funciona
+            {t("comoFunciona")}
           </h2>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="flex gap-6 group">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                  <span className="font-mono text-lg text-primary font-bold">
-                    01
-                  </span>
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="flex gap-6 group">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <span className="font-mono text-lg text-primary font-bold">
+                      0{i}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-xl text-foreground mb-2">
+                      {t(`howItem${i}Title`)}
+                    </h3>
+                    <p className="font-body text-muted-foreground">
+                      {t(`howItem${i}Desc`)}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-display text-xl text-foreground mb-2">
-                    Dados atualizados diariamente
-                  </h3>
-                  <p className="font-body text-muted-foreground">
-                    Coleta e recalcula indicadores de valuation diariamente.
-                    Informações sempre atualizadas para sua análise.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-6 group">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                  <span className="font-mono text-lg text-primary font-bold">
-                    02
-                  </span>
-                </div>
-                <div>
-                  <h3 className="font-display text-xl text-foreground mb-2">
-                    Enriquecimento automático
-                  </h3>
-                  <p className="font-body text-muted-foreground">
-                    Dados complementares são capturados automaticamente para
-                    melhorar a precisão dos cálculos.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-6 group">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                  <span className="font-mono text-lg text-primary font-bold">
-                    03
-                  </span>
-                </div>
-                <div>
-                  <h3 className="font-display text-xl text-foreground mb-2">
-                    Filtragem avançada
-                  </h3>
-                  <p className="font-body text-muted-foreground">
-                    Aplique filtros por indicador, faixa de preço, setor e muito
-                    mais. Encontre ativos subvalorizados em segundos.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
             <div className="bg-card/50 border border-border rounded-lg p-4 shadow-2xl">
               <div className="font-mono text-xs text-muted-foreground mb-3 border-b border-border pb-2">
-                PREVIEW · Tabela de Ações
+                {t("previewTable")}
               </div>
               <div className="space-y-2 font-mono text-sm">
                 <div className="grid grid-cols-4 gap-2 text-muted-foreground text-xs pb-2 border-b border-border">
                   <span>TICKER</span>
-                  <span>PREÇO</span>
+                  <span>{t("price")}</span>
                   <span>P/L</span>
                   <span>FAIR</span>
                 </div>
-                <div className="grid grid-cols-4 gap-2 text-foreground">
-                  <span className="text-primary">PETR4</span>
-                  <span>38,50</span>
-                  <span className="text-green-500">5.2</span>
-                  <span className="text-green-500">52,10</span>
-                </div>
-                <div className="grid grid-cols-4 gap-2 text-foreground">
-                  <span className="text-primary">VALE3</span>
-                  <span>68,20</span>
-                  <span className="text-yellow-500">8.4</span>
-                  <span className="text-yellow-500">71,30</span>
-                </div>
-                <div className="grid grid-cols-4 gap-2 text-foreground">
-                  <span className="text-primary">ITUB4</span>
-                  <span>31,80</span>
-                  <span className="text-green-500">6.1</span>
-                  <span className="text-green-500">44,20</span>
-                </div>
-                <div className="grid grid-cols-4 gap-2 text-foreground">
-                  <span className="text-primary">BBDC4</span>
-                  <span>12,40</span>
-                  <span className="text-red-500">12.8</span>
-                  <span className="text-red-500">9,80</span>
-                </div>
+                {[
+                  ["PETR4", "38,50", "green", "5.2", "green", "52,10"],
+                  ["VALE3", "68,20", "yellow", "8.4", "yellow", "71,30"],
+                  ["ITUB4", "31,80", "green", "6.1", "green", "44,20"],
+                  ["BBDC4", "12,40", "red", "12.8", "red", "9,80"],
+                ].map(([ticker, price, pc, pl, fc, fair]) => (
+                  <div
+                    key={ticker}
+                    className="grid grid-cols-4 gap-2 text-foreground"
+                  >
+                    <span className="text-primary">{ticker}</span>
+                    <span>{price}</span>
+                    <span className={`text-${pc}-500`}>{pl}</span>
+                    <span className={`text-${fc}-500`}>{fair}</span>
+                  </div>
+                ))}
                 <div className="text-xs text-muted-foreground mt-4 pt-2 border-t border-border">
-                  <span className="text-muted-foreground">+</span> 4 mercados ·
-                  Filtros por indicador
+                  <span className="text-muted-foreground">+</span>{" "}
+                  {t("previewMarkets")}
                 </div>
               </div>
             </div>
@@ -330,11 +308,9 @@ export default function LandingPage() {
 
         <footer className="mt-32 py-8 text-center border-t border-border w-full max-w-4xl">
           <div className="font-mono text-xs text-muted-foreground space-y-2">
-            <p>
-              ferramenta de apoio à decisão · não substitui análise profissional
-            </p>
+            <p>{t("footer")}</p>
             <p className="pt-2">
-              built by{" "}
+              {t("builtBy")}{" "}
               <a
                 href="https://www.linkedin.com/in/renansmoliveira/"
                 target="_blank"
@@ -357,7 +333,7 @@ export default function LandingPage() {
                 href="/privacidade"
                 className="text-primary hover:underline"
               >
-                Privacidade
+                {t("privacy")}
               </Link>
             </p>
           </div>
