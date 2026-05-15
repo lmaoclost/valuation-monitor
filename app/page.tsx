@@ -25,7 +25,7 @@ export default function LandingPage() {
           </Link>
           <Link
             href="/stocks/br-fii"
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="text-foreground hover:text-primary transition-colors"
           >
             BR FII
           </Link>

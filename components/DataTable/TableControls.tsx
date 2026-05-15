@@ -21,6 +21,7 @@ interface TableControlsProps {
     erp: string;
   };
   riskDisplay?: string;
+  riskLabel?: string;
   onApplyPreset?: (preset: string) => void;
   presets?: Record<string, unknown>;
 }
@@ -31,6 +32,7 @@ export function TableControls({
   onGlobalFilterChange,
   complementarData,
   riskDisplay,
+  riskLabel = "Premio Risco",
   onApplyPreset,
   presets,
 }: TableControlsProps) {
@@ -46,13 +48,13 @@ export function TableControls({
       {complementarData && (
         <div className="flex flex-wrap gap-4 text-sm">
           <span>IPCA: {complementarData?.ipca} </span>
-          <span>ERP: {complementarData?.erp}</span>
-          <span>Premio Risco: {complementarData?.risk} </span>
+          {complementarData?.erp && <span>ERP: {complementarData?.erp}</span>}
+          <span>{riskLabel}: {complementarData?.risk} </span>
         </div>
       )}
       {riskDisplay && (
         <div className="flex flex-wrap gap-4 text-sm">
-          <span>Premio Risco: {riskDisplay} </span>
+          <span>{riskLabel}: {riskDisplay} </span>
         </div>
       )}
       <div className="flex flex-wrap gap-2">

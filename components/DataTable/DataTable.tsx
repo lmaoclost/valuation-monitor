@@ -3,7 +3,6 @@
 import { useState, useMemo, useCallback } from "react";
 import {
   ColumnDef,
-  ColumnFiltersState,
   getCoreRowModel,
   getFilteredRowModel,
   getSortedRowModel,
@@ -23,8 +22,10 @@ interface DataTableProps<TData, TValue> {
     erp: string;
   };
   riskDisplay?: string;
+  riskLabel?: string;
   onApplyPreset?: (preset: string) => void;
   presets?: Record<string, unknown>;
+  initialColumnVisibility?: VisibilityState;
 }
 
 export function DataTable<TData, TValue>({
@@ -32,33 +33,18 @@ export function DataTable<TData, TValue>({
   data,
   complementarData,
   riskDisplay,
+  riskLabel,
   onApplyPreset,
   presets,
+  initialColumnVisibility,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [globalFilter, setGlobalFilter] = useState("");
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
-    price: true,
-    dy: false,
-    pl: false,
-    lpa: false,
-    vpa: false,
-    dpa: false,
-    risk: false,
-    discount_margin: false,
-    payout: false,
-    growthDividend: false,
-    roe: false,
-    cagrProfit: false,
-    damodaramGrowth: false,
-    bazinFairPrice: false,
-    bazinCeelingPrice: false,
-    grahamFairPrice: false,
-    grahamCeelingPrice: false,
-    gordonFairPrice: false,
-    gordonCeelingPrice: false,
-    d1: false,
-  });
+  const defaultVisibility: VisibilityState = {
+    ...(initialColumnVisibility ?? {}),
+  };
+  const [columnVisibility, setColumnVisibility] =
+    useState<VisibilityState>(defaultVisibility);
   const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
@@ -114,6 +100,7 @@ export function DataTable<TData, TValue>({
         onGlobalFilterChange={setGlobalFilter}
         complementarData={complementarData}
         riskDisplay={riskDisplay}
+        riskLabel={riskLabel}
         onApplyPreset={handleApplyPreset}
         presets={presets}
       />

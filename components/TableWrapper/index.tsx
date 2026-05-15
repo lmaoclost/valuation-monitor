@@ -10,6 +10,7 @@ import { DataTable } from "@/components/DataTable";
 import { createColumns } from "@/components/DataTable/columns";
 import { LoadingState, ErrorState } from "@/components/ui/states";
 import { useMemo, useCallback, useEffect } from "react";
+import { brStocksColumnVisibility } from "@/constants";
 
 export function TableWrapper() {
     const queryClient = useQueryClient();
@@ -67,6 +68,7 @@ export function TableWrapper() {
                 data={memoizedData}
                 complementarData={data?.comp}
                 onApplyPreset={handleApplyPreset}
+                initialColumnVisibility={brStocksColumnVisibility}
             />
         </Suspense>
     );

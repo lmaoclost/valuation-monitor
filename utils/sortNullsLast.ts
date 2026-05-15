@@ -1,4 +1,3 @@
-import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 import { SortingFn } from "@tanstack/react-table";
 
 function parsePossibleNumber(raw?: unknown): number | null {
@@ -18,7 +17,7 @@ function parsePossibleNumber(raw?: unknown): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-export const sortNullsLast: SortingFn<StocksFormattedDataType> = (
+export const sortNullsLast: SortingFn<any> = (
   rowA,
   rowB,
   columnId,

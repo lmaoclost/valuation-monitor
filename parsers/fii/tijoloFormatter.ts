@@ -1,0 +1,71 @@
+import type { FiiTijoloCalculatedDataType } from "@/@types/FiiTijoloCalculatedDataType";
+import type { FiiTijoloFormattedDataType } from "@/@types/FiiTijoloFormattedDataType";
+import { formatCurrency, formatPercentage } from "@/utils";
+import { calculateFiiTijoloFieldColor } from "@/utils/calculateFiiTijoloFieldColor";
+
+export const tijoloFormatter = (
+  row: FiiTijoloCalculatedDataType,
+): FiiTijoloFormattedDataType => {
+  return {
+    ticker: row.ticker,
+    category: row.category,
+    price: formatCurrency(row.price),
+    dy: formatPercentage(row.dy),
+    pvp: row.pvp.toFixed(2),
+    riskPremium: formatPercentage(row.riskPremium),
+    riskPremiumColor: calculateFiiTijoloFieldColor(
+      "riskPremium",
+      row.riskPremium,
+    ),
+    discountRate: formatPercentage(row.discountRate),
+    growthRate: formatPercentage(row.growthRate),
+    dividendYear1: formatCurrency(row.dividendYear1),
+    presentValue1: formatCurrency(row.presentValue1),
+    dividendYear2: formatCurrency(row.dividendYear2),
+    presentValue2: formatCurrency(row.presentValue2),
+    dividendYear3: formatCurrency(row.dividendYear3),
+    presentValue3: formatCurrency(row.presentValue3),
+    dividendYear4: formatCurrency(row.dividendYear4),
+    presentValue4: formatCurrency(row.presentValue4),
+    dividendYear5: formatCurrency(row.dividendYear5),
+    presentValue5: formatCurrency(row.presentValue5),
+    dividendYear6: formatCurrency(row.dividendYear6),
+    presentValue6: formatCurrency(row.presentValue6),
+    dividendYear7: formatCurrency(row.dividendYear7),
+    presentValue7: formatCurrency(row.presentValue7),
+    dividendYear8: formatCurrency(row.dividendYear8),
+    presentValue8: formatCurrency(row.presentValue8),
+    dividendYear9: formatCurrency(row.dividendYear9),
+    presentValue9: formatCurrency(row.presentValue9),
+    dividendYear10: formatCurrency(row.dividendYear10),
+    presentValue10: formatCurrency(row.presentValue10),
+    desinvestment: formatCurrency(row.desinvestment),
+    presentValueDesinvestment: formatCurrency(row.presentValueDesinvestment),
+    fairPrice: formatCurrency(row.fairPrice),
+    ceelingPrice: formatCurrency(row.ceelingPrice),
+    expectativaCrescimento: formatPercentage(row.expectativaCrescimento),
+    caixa: formatPercentage(row.caixa / 100),
+    cagrDividendos3Anos: formatPercentage(row.cagrDividendos3Anos / 100),
+    cagrDividendos3AnosColor: calculateFiiTijoloFieldColor(
+      "cagrDiv",
+      row.cagrDividendos3Anos / 100,
+    ),
+    cagrValorCota3Anos: formatPercentage(row.cagrValorCota3Anos / 100),
+    cagrValorCota3AnosColor: calculateFiiTijoloFieldColor(
+      "cagrCota",
+      row.cagrValorCota3Anos / 100,
+    ),
+    gestao: row.gestao,
+    isTopManager: row.isTopManager ? "SIM" : "NAO",
+    patrimonio: formatCurrency(row.patrimonio),
+    qtdImoveis: row.qtdImoveis.toString(),
+    ativos: row.ativos,
+    locatario: row.locatario,
+    cotistas: row.cotistas.toString(),
+    liquidezDiaria: formatCurrency(row.liquidezDiaria),
+    precoM2: formatCurrency(row.precoM2),
+    aluguelM2: formatCurrency(row.aluguelM2),
+    capRate: formatPercentage(row.capRate),
+    vacanciaMedia: formatPercentage(row.vacanciaMedia),
+  };
+};

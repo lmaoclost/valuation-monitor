@@ -16,6 +16,7 @@ import { createUSAColumns } from "@/components/DataTable/usaColumns";
 import { LoadingState, ErrorState } from "@/components/ui/states";
 import { useMemo, useCallback, useEffect } from "react";
 import { usaStocksPresets } from "@/constants/usaStocksPresets";
+import { usaStocksColumnVisibility } from "@/constants";
 import { USA_RISK_PREMIUM } from "@/lib/marketConfig";
 
 export function USATableWrapper() {
@@ -73,6 +74,7 @@ export function USATableWrapper() {
         riskDisplay={(USA_RISK_PREMIUM * 100).toFixed(2) + "%"}
         onApplyPreset={handleApplyPreset}
         presets={usaStocksPresets}
+        initialColumnVisibility={usaStocksColumnVisibility}
       />
     </Suspense>
   );
