@@ -12,26 +12,16 @@ export const getIPCAData = async () => {
 
     const response = await fetchWithTimeout(ipcaUrl);
 
-    if (!response.ok) {
-      console.warn(`IPCA: IBGE returned status ${response.status}`);
-      return 0;
-    }
-
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    const ipcaElement = $("li.variavel")
-      .filter((_, el) =>
-        $(el)
-          .find("h3.variavel-titulo")
-          .text()
-          .includes("IPCA acumulado de 12 meses"),
-      )
-      .find("p.variavel-dado")
+    const valueText = $("strong.value")
+      .filter((_, el) => $(el).siblings("h2.title").text().includes("IPCA HOJE"))
+      .first()
       .text()
       .trim();
 
-    const ipcaValue = parseFloat(ipcaElement.replace(",", ".").replace("%", ""));
+    const ipcaValue = parseFloat(valueText.replace(",", "."));
 
     return ipcaValue;
   } catch (error) {
