@@ -3,7 +3,7 @@ import { cacheTag, cacheLife } from "next/cache";
 import { fetchWithTimeout } from "@/lib/fetch-timeout";
 
 const getHtmlDecoded = async (url: string): Promise<string> => {
-  const response = await fetchWithTimeout(url, { timeout: 10000 });
+  const response = await fetchWithTimeout(url);
   const buffer = await response.arrayBuffer();
   const decoder = new TextDecoder("iso-8859-1");
   return decoder.decode(buffer);

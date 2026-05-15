@@ -9,9 +9,7 @@ export const getIPCAData = async () => {
 
   const ipcaUrl = process.env.IPCA_URL!;
 
-  const response = await fetchWithTimeout(ipcaUrl, {
-    timeout: 10000,
-  });
+  const response = await fetchWithTimeout(ipcaUrl);
 
   if (!response.ok) {
     throw new Error(`Erro ao acessar o site do IBGE: ${response.status}`);

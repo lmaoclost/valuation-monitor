@@ -8,7 +8,7 @@ export const getFiiCSVData = async () => {
   cacheLife("days");
 
   const csvUrl = process.env.FII_CSV_URL!;
-  const response = await fetchWithTimeout(csvUrl, { timeout: 15000 });
+  const response = await fetchWithTimeout(csvUrl);
   const csvText = await response.text();
 
   const parsedData = Papa.parse(csvText, {
