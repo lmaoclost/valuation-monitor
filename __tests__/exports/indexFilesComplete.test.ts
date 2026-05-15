@@ -198,6 +198,21 @@ describe('Index File Re-exports - Full Coverage', () => {
     it('should export FundamentusFiiSchema', () => {
       expect(parsersFii.FundamentusFiiSchema).toBeDefined();
     });
+
+    it('should export fiiListParser function', () => {
+      expect(parsersFii.fiiListParser).toBeDefined();
+      expect(typeof parsersFii.fiiListParser).toBe('function');
+    });
+
+    it('should export fiiListDomain function', () => {
+      expect(parsersFii.fiiListDomain).toBeDefined();
+      expect(typeof parsersFii.fiiListDomain).toBe('function');
+    });
+
+    it('should export fiiListFormatter function', () => {
+      expect(parsersFii.fiiListFormatter).toBeDefined();
+      expect(typeof parsersFii.fiiListFormatter).toBe('function');
+    });
   });
 
   describe('utils/index - FII Functions', () => {
@@ -286,6 +301,11 @@ describe('Index File Re-exports - Full Coverage', () => {
     it('should export getFiiPapelData', () => {
       expect(services.getFiiPapelData).toBeDefined();
       expect(typeof services.getFiiPapelData).toBe('function');
+    });
+
+    it('should export getFiiListData', () => {
+      expect(services.getFiiListData).toBeDefined();
+      expect(typeof services.getFiiListData).toBe('function');
     });
   });
 });

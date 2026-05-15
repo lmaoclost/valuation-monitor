@@ -1,8 +1,11 @@
 export { tijoloParser } from "./tijoloParser";
 export { papelParser } from "./papelParser";
+export { fiiListParser } from "./fiiListParser";
 export { tijoloDomain } from "./tijoloDomain";
 export { papelDomain } from "./papelDomain";
+export { fiiListDomain } from "./fiiListDomain";
 export { tijoloFormatter } from "./tijoloFormatter";
 export { papelFormatter } from "./papelFormatter";
+export { fiiListFormatter } from "./fiiListFormatter";
 export { StatusInvestFiiSchema } from "./tijoloSchema";
 export { FundamentusFiiSchema } from "./fundamentusSchema";

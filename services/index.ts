@@ -15,3 +15,4 @@ export { getFiiComplementarData } from "./getFiiComplementarData.service";
 export { getRiskFIIData } from "./getRiskFIIData.service";
 export { getFiiTijoloData } from "./getFiiTijoloData.service";
 export { getFiiPapelData } from "./getFiiPapelData.service";
+export { getFiiListData } from "./getFiiListData.service";
