@@ -45,9 +45,6 @@ export const tijoloDomain = (
     10,
   );
 
-  console.log("desinvestment: " + desinvestment);
-  console.log("pvDesinvestment: " + pvDesinvestment);
-
   const fairPrice = calculateFiiFairPrice(presentValues, pvDesinvestment);
   const ceelingPrice = calculateFiiCeelingPrice(fairPrice);
   const expectativaCrescimento = calculateFiiExpectativaCrescimento(
