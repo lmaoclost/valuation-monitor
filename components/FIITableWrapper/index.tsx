@@ -28,10 +28,12 @@ const TAB_TO_API_TYPE: Record<string, string> = {
   fof: "fundo de fundos",
 };
 
-const TAB_TO_QUERY_KEY: Record<string, string[]> = {
-  fiagro: ["fii-fiagro"],
-  "fi-infra": ["fii-fi-infra"],
-  fof: ["fii-fof"],
+const API_TYPE_TO_QUERY_KEY: Record<string, string[]> = {
+  tijolo: ["fii-tijolo"],
+  papel: ["fii-papel"],
+  "agronegócio": ["fii-fiagro"],
+  "recebíveis de infraestrutura": ["fii-fi-infra"],
+  "fundo de fundos": ["fii-fof"],
 };
 
 const TAB_TO_PRESETS: Record<string, Record<string, null | ((item: any) => boolean)>> = {
@@ -118,9 +120,7 @@ export function FIITableWrapper() {
     mutationFn: async ({ type, preset }: { type: string; preset: string }) =>
       await getFiiPreset(type, preset),
     onSuccess: (filtered, variables) => {
-      const queryKey = variables.type === "papel" ? ["fii-papel"]
-        : variables.type === "tijolo" ? ["fii-tijolo"]
-        : TAB_TO_QUERY_KEY[variables.type] ?? ["fii-tijolo"];
+      const queryKey = API_TYPE_TO_QUERY_KEY[variables.type] ?? ["fii-tijolo"];
       queryClient.setQueryData(queryKey, filtered);
     },
   });
