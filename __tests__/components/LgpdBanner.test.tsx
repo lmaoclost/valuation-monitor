@@ -11,13 +11,13 @@ describe("LgpdBanner", () => {
     render(<LgpdBanner />);
 
     expect(screen.getByText(/dados pessoais/i)).toBeDefined();
-    expect(screen.getByRole("button", { name: /ciência/i })).toBeDefined();
+    expect(screen.getByRole("button", { name: /entendido/i })).toBeDefined();
   });
 
-  it("should not render after user clicks 'Ciência'", () => {
+  it("should not render after user clicks 'Entendido'", () => {
     render(<LgpdBanner />);
 
-    fireEvent.click(screen.getByRole("button", { name: /ciência/i }));
+    fireEvent.click(screen.getByRole("button", { name: /entendido/i }));
 
     expect(screen.queryByText(/privacidade/i)).toBeNull();
   });

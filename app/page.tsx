@@ -48,7 +48,7 @@ export default function LandingPage() {
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20">
         <div className="max-w-5xl mx-auto text-center space-y-12">
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-foreground animate-fade-in-up">
-            <span className="bg-gradient-to-r from-foreground via-primary to-primary/60 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground via-primary to-primary/60 bg-clip-text text-transparent">
               Radar
             </span>
             <br />
@@ -366,8 +366,8 @@ export default function LandingPage() {
 
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float animate-delay-200" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-primary/5 rounded-full" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/5 rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 border border-primary/5 rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 border border-primary/5 rounded-full" />
     </div>
   );
 }

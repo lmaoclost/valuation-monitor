@@ -32,12 +32,8 @@ export function LgpdBanner() {
             Política de Privacidade
           </Link>
         </p>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleDismiss}
-        >
-          Ciência
+        <Button variant="outline" size="sm" onClick={handleDismiss}>
+          Entendido
         </Button>
       </div>
     </div>
