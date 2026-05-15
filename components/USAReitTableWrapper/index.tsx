@@ -16,6 +16,7 @@ import { createUSAReitColumns } from "@/components/DataTable/usaReitColumns";
 import { LoadingState, ErrorState } from "@/components/ui/states";
 import { useMemo, useCallback, useEffect } from "react";
 import { usaReitPresets } from "@/constants/usaReitsPresets";
+import { usaReitsColumnVisibility } from "@/constants";
 import { USA_REIT_RISK_PREMIUM } from "@/lib/marketConfig";
 
 export function USAReitTableWrapper() {
@@ -73,6 +74,7 @@ export function USAReitTableWrapper() {
         riskDisplay={(USA_REIT_RISK_PREMIUM * 100).toFixed(2) + "%"}
         onApplyPreset={handleApplyPreset}
         presets={usaReitPresets}
+        initialColumnVisibility={usaReitsColumnVisibility}
       />
     </Suspense>
   );

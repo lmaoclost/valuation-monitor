@@ -3,3 +3,8 @@ export { usaStocksMetadata } from "./usaStocksMetadata";
 export { stocksPresets } from "./brazilianStocksPresets";
 export { usaStocksPresets } from "./usaStocksPresets";
 export { revalidateDay } from "./revalidateDay";
+export { brStocksColumnVisibility } from "./brStocksColumnVisibility";
+export { usaStocksColumnVisibility } from "./usaStocksColumnVisibility";
+export { usaReitsColumnVisibility } from "./usaReitsColumnVisibility";
+export { fiiTijoloColumnVisibility } from "./fiiTijoloColumnVisibility";
+export { fiiPapelColumnVisibility } from "./fiiPapelColumnVisibility";

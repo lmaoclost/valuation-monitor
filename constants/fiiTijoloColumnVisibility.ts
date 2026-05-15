@@ -1,0 +1,28 @@
+import { VisibilityState } from "@tanstack/react-table";
+
+export const fiiTijoloColumnVisibility: VisibilityState = {
+  dy: true,
+  category: true,
+  dividendYear1: false,
+  presentValue1: false,
+  dividendYear2: false,
+  presentValue2: false,
+  dividendYear3: false,
+  presentValue3: false,
+  dividendYear4: false,
+  presentValue4: false,
+  dividendYear5: false,
+  presentValue5: false,
+  dividendYear6: false,
+  presentValue6: false,
+  dividendYear7: false,
+  presentValue7: false,
+  dividendYear8: false,
+  presentValue8: false,
+  dividendYear9: false,
+  presentValue9: false,
+  dividendYear10: false,
+  presentValue10: false,
+  desinvestment: false,
+  presentValueDesinvestment: false,
+};

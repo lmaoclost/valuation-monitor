@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import * as utils from '@/utils';
 import * as parsersStocks from '@/parsers/stocks';
+import * as parsersFii from '@/parsers/fii';
+import * as services from '@/services';
 import * as constants from '@/constants';
 
 describe('Index File Re-exports - Full Coverage', () => {
@@ -145,6 +147,145 @@ describe('Index File Re-exports - Full Coverage', () => {
 
     it('should export revalidateDay from constants', () => {
       expect(constants.revalidateDay).toBeDefined();
+    });
+
+    it('should export fiiTijoloColumnVisibility from constants', () => {
+      expect(constants.fiiTijoloColumnVisibility).toBeDefined();
+    });
+
+    it('should export fiiPapelColumnVisibility from constants', () => {
+      expect(constants.fiiPapelColumnVisibility).toBeDefined();
+    });
+
+    it('should export brStocksColumnVisibility from constants', () => {
+      expect(constants.brStocksColumnVisibility).toBeDefined();
+    });
+
+    it('should export usaStocksColumnVisibility from constants', () => {
+      expect(constants.usaStocksColumnVisibility).toBeDefined();
+    });
+
+    it('should export usaReitsColumnVisibility from constants', () => {
+      expect(constants.usaReitsColumnVisibility).toBeDefined();
+    });
+  });
+
+  describe('parsers/fii/index - All Exports', () => {
+    it('should export tijoloParser function', () => {
+      expect(parsersFii.tijoloParser).toBeDefined();
+      expect(typeof parsersFii.tijoloParser).toBe('function');
+    });
+
+    it('should export papelParser function', () => {
+      expect(parsersFii.papelParser).toBeDefined();
+      expect(typeof parsersFii.papelParser).toBe('function');
+    });
+
+    it('should export tijoloDomain function', () => {
+      expect(parsersFii.tijoloDomain).toBeDefined();
+      expect(typeof parsersFii.tijoloDomain).toBe('function');
+    });
+
+    it('should export papelDomain function', () => {
+      expect(parsersFii.papelDomain).toBeDefined();
+      expect(typeof parsersFii.papelDomain).toBe('function');
+    });
+
+    it('should export StatusInvestFiiSchema', () => {
+      expect(parsersFii.StatusInvestFiiSchema).toBeDefined();
+    });
+
+    it('should export FundamentusFiiSchema', () => {
+      expect(parsersFii.FundamentusFiiSchema).toBeDefined();
+    });
+  });
+
+  describe('utils/index - FII Functions', () => {
+    it('should export calculateFiiDiscountRate', () => {
+      expect(utils.calculateFiiDiscountRate).toBeDefined();
+      expect(typeof utils.calculateFiiDiscountRate).toBe('function');
+    });
+
+    it('should export calculateFiiDividendYear', () => {
+      expect(utils.calculateFiiDividendYear).toBeDefined();
+      expect(typeof utils.calculateFiiDividendYear).toBe('function');
+    });
+
+    it('should export calculateFiiPresentValue', () => {
+      expect(utils.calculateFiiPresentValue).toBeDefined();
+      expect(typeof utils.calculateFiiPresentValue).toBe('function');
+    });
+
+    it('should export calculateFiiDesinvestment', () => {
+      expect(utils.calculateFiiDesinvestment).toBeDefined();
+      expect(typeof utils.calculateFiiDesinvestment).toBe('function');
+    });
+
+    it('should export calculateFiiFairPrice', () => {
+      expect(utils.calculateFiiFairPrice).toBeDefined();
+      expect(typeof utils.calculateFiiFairPrice).toBe('function');
+    });
+
+    it('should export calculateFiiCeelingPrice', () => {
+      expect(utils.calculateFiiCeelingPrice).toBeDefined();
+      expect(typeof utils.calculateFiiCeelingPrice).toBe('function');
+    });
+
+    it('should export calculateFiiExpectativaCrescimento', () => {
+      expect(utils.calculateFiiExpectativaCrescimento).toBeDefined();
+      expect(typeof utils.calculateFiiExpectativaCrescimento).toBe('function');
+    });
+
+    it('should export calculateFiiBoxplotOutliers', () => {
+      expect(utils.calculateFiiBoxplotOutliers).toBeDefined();
+      expect(typeof utils.calculateFiiBoxplotOutliers).toBe('function');
+    });
+
+    it('should export calculateFiiTijoloFieldColor', () => {
+      expect(utils.calculateFiiTijoloFieldColor).toBeDefined();
+      expect(typeof utils.calculateFiiTijoloFieldColor).toBe('function');
+    });
+
+    it('should export calculateFiiPapelFieldColor', () => {
+      expect(utils.calculateFiiPapelFieldColor).toBeDefined();
+      expect(typeof utils.calculateFiiPapelFieldColor).toBe('function');
+    });
+  });
+
+  describe('services/index - FII functions', () => {
+    it('should export getFiiCSVData', () => {
+      expect(services.getFiiCSVData).toBeDefined();
+      expect(typeof services.getFiiCSVData).toBe('function');
+    });
+
+    it('should export getFundamentusFiiData', () => {
+      expect(services.getFundamentusFiiData).toBeDefined();
+      expect(typeof services.getFundamentusFiiData).toBe('function');
+    });
+
+    it('should export getTesouroIPCA2035', () => {
+      expect(services.getTesouroIPCA2035).toBeDefined();
+      expect(typeof services.getTesouroIPCA2035).toBe('function');
+    });
+
+    it('should export getFiiComplementarData', () => {
+      expect(services.getFiiComplementarData).toBeDefined();
+      expect(typeof services.getFiiComplementarData).toBe('function');
+    });
+
+    it('should export getRiskFIIData', () => {
+      expect(services.getRiskFIIData).toBeDefined();
+      expect(typeof services.getRiskFIIData).toBe('function');
+    });
+
+    it('should export getFiiTijoloData', () => {
+      expect(services.getFiiTijoloData).toBeDefined();
+      expect(typeof services.getFiiTijoloData).toBe('function');
+    });
+
+    it('should export getFiiPapelData', () => {
+      expect(services.getFiiPapelData).toBeDefined();
+      expect(typeof services.getFiiPapelData).toBe('function');
     });
   });
 });
