@@ -3,7 +3,7 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient, keepPreviousData } from "@tanstack/react-query";
 import { Suspense } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { getFiiTijolo, getFiiPapel, getFiiFiagro, getFiiFiInfra, getFiiFof, getFiiRisk, getFiiPreset } from "@/app/actions/fii.actions";
 import { DataTable } from "@/components/DataTable";
 import { createTijoloColumns } from "@/components/DataTable/tijoloColumns";
@@ -41,6 +41,8 @@ export function FIITableWrapper() {
   const [activeTab, setActiveTab] = useState<FiiTab>("tijolo");
   const queryClient = useQueryClient();
   const t = useTranslations("Tabs");
+  const tc = useTranslations("Columns");
+  const locale = useLocale();
 
   const tijoloQuery = useQuery({
     queryKey: ["fii-tijolo"],
@@ -132,9 +134,9 @@ export function FIITableWrapper() {
     : activeTab === "tijolo" ? fiiTijoloPresets
     : TAB_TO_PRESETS[activeTab] ?? {};
 
-  const tijoloColumns = useMemo(() => createTijoloColumns(), []);
-  const papelColumns = useMemo(() => createPapelColumns(), []);
-  const listColumns = useMemo(() => createFiiListColumns(), []);
+  const tijoloColumns = useMemo(() => createTijoloColumns(tc, locale), [tc, locale]);
+  const papelColumns = useMemo(() => createPapelColumns(tc, locale), [tc, locale]);
+  const listColumns = useMemo(() => createFiiListColumns(tc, locale), [tc, locale]);
 
   const isListTab = activeTab === "fiagro" || activeTab === "fi-infra" || activeTab === "fof";
   const tabQueries: Record<string, { isLoading: boolean; isError: boolean; data: any }> = {

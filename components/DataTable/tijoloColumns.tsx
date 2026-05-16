@@ -1,11 +1,11 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 import type { FiiTijoloFormattedDataType } from "@/@types/FiiTijoloFormattedDataType";
 import { sortNullsLast } from "@/utils";
 import { calculateFiiTijoloFieldColor } from "@/utils/calculateFiiTijoloFieldColor";
+import { categoryTranslations } from "@/utils/domainTranslations";
 
 const getDyColor = (val: string): string => {
   const num = parseFloat(val.replace("%", "").replace(",", "."));
@@ -18,8 +18,8 @@ const getPvpColor = (val: string): string => {
 };
 
 export const createTijoloColumns =
-  (): ColumnDef<FiiTijoloFormattedDataType>[] => {
-  const t = useTranslations("Columns");
+  (t: (key: string) => string, locale?: string): ColumnDef<FiiTijoloFormattedDataType>[] => {
+  const isEn = locale === "en";
   return [
     {
       accessorKey: "ticker",
@@ -66,6 +66,10 @@ export const createTijoloColumns =
       accessorKey: "category",
       header: t("category"),
       sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const val = row.getValue("category") as string;
+        return <div>{isEn ? (categoryTranslations[val] ?? val) : val}</div>;
+      },
     },
     {
       accessorKey: "riskPremium",
@@ -153,6 +157,11 @@ export const createTijoloColumns =
       accessorKey: "isTopManager",
       header: t("topManagers"),
       sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const val = row.getValue("isTopManager") as string;
+        const labels: Record<string, string> = { "SIM": t("yes"), "NAO": t("no") };
+        return <div>{labels[val] ?? val}</div>;
+      },
     },
     {
       accessorKey: "patrimonio",

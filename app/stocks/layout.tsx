@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { TableWrapper } from "@/components/TableWrapper";
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { BackLink } from "@/components/BackLink";
 
 interface StocksLayoutProps {
   children: React.ReactNode;
@@ -43,12 +44,7 @@ export default async function StocksLayout({ children }: StocksLayoutProps) {
               USA REIT
             </a>
           </nav>
-          <Link
-            href="/"
-            className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
-          >
-            ← Voltar
-          </Link>
+          <BackLink />
           <LanguageToggle />
         </div>
       </header>

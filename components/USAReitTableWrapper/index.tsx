@@ -18,9 +18,11 @@ import { useMemo, useCallback, useEffect } from "react";
 import { usaReitPresets } from "@/constants/usaReitsPresets";
 import { usaReitsColumnVisibility } from "@/constants";
 import { USA_REIT_RISK_PREMIUM } from "@/lib/marketConfig";
+import { useTranslations } from "next-intl";
 
 export function USAReitTableWrapper() {
   const queryClient = useQueryClient();
+  const t = useTranslations("Columns");
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["usa-reit"],
@@ -59,7 +61,7 @@ export function USAReitTableWrapper() {
     [applyPreset],
   );
 
-  const memoizedColumns = useMemo(() => createUSAReitColumns(), []);
+  const memoizedColumns = useMemo(() => createUSAReitColumns(t), [t]);
   const memoizedData = useMemo(() => data?.stocks ?? [], [data?.stocks]);
 
   if (isLoading || isPresetLoading) return <LoadingState />;

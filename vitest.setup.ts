@@ -118,13 +118,18 @@ vi.mock('@/components/DataTable/VirtualizedTableBody', async () => {
 vi.mock('next-intl', async () => {
   const actual = await vi.importActual('next-intl');
   const ptBr = await import('@/messages/pt-BR.json');
-  const pt: Record<string, Record<string, string>> = ptBr.default as Record<string, Record<string, string>>;
+  const en = await import('@/messages/en.json');
+  const mockLocale = vi.fn(() => 'pt-BR');
   return {
     ...(actual as Record<string, unknown>),
     useTranslations: (namespace: string) => {
-      const messages = pt[namespace] ?? {};
-      return (key: string) => messages[key] ?? key;
+      return (key: string) => {
+        const locale = mockLocale();
+        const messages = locale === 'en' ? en.default : ptBr.default;
+        const ns = (messages as Record<string, Record<string, string>>)[namespace] ?? {};
+        return ns[key] ?? key;
+      };
     },
-    useLocale: () => 'pt-BR',
+    useLocale: mockLocale,
   };
 });

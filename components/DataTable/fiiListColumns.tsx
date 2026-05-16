@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { FiiListFormattedDataType } from "@/@types/FiiListFormattedDataType";
 import { sortNullsLast } from "@/utils";
 import { calculateFiiPapelFieldColor } from "@/utils/calculateFiiPapelFieldColor";
-import { useTranslations } from "next-intl";
+import { categoryTranslations } from "@/utils/domainTranslations";
 
 const getDyListColor = (val: string): string => {
   const num = parseFloat(val.replace("%", "").replace(",", "."));
@@ -18,8 +18,8 @@ const getPvpListColor = (val: string): string => {
 };
 
 export const createFiiListColumns =
-  (): ColumnDef<FiiListFormattedDataType>[] => {
-  const t = useTranslations("Columns");
+  (t: (key: string) => string, locale?: string): ColumnDef<FiiListFormattedDataType>[] => {
+  const isEn = locale === "en";
   return [
     {
       accessorKey: "ticker",
@@ -66,6 +66,10 @@ export const createFiiListColumns =
       accessorKey: "category",
       header: t("category"),
       sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const val = row.getValue("category") as string;
+        return <div>{isEn ? (categoryTranslations[val] ?? val) : val}</div>;
+      },
     },
     {
       accessorKey: "caixa",
@@ -109,6 +113,11 @@ export const createFiiListColumns =
       accessorKey: "isTopManager",
       header: t("topManagers"),
       sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const val = row.getValue("isTopManager") as string;
+        const labels: Record<string, string> = { "SIM": t("yes"), "NAO": t("no") };
+        return <div>{labels[val] ?? val}</div>;
+      },
     },
     {
       accessorKey: "gestao",

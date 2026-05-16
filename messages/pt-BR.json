@@ -56,22 +56,27 @@
     "tijolo": "Tijolo",
     "papel": "Papel",
     "fiagro": "Fiagro",
-    "fiInfra": "FI-Infra",
+    "fi-infra": "FI-Infra",
     "fof": "Fundo de Fundos",
     "errorMsg": "Não foi possível carregar os dados",
     "tesouroLabel": "Tesouro IPCA+2035"
   },
   "Presets": {
-    "limpar": "Limpar",
-    "topGestores": "Top Gestores"
-  },
-  "BrStocksPresets": {
+    "Limpar": "Limpar",
     "Bancos": "Bancos",
     "Energia elétrica": "Energia elétrica",
     "Água e saneamento": "Água e saneamento",
     "Seguradoras": "Seguradoras",
     "Cíclico": "Cíclico",
-    "Não Cíclico": "Não Cíclico"
+    "Não Cíclico": "Não Cíclico",
+    "Discounted": "Discounted",
+    "Discounted PEG": "Discounted PEG",
+    "Top Gestores": "Top Gestores"
+  },
+  "Lgpd": {
+    "message": "Este site não coleta dados pessoais nem utiliza cookies.",
+    "privacyLink": "Política de Privacidade",
+    "dismiss": "Entendido"
   },
   "Columns": {
     "ticker": "CODIGO",
@@ -151,7 +156,12 @@
     "desinvestment": "DESINVESTIMENTO",
     "desinvestmentPv": "VALOR PRESENTE DO DESINVESTIMENTO",
     "gestor": "GESTOR",
-    "subcategoria": "SUBCATEGORIA"
+    "subcategoria": "SUBCATEGORIA",
+    "growthValue": "Crescimento",
+    "dividendsValue": "Dividendos",
+    "undefinedValue": "Indefinido",
+    "yes": "SIM",
+    "no": "NÃO"
   },
   "Privacy": {
     "title": "Política de Privacidade",

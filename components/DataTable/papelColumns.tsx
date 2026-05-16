@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { FiiPapelFormattedDataType } from "@/@types/FiiPapelFormattedDataType";
 import { sortNullsLast } from "@/utils";
 import { calculateFiiPapelFieldColor } from "@/utils/calculateFiiPapelFieldColor";
-import { useTranslations } from "next-intl";
+import { subcategoryTranslations } from "@/utils/domainTranslations";
 
 const getDyPapelColor = (val: string): string => {
   const num = parseFloat(val.replace("%", "").replace(",", "."));
@@ -18,8 +18,8 @@ const getPvpPapelColor = (val: string): string => {
 };
 
 export const createPapelColumns =
-  (): ColumnDef<FiiPapelFormattedDataType>[] => {
-  const t = useTranslations("Columns");
+  (t: (key: string) => string, locale?: string): ColumnDef<FiiPapelFormattedDataType>[] => {
+  const isEn = locale === "en";
   return [
     {
       accessorKey: "ticker",
@@ -113,6 +113,11 @@ export const createPapelColumns =
       accessorKey: "isTopManager",
       header: t("topManagers"),
       sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const val = row.getValue("isTopManager") as string;
+        const labels: Record<string, string> = { "SIM": t("yes"), "NAO": t("no") };
+        return <div>{labels[val] ?? val}</div>;
+      },
     },
     {
       accessorKey: "gestao",
@@ -133,5 +138,9 @@ export const createPapelColumns =
       accessorKey: "subcategoria",
       header: t("subcategoria"),
       sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const val = row.getValue("subcategoria") as string;
+        return <div>{isEn ? (subcategoryTranslations[val] ?? val) : val}</div>;
+      },
     },
   ]; };

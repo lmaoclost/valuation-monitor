@@ -2,12 +2,10 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 import { sortNullsLast } from "@/utils";
 
-export const createUSAColumns = (): ColumnDef<StocksFormattedDataType>[] => {
-  const t = useTranslations("Columns");
+export const createUSAColumns = (t: (key: string) => string): ColumnDef<StocksFormattedDataType>[] => {
   return [
   {
     accessorKey: "ticker",
@@ -96,7 +94,11 @@ export const createUSAColumns = (): ColumnDef<StocksFormattedDataType>[] => {
     accessorKey: "growthDividend",
     header: t("growthDividends"),
     sortingFn: sortNullsLast,
-    cell: ({ row }) => <div>{row.getValue("growthDividend")}</div>,
+    cell: ({ row }) => {
+      const val = row.getValue("growthDividend") as string;
+      const labels: Record<string, string> = { "Crescimento": t("growthValue"), "Dividendos": t("dividendsValue"), "Indefinido": t("undefinedValue") };
+      return <div>{labels[val] ?? val}</div>;
+    },
   },
   {
     accessorKey: "roe",

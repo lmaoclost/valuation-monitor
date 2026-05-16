@@ -56,22 +56,27 @@
     "tijolo": "Tijolo",
     "papel": "Papel",
     "fiagro": "Fiagro",
-    "fiInfra": "FI-Infra",
+    "fi-infra": "FI-Infra",
     "fof": "Fund of Funds",
     "errorMsg": "Could not load data",
     "tesouroLabel": "IPCA+2035 Treasury"
   },
   "Presets": {
-    "limpar": "Clear",
-    "topGestores": "Top Managers"
-  },
-  "BrStocksPresets": {
+    "Limpar": "Clear",
     "Bancos": "Banks",
     "Energia elétrica": "Electric Energy",
     "Água e saneamento": "Water & Sanitation",
     "Seguradoras": "Insurance",
     "Cíclico": "Cyclical",
-    "Não Cíclico": "Non-Cyclical"
+    "Não Cíclico": "Non-Cyclical",
+    "Discounted": "Discounted",
+    "Discounted PEG": "Discounted PEG",
+    "Top Gestores": "Top Managers"
+  },
+  "Lgpd": {
+    "message": "This site does not collect personal data or use cookies.",
+    "privacyLink": "Privacy Policy",
+    "dismiss": "Got it"
   },
   "Columns": {
     "ticker": "TICKER",
@@ -119,7 +124,7 @@
     "management": "MANAGEMENT",
     "topManagers": "TOP MANAGERS?",
     "patrimonio": "EQUITY",
-    "qtdImoveis": "# PROPERTIES",
+    "qtdImoveis": "PROPERTIES",
     "ativos": "ASSETS",
     "locatario": "TENANT",
     "cotistas": "SHAREHOLDERS",
@@ -151,7 +156,12 @@
     "desinvestment": "DIVESTMENT",
     "desinvestmentPv": "DIVESTMENT PRESENT VALUE",
     "gestor": "MANAGER",
-    "subcategoria": "SUBCATEGORY"
+    "subcategoria": "SUBCATEGORY",
+    "growthValue": "Growth",
+    "dividendsValue": "Dividends",
+    "undefinedValue": "Mixed/Undefined",
+    "yes": "YES",
+    "no": "NO"
   },
   "Privacy": {
     "title": "Privacy Policy",

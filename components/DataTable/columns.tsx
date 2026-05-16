@@ -4,356 +4,381 @@ import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 import { sortNullsLast } from "@/utils";
-import { useTranslations } from "next-intl";
+import {
+  sectorTranslations,
+  segmentTranslations,
+} from "@/utils/domainTranslations";
 
-export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => {
-  const t = useTranslations("Columns");
-  
+export const createColumns = (
+  t: (key: string) => string,
+  locale?: string,
+): ColumnDef<StocksFormattedDataType>[] => {
+  const isEn = locale === "en";
+
   return [
-  {
-    accessorKey: "ticker",
-    header: t("ticker"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      return (
-        <Link
-          className="truncate uppercase font-semibold"
-          target="_blank"
-          href={`https://br.tradingview.com/chart/?symbol=BMFBOVESPA%3A${row.getValue("ticker")}`}
-        >
-          {row.getValue("ticker")}
-        </Link>
-      );
+    {
+      accessorKey: "ticker",
+      header: t("ticker"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        return (
+          <Link
+            className="truncate uppercase font-semibold"
+            target="_blank"
+            href={`https://br.tradingview.com/chart/?symbol=BMFBOVESPA%3A${row.getValue("ticker")}`}
+          >
+            {row.getValue("ticker")}
+          </Link>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "companyname",
-    header: t("companyName"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const companyName = row.getValue("companyname") as string;
-      return (
-        <div className="font-medium truncate" title={companyName}>
-          {companyName.substring(0, 15)}
-        </div>
-      );
+    {
+      accessorKey: "companyname",
+      header: t("companyName"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const companyName = row.getValue("companyname") as string;
+        return (
+          <div className="font-medium truncate" title={companyName}>
+            {companyName.substring(0, 15)}
+          </div>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "sectorname",
-    header: t("sector"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      return <div className="truncate">{row.getValue("sectorname")}</div>;
+    {
+      accessorKey: "sectorname",
+      header: t("sector"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const val = row.getValue("sectorname") as string;
+        return (
+          <div className="truncate">
+            {isEn ? (sectorTranslations[val] ?? val) : val}
+          </div>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "segmentname",
-    header: t("segment"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const segmentName = row.getValue("segmentname") as string;
-      return (
-        <div className="truncate" title={segmentName}>
-          {segmentName.substring(0, 15)}
-        </div>
-      );
+    {
+      accessorKey: "segmentname",
+      header: t("segment"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const segmentName = row.getValue("segmentname") as string;
+        const display = isEn
+          ? (segmentTranslations[segmentName] ?? segmentName)
+          : segmentName;
+        return (
+          <div className="truncate" title={display}>
+            {display.substring(0, 15)}
+          </div>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "cicle",
-    header: t("cyclic"),
-    cell: ({ row }) => <div>{row.getValue("cicle")}</div>,
-  },
-  {
-    accessorKey: "price",
-    header: t("price"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => <div>{row.getValue("price")}</div>,
-  },
-  {
-    accessorKey: "dy",
-    header: t("dy"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      return <div>{row.getValue("dy")}</div>;
+    {
+      accessorKey: "cicle",
+      header: t("cyclic"),
+      cell: ({ row }) => {
+        const val = row.getValue("cicle") as string;
+        const labels: Record<string, string> = { SIM: t("yes"), NÃO: t("no") };
+        return <div>{labels[val] ?? val}</div>;
+      },
     },
-  },
-  {
-    accessorKey: "pl",
-    header: t("pl"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      return <div>{row.getValue("pl")}</div>;
+    {
+      accessorKey: "price",
+      header: t("price"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => <div>{row.getValue("price")}</div>,
     },
-  },
-  {
-    accessorKey: "lpa",
-    header: t("lpa"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => <div>{row.getValue("lpa")}</div>,
-  },
-  {
-    accessorKey: "vpa",
-    header: t("vpa"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => <div>{row.getValue("vpa")}</div>,
-  },
-  {
-    accessorKey: "dpa",
-    header: t("dpa"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => <div>{row.getValue("dpa")}</div>,
-  },
-  {
-    accessorKey: "risk",
-    header: t("risk"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => <div>{row.getValue("risk")}</div>,
-  },
-  {
-    accessorKey: "discount_margin",
-    header: t("discountMargin"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => <div>{row.getValue("discount_margin")}</div>,
-  },
-  {
-    accessorKey: "payout",
-    header: t("payout"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      return <div>{row.getValue("payout")}</div>;
+    {
+      accessorKey: "dy",
+      header: t("dy"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        return <div>{row.getValue("dy")}</div>;
+      },
     },
-  },
-  {
-    accessorKey: "growthDividend",
-    header: t("growthDividends"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      return <div>{row.getValue("growthDividend")}</div>;
+    {
+      accessorKey: "pl",
+      header: t("pl"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        return <div>{row.getValue("pl")}</div>;
+      },
     },
-  },
-  {
-    accessorKey: "roe",
-    header: t("roe"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      return <div>{row.getValue("roe")}</div>;
+    {
+      accessorKey: "lpa",
+      header: t("lpa"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => <div>{row.getValue("lpa")}</div>,
     },
-  },
-  {
-    accessorKey: "cagrProfit",
-    header: t("cagrProfit5y"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      return <div>{row.getValue("cagrProfit")}</div>;
+    {
+      accessorKey: "vpa",
+      header: t("vpa"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => <div>{row.getValue("vpa")}</div>,
     },
-  },
-  {
-    accessorKey: "damodaramGrowth",
-    header: t("damodaranGrowth"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      return <div>{row.getValue("damodaramGrowth")}</div>;
+    {
+      accessorKey: "dpa",
+      header: t("dpa"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => <div>{row.getValue("dpa")}</div>,
     },
-  },
-  {
-    accessorKey: "growthAverage",
-    header: t("avgGrowth"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const value = row.getValue("growthAverage") as string;
-      const fieldColor = row.getValue("growthAverageColor") as string;
+    {
+      accessorKey: "risk",
+      header: t("risk"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => <div>{row.getValue("risk")}</div>,
+    },
+    {
+      accessorKey: "discount_margin",
+      header: t("discountMargin"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => <div>{row.getValue("discount_margin")}</div>,
+    },
+    {
+      accessorKey: "payout",
+      header: t("payout"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        return <div>{row.getValue("payout")}</div>;
+      },
+    },
+    {
+      accessorKey: "growthDividend",
+      header: t("growthDividends"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const val = row.getValue("growthDividend") as string;
+        const labels: Record<string, string> = {
+          Crescimento: t("growthValue"),
+          Dividendos: t("dividendsValue"),
+          Indefinido: t("undefinedValue"),
+        };
+        return <div>{labels[val] ?? val}</div>;
+      },
+    },
+    {
+      accessorKey: "roe",
+      header: t("roe"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        return <div>{row.getValue("roe")}</div>;
+      },
+    },
+    {
+      accessorKey: "cagrProfit",
+      header: t("cagrProfit5y"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        return <div>{row.getValue("cagrProfit")}</div>;
+      },
+    },
+    {
+      accessorKey: "damodaramGrowth",
+      header: t("damodaranGrowth"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        return <div>{row.getValue("damodaramGrowth")}</div>;
+      },
+    },
+    {
+      accessorKey: "growthAverage",
+      header: t("avgGrowth"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const value = row.getValue("growthAverage") as string;
+        const fieldColor = row.getValue("growthAverageColor") as string;
 
-      return <div className={fieldColor}>{value}</div>;
+        return <div className={fieldColor}>{value}</div>;
+      },
     },
-  },
-  {
-    accessorKey: "growthAverageColor",
-    header: "",
-    enableHiding: false,
-    cell: () => null,
-  },
-  {
-    accessorKey: "bazinDiscount",
-    header: t("descBazin"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const value = row.getValue("bazinDiscount") as string;
-      const fieldColor = row.getValue("bazinDiscountColor") as string;
+    {
+      accessorKey: "growthAverageColor",
+      header: "",
+      enableHiding: false,
+      cell: () => null,
+    },
+    {
+      accessorKey: "bazinDiscount",
+      header: t("descBazin"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const value = row.getValue("bazinDiscount") as string;
+        const fieldColor = row.getValue("bazinDiscountColor") as string;
 
-      return <div className={fieldColor}>{value}</div>;
+        return <div className={fieldColor}>{value}</div>;
+      },
     },
-  },
-  {
-    accessorKey: "bazinDiscountColor",
-    header: "",
-    enableHiding: false,
-    cell: () => null,
-  },
-  {
-    accessorKey: "bazinFairPrice",
-    header: t("bazinFairPrice"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const bazinFairPrice = row.getValue("bazinFairPrice");
-      return (
-        <div>
-          <>{bazinFairPrice}</>
-        </div>
-      );
+    {
+      accessorKey: "bazinDiscountColor",
+      header: "",
+      enableHiding: false,
+      cell: () => null,
     },
-  },
-  {
-    accessorKey: "bazinCeelingPrice",
-    header: t("bazinCeilingPrice"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const bazinCeelingPrice = row.getValue("bazinCeelingPrice");
-      return (
-        <div>
-          <>{bazinCeelingPrice}</>
-        </div>
-      );
+    {
+      accessorKey: "bazinFairPrice",
+      header: t("bazinFairPrice"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const bazinFairPrice = row.getValue("bazinFairPrice");
+        return (
+          <div>
+            <>{bazinFairPrice}</>
+          </div>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "grahamDiscount",
-    header: t("descGraham"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const value = row.getValue("grahamDiscount") as string;
-      const fieldColor = row.getValue("grahamDiscountColor") as string;
+    {
+      accessorKey: "bazinCeelingPrice",
+      header: t("bazinCeilingPrice"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const bazinCeelingPrice = row.getValue("bazinCeelingPrice");
+        return (
+          <div>
+            <>{bazinCeelingPrice}</>
+          </div>
+        );
+      },
+    },
+    {
+      accessorKey: "grahamDiscount",
+      header: t("descGraham"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const value = row.getValue("grahamDiscount") as string;
+        const fieldColor = row.getValue("grahamDiscountColor") as string;
 
-      return <div className={fieldColor}>{value}</div>;
+        return <div className={fieldColor}>{value}</div>;
+      },
     },
-  },
-  {
-    accessorKey: "grahamDiscountColor",
-    header: "",
-    enableHiding: false,
-    cell: () => null,
-  },
-  {
-    accessorKey: "grahamFairPrice",
-    header: t("grahamFairPrice"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const grahamFairPrice = row.getValue("grahamFairPrice");
-      return (
-        <div>
-          <>{grahamFairPrice}</>
-        </div>
-      );
+    {
+      accessorKey: "grahamDiscountColor",
+      header: "",
+      enableHiding: false,
+      cell: () => null,
     },
-  },
-  {
-    accessorKey: "grahamCeelingPrice",
-    header: t("grahamCeilingPrice"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const grahamCeelingPrice = row.getValue("grahamCeelingPrice");
-      return (
-        <div>
-          <>{grahamCeelingPrice}</>
-        </div>
-      );
+    {
+      accessorKey: "grahamFairPrice",
+      header: t("grahamFairPrice"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const grahamFairPrice = row.getValue("grahamFairPrice");
+        return (
+          <div>
+            <>{grahamFairPrice}</>
+          </div>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "gordonDiscount",
-    header: t("descGordon"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const value = row.getValue("gordonDiscount") as string;
-      const fieldColor = row.getValue("gordonDiscountColor") as string;
+    {
+      accessorKey: "grahamCeelingPrice",
+      header: t("grahamCeilingPrice"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const grahamCeelingPrice = row.getValue("grahamCeelingPrice");
+        return (
+          <div>
+            <>{grahamCeelingPrice}</>
+          </div>
+        );
+      },
+    },
+    {
+      accessorKey: "gordonDiscount",
+      header: t("descGordon"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const value = row.getValue("gordonDiscount") as string;
+        const fieldColor = row.getValue("gordonDiscountColor") as string;
 
-      return <div className={fieldColor}>{value}</div>;
+        return <div className={fieldColor}>{value}</div>;
+      },
     },
-  },
-  {
-    accessorKey: "gordonDiscountColor",
-    header: "",
-    enableHiding: false,
-    cell: () => null,
-  },
-  {
-    accessorKey: "d1",
-    header: t("d1"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const d1 = row.getValue("d1");
-      return (
-        <div>
-          <>{d1}</>
-        </div>
-      );
+    {
+      accessorKey: "gordonDiscountColor",
+      header: "",
+      enableHiding: false,
+      cell: () => null,
     },
-  },
-  {
-    accessorKey: "gordonFairPrice",
-    header: t("gordonFairPrice"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const gordonFairPrice = row.getValue("gordonFairPrice");
-      return (
-        <div>
-          <>{gordonFairPrice}</>
-        </div>
-      );
+    {
+      accessorKey: "d1",
+      header: t("d1"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const d1 = row.getValue("d1");
+        return (
+          <div>
+            <>{d1}</>
+          </div>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "gordonCeelingPrice",
-    header: t("gordonCeilingPrice"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const gordonCeelingPrice = row.getValue("gordonCeelingPrice");
-      return (
-        <div>
-          <>{gordonCeelingPrice}</>
-        </div>
-      );
+    {
+      accessorKey: "gordonFairPrice",
+      header: t("gordonFairPrice"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const gordonFairPrice = row.getValue("gordonFairPrice");
+        return (
+          <div>
+            <>{gordonFairPrice}</>
+          </div>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "peg",
-    header: t("peg"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const value = row.getValue("peg") as number;
-      const fieldColor = row.getValue("pegColor") as string;
-      return (
-        <div className={fieldColor}>
-          <>{value}</>
-        </div>
-      );
+    {
+      accessorKey: "gordonCeelingPrice",
+      header: t("gordonCeilingPrice"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const gordonCeelingPrice = row.getValue("gordonCeelingPrice");
+        return (
+          <div>
+            <>{gordonCeelingPrice}</>
+          </div>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "pegColor",
-    header: "",
-    enableHiding: false,
-    cell: () => null,
-  },
-  {
-    accessorKey: "psr",
-    header: t("psr"),
-    sortingFn: sortNullsLast,
-    cell: ({ row }) => {
-      const value = row.getValue("psr") as number;
-      const fieldColor = row.getValue("psrColor") as string;
-      return (
-        <div className={fieldColor}>
-          <>{value}</>
-        </div>
-      );
+    {
+      accessorKey: "peg",
+      header: t("peg"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const value = row.getValue("peg") as number;
+        const fieldColor = row.getValue("pegColor") as string;
+        return (
+          <div className={fieldColor}>
+            <>{value}</>
+          </div>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "psrColor",
-    header: "",
-    enableHiding: false,
-    cell: () => null,
-  },
-]; };
+    {
+      accessorKey: "pegColor",
+      header: "",
+      enableHiding: false,
+      cell: () => null,
+    },
+    {
+      accessorKey: "psr",
+      header: t("psr"),
+      sortingFn: sortNullsLast,
+      cell: ({ row }) => {
+        const value = row.getValue("psr") as number;
+        const fieldColor = row.getValue("psrColor") as string;
+        return (
+          <div className={fieldColor}>
+            <>{value}</>
+          </div>
+        );
+      },
+    },
+    {
+      accessorKey: "psrColor",
+      header: "",
+      enableHiding: false,
+      cell: () => null,
+    },
+  ];
+};

@@ -11,9 +11,12 @@ import { createColumns } from "@/components/DataTable/columns";
 import { LoadingState, ErrorState } from "@/components/ui/states";
 import { useMemo, useCallback, useEffect } from "react";
 import { brStocksColumnVisibility } from "@/constants";
+import { useTranslations, useLocale } from "next-intl";
 
 export function TableWrapper() {
     const queryClient = useQueryClient();
+    const t = useTranslations("Columns");
+    const locale = useLocale();
 
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ["stocks-and-complementary"],
@@ -54,7 +57,7 @@ export function TableWrapper() {
         await applyPreset(preset);
     }, [applyPreset]);
 
-    const memoizedColumns = useMemo(() => createColumns(), []);
+    const memoizedColumns = useMemo(() => createColumns(t, locale), [t, locale]);
     const memoizedData = useMemo(() => data?.stocks ?? [], [data?.stocks]);
 
     if (isLoading || isPresetLoading) return <LoadingState />;

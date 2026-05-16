@@ -40,6 +40,7 @@ export function TableControls({
   presets,
 }: TableControlsProps) {
   const t = useTranslations("TableControls");
+  const tPresets = useTranslations("Presets");
   const activePresets = presets ?? stocksPresets;
   return (
     <div className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between">
@@ -75,7 +76,7 @@ export function TableControls({
                   key={key}
                   onClick={() => onApplyPreset?.(key)}
                 >
-                  {key}
+                  {tPresets(key)}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
