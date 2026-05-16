@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { FiiListFormattedDataType } from "@/@types/FiiListFormattedDataType";
 import { sortNullsLast } from "@/utils";
 import { calculateFiiPapelFieldColor } from "@/utils/calculateFiiPapelFieldColor";
+import { useTranslations } from "next-intl";
 
 const getDyListColor = (val: string): string => {
   const num = parseFloat(val.replace("%", "").replace(",", "."));
@@ -17,10 +18,12 @@ const getPvpListColor = (val: string): string => {
 };
 
 export const createFiiListColumns =
-  (): ColumnDef<FiiListFormattedDataType>[] => [
+  (): ColumnDef<FiiListFormattedDataType>[] => {
+  const t = useTranslations("Columns");
+  return [
     {
       accessorKey: "ticker",
-      header: "CODIGO",
+      header: t("ticker"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => {
         return (
@@ -36,12 +39,12 @@ export const createFiiListColumns =
     },
     {
       accessorKey: "price",
-      header: "COTACAO",
+      header: t("price"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dy",
-      header: "DY",
+      header: t("dy"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => (
         <span className={getDyListColor(row.getValue("dy") as string)}>
@@ -51,7 +54,7 @@ export const createFiiListColumns =
     },
     {
       accessorKey: "pvp",
-      header: "P/VP",
+      header: t("pvp"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => (
         <span className={getPvpListColor(row.getValue("pvp") as string)}>
@@ -61,17 +64,17 @@ export const createFiiListColumns =
     },
     {
       accessorKey: "category",
-      header: "CATEGORIA",
+      header: t("category"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "caixa",
-      header: "CAIXA",
+      header: t("caixa"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "cagrDividendos3Anos",
-      header: "CAGR DIV 3A",
+      header: t("cagrDiv3a"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => (
         <span
@@ -85,7 +88,7 @@ export const createFiiListColumns =
     },
     {
       accessorKey: "cagrValorCota3Anos",
-      header: "CAGR COTA 3A",
+      header: t("cagrCota3a"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => (
         <span
@@ -99,32 +102,32 @@ export const createFiiListColumns =
     },
     {
       accessorKey: "gestor",
-      header: "GESTOR",
+      header: t("gestor"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "isTopManager",
-      header: "TOP GESTORES?",
+      header: t("topManagers"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "gestao",
-      header: "GESTAO",
+      header: t("management"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "cotistas",
-      header: "COTISTAS",
+      header: t("cotistas"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "liquidezDiaria",
-      header: "LIQUIDEZ DIARIA",
+      header: t("liquidezDiaria"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "patrimonio",
-      header: "PATRIMONIO",
+      header: t("patrimonio"),
       sortingFn: sortNullsLast,
     },
-  ];
+  ]; };

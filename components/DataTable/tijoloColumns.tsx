@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 import type { FiiTijoloFormattedDataType } from "@/@types/FiiTijoloFormattedDataType";
@@ -17,10 +18,12 @@ const getPvpColor = (val: string): string => {
 };
 
 export const createTijoloColumns =
-  (): ColumnDef<FiiTijoloFormattedDataType>[] => [
+  (): ColumnDef<FiiTijoloFormattedDataType>[] => {
+  const t = useTranslations("Columns");
+  return [
     {
       accessorKey: "ticker",
-      header: "CODIGO",
+      header: t("ticker"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => {
         return (
@@ -36,12 +39,12 @@ export const createTijoloColumns =
     },
     {
       accessorKey: "price",
-      header: "COTACAO",
+      header: t("price"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dy",
-      header: "DY",
+      header: t("dy"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => (
         <span className={getDyColor(row.getValue("dy") as string)}>
@@ -51,7 +54,7 @@ export const createTijoloColumns =
     },
     {
       accessorKey: "pvp",
-      header: "P/VP",
+      header: t("pvp"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => (
         <span className={getPvpColor(row.getValue("pvp") as string)}>
@@ -61,12 +64,12 @@ export const createTijoloColumns =
     },
     {
       accessorKey: "category",
-      header: "CATEGORIA",
+      header: t("category"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "riskPremium",
-      header: "PREMIO DE RISCO",
+      header: t("riskPremium"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => (
         <span
@@ -80,37 +83,37 @@ export const createTijoloColumns =
     },
     {
       accessorKey: "discountRate",
-      header: "TAXA DE DESCONTO",
+      header: t("discountRate"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "growthRate",
-      header: "TAXA CRESCIMENTO",
+      header: t("growthRate"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "fairPrice",
-      header: "PRECO JUSTO",
+      header: t("fairPrice"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "ceelingPrice",
-      header: "PRECO TETO",
+      header: t("ceilingPrice"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "expectativaCrescimento",
-      header: "EXPECTATIVA DE CRESCIMENTO",
+      header: t("growthExpectation"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "caixa",
-      header: "CAIXA",
+      header: t("caixa"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "cagrDividendos3Anos",
-      header: "CAGR DIV 3A",
+      header: t("cagrDiv3a"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => (
         <span
@@ -125,7 +128,7 @@ export const createTijoloColumns =
     },
     {
       accessorKey: "cagrValorCota3Anos",
-      header: "CAGR COTA 3A",
+      header: t("cagrCota3a"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => (
         <span
@@ -139,7 +142,7 @@ export const createTijoloColumns =
     },
     {
       accessorKey: "gestao",
-      header: "GESTAO",
+      header: t("management"),
       sortingFn: sortNullsLast,
       cell: ({ row }) => {
         const gestao = row.getValue("gestao") as string;
@@ -148,167 +151,167 @@ export const createTijoloColumns =
     },
     {
       accessorKey: "isTopManager",
-      header: "TOP GESTORES?",
+      header: t("topManagers"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "patrimonio",
-      header: "PATRIMONIO",
+      header: t("patrimonio"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "qtdImoveis",
-      header: "QTD IMOVEIS",
+      header: t("qtdImoveis"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "ativos",
-      header: "ATIVOS",
+      header: t("ativos"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "locatario",
-      header: "LOCATARIO",
+      header: t("locatario"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "cotistas",
-      header: "COTISTAS",
+      header: t("cotistas"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "liquidezDiaria",
-      header: "LIQUIDEZ DIARIA",
+      header: t("liquidezDiaria"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "precoM2",
-      header: "PRECO M2",
+      header: t("precoM2"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "aluguelM2",
-      header: "ALUGUEL M2",
+      header: t("aluguelM2"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "capRate",
-      header: "CAP RATE",
+      header: t("capRate"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "vacanciaMedia",
-      header: "VACANCIA MEDIA",
+      header: t("vacanciaMedia"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear1",
-      header: "DIVIDENDO ANO 1",
+      header: t("dividendYear1"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue1",
-      header: "VALOR PRESENTE ANO 1",
+      header: t("presentValue1"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear2",
-      header: "DIVIDENDO ANO 2",
+      header: t("dividendYear2"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue2",
-      header: "VALOR PRESENTE ANO 2",
+      header: t("presentValue2"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear3",
-      header: "DIVIDENDO ANO 3",
+      header: t("dividendYear3"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue3",
-      header: "VALOR PRESENTE ANO 3",
+      header: t("presentValue3"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear4",
-      header: "DIVIDENDO ANO 4",
+      header: t("dividendYear4"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue4",
-      header: "VALOR PRESENTE ANO 4",
+      header: t("presentValue4"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear5",
-      header: "DIVIDENDO ANO 5",
+      header: t("dividendYear5"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue5",
-      header: "VALOR PRESENTE ANO 5",
+      header: t("presentValue5"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear6",
-      header: "DIVIDENDO ANO 6",
+      header: t("dividendYear6"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue6",
-      header: "VALOR PRESENTE ANO 6",
+      header: t("presentValue6"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear7",
-      header: "DIVIDENDO ANO 7",
+      header: t("dividendYear7"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue7",
-      header: "VALOR PRESENTE ANO 7",
+      header: t("presentValue7"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear8",
-      header: "DIVIDENDO ANO 8",
+      header: t("dividendYear8"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue8",
-      header: "VALOR PRESENTE ANO 8",
+      header: t("presentValue8"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear9",
-      header: "DIVIDENDO ANO 9",
+      header: t("dividendYear9"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue9",
-      header: "VALOR PRESENTE ANO 9",
+      header: t("presentValue9"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "dividendYear10",
-      header: "DIVIDENDO ANO 10",
+      header: t("dividendYear10"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValue10",
-      header: "VALOR PRESENTE ANO 10",
+      header: t("presentValue10"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "desinvestment",
-      header: "DESINVESTIMENTO",
+      header: t("desinvestment"),
       sortingFn: sortNullsLast,
     },
     {
       accessorKey: "presentValueDesinvestment",
-      header: "VALOR PRESENTE DO DESINVESTIMENTO",
+      header: t("desinvestmentPv"),
       sortingFn: sortNullsLast,
     },
-  ];
+  ]; };

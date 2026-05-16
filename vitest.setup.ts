@@ -117,17 +117,14 @@ vi.mock('@/components/DataTable/VirtualizedTableBody', async () => {
 // Mock next-intl to provide translation context
 vi.mock('next-intl', async () => {
   const actual = await vi.importActual('next-intl');
-  const pt: Record<string, string> = {
-    filterPlaceholder: "Filtre a ação",
-    filterButton: "Filtros",
-    columnsButton: "Colunas",
-    riskLabel: "Prêmio Risco",
-    loading: "Carregando dados...",
-    error: "Erro ao carregar dados",
-  };
+  const ptBr = await import('@/messages/pt-BR.json');
+  const pt: Record<string, Record<string, string>> = ptBr.default as Record<string, Record<string, string>>;
   return {
     ...(actual as Record<string, unknown>),
-    useTranslations: () => (key: string) => pt[key] ?? key,
+    useTranslations: (namespace: string) => {
+      const messages = pt[namespace] ?? {};
+      return (key: string) => messages[key] ?? key;
+    },
     useLocale: () => 'pt-BR',
   };
 });

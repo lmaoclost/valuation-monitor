@@ -4,11 +4,15 @@ import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 import { sortNullsLast } from "@/utils";
+import { useTranslations } from "next-intl";
 
-export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
+export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => {
+  const t = useTranslations("Columns");
+  
+  return [
   {
     accessorKey: "ticker",
-    header: "Ações",
+    header: t("ticker"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return (
@@ -24,7 +28,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "companyname",
-    header: "Nome da empresa",
+    header: t("companyName"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const companyName = row.getValue("companyname") as string;
@@ -37,7 +41,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "sectorname",
-    header: "Setor",
+    header: t("sector"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return <div className="truncate">{row.getValue("sectorname")}</div>;
@@ -45,7 +49,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "segmentname",
-    header: "Segmento",
+    header: t("segment"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const segmentName = row.getValue("segmentname") as string;
@@ -58,18 +62,18 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "cicle",
-    header: "Cíclico",
+    header: t("cyclic"),
     cell: ({ row }) => <div>{row.getValue("cicle")}</div>,
   },
   {
     accessorKey: "price",
-    header: "Preço",
+    header: t("price"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => <div>{row.getValue("price")}</div>,
   },
   {
     accessorKey: "dy",
-    header: "DY",
+    header: t("dy"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return <div>{row.getValue("dy")}</div>;
@@ -77,7 +81,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "pl",
-    header: "P/L",
+    header: t("pl"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return <div>{row.getValue("pl")}</div>;
@@ -85,37 +89,37 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "lpa",
-    header: "LPA",
+    header: t("lpa"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => <div>{row.getValue("lpa")}</div>,
   },
   {
     accessorKey: "vpa",
-    header: "VPA",
+    header: t("vpa"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => <div>{row.getValue("vpa")}</div>,
   },
   {
     accessorKey: "dpa",
-    header: "DPA",
+    header: t("dpa"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => <div>{row.getValue("dpa")}</div>,
   },
   {
     accessorKey: "risk",
-    header: "Risco",
+    header: t("risk"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => <div>{row.getValue("risk")}</div>,
   },
   {
     accessorKey: "discount_margin",
-    header: "Margem de desconto",
+    header: t("discountMargin"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => <div>{row.getValue("discount_margin")}</div>,
   },
   {
     accessorKey: "payout",
-    header: "Payout",
+    header: t("payout"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return <div>{row.getValue("payout")}</div>;
@@ -123,7 +127,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "growthDividend",
-    header: "Crescimento/Dividendos",
+    header: t("growthDividends"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return <div>{row.getValue("growthDividend")}</div>;
@@ -131,7 +135,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "roe",
-    header: "ROE",
+    header: t("roe"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return <div>{row.getValue("roe")}</div>;
@@ -139,7 +143,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "cagrProfit",
-    header: "CAGR LUCRO 5A",
+    header: t("cagrProfit5y"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return <div>{row.getValue("cagrProfit")}</div>;
@@ -147,7 +151,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "damodaramGrowth",
-    header: "Crescimento Damodaram",
+    header: t("damodaranGrowth"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return <div>{row.getValue("damodaramGrowth")}</div>;
@@ -155,7 +159,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "growthAverage",
-    header: "Média de Crescimento",
+    header: t("avgGrowth"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const value = row.getValue("growthAverage") as string;
@@ -172,7 +176,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "bazinDiscount",
-    header: "Desc Bazin",
+    header: t("descBazin"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const value = row.getValue("bazinDiscount") as string;
@@ -189,7 +193,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "bazinFairPrice",
-    header: "Preço justo Bazin",
+    header: t("bazinFairPrice"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const bazinFairPrice = row.getValue("bazinFairPrice");
@@ -202,7 +206,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "bazinCeelingPrice",
-    header: "Preço teto Bazin",
+    header: t("bazinCeilingPrice"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const bazinCeelingPrice = row.getValue("bazinCeelingPrice");
@@ -215,7 +219,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "grahamDiscount",
-    header: "Desc Graham",
+    header: t("descGraham"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const value = row.getValue("grahamDiscount") as string;
@@ -232,7 +236,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "grahamFairPrice",
-    header: "Preço justo Graham",
+    header: t("grahamFairPrice"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const grahamFairPrice = row.getValue("grahamFairPrice");
@@ -245,7 +249,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "grahamCeelingPrice",
-    header: "Preço teto Graham",
+    header: t("grahamCeilingPrice"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const grahamCeelingPrice = row.getValue("grahamCeelingPrice");
@@ -258,7 +262,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "gordonDiscount",
-    header: "Desc Gordon",
+    header: t("descGordon"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const value = row.getValue("gordonDiscount") as string;
@@ -275,7 +279,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "d1",
-    header: "D1",
+    header: t("d1"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const d1 = row.getValue("d1");
@@ -288,7 +292,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "gordonFairPrice",
-    header: "Preço justo Gordon",
+    header: t("gordonFairPrice"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const gordonFairPrice = row.getValue("gordonFairPrice");
@@ -301,7 +305,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "gordonCeelingPrice",
-    header: "Preço teto Gordon",
+    header: t("gordonCeilingPrice"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const gordonCeelingPrice = row.getValue("gordonCeelingPrice");
@@ -314,7 +318,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "peg",
-    header: "PEG",
+    header: t("peg"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const value = row.getValue("peg") as number;
@@ -334,7 +338,7 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
   },
   {
     accessorKey: "psr",
-    header: "PSR",
+    header: t("psr"),
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       const value = row.getValue("psr") as number;
@@ -352,4 +356,4 @@ export const createColumns = (): ColumnDef<StocksFormattedDataType>[] => [
     enableHiding: false,
     cell: () => null,
   },
-];
+]; };

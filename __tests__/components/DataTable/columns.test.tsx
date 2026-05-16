@@ -20,7 +20,7 @@ describe('DataTable Columns', () => {
     const tickerColumn = columns.find(col => col.accessorKey === 'ticker');
     
     expect(tickerColumn).toBeDefined();
-    expect(tickerColumn?.header).toBe('Ações');
+    expect(tickerColumn?.header).toBe('CODIGO');
   });
 
   it('creates companyname column', () => {

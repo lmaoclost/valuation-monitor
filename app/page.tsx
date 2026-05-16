@@ -14,6 +14,7 @@ import {
 
 export default function LandingPage() {
   const t = useTranslations("LandingPage");
+  const tc = useTranslations("Columns");
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       <div className="grain" />
@@ -277,7 +278,7 @@ export default function LandingPage() {
               <div className="space-y-2 font-mono text-sm">
                 <div className="grid grid-cols-4 gap-2 text-muted-foreground text-xs pb-2 border-b border-border">
                   <span>TICKER</span>
-                  <span>{t("price")}</span>
+                  <span>{tc("price")}</span>
                   <span>P/L</span>
                   <span>FAIR</span>
                 </div>
