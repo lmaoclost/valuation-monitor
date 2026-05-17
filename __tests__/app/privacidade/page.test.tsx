@@ -15,7 +15,7 @@ describe("Privacy Page", () => {
     expect(screen.getByText(/não coleta.*dados pessoais/i)).toBeDefined();
   });
 
-  it("should mention no cookies", () => {
+  it("should mention cookies usage", () => {
     render(<PrivacyPage />);
 
     expect(screen.getAllByText(/cookies/i).length).toBeGreaterThan(0);

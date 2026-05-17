@@ -74,7 +74,7 @@
     "Top Gestores": "Top Gestores"
   },
   "Lgpd": {
-    "message": "Este site não coleta dados pessoais nem utiliza cookies.",
+    "message": "Este site não coleta dados pessoais. Utiliza apenas um cookie de preferência de idioma.",
     "privacyLink": "Política de Privacidade",
     "dismiss": "Entendido"
   },
@@ -173,7 +173,7 @@
     "section2Text1": "Este site não coleta dados pessoais dos usuários. Não solicitamos nome, e-mail, CPF, endereço, telefone ou qualquer informação pessoal identificável.",
     "section2Text2": "O site processa exclusivamente dados financeiros públicos provenientes de terceiros (StatusInvest, Fundamentus, FGV) para fins de exibição de indicadores de valuation.",
     "section3Title": "3. Cookies e Tecnologias de Rastreamento",
-    "section3Text": "Este site não utiliza cookies, nem qualquer tecnologia de rastreamento (web beacons, pixels, fingerprinting, analytics). O único dado de infraestrutura processado é o endereço IP, utilizado exclusivamente para controle de taxa de requisições (rate limiting) e armazenado de forma anonimizada (hash SHA-256 com sal diário) por até 60 segundos.",
+    "section3Text": "Este site utiliza exclusivamente o cookie NEXT_LOCALE para armazenar sua preferência de idioma (pt-BR ou en). Este cookie é estritamente funcional, não armazena dados pessoais e não é usado para rastreamento. Nenhuma outra tecnologia de rastreamento é utilizada (web beacons, pixels, fingerprinting, analytics). O único dado de infraestrutura processado é o endereço IP, utilizado exclusivamente para controle de taxa de requisições (rate limiting) e armazenado de forma anonimizada (hash SHA-256 com sal diário) por até 60 segundos.",
     "section4Title": "4. Finalidade do Tratamento",
     "section4Text": "Os dados processados têm como única finalidade exibir cálculos de valuation (Bazin, Graham, Gordon) para ações brasileiras, americanas, FIIs e REITs. Não há tomada de decisão automatizada baseada em perfis de usuários.",
     "section5Title": "5. Compartilhamento com Terceiros",
