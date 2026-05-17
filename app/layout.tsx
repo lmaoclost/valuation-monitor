@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Lora, JetBrains_Mono } from "next/font/google";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
 import { Providers } from "./providers";
 import { LgpdBannerWrapper } from "@/components/lgpd-banner-wrapper";
@@ -23,17 +24,19 @@ export const metadata: Metadata = {
   description: "Radar fundamentalista para análise de ações",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="pt-BR">
+    <html lang={locale}>
       <body
         className={`${playfair.variable} ${lora.variable} ${jetbrains.variable} antialiased`}
       >
-        <I18nClientProvider>
+        <I18nClientProvider locale={locale}>
           <Providers>
             {children}
             <LgpdBannerWrapper />
