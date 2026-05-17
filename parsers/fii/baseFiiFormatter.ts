@@ -4,18 +4,18 @@ import { calculateFiiPapelFieldColor } from "@/utils/calculateFiiPapelFieldColor
 export function baseFiiFormatter(row: {
   ticker: string;
   category: string;
-  price: string;
-  dy: string;
+  price: number;
+  dy: number;
   pvp: number;
   caixa: number;
-  cagrDividendos3Anos: string;
-  cagrValorCota3Anos: string;
-  patrimonio: string;
+  cagrDividendos3Anos: number;
+  cagrValorCota3Anos: number;
+  patrimonio: number;
   gestor: string;
   isTopManager: boolean;
   gestao: string;
   cotistas: number;
-  liquidezDiaria: string;
+  liquidezDiaria: number;
 }) {
   return {
     ticker: row.ticker,
