@@ -36,20 +36,20 @@ describe('TableControls', () => {
     render(
       <TableControls
         table={mockTable as any}
-        onApplyPreset={vi.fn()}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
     
     expect(screen.getByPlaceholderText('Filtre a ação')).toBeInTheDocument();
   });
 
-  it('renders Filter button when onApplyPreset provided', () => {
+  it('renders Filter button when onSelectedPresetsChange provided', () => {
     const mockTable = createMockTable();
     
     render(
       <TableControls
         table={mockTable as any}
-        onApplyPreset={vi.fn()}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
     
@@ -63,7 +63,7 @@ describe('TableControls', () => {
       <TableControls
         table={mockTable as any}
         complementarData={{ risk: '4%', ipca: '4.5%', erp: '10%' }}
-        onApplyPreset={vi.fn()}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
     
@@ -78,14 +78,14 @@ describe('TableControls', () => {
     render(
       <TableControls
         table={mockTable as any}
-        onApplyPreset={vi.fn()}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
     
     expect(screen.queryByText(/IPCA:/)).not.toBeInTheDocument();
   });
 
-  it('renders without Filter button when onApplyPreset not provided', () => {
+  it('renders without Filter button when onSelectedPresetsChange not provided', () => {
     const mockTable = createMockTable();
     
     render(
@@ -103,7 +103,7 @@ describe('TableControls', () => {
     const { container } = render(
       <TableControls
         table={mockTable as any}
-        onApplyPreset={vi.fn()}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
     
@@ -122,7 +122,7 @@ describe('TableControls', () => {
       <TableControls
         table={mockTable as any}
         onGlobalFilterChange={vi.fn()}
-        onApplyPreset={vi.fn()}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
     

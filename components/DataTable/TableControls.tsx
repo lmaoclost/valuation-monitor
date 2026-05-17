@@ -7,10 +7,10 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
-import { stocksPresets } from "@/constants";
 import { useTranslations } from "next-intl";
 import type { GenericTanStackTable, GenericTanStackColumn } from "@/@types/TanStackTableTypes";
 
@@ -25,9 +25,12 @@ interface TableControlsProps {
   };
   riskDisplay?: string;
   riskLabel?: string;
-  onApplyPreset?: (preset: string) => void;
+  selectedPresets?: string[];
+  onSelectedPresetsChange?: (presets: string[]) => void;
   presets?: Record<string, unknown>;
 }
+
+const CLEAR_KEY = "Limpar";
 
 export function TableControls({
   table,
@@ -36,12 +39,23 @@ export function TableControls({
   complementarData,
   riskDisplay,
   riskLabel,
-  onApplyPreset,
+  selectedPresets = [],
+  onSelectedPresetsChange,
   presets,
 }: TableControlsProps) {
   const t = useTranslations("TableControls");
   const tPresets = useTranslations("Presets");
-  const activePresets = presets ?? stocksPresets;
+  const activePresets = presets;
+  const presetKeys = activePresets ? Object.keys(activePresets).filter((k) => k !== CLEAR_KEY) : [];
+
+  const handleToggle = (key: string, checked: boolean) => {
+    if (checked) {
+      onSelectedPresetsChange?.([...selectedPresets, key]);
+    } else {
+      onSelectedPresetsChange?.(selectedPresets.filter((k) => k !== key));
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between">
       <Input
@@ -63,7 +77,7 @@ export function TableControls({
         </div>
       )}
       <div className="flex flex-wrap gap-2">
-        {onApplyPreset && (
+        {onSelectedPresetsChange && (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
@@ -71,13 +85,19 @@ export function TableControls({
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              {Object.keys(activePresets).map((key) => (
-                <DropdownMenuItem
+              <DropdownMenuItem onClick={() => onSelectedPresetsChange([])}>
+                {tPresets(CLEAR_KEY)}
+              </DropdownMenuItem>
+              {presetKeys.length > 0 && <DropdownMenuSeparator />}
+              {presetKeys.map((key) => (
+                <DropdownMenuCheckboxItem
                   key={key}
-                  onClick={() => onApplyPreset?.(key)}
+                  checked={selectedPresets.includes(key)}
+                  onCheckedChange={(checked) => handleToggle(key, !!checked)}
+                  onSelect={(e) => e.preventDefault()}
                 >
                   {tPresets(key)}
-                </DropdownMenuItem>
+                </DropdownMenuCheckboxItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>

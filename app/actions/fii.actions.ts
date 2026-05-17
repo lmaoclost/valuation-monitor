@@ -26,8 +26,3 @@ export async function getFiiRisk() {
   return await fetchWithSecret("fetch-fii-risk");
 }
 
-export async function getFiiPreset(type: string, preset: string) {
-  return await fetchWithSecret(
-    `fetch-fii-preset/filter?type=${type}&preset=${preset}`,
-  );
-}

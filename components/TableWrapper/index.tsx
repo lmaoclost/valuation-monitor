@@ -1,20 +1,19 @@
 "use client";
 
-import { useQuery, useMutation, useQueryClient, keepPreviousData } from "@tanstack/react-query";
-import { Suspense } from "react";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
+import { useState, Suspense, useMemo } from "react";
 import {
     getStocksAndComplementary,
-    getPresetStocks,
 } from "@/app/actions/stock.actions";
 import { DataTable } from "@/components/DataTable";
 import { createColumns } from "@/components/DataTable/columns";
 import { LoadingState, ErrorState } from "@/components/ui/states";
-import { useMemo, useCallback, useEffect } from "react";
-import { brStocksColumnVisibility } from "@/constants";
+import { brStocksColumnVisibility, stocksPresets } from "@/constants";
 import { useTranslations, useLocale } from "next-intl";
+import type { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 
 export function TableWrapper() {
-    const queryClient = useQueryClient();
+    const [selectedPresets, setSelectedPresets] = useState<string[]>([]);
     const t = useTranslations("Columns");
     const locale = useLocale();
 
@@ -27,40 +26,20 @@ export function TableWrapper() {
         placeholderData: keepPreviousData,
     });
 
-    // Prefetch preset data on mount for faster preset switching
-    useEffect(() => {
-        const presets = ["acoes", "small-caps", "mid-caps", "large-caps"];
-        presets.forEach((preset) => {
-            queryClient.prefetchQuery({
-                queryKey: ["preset-stocks", preset],
-                queryFn: () => getPresetStocks(preset),
-                staleTime: 24 * 60 * 60 * 1000,
-            });
-        });
-    }, [queryClient]);
-
-    const { mutateAsync: applyPreset, isPending: isPresetLoading } =
-        useMutation({
-            mutationFn: async (preset: string) => await getPresetStocks(preset),
-            onSuccess: (filtered) => {
-                queryClient.setQueryData(
-                    ["stocks-and-complementary"],
-                    (old) => ({
-                        ...(old ?? {}),
-                        stocks: filtered,
-                    }),
-                );
-            },
-        });
-
-    const handleApplyPreset = useCallback(async (preset: string) => {
-        await applyPreset(preset);
-    }, [applyPreset]);
-
     const memoizedColumns = useMemo(() => createColumns(t, locale), [t, locale]);
-    const memoizedData = useMemo(() => data?.stocks ?? [], [data?.stocks]);
+    const allStocks = useMemo(() => data?.stocks ?? [], [data?.stocks]);
 
-    if (isLoading || isPresetLoading) return <LoadingState />;
+    const filteredData = useMemo(() => {
+        if (selectedPresets.length === 0) return allStocks;
+        return allStocks.filter((item: StocksFormattedDataType) =>
+            selectedPresets.every((key) => {
+                const fn = stocksPresets[key as keyof typeof stocksPresets];
+                return fn ? fn(item) : true;
+            })
+        );
+    }, [allStocks, selectedPresets]);
+
+    if (isLoading) return <LoadingState />;
     
     if (isError) return <ErrorState error={error as Error} />;
 
@@ -68,9 +47,11 @@ export function TableWrapper() {
         <Suspense fallback={<LoadingState />}>
             <DataTable
                 columns={memoizedColumns}
-                data={memoizedData}
+                data={filteredData}
                 complementarData={data?.comp}
-                onApplyPreset={handleApplyPreset}
+                selectedPresets={selectedPresets}
+                onSelectedPresetsChange={setSelectedPresets}
+                presets={stocksPresets}
                 initialColumnVisibility={brStocksColumnVisibility}
             />
         </Suspense>

@@ -1,27 +1,21 @@
 "use client";
 
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  keepPreviousData,
-} from "@tanstack/react-query";
-import { Suspense } from "react";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
+import { useState, Suspense, useMemo } from "react";
 import {
   getUSAStocksAndComplementary,
-  getUSAStocksPreset,
 } from "@/app/actions/usaStock.actions";
 import { DataTable } from "@/components/DataTable";
 import { createUSAColumns } from "@/components/DataTable/usaColumns";
 import { LoadingState, ErrorState } from "@/components/ui/states";
-import { useMemo, useCallback, useEffect } from "react";
 import { usaStocksPresets } from "@/constants/usaStocksPresets";
 import { usaStocksColumnVisibility } from "@/constants";
 import { USA_RISK_PREMIUM } from "@/lib/marketConfig";
 import { useTranslations } from "next-intl";
+import type { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 
 export function USATableWrapper() {
-  const queryClient = useQueryClient();
+  const [selectedPresets, setSelectedPresets] = useState<string[]>([]);
   const t = useTranslations("Columns");
 
   const { data, isLoading, isError, error } = useQuery({
@@ -33,38 +27,20 @@ export function USATableWrapper() {
     placeholderData: keepPreviousData,
   });
 
-  useEffect(() => {
-    const presets = ["Discounted", "Discounted PEG"];
-    presets.forEach((preset) => {
-      queryClient.prefetchQuery({
-        queryKey: ["usa-preset-stocks", preset],
-        queryFn: () => getUSAStocksPreset(preset),
-        staleTime: 24 * 60 * 60 * 1000,
-      });
-    });
-  }, [queryClient]);
-
-  const { mutateAsync: applyPreset, isPending: isPresetLoading } = useMutation({
-    mutationFn: async (preset: string) => await getUSAStocksPreset(preset),
-    onSuccess: (filtered) => {
-      queryClient.setQueryData(["usa-stocks"], (old) => ({
-        ...(old ?? {}),
-        stocks: filtered,
-      }));
-    },
-  });
-
-  const handleApplyPreset = useCallback(
-    async (preset: string) => {
-      await applyPreset(preset);
-    },
-    [applyPreset],
-  );
-
   const memoizedColumns = useMemo(() => createUSAColumns(t), [t]);
-  const memoizedData = useMemo(() => data?.stocks ?? [], [data?.stocks]);
+  const allStocks = useMemo(() => data?.stocks ?? [], [data?.stocks]);
 
-  if (isLoading || isPresetLoading) return <LoadingState />;
+  const filteredData = useMemo(() => {
+    if (selectedPresets.length === 0) return allStocks;
+    return allStocks.filter((item: StocksFormattedDataType) =>
+      selectedPresets.every((key) => {
+        const fn = usaStocksPresets[key as keyof typeof usaStocksPresets];
+        return fn ? fn(item) : true;
+      })
+    );
+  }, [allStocks, selectedPresets]);
+
+  if (isLoading) return <LoadingState />;
 
   if (isError) return <ErrorState error={error as Error} />;
 
@@ -72,9 +48,10 @@ export function USATableWrapper() {
     <Suspense fallback={<LoadingState />}>
       <DataTable
         columns={memoizedColumns}
-        data={memoizedData}
+        data={filteredData}
         riskDisplay={(USA_RISK_PREMIUM * 100).toFixed(2) + "%"}
-        onApplyPreset={handleApplyPreset}
+        selectedPresets={selectedPresets}
+        onSelectedPresetsChange={setSelectedPresets}
         presets={usaStocksPresets}
         initialColumnVisibility={usaStocksColumnVisibility}
       />

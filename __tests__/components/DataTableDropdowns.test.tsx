@@ -71,7 +71,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -84,7 +85,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -100,7 +102,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -114,7 +117,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -128,7 +132,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -143,7 +148,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -153,20 +159,17 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
     expect(filterInput).toHaveValue('TEST1');
   });
 
-  it('should call onApplyPreset when preset is selected', async () => {
-    const user = userEvent.setup();
-    const onApplyPreset = vi.fn();
-
+  it('should render filter dropdown with preset options', async () => {
     render(
       <DataTable
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={onApplyPreset}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
-    // The Filtros dropdown should exist (it maps over stocksPresets)
     const filterButton = screen.getByText(/Filtros/);
     expect(filterButton).toBeInTheDocument();
   });
@@ -177,7 +180,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -191,7 +195,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -205,7 +210,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={[]}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -218,7 +224,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 
@@ -232,7 +239,8 @@ describe('DataTable - Dropdown Interactions and Conditional Rendering', () => {
         columns={createMockColumns()}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={vi.fn()}
+        selectedPresets={[]}
+        onSelectedPresetsChange={vi.fn()}
       />
     );
 

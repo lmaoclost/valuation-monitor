@@ -9,8 +9,6 @@ vi.mock('@tanstack/react-query', async () => {
   return {
     ...actual,
     useQuery: vi.fn(),
-    useMutation: vi.fn(),
-    useQueryClient: vi.fn(),
     keepPreviousData: true,
   };
 });
@@ -18,7 +16,6 @@ vi.mock('@tanstack/react-query', async () => {
 // Mock actions
 vi.mock('@/app/actions/stock.actions', () => ({
   getStocksAndComplementary: vi.fn(),
-  getPresetStocks: vi.fn(),
 }));
 
 // Mock DataTable component
@@ -40,7 +37,7 @@ vi.mock('@/components/DataTable/columns', () => ({
   ]),
 }));
 
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 describe('TableWrapper Component', () => {
   beforeEach(() => {
@@ -51,16 +48,6 @@ describe('TableWrapper Component', () => {
     vi.mocked(useQuery).mockReturnValueOnce({
       data: undefined,
       isLoading: true,
-    } as any);
-
-    vi.mocked(useMutation).mockReturnValueOnce({
-      mutateAsync: vi.fn(),
-      isPending: false,
-    } as any);
-
-    vi.mocked(useQueryClient).mockReturnValueOnce({
-      setQueryData: vi.fn(),
-      prefetchQuery: vi.fn(),
     } as any);
 
     render(<TableWrapper />);
@@ -85,16 +72,6 @@ describe('TableWrapper Component', () => {
       isLoading: false,
     } as any);
 
-    vi.mocked(useMutation).mockReturnValueOnce({
-      mutateAsync: vi.fn(),
-      isPending: false,
-    } as any);
-
-    vi.mocked(useQueryClient).mockReturnValueOnce({
-      setQueryData: vi.fn(),
-      prefetchQuery: vi.fn(),
-    } as any);
-
     render(<TableWrapper />);
 
     await waitFor(() => {
@@ -117,48 +94,10 @@ describe('TableWrapper Component', () => {
       isLoading: false,
     } as any);
 
-    vi.mocked(useMutation).mockReturnValueOnce({
-      mutateAsync: vi.fn(),
-      isPending: false,
-    } as any);
-
-    vi.mocked(useQueryClient).mockReturnValueOnce({
-      setQueryData: vi.fn(),
-      prefetchQuery: vi.fn(),
-    } as any);
-
     render(<TableWrapper />);
 
     await waitFor(() => {
       expect(screen.getByText('3 rows')).toBeInTheDocument();
-    });
-  });
-
-  it('should render loading state during preset mutation', async () => {
-    const mockData = {
-      stocks: [{ ticker: 'PETR4' }],
-      comp: { risk: '8%', ipca: '4.5%', erp: '7.5%' },
-    };
-
-    vi.mocked(useQuery).mockReturnValueOnce({
-      data: mockData,
-      isLoading: false,
-    } as any);
-
-    vi.mocked(useMutation).mockReturnValueOnce({
-      mutateAsync: vi.fn(),
-      isPending: true, // Loading during preset application
-    } as any);
-
-    vi.mocked(useQueryClient).mockReturnValueOnce({
-      setQueryData: vi.fn(),
-      prefetchQuery: vi.fn(),
-    } as any);
-
-    render(<TableWrapper />);
-
-    await waitFor(() => {
-      expect(screen.getByText('Carregando dados...')).toBeInTheDocument();
     });
   });
 
@@ -171,16 +110,6 @@ describe('TableWrapper Component', () => {
     vi.mocked(useQuery).mockReturnValueOnce({
       data: mockData,
       isLoading: false,
-    } as any);
-
-    vi.mocked(useMutation).mockReturnValueOnce({
-      mutateAsync: vi.fn(),
-      isPending: false,
-    } as any);
-
-    vi.mocked(useQueryClient).mockReturnValueOnce({
-      setQueryData: vi.fn(),
-      prefetchQuery: vi.fn(),
     } as any);
 
     render(<TableWrapper />);
@@ -199,16 +128,6 @@ describe('TableWrapper Component', () => {
     vi.mocked(useQuery).mockReturnValueOnce({
       data: mockData,
       isLoading: false,
-    } as any);
-
-    vi.mocked(useMutation).mockReturnValueOnce({
-      mutateAsync: vi.fn(),
-      isPending: false,
-    } as any);
-
-    vi.mocked(useQueryClient).mockReturnValueOnce({
-      setQueryData: vi.fn(),
-      prefetchQuery: vi.fn(),
     } as any);
 
     render(<TableWrapper />);

@@ -12,6 +12,3 @@ export const getStocksAndComplementary = cache(async () => {
   return { stocks, comp };
 });
 
-export async function getPresetStocks(preset: string) {
-  return await fetchWithSecret(`fetch-preset-stocks/filter?preset=${preset}`);
-}

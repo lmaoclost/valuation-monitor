@@ -7,7 +7,3 @@ export const getUSAReitAndComplementary = cache(async () => {
   const stocks = await fetchWithSecret("fetch-usa-reit");
   return { stocks, comp: null };
 });
-
-export async function getUSAReitPreset(preset: string) {
-  return await fetchWithSecret(`fetch-usa-reit-preset/filter?preset=${preset}`);
-}
