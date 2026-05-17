@@ -1,6 +1,6 @@
 import type { FiiCSVRow } from "./tijoloSchema";
 import type { FiiPapelCalculatedDataType } from "@/@types/FiiPapelCalculatedDataType";
-import { brazilianFIIManager } from "@/constants/brazilianFIIManager";
+import { baseFiiDomain } from "./baseFiiDomain";
 
 const PAPEL_SUBCATEGORIES: Record<string, string> = {
   KNIP11: "Recebiveis >50% IPCA",
@@ -52,24 +52,8 @@ const PAPEL_SUBCATEGORIES: Record<string, string> = {
 export const papelDomain = (
   row: FiiCSVRow,
 ): FiiPapelCalculatedDataType => {
-  const ticker = row.TICKER;
-  const manager = brazilianFIIManager[ticker];
-
   return {
-    ticker,
-    category: manager?.category ?? "",
-    price: row.PRECO,
-    dy: row.DY,
-    pvp: row["P/VP"],
-    caixa: row["PERCENTUAL EM CAIXA"],
-    cagrDividendos3Anos: row["CAGR DIVIDENDOS 3 ANOS"],
-    cagrValorCota3Anos: row[" CAGR VALOR CORA 3 ANOS"],
-    patrimonio: row.PATRIMONIO,
-    gestor: manager?.manager ?? "",
-    isTopManager: manager?.isTopManager ?? false,
-    gestao: row.GESTAO,
-    cotistas: row["N COTISTAS"],
-    liquidezDiaria: row["LIQUIDEZ MEDIA DIARIA"],
-    subcategoria: PAPEL_SUBCATEGORIES[ticker] ?? "Recebiveis Outros",
+    ...baseFiiDomain(row),
+    subcategoria: PAPEL_SUBCATEGORIES[row.TICKER] ?? "Recebiveis Outros",
   };
 };

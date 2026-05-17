@@ -1,16 +1,5 @@
 import { z } from "zod";
-
-const toNumber = z.string().transform((val) => {
-  if (!val || val.trim() === "") return Number();
-  const parsed = parseFloat(val.replace(/\./g, "").replace(",", "."));
-  return isNaN(parsed) ? Number() : parsed;
-});
-
-const toPercentage = z.string().transform((val) => {
-  if (!val || val.trim() === "") return Number();
-  const parsed = parseFloat(val.replace(",", "."));
-  return isNaN(parsed) ? Number() : parsed / 100;
-});
+import { toNumber, toPercentage } from "@/parsers/shared/transforms";
 
 export const StatusInvestNormalizedSchema = z.array(
   z.object({

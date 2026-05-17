@@ -31,12 +31,12 @@ const getBasePremium = (
   return 0.06;
 };
 
-export const tijoloParser = async (
+export const tijoloParser = (
   statusInvestData: z.infer<typeof StatusInvestFiiSchema>,
   fundamentusData: z.infer<typeof FundamentusFiiSchema>,
   tesouroRate: number,
   growthRate: number,
-): Promise<FiiTijoloFormattedDataType[]> => {
+): FiiTijoloFormattedDataType[] => {
   const fundamentusMap = new Map(
     fundamentusData.map((row) => [row.Papel, row]),
   );

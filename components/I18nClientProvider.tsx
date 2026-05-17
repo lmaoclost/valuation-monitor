@@ -10,27 +10,21 @@ const messages: Record<string, Record<string, unknown>> = {
   en,
 };
 
-function getCookie(name: string): string | undefined {
-  if (typeof document === "undefined") return undefined;
-  const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${name}=([^;]*)`));
-  return match ? decodeURIComponent(match[1]) : undefined;
-}
-
 export function I18nClientProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = useState<string>("pt-BR");
+  const [locale, setLocale] = useState("pt-BR");
 
   useEffect(() => {
-    const cookie = getCookie("NEXT_LOCALE");
+    const match = document.cookie.match(/(?:^|;\s*)NEXT_LOCALE=([^;]*)/);
+    const cookie = match ? decodeURIComponent(match[1]) : null;
     const detected = cookie === "en" || cookie === "pt-BR" ? cookie : navigator.language?.startsWith("en") ? "en" : "pt-BR";
     setLocale(detected);
-    document.documentElement.lang = detected;
-    const meta = detected === "en" ? en.LandingPage : ptBR.LandingPage;
-    const desc = document.querySelector("meta[name='description']");
-    if (desc) desc.setAttribute("content", meta.description as string);
   }, []);
 
   useEffect(() => {
     document.documentElement.lang = locale;
+    const meta = locale === "en" ? en.LandingPage : ptBR.LandingPage;
+    const desc = document.querySelector("meta[name='description']");
+    if (desc) desc.setAttribute("content", meta.description as string);
   }, [locale]);
 
   return (

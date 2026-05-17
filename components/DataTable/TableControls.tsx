@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,7 +33,7 @@ interface TableControlsProps {
 
 const CLEAR_KEY = "Limpar";
 
-export function TableControls({
+function TableControlsInner({
   table,
   globalFilter,
   onGlobalFilterChange,
@@ -133,4 +134,6 @@ export function TableControls({
       </div>
     </div>
   );
-}
+};
+
+export const TableControls = memo(TableControlsInner);

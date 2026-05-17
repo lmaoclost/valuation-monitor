@@ -18,7 +18,7 @@ export const getFiiCSVData = async () => {
     });
 
     const cleanData = parsedData.data.map((row: unknown) =>
-      JSON.parse(JSON.stringify(row)),
+      structuredClone(row),
     );
 
     return cleanData;

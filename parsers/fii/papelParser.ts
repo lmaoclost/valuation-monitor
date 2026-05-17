@@ -5,9 +5,9 @@ import { brazilianFIIManager } from "@/constants/brazilianFIIManager";
 import type { FiiPapelFormattedDataType } from "@/@types/FiiPapelFormattedDataType";
 import { z } from "zod";
 
-export const papelParser = async (
+export const papelParser = (
   data: z.infer<typeof StatusInvestFiiSchema>,
-): Promise<FiiPapelFormattedDataType[]> => {
+): FiiPapelFormattedDataType[] => {
   return data
     .filter((row) => brazilianFIIManager[row.TICKER]?.type === "papel")
     .map(papelDomain)

@@ -12,6 +12,20 @@ import { LoadingState, ErrorState } from "@/components/ui/states";
 import { fiiTijoloColumnVisibility, fiiPapelColumnVisibility } from "@/constants";
 import { fiiTijoloPresets, fiiPapelPresets, fiiFiagroPresets, fiiFiInfraPresets, fiiFofPresets } from "@/constants/fiiPresets";
 
+function filterByPresets<T>(
+  data: T[],
+  selectedPresets: string[],
+  presets: Record<string, null | ((item: T) => boolean)>,
+): T[] {
+  if (selectedPresets.length === 0) return data;
+  return data.filter((item) =>
+    selectedPresets.every((key) => {
+      const fn = presets[key];
+      return fn ? fn(item) : true;
+    }),
+  );
+}
+
 type FiiTab = "tijolo" | "papel" | "fiagro" | "fi-infra" | "fof";
 
 const TAB_IDS: FiiTab[] = ["tijolo", "papel", "fiagro", "fi-infra", "fof"];
@@ -31,6 +45,7 @@ export function FIITableWrapper() {
 
   const tijoloQuery = useQuery({
     queryKey: ["fii-tijolo"],
+    enabled: activeTab === "tijolo",
     queryFn: async () => await getFiiTijolo(),
     staleTime: 24 * 60 * 60 * 1000,
     gcTime: 24 * 60 * 60 * 1000,
@@ -40,6 +55,7 @@ export function FIITableWrapper() {
 
   const papelQuery = useQuery({
     queryKey: ["fii-papel"],
+    enabled: activeTab === "papel",
     queryFn: async () => await getFiiPapel(),
     staleTime: 24 * 60 * 60 * 1000,
     gcTime: 24 * 60 * 60 * 1000,
@@ -49,6 +65,7 @@ export function FIITableWrapper() {
 
   const fiagroQuery = useQuery({
     queryKey: ["fii-fiagro"],
+    enabled: activeTab === "fiagro",
     queryFn: async () => await getFiiFiagro(),
     staleTime: 24 * 60 * 60 * 1000,
     gcTime: 24 * 60 * 60 * 1000,
@@ -58,6 +75,7 @@ export function FIITableWrapper() {
 
   const fiInfraQuery = useQuery({
     queryKey: ["fii-fi-infra"],
+    enabled: activeTab === "fi-infra",
     queryFn: async () => await getFiiFiInfra(),
     staleTime: 24 * 60 * 60 * 1000,
     gcTime: 24 * 60 * 60 * 1000,
@@ -67,6 +85,7 @@ export function FIITableWrapper() {
 
   const fofQuery = useQuery({
     queryKey: ["fii-fof"],
+    enabled: activeTab === "fof",
     queryFn: async () => await getFiiFof(),
     staleTime: 24 * 60 * 60 * 1000,
     gcTime: 24 * 60 * 60 * 1000,
@@ -106,13 +125,7 @@ export function FIITableWrapper() {
     switch (activeTab) {
       case "tijolo": {
         const data = tijoloQuery.data ?? [];
-        const filtered = selectedPresets.length === 0 ? data
-          : data.filter((item: any) =>
-              selectedPresets.every((key) => {
-                const fn = fiiTijoloPresets[key as keyof typeof fiiTijoloPresets];
-                return fn ? fn(item) : true;
-              })
-            );
+        const filtered = filterByPresets(data, selectedPresets, fiiTijoloPresets);
         return (
           <DataTable
             key="tijolo"
@@ -133,13 +146,7 @@ export function FIITableWrapper() {
       }
       case "papel": {
         const data = papelQuery.data ?? [];
-        const filtered = selectedPresets.length === 0 ? data
-          : data.filter((item: any) =>
-              selectedPresets.every((key) => {
-                const fn = fiiPapelPresets[key as keyof typeof fiiPapelPresets];
-                return fn ? fn(item) : true;
-              })
-            );
+        const filtered = filterByPresets(data, selectedPresets, fiiPapelPresets);
         return (
           <DataTable
             key="papel"
@@ -162,13 +169,7 @@ export function FIITableWrapper() {
       case "fi-infra":
       case "fof": {
         const data = tabQueries[activeTab].data ?? [];
-        const filtered = selectedPresets.length === 0 ? data
-          : data.filter((item: any) =>
-              selectedPresets.every((key) => {
-                const fn = TAB_TO_PRESETS[activeTab]?.[key];
-                return fn ? fn(item) : true;
-              })
-            );
+        const filtered = filterByPresets(data, selectedPresets, TAB_TO_PRESETS[activeTab] ?? {});
         return (
           <DataTable
             key={activeTab}

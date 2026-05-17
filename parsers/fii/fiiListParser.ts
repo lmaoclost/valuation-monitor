@@ -5,10 +5,10 @@ import { brazilianFIIManager } from "@/constants/brazilianFIIManager";
 import type { FiiListFormattedDataType } from "@/@types/FiiListFormattedDataType";
 import { z } from "zod";
 
-export const fiiListParser = async (
+export const fiiListParser = (
   data: z.infer<typeof StatusInvestFiiSchema>,
   typeFilter: string,
-): Promise<FiiListFormattedDataType[]> => {
+): FiiListFormattedDataType[] => {
   return data
     .filter((row) => brazilianFIIManager[row.TICKER]?.type === typeFilter)
     .map(fiiListDomain)

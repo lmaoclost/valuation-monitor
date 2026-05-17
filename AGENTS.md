@@ -36,7 +36,9 @@ No separate typecheck command (handled by Next.js build).
     - `usa-reit/` — USA REITs
 - `services/` — Data fetching services (stocks, ERP, IPCA, risk data)
 - `parsers/` — CSV/data parsing logic
-  - `stocks/` — Stock parsing (BR + USA formatters)
+  - `shared/transforms.ts` — Shared Zod `toNumber`/`toPercentage` transforms
+  - `stocks/` — Stock parsing (BR + USA formatters, `parseUSALike` factory for USA)
+  - `fii/` — FII parsing (tijolo, papel, fiagro, fi-infra, fof) with `baseFiiDomain`/`baseFiiFormatter` shared bases
 - `components/` — UI components (uses shadcn/ui + TanStack Table + TanStack Query)
 - `lib/` — Utilities (`fetchWithSecret.ts`, `utils.ts`, `marketConfig.ts`)
 - `constants/` — Shared constants (stockMeta, stockUSAMeta, presets)

@@ -20,7 +20,7 @@ export const getUSAReitCSVData = async () => {
     });
 
     const cleanData = parsedData.data.map((row) =>
-      JSON.parse(JSON.stringify(row)),
+      structuredClone(row),
     );
 
     return cleanData;

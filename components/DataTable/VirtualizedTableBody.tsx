@@ -1,4 +1,8 @@
-import { useRef } from "react";
+"use client";
+
+"use client";
+
+import { useRef, memo } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { flexRender } from "@tanstack/react-table";
@@ -16,7 +20,7 @@ interface VirtualizedTableBodyProps {
   headerGroups: GenericTanStackHeaderGroup[];
 }
 
-export function VirtualizedTableBody({
+function VirtualizedTableBodyInner({
   table,
   rows,
   columns,
@@ -91,4 +95,6 @@ export function VirtualizedTableBody({
       </Table>
     </div>
   );
-}
+};
+
+export const VirtualizedTableBody = memo(VirtualizedTableBodyInner);

@@ -20,7 +20,7 @@ export const getUSACSVData = async () => {
     });
 
     const cleanData = parsedData.data.map((row) =>
-      JSON.parse(JSON.stringify(row)),
+      structuredClone(row),
     );
 
     return cleanData;
