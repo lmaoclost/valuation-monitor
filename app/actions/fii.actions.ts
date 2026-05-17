@@ -1,28 +1,29 @@
 "use server";
 
+import { cache } from "react";
 import { fetchWithSecret } from "@/lib/fetchWithSecret";
 
-export async function getFiiTijolo() {
+export const getFiiTijolo = cache(async () => {
   return await fetchWithSecret("fetch-fii/tijolo");
-}
+});
 
-export async function getFiiPapel() {
+export const getFiiPapel = cache(async () => {
   return await fetchWithSecret("fetch-fii/papel");
-}
+});
 
-export async function getFiiFiagro() {
+export const getFiiFiagro = cache(async () => {
   return await fetchWithSecret("fetch-fii/fiagro");
-}
+});
 
-export async function getFiiFiInfra() {
+export const getFiiFiInfra = cache(async () => {
   return await fetchWithSecret("fetch-fii/fi-infra");
-}
+});
 
-export async function getFiiFof() {
+export const getFiiFof = cache(async () => {
   return await fetchWithSecret("fetch-fii/fof");
-}
+});
 
-export async function getFiiRisk() {
+export const getFiiRisk = cache(async () => {
   return await fetchWithSecret("fetch-fii-risk");
-}
+});
 

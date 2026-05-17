@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, memo } from "react";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -29,7 +29,7 @@ interface DataTableProps<TData, TValue> {
   initialColumnVisibility?: VisibilityState;
 }
 
-export function DataTable<TData, TValue>({
+function DataTableInner<TData, TValue>({
   columns,
   data,
   complementarData,
@@ -110,4 +110,6 @@ export function DataTable<TData, TValue>({
       </div>
     </div>
   );
-}
+};
+
+export const DataTable = memo(DataTableInner) as typeof DataTableInner;

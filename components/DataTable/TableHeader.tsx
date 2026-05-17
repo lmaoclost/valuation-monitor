@@ -1,3 +1,8 @@
+"use client";
+
+"use client";
+
+import { memo } from "react";
 import { flexRender } from "@tanstack/react-table";
 import { ArrowUp } from "lucide-react";
 import { TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -8,7 +13,7 @@ interface TableHeaderProps {
   sticky?: boolean;
 }
 
-export function DataTableHeader({ headerGroups, sticky = false }: TableHeaderProps) {
+function DataTableHeaderInner({ headerGroups, sticky = false }: TableHeaderProps) {
   return (
     <TableHeader className={sticky ? "sticky top-0 z-10" : ""}>
       {headerGroups.map((headerGroup) => (
@@ -44,4 +49,6 @@ export function DataTableHeader({ headerGroups, sticky = false }: TableHeaderPro
       ))}
     </TableHeader>
   );
-}
+};
+
+export const DataTableHeader = memo(DataTableHeaderInner);

@@ -1,16 +1,5 @@
 import { z } from "zod";
-
-const toNumber = z.string().transform((val) => {
-  if (!val || val.trim() === "") return 0;
-  const parsed = parseFloat(val.replace(/\./g, "").replace(",", "."));
-  return isNaN(parsed) ? 0 : parsed;
-});
-
-const toPercentage = z.string().transform((val) => {
-  if (!val || val.trim() === "") return 0;
-  const parsed = parseFloat(val.replace("%", "").replace(",", "."));
-  return isNaN(parsed) ? 0 : parsed / 100;
-});
+import { toNumber, toPercentage } from "@/parsers/shared/transforms";
 
 export const FundamentusFiiSchema = z.array(
   z.object({
