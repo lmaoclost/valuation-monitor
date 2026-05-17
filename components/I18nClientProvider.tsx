@@ -21,15 +21,20 @@ export function I18nClientProvider({ children }: { children: React.ReactNode }) 
 
   useEffect(() => {
     const cookie = getCookie("NEXT_LOCALE");
-    if (cookie === "en" || cookie === "pt-BR") {
-      setLocale(cookie);
-    } else if (navigator.language?.startsWith("en")) {
-      setLocale("en");
-    }
+    const detected = cookie === "en" || cookie === "pt-BR" ? cookie : navigator.language?.startsWith("en") ? "en" : "pt-BR";
+    setLocale(detected);
+    document.documentElement.lang = detected;
+    const meta = detected === "en" ? en.LandingPage : ptBR.LandingPage;
+    const desc = document.querySelector("meta[name='description']");
+    if (desc) desc.setAttribute("content", meta.description as string);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
+
   return (
-    <NextIntlClientProvider locale={locale} messages={messages[locale] ?? ptBR}>
+    <NextIntlClientProvider locale={locale} messages={messages[locale] ?? ptBR} timeZone="America/Sao_Paulo">
       {children}
     </NextIntlClientProvider>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo } from "react";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -23,7 +23,8 @@ interface DataTableProps<TData, TValue> {
   };
   riskDisplay?: string;
   riskLabel?: string;
-  onApplyPreset?: (preset: string) => void;
+  selectedPresets?: string[];
+  onSelectedPresetsChange?: (presets: string[]) => void;
   presets?: Record<string, unknown>;
   initialColumnVisibility?: VisibilityState;
 }
@@ -34,7 +35,8 @@ export function DataTable<TData, TValue>({
   complementarData,
   riskDisplay,
   riskLabel,
-  onApplyPreset,
+  selectedPresets,
+  onSelectedPresetsChange,
   presets,
   initialColumnVisibility,
 }: DataTableProps<TData, TValue>) {
@@ -76,16 +78,9 @@ export function DataTable<TData, TValue>({
     enableMultiSort: false,
   });
 
-  const handleApplyPreset = useCallback(
-    (preset: string) => {
-      onApplyPreset?.(preset);
-    },
-    [onApplyPreset],
-  );
-
   const rows = useMemo(
     () => table.getFilteredRowModel().rows,
-    [table, globalFilter, columnVisibility],
+    [table, globalFilter, columnVisibility, data],
   );
   const headerGroups = useMemo(
     () => table.getHeaderGroups(),
@@ -101,7 +96,8 @@ export function DataTable<TData, TValue>({
         complementarData={complementarData}
         riskDisplay={riskDisplay}
         riskLabel={riskLabel}
-        onApplyPreset={handleApplyPreset}
+        selectedPresets={selectedPresets}
+        onSelectedPresetsChange={onSelectedPresetsChange}
         presets={presets}
       />
       <div className="w-full rounded-md border">

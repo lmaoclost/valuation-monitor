@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect } from "react";
-import { useQuery, useMutation, useQueryClient, keepPreviousData } from "@tanstack/react-query";
-import { Suspense } from "react";
+import { useState, useMemo, Suspense } from "react";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { useTranslations, useLocale } from "next-intl";
-import { getFiiTijolo, getFiiPapel, getFiiFiagro, getFiiFiInfra, getFiiFof, getFiiRisk, getFiiPreset } from "@/app/actions/fii.actions";
+import { getFiiTijolo, getFiiPapel, getFiiFiagro, getFiiFiInfra, getFiiFof, getFiiRisk } from "@/app/actions/fii.actions";
 import { DataTable } from "@/components/DataTable";
 import { createTijoloColumns } from "@/components/DataTable/tijoloColumns";
 import { createPapelColumns } from "@/components/DataTable/papelColumns";
@@ -17,20 +16,6 @@ type FiiTab = "tijolo" | "papel" | "fiagro" | "fi-infra" | "fof";
 
 const TAB_IDS: FiiTab[] = ["tijolo", "papel", "fiagro", "fi-infra", "fof"];
 
-const TAB_TO_API_TYPE: Record<string, string> = {
-  fiagro: "agronegócio",
-  "fi-infra": "recebíveis de infraestrutura",
-  fof: "fundo de fundos",
-};
-
-const API_TYPE_TO_QUERY_KEY: Record<string, string[]> = {
-  tijolo: ["fii-tijolo"],
-  papel: ["fii-papel"],
-  "agronegócio": ["fii-fiagro"],
-  "recebíveis de infraestrutura": ["fii-fi-infra"],
-  "fundo de fundos": ["fii-fof"],
-};
-
 const TAB_TO_PRESETS: Record<string, Record<string, null | ((item: any) => boolean)>> = {
   fiagro: fiiFiagroPresets,
   "fi-infra": fiiFiInfraPresets,
@@ -39,7 +24,7 @@ const TAB_TO_PRESETS: Record<string, Record<string, null | ((item: any) => boole
 
 export function FIITableWrapper() {
   const [activeTab, setActiveTab] = useState<FiiTab>("tijolo");
-  const queryClient = useQueryClient();
+  const [selectedPresets, setSelectedPresets] = useState<string[]>([]);
   const t = useTranslations("Tabs");
   const tc = useTranslations("Columns");
   const locale = useLocale();
@@ -98,38 +83,6 @@ export function FIITableWrapper() {
     placeholderData: keepPreviousData,
   });
 
-  const presetTab = activeTab === "tijolo" || activeTab === "papel" ? activeTab : TAB_TO_API_TYPE[activeTab];
-
-  useEffect(() => {
-    const presets = ["Top Gestores"];
-    const types = ["tijolo", "papel", "agronegócio", "recebíveis de infraestrutura", "fundo de fundos"];
-    presets.forEach((preset) => {
-      types.forEach((type) => {
-        queryClient.prefetchQuery({
-          queryKey: ["fii-preset", type, preset],
-          queryFn: () => getFiiPreset(type, preset),
-          staleTime: 24 * 60 * 60 * 1000,
-        });
-      });
-    });
-  }, [queryClient]);
-
-  const { mutateAsync: applyPreset, isPending: isPresetLoading } = useMutation({
-    mutationFn: async ({ type, preset }: { type: string; preset: string }) =>
-      await getFiiPreset(type, preset),
-    onSuccess: (filtered, variables) => {
-      const queryKey = API_TYPE_TO_QUERY_KEY[variables.type] ?? ["fii-tijolo"];
-      queryClient.setQueryData(queryKey, filtered);
-    },
-  });
-
-  const handleApplyPreset = useCallback(
-    async (preset: string) => {
-      await applyPreset({ type: presetTab, preset });
-    },
-    [applyPreset, presetTab],
-  );
-
   const activePresets = activeTab === "papel" ? fiiPapelPresets
     : activeTab === "tijolo" ? fiiTijoloPresets
     : TAB_TO_PRESETS[activeTab] ?? {};
@@ -138,7 +91,6 @@ export function FIITableWrapper() {
   const papelColumns = useMemo(() => createPapelColumns(tc, locale), [tc, locale]);
   const listColumns = useMemo(() => createFiiListColumns(tc, locale), [tc, locale]);
 
-  const isListTab = activeTab === "fiagro" || activeTab === "fi-infra" || activeTab === "fof";
   const tabQueries: Record<string, { isLoading: boolean; isError: boolean; data: any }> = {
     tijolo: tijoloQuery,
     papel: papelQuery,
@@ -147,17 +99,25 @@ export function FIITableWrapper() {
     fof: fofQuery,
   };
 
-  if (tabQueries[activeTab].isLoading || isPresetLoading) return <LoadingState />;
+  if (tabQueries[activeTab].isLoading) return <LoadingState />;
   if (tabQueries[activeTab].isError) return <ErrorState error={new Error(t("errorMsg"))} />;
 
   const renderTab = () => {
     switch (activeTab) {
-      case "tijolo":
+      case "tijolo": {
+        const data = tijoloQuery.data ?? [];
+        const filtered = selectedPresets.length === 0 ? data
+          : data.filter((item: any) =>
+              selectedPresets.every((key) => {
+                const fn = fiiTijoloPresets[key as keyof typeof fiiTijoloPresets];
+                return fn ? fn(item) : true;
+              })
+            );
         return (
           <DataTable
             key="tijolo"
             columns={tijoloColumns}
-            data={tijoloQuery.data ?? []}
+            data={filtered}
             complementarData={{
               ipca: riskQuery.data?.ipca ?? "",
               risk: riskQuery.data?.tesouro ?? "",
@@ -165,16 +125,26 @@ export function FIITableWrapper() {
             }}
             riskLabel={t("tesouroLabel")}
             initialColumnVisibility={fiiTijoloColumnVisibility}
-            onApplyPreset={handleApplyPreset}
+            selectedPresets={selectedPresets}
+            onSelectedPresetsChange={setSelectedPresets}
             presets={activePresets}
           />
         );
-      case "papel":
+      }
+      case "papel": {
+        const data = papelQuery.data ?? [];
+        const filtered = selectedPresets.length === 0 ? data
+          : data.filter((item: any) =>
+              selectedPresets.every((key) => {
+                const fn = fiiPapelPresets[key as keyof typeof fiiPapelPresets];
+                return fn ? fn(item) : true;
+              })
+            );
         return (
           <DataTable
             key="papel"
             columns={papelColumns}
-            data={papelQuery.data ?? []}
+            data={filtered}
             complementarData={{
               ipca: riskQuery.data?.ipca ?? "",
               risk: riskQuery.data?.tesouro ?? "",
@@ -182,28 +152,40 @@ export function FIITableWrapper() {
             }}
             riskLabel={t("tesouroLabel")}
             initialColumnVisibility={fiiPapelColumnVisibility}
-            onApplyPreset={handleApplyPreset}
+            selectedPresets={selectedPresets}
+            onSelectedPresetsChange={setSelectedPresets}
             presets={activePresets}
           />
         );
+      }
       case "fiagro":
       case "fi-infra":
-      case "fof":
+      case "fof": {
+        const data = tabQueries[activeTab].data ?? [];
+        const filtered = selectedPresets.length === 0 ? data
+          : data.filter((item: any) =>
+              selectedPresets.every((key) => {
+                const fn = TAB_TO_PRESETS[activeTab]?.[key];
+                return fn ? fn(item) : true;
+              })
+            );
         return (
           <DataTable
             key={activeTab}
             columns={listColumns}
-            data={tabQueries[activeTab].data ?? []}
+            data={filtered}
             complementarData={{
               ipca: riskQuery.data?.ipca ?? "",
               risk: riskQuery.data?.tesouro ?? "",
               erp: "",
             }}
             riskLabel={t("tesouroLabel")}
-            onApplyPreset={handleApplyPreset}
+            selectedPresets={selectedPresets}
+            onSelectedPresetsChange={setSelectedPresets}
             presets={activePresets}
           />
         );
+      }
     }
   };
 
@@ -213,7 +195,10 @@ export function FIITableWrapper() {
         {TAB_IDS.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => {
+              setActiveTab(tab);
+              setSelectedPresets([]);
+            }}
             className={`px-4 py-2 font-mono text-sm transition-colors ${
               activeTab === tab
                 ? "border-b-2 border-primary text-foreground"

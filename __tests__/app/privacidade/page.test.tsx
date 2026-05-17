@@ -20,4 +20,10 @@ describe("Privacy Page", () => {
 
     expect(screen.getAllByText(/cookies/i).length).toBeGreaterThan(0);
   });
+
+  it("should render language toggle", () => {
+    render(<PrivacyPage />);
+
+    expect(screen.getByText("EN")).toBeDefined();
+  });
 });

@@ -49,14 +49,12 @@ import { GET as getComplementarData } from '@/app/api/fetch-complementar-data/ro
 import { GET as getERPData } from '@/app/api/fetch-erp/route';
 import { GET as getIPCAData } from '@/app/api/fetch-ipca/route';
 import { GET as getRiskData } from '@/app/api/fetch-risk/route';
-import { GET as getPresetStocks } from '@/app/api/fetch-preset-stocks/filter/route';
 import { GET as getFiiTijolo } from '@/app/api/fetch-fii/tijolo/route';
 import { GET as getFiiPapel } from '@/app/api/fetch-fii/papel/route';
 import { GET as getFiiFiagro } from '@/app/api/fetch-fii/fiagro/route';
 import { GET as getFiiFiInfra } from '@/app/api/fetch-fii/fi-infra/route';
 import { GET as getFiiFof } from '@/app/api/fetch-fii/fof/route';
 import { GET as getFiiRisk } from '@/app/api/fetch-fii-risk/route';
-import { GET as getFiiPreset } from '@/app/api/fetch-fii-preset/filter/route';
 
 // Get mocked services
 const mockedServices = {
@@ -225,91 +223,6 @@ describe('API Routes - Integration Tests', () => {
     });
   });
 
-  describe('GET /api/fetch-preset-stocks/filter', () => {
-    it('should filter by preset parameter', async () => {
-      const mockStocks = [
-        { TICKER: 'PETR4', PRECO: 25.5, DY: 0.08 },
-        { TICKER: 'VALE5', PRECO: 65.0, DY: 0.03 },
-      ];
-
-      const { getStocksData } = await import('@/services');
-      vi.mocked(getStocksData).mockResolvedValueOnce(mockStocks);
-
-      const req = new NextRequest(
-        'http://localhost/api/fetch-preset-stocks/filter?preset=dividendo'
-      );
-      const response = await getPresetStocks(req);
-      const result = await response.json();
-
-      expect(response.status).toBe(200);
-      expect(Array.isArray(result)).toBe(true);
-    });
-
-    it('should return error when preset is missing', async () => {
-      const req = new NextRequest(
-        'http://localhost/api/fetch-preset-stocks/filter'
-      );
-      const response = await getPresetStocks(req);
-      const result = await response.json();
-
-      expect(response.status).toBe(400);
-      expect(result.error).toBeDefined();
-    });
-
-    it('should handle different presets', async () => {
-      const mockStocks = [
-        { TICKER: 'PETR4', PRECO: 25.5, 'P/L': 8 },
-        { TICKER: 'VALE5', PRECO: 65.0, 'P/L': 12 },
-      ];
-
-      const { getStocksData } = await import('@/services');
-      vi.mocked(getStocksData).mockResolvedValueOnce(mockStocks);
-
-      const req = new NextRequest(
-        'http://localhost/api/fetch-preset-stocks/filter?preset=crescimento'
-      );
-      const response = await getPresetStocks(req);
-      const result = await response.json();
-
-      expect(response.status).toBe(200);
-      expect(Array.isArray(result)).toBe(true);
-    });
-
-    it('should handle invalid preset', async () => {
-      const mockStocks = [{ TICKER: 'PETR4' }];
-
-      const { getStocksData } = await import('@/services');
-      vi.mocked(getStocksData).mockResolvedValueOnce(mockStocks);
-
-      const req = new NextRequest(
-        'http://localhost/api/fetch-preset-stocks/filter?preset=invalid'
-      );
-      const response = await getPresetStocks(req);
-      const result = await response.json();
-
-      expect(response.status).toBe(200);
-      expect(result).toEqual(mockStocks);
-    });
-
-    it('should handle service errors', async () => {
-      const { getStocksData } = await import('@/services');
-      vi.mocked(getStocksData).mockRejectedValueOnce(new Error('Fetch error'));
-
-      const req = new NextRequest(
-        'http://localhost/api/fetch-preset-stocks/filter?preset=dividendo'
-      );
-
-      try {
-        const response = await getPresetStocks(req);
-        const result = await response.json();
-        expect(response.status).toBe(500);
-      } catch (error) {
-        // Error is expected during fetch failure
-        expect(error).toBeDefined();
-      }
-    });
-  });
-
   describe('GET /api/fetch-fii/tijolo', () => {
     it('should return tijolo FII data', async () => {
       const mockData = [{ ticker: 'HGLG11', category: 'Logisticos', price: 'R$ 150,00' }];
@@ -435,38 +348,4 @@ describe('API Routes - Integration Tests', () => {
     });
   });
 
-  describe('GET /api/fetch-fii-preset/filter', () => {
-    it('should return 400 when preset is missing', async () => {
-      const req = new NextRequest('http://localhost/api/fetch-fii-preset/filter');
-      const response = await getFiiPreset(req);
-      const result = await response.json();
-
-      expect(response.status).toBe(400);
-    });
-
-    it('should filter by preset for tijolo type', async () => {
-      const mockData = [{ ticker: 'HGLG11', isTopManager: 'SIM' }];
-      const { getFiiTijoloData: service } = await import('@/services');
-      vi.mocked(service).mockResolvedValueOnce(mockData);
-
-      const req = new NextRequest(
-        'http://localhost/api/fetch-fii-preset/filter?type=tijolo&preset=Top Gestores'
-      );
-      const response = await getFiiPreset(req);
-      const result = await response.json();
-
-      expect(response.status).toBe(200);
-      expect(Array.isArray(result)).toBe(true);
-    });
-
-    it('should return 400 for invalid type', async () => {
-      const req = new NextRequest(
-        'http://localhost/api/fetch-fii-preset/filter?type=invalid&preset=Top Gestores'
-      );
-      const response = await getFiiPreset(req);
-      const result = await response.json();
-
-      expect(response.status).toBe(400);
-    });
-  });
 });

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { LanguageToggle } from "@/components/LanguageToggle";
 
 export default function PrivacyPage() {
   const t = useTranslations("Privacy");
@@ -9,12 +10,15 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-3xl px-6 py-20">
-        <Link
-          href="/"
-          className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
-        >
-          {s("voltar")}
-        </Link>
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            {s("voltar")}
+          </Link>
+          <LanguageToggle />
+        </div>
 
         <h1 className="mt-8 font-display text-4xl text-foreground">
           {t("title")}

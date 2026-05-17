@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Lora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { LgpdBanner } from "@/components/lgpd-banner";
+import { LgpdBannerWrapper } from "@/components/lgpd-banner-wrapper";
 import { I18nClientProvider } from "@/components/I18nClientProvider";
 
 const playfair = Playfair_Display({
@@ -36,7 +36,7 @@ export default function RootLayout({
         <I18nClientProvider>
           <Providers>
             {children}
-            <LgpdBanner />
+            <LgpdBannerWrapper />
           </Providers>
         </I18nClientProvider>
       </body>
