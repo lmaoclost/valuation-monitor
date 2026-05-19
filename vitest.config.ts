@@ -17,10 +17,12 @@ export default defineConfig({
         '**/*.type.ts',
         '**/*.d.ts',
         '.next/',
+        'playwright.config.ts',
+        'e2e/',
       ],
     },
     include: ['__tests__/**/*.{test,spec}.{js,ts,jsx,tsx}'],
-    exclude: ['node_modules', 'dist', '.idea', '.git', '.cache', '.next'],
+    exclude: ['node_modules', 'dist', '.idea', '.git', '.cache', '.next', 'e2e'],
   },
   resolve: {
     alias: {
