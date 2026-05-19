@@ -21,4 +21,13 @@ describe('calculateFieldColor', () => {
   it('should return green when value above upper threshold', () => {
     expect(calculateFieldColor(0.5, [0, 0.3])).toBe('text-green-600');
   });
+
+  it('should handle thresholds array with one element', () => {
+    expect(calculateFieldColor(0.5, [0])).toBe('text-green-600');
+    expect(calculateFieldColor(-1, [0])).toBe('text-red-600');
+  });
+
+  it('should handle empty thresholds array', () => {
+    expect(calculateFieldColor(10, [])).toBe('text-green-600');
+  });
 });

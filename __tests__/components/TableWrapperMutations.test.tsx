@@ -169,4 +169,18 @@ describe('TableWrapper - Query and Mutation Coverage', () => {
       })
     );
   });
+
+  it('should show error state when query fails', () => {
+    useQueryMock.mockReturnValueOnce({
+      data: undefined,
+      isLoading: false,
+      isError: true,
+      error: new Error('API connection failed'),
+    } as any);
+
+    render(<TableWrapper />);
+
+    expect(screen.queryByText('Carregando dados...')).not.toBeInTheDocument();
+    expect(screen.getByText('API connection failed')).toBeInTheDocument();
+  });
 });
