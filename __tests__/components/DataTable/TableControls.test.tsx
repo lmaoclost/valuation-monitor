@@ -131,4 +131,64 @@ describe('TableControls', () => {
     
     expect(mockTable.getColumn).not.toHaveBeenCalled();
   });
+
+  it('renders complementary data without ERP when erp is empty', () => {
+    const mockTable = createMockTable();
+
+    render(
+      <TableControls
+        table={mockTable as any}
+        complementarData={{ risk: '4%', ipca: '4.5%', erp: '' }}
+        onSelectedPresetsChange={vi.fn()}
+      />
+    );
+
+    expect(screen.getByText(/IPCA:/)).toBeInTheDocument();
+    expect(screen.getByText(/Prêmio Risco:/)).toBeInTheDocument();
+    expect(screen.queryByText(/ERP:/)).not.toBeInTheDocument();
+  });
+
+  it('renders riskDisplay alone when complementarData is absent', () => {
+    const mockTable = createMockTable();
+
+    render(
+      <TableControls
+        table={mockTable as any}
+        riskDisplay="3.5%"
+      />
+    );
+
+    expect(screen.getByText(/Prêmio Risco:/)).toBeInTheDocument();
+    expect(screen.getByText(/3\.5%/)).toBeInTheDocument();
+  });
+
+  it('renders both complementarData and riskDisplay when both provided', () => {
+    const mockTable = createMockTable();
+
+    render(
+      <TableControls
+        table={mockTable as any}
+        complementarData={{ risk: '4%', ipca: '4.5%', erp: '' }}
+        riskDisplay="3.5%"
+        onSelectedPresetsChange={vi.fn()}
+      />
+    );
+
+    expect(screen.getByText(/IPCA:/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Prêmio Risco:/)).toHaveLength(2);
+  });
+
+  it('renders custom riskLabel when provided', () => {
+    const mockTable = createMockTable();
+
+    render(
+      <TableControls
+        table={mockTable as any}
+        riskDisplay="3.5%"
+        riskLabel="Meu Risco"
+      />
+    );
+
+    expect(screen.getByText(/Meu Risco:/)).toBeInTheDocument();
+  });
 });
