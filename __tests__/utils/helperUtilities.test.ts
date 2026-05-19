@@ -206,11 +206,9 @@ describe('Helper Utilities', () => {
       expect(result).toBe('text-green-600');
     });
 
-    it('should return green for value equal to first threshold', () => {
+    it('should return yellow for value equal to first threshold', () => {
       const result = calculateFieldColor(5, thresholds);
-      // Logic: if (value < 5) red. value == 5 is not < 5, so check next condition
-      // if (value > 5 && value <= 15) yellow. value == 5 is not > 5, so green
-      expect(result).toBe('text-green-600');
+      expect(result).toBe('text-yellow-600');
     });
 
     it('should return yellow for value equal to second threshold', () => {

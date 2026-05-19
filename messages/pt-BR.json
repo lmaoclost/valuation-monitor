@@ -71,7 +71,17 @@
     "Não Cíclico": "Não Cíclico",
     "Discounted": "Discounted",
     "Discounted PEG": "Discounted PEG",
-    "Top Gestores": "Top Gestores"
+    "Top Gestores": "Top Gestores",
+    "Bazin Green": "Bazin Verde",
+    "Graham Green": "Graham Verde",
+    "Gordon Green": "Gordon Verde",
+    "Lajes Comerciais": "Lajes Comerciais",
+    "Shopping/Varejo": "Shopping/Varejo",
+    "Logisticos": "Logísticos",
+    "Agronegócio": "Agronegócio",
+    "Recebiveis >50% IPCA": "Recebíveis >50% IPCA",
+    "Recebiveis >50% CDI": "Recebíveis >50% CDI",
+    "Recebiveis Outros": "Outros Recebíveis"
   },
   "Lgpd": {
     "message": "Este site não coleta dados pessoais. Utiliza apenas um cookie de preferência de idioma.",

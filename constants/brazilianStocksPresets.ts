@@ -7,7 +7,10 @@ export type PresetKey =
   | "Água e saneamento"
   | "Seguradoras"
   | "Cíclico"
-  | "Não Cíclico";
+  | "Não Cíclico"
+  | "Bazin Green"
+  | "Graham Green"
+  | "Gordon Green";
 
 export const stocksPresets: Record<
   PresetKey,
@@ -20,4 +23,7 @@ export const stocksPresets: Record<
   Seguradoras: (i) => i.segmentname === "Seguradoras",
   Cíclico: (i) => i.cicle === "SIM",
   "Não Cíclico": (i) => i.cicle === "NÃO",
+  "Bazin Green": (i) => i.bazinDiscountColor === "text-green-600" && i.bazinDiscount !== "",
+  "Graham Green": (i) => i.grahamDiscountColor === "text-green-600" && i.grahamDiscount !== "",
+  "Gordon Green": (i) => i.gordonDiscountColor === "text-green-600" && i.gordonDiscount !== "",
 };

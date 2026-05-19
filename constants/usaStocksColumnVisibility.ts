@@ -1,3 +1,3 @@
-import { VisibilityState } from "@tanstack/react-table";
+import { brStocksColumnVisibility } from "./brStocksColumnVisibility";
 
-export const usaStocksColumnVisibility: VisibilityState = {};
+export const usaStocksColumnVisibility = brStocksColumnVisibility;

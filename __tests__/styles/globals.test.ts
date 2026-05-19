@@ -114,22 +114,5 @@ describe('Global CSS', () => {
       expect(style.sheet?.cssRules.length).toBeGreaterThan(0);
     });
 
-    it('defines animate-fade-in-up utility class', () => {
-      expect(true).toBe(true);
-    });
-
-    it('defines animate-float utility class', () => {
-      expect(true).toBe(true);
-    });
-
-    it('defines animation delay classes', () => {
-      expect(true).toBe(true);
-    });
-  });
-
-  describe('Grain Overlay', () => {
-    it('defines grain utility class', () => {
-      expect(true).toBe(true);
-    });
   });
 });
