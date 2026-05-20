@@ -7,6 +7,8 @@ vi.mock('@/components/ui/sheet', () => ({
   SheetTrigger: ({ children }: { children: React.ReactNode }) => <div data-testid="sheet-trigger">{children}</div>,
   SheetContent: ({ children, side, className }: { children: React.ReactNode; side?: string; className?: string }) => <div data-testid="sheet-content" data-side={side}>{children}</div>,
   SheetClose: ({ children }: { children: React.ReactNode }) => <div data-testid="sheet-close">{children}</div>,
+  SheetTitle: ({ children, className }: { children: React.ReactNode; className?: string }) => <div data-testid="sheet-title" className={className}>{children}</div>,
+  SheetDescription: ({ children, className }: { children: React.ReactNode; className?: string }) => <div data-testid="sheet-description" className={className}>{children}</div>,
 }));
 
 vi.mock('next/link', () => ({

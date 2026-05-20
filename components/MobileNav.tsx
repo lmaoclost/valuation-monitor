@@ -8,6 +8,8 @@ import {
   SheetTrigger,
   SheetContent,
   SheetClose,
+  SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { LanguageToggle } from "@/components/LanguageToggle";
 
@@ -38,8 +40,12 @@ export function MobileNav({ showBack = false }: MobileNavProps) {
               <span className="sr-only">Menu</span>
             </button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[280px] bg-background">
-            <nav className="flex flex-col gap-6 mt-12">
+          <SheetContent side="right" className="w-70 bg-background">
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+            <SheetDescription className="sr-only">
+              Navigate between stock markets
+            </SheetDescription>
+            <nav className="flex flex-col pl-4 gap-6 mt-12">
               {NAV_LINKS.map((link) => (
                 <SheetClose asChild key={link.href}>
                   <Link
