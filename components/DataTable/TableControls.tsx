@@ -59,12 +59,12 @@ function TableControlsInner({
 
   return (
     <div className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between">
-      <Input
-        placeholder={t("filterPlaceholder")}
-        value={globalFilter ?? ""}
-        onChange={(event) => onGlobalFilterChange?.(event.target.value)}
-        className="max-w-sm"
-      />
+        <Input
+          placeholder={t("filterPlaceholder")}
+          value={globalFilter ?? ""}
+          onChange={(event) => onGlobalFilterChange?.(event.target.value)}
+          className="w-full md:max-w-sm"
+        />
       {complementarData && (
         <div className="flex flex-wrap gap-4 text-sm">
           <span>IPCA: {complementarData?.ipca} </span>

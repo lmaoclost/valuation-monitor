@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { LanguageToggle } from "@/components/LanguageToggle";
+import { MobileNav } from "@/components/MobileNav";
 import {
   Github,
   Globe,
@@ -23,33 +23,7 @@ export default function LandingPage() {
         <div className="font-display text-xl tracking-widest text-foreground">
           VALUATION MONITOR
         </div>
-        <nav className="flex gap-6 font-mono text-sm">
-          <Link
-            href="/stocks/br"
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            BR Stocks
-          </Link>
-          <Link
-            href="/stocks/usa"
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            USA Stocks
-          </Link>
-          <Link
-            href="/stocks/br-fii"
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            BR FII
-          </Link>
-          <Link
-            href="/stocks/usa-reit"
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            USA REIT
-          </Link>
-          <LanguageToggle />
-        </nav>
+        <MobileNav />
       </header>
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20">

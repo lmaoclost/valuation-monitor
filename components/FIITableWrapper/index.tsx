@@ -192,7 +192,7 @@ export function FIITableWrapper() {
 
   return (
     <div className="w-full">
-      <div className="flex gap-1 border-b border-border mb-6">
+      <div className="flex gap-1 border-b border-border mb-6 overflow-x-auto flex-nowrap">
         {TAB_IDS.map((tab) => (
           <button
             key={tab}

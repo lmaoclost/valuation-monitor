@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { TableWrapper } from "@/components/TableWrapper";
-import { LanguageToggle } from "@/components/LanguageToggle";
-import { BackLink } from "@/components/BackLink";
+import { MobileNav } from "@/components/MobileNav";
 
 interface StocksLayoutProps {
   children: React.ReactNode;
@@ -18,34 +16,7 @@ export default async function StocksLayout({ children }: StocksLayoutProps) {
           >
             VALUATION MONITOR
           </Link>
-          <nav className="flex gap-4">
-            <a
-              href="/stocks/br"
-              className="font-mono text-sm text-foreground hover:text-primary transition-colors"
-            >
-              BR Stocks
-            </a>
-            <a
-              href="/stocks/usa"
-              className="font-mono text-sm text-foreground hover:text-primary transition-colors"
-            >
-              USA Stocks
-            </a>
-            <a
-              href="/stocks/br-fii"
-              className="font-mono text-sm text-foreground hover:text-primary transition-colors"
-            >
-              BR FII
-            </a>
-            <a
-              href="/stocks/usa-reit"
-              className="font-mono text-sm text-foreground hover:text-primary transition-colors"
-            >
-              USA REIT
-            </a>
-          </nav>
-          <BackLink />
-          <LanguageToggle />
+          <MobileNav showBack />
         </div>
       </header>
       <main className="container mx-auto px-4 py-8">{children}</main>
