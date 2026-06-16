@@ -5,6 +5,7 @@ export { usaStocksPresets } from "./usaStocksPresets";
 export { revalidateDay } from "./revalidateDay";
 export { brStocksColumnVisibility } from "./brStocksColumnVisibility";
 export { usaStocksColumnVisibility } from "./usaStocksColumnVisibility";
+export { usaReitsMetadata } from "./usaReitsMetadata";
 export { usaReitsColumnVisibility } from "./usaReitsColumnVisibility";
 export { fiiTijoloColumnVisibility } from "./fiiTijoloColumnVisibility";
 export { fiiPapelColumnVisibility } from "./fiiPapelColumnVisibility";
