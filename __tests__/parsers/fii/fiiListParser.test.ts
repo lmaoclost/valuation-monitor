@@ -73,7 +73,7 @@ describe("fiiListParser", () => {
     const result = await fiiListParser(data, "agronegócio");
 
     expect(result[0].ticker).toBe("KNCA11");
-    expect(result[0].category).toBe("Agronegócio");
+    expect(result[0].category).toBe("Recebíveis Imobiliários");
     expect(result[0].price).toContain("95");
     expect(result[0].dy).toContain("%");
     expect(result[0].isTopManager).toBe("SIM");
