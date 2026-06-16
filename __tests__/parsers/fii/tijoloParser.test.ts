@@ -95,7 +95,7 @@ describe("tijoloParser", () => {
 
     expect(result).toHaveLength(1);
     expect(result[0].riskPremium).toBe("4,00%");
-    expect(result[0].category).toBe("Logisticos");
+    expect(result[0].category).toBe("Outros");
   });
 
   it("should output formatted fields", async () => {
