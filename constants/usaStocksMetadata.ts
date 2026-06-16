@@ -33757,4 +33757,7501 @@ export const usaStocksMetadata: Record<string, USAStockMetadataType> = {
     code: "ZYXI",
     name: "ZYNEX INC",
   },
+
+// ===== AUTO-INSERTED: Yahoo Finance-enriched metadata for CSV-only USA stocks =====
+  AACQW: {
+    code: "AACQW",
+    name: "",
+  },
+
+  ACAC: {
+    code: "ACAC",
+    name: "ACCUNIA INVEST EUR",
+  },
+
+  ACACU: {
+    code: "ACACU",
+    name: "",
+  },
+
+  ACACW: {
+    code: "ACACW",
+    name: "",
+  },
+
+  ACAM: {
+    code: "ACAM",
+    name: "CASA2.1%20DEC2028",
+  },
+
+  ACAMU: {
+    code: "ACAMU",
+    name: "",
+  },
+
+  ACAMW: {
+    code: "ACAMW",
+    name: "",
+  },
+
+  ACEV: {
+    code: "ACEV",
+    name: "AMERICAN CENTURY I",
+  },
+
+  ACEVU: {
+    code: "ACEVU",
+    name: "",
+  },
+
+  ACEVW: {
+    code: "ACEVW",
+    name: "",
+  },
+
+  ACGL: {
+    code: "ACGL",
+    name: "ARCH CAPITAL GROUP",
+  },
+
+  ACGLO: {
+    code: "ACGLO",
+    name: "ARCH CAPITAL GROUP",
+  },
+
+  ACGLP: {
+    code: "ACGLP",
+    name: "CITIGROUP GLOBAL M",
+  },
+
+  "ACIC.U": {
+    code: "ACIC.U",
+    name: "",
+  },
+
+  "ACIC.WS": {
+    code: "ACIC.WS",
+    name: "",
+  },
+
+  ACIU: {
+    code: "ACIU",
+    name: "",
+  },
+
+  ACKI: {
+    code: "ACKI",
+    name: "BANK OF MONTREAL I",
+  },
+
+  ACKIW: {
+    code: "ACKIW",
+    name: "",
+  },
+
+  ACN: {
+    code: "ACN",
+    name: "ACCENTURE PLC",
+  },
+
+  ACND: {
+    code: "ACND",
+    name: "ASCENDAS INDIA TRU",
+  },
+
+  "ACND.U": {
+    code: "ACND.U",
+    name: "",
+  },
+
+  "ACND.WS": {
+    code: "ACND.WS",
+    name: "",
+  },
+
+  ACTC: {
+    code: "ACTC",
+    name: "UBS AG LONDON BRAN",
+  },
+
+  ACTCU: {
+    code: "ACTCU",
+    name: "",
+  },
+
+  ACTCW: {
+    code: "ACTCW",
+    name: "",
+  },
+
+  ADCT: {
+    code: "ADCT",
+    name: "ADC THERAPEUTICS S",
+  },
+
+  ADILW: {
+    code: "ADILW",
+    name: "",
+  },
+
+  ADNT: {
+    code: "ADNT",
+    name: "ADIENT PLC",
+  },
+
+  ADOC: {
+    code: "ADOC",
+    name: "0P0000XYT5.F",
+  },
+
+  ADOCR: {
+    code: "ADOCR",
+    name: "",
+  },
+
+  ADOCW: {
+    code: "ADOCW",
+    name: "",
+  },
+
+  ADVWW: {
+    code: "ADVWW",
+    name: "",
+  },
+
+  AEB: {
+    code: "AEB",
+    name: "AEBI SCHMIDT HOLDI",
+  },
+
+  AEFC: {
+    code: "AEFC",
+    name: "AEGON FUNDING COMP",
+  },
+
+  AEHL: {
+    code: "AEHL",
+    name: "ANTELOPE ENTERPRIS",
+  },
+
+  AER: {
+    code: "AER",
+    name: "",
+  },
+
+  AFC: {
+    code: "AFC",
+    name: "AFC-HD AMS LIFE SC",
+  },
+
+  AFGB: {
+    code: "AFGB",
+    name: "AMERICAN FINANCIAL",
+  },
+
+  AFGC: {
+    code: "AFGC",
+    name: "AMERICAN FINANCIAL",
+  },
+
+  AFGD: {
+    code: "AFGD",
+    name: "AMERICAN FINANCIAL",
+  },
+
+  AFGE: {
+    code: "AFGE",
+    name: "AMERICAN FINANCIAL",
+  },
+
+  AFMD: {
+    code: "AFMD",
+    name: "AFFIMED N.V.",
+  },
+
+  AFYA: {
+    code: "AFYA",
+    name: "AFYA LIMITED",
+  },
+
+  AGBA: {
+    code: "AGBA",
+    name: "AMERICAN CENTURY G",
+  },
+
+  AGBAR: {
+    code: "AGBAR",
+    name: "",
+  },
+
+  AGBAU: {
+    code: "AGBAU",
+    name: "",
+  },
+
+  AGBAW: {
+    code: "AGBAW",
+    name: "",
+  },
+
+  AGC: {
+    code: "AGC",
+    name: "AGCO CORPORATION",
+  },
+
+  AGCUU: {
+    code: "AGCUU",
+    name: "",
+  },
+
+  AGCWW: {
+    code: "AGCWW",
+    name: "",
+  },
+
+  AGMH: {
+    code: "AGMH",
+    name: "AGM GROUP HOLDINGS",
+  },
+
+  AGO: {
+    code: "AGO",
+    name: "ASSURED GUARANTY L",
+  },
+
+  AGRO: {
+    code: "AGRO",
+    name: "ADECOAGRO S.A.",
+  },
+
+  AHACW: {
+    code: "AHACW",
+    name: "",
+  },
+
+  "AIG.WS": {
+    code: "AIG.WS",
+    name: "",
+  },
+
+  AIRTP: {
+    code: "AIRTP",
+    name: "AIR T, INC. - TRUS",
+  },
+
+  AIRTW: {
+    code: "AIRTW",
+    name: "",
+  },
+
+  AIZN: {
+    code: "AIZN",
+    name: "ASSURANT, INC. 5.2",
+  },
+
+  AIZP: {
+    code: "AIZP",
+    name: "ISTX TAL NET EQUIT",
+  },
+
+  AJAX: {
+    code: "AJAX",
+    name: "AJAX ENGINEERING L",
+  },
+
+  "AJAX.U": {
+    code: "AJAX.U",
+    name: "",
+  },
+
+  "AJAX.WS": {
+    code: "AJAX.WS",
+    name: "",
+  },
+
+  "AKO-A": {
+    code: "AKO-A",
+    name: "EMBOTELLADORA ANDI",
+  },
+
+  "AKO-B": {
+    code: "AKO-B",
+    name: "EMBOTELLADORA ANDI",
+  },
+
+  ALAC: {
+    code: "ALAC",
+    name: "ALACRITY SECURITIE",
+  },
+
+  ALACR: {
+    code: "ALACR",
+    name: "",
+  },
+
+  ALACU: {
+    code: "ALACU",
+    name: "",
+  },
+
+  ALACW: {
+    code: "ALACW",
+    name: "",
+  },
+
+  ALC: {
+    code: "ALC",
+    name: "ALCON INC.",
+  },
+
+  ALKS: {
+    code: "ALKS",
+    name: "ALKERMES PLC",
+  },
+
+  ALLE: {
+    code: "ALLE",
+    name: "ALLEGION PLC",
+  },
+
+  ALLT: {
+    code: "ALLT",
+    name: "ALLOT LTD.",
+  },
+
+  ALNT: {
+    code: "ALNT",
+    name: "ALLIENT INC.",
+  },
+
+  ALOY: {
+    code: "ALOY",
+    name: "REALLOYS INC.",
+  },
+
+  ALUS: {
+    code: "ALUS",
+    name: "ALCHEMIX USD USD",
+  },
+
+  AMBA: {
+    code: "AMBA",
+    name: "AMBARELLA, INC.",
+  },
+
+  "AMBC.WS": {
+    code: "AMBC.WS",
+    name: "",
+  },
+
+  AMCI: {
+    code: "AMCI",
+    name: "AMC ROBOTICS CORPO",
+  },
+
+  AMCIU: {
+    code: "AMCIU",
+    name: "",
+  },
+
+  AMCIW: {
+    code: "AMCIW",
+    name: "",
+  },
+
+  AMCR: {
+    code: "AMCR",
+    name: "",
+  },
+
+  AMHCW: {
+    code: "AMHCW",
+    name: "",
+  },
+
+  AMPL: {
+    code: "AMPL",
+    name: "AMPLITUDE, INC.",
+  },
+
+  AMPX: {
+    code: "AMPX",
+    name: "AMPRIUS TECHNOLOGI",
+  },
+
+  AMRH: {
+    code: "AMRH",
+    name: "",
+  },
+
+  AMRHW: {
+    code: "AMRHW",
+    name: "",
+  },
+
+  ANDA: {
+    code: "ANDA",
+    name: "OLYMPUS STRATEGIC ",
+  },
+
+  ANDAR: {
+    code: "ANDAR",
+    name: "",
+  },
+
+  ANDAU: {
+    code: "ANDAU",
+    name: "",
+  },
+
+  ANDAW: {
+    code: "ANDAW",
+    name: "",
+  },
+
+  AON: {
+    code: "AON",
+    name: "AON PLC",
+  },
+
+  AONE: {
+    code: "AONE",
+    name: "AONEAMC - AONELIQU",
+  },
+
+  "AONE.U": {
+    code: "AONE.U",
+    name: "",
+  },
+
+  "AONE.WS": {
+    code: "AONE.WS",
+    name: "",
+  },
+
+  AOSL: {
+    code: "AOSL",
+    name: "ALPHA AND OMEGA SE",
+  },
+
+  APLD: {
+    code: "APLD",
+    name: "APPLIED DIGITAL CO",
+  },
+
+  APM: {
+    code: "APM",
+    name: "APTORUM GROUP LIMI",
+  },
+
+  APOPW: {
+    code: "APOPW",
+    name: "",
+  },
+
+  APP: {
+    code: "APP",
+    name: "APPLOVIN CORPORATI",
+  },
+
+  APSG: {
+    code: "APSG",
+    name: "FIERA CAPITAL SMAL",
+  },
+
+  "APSG.U": {
+    code: "APSG.U",
+    name: "",
+  },
+
+  "APSG.WS": {
+    code: "APSG.WS",
+    name: "",
+  },
+
+  APTV: {
+    code: "APTV",
+    name: "APTIV PLC",
+  },
+
+  APWC: {
+    code: "APWC",
+    name: "ASIA PACIFIC WIRE ",
+  },
+
+  APXTW: {
+    code: "APXTW",
+    name: "",
+  },
+
+  AQNA: {
+    code: "AQNA",
+    name: "",
+  },
+
+  AQNB: {
+    code: "AQNB",
+    name: "ALGONQUIN POWER & ",
+  },
+
+  ARA: {
+    code: "ARA",
+    name: "ACCURAY INCORPORAT",
+  },
+
+  ARCE: {
+    code: "ARCE",
+    name: "ARCELOR MITTAL NY ",
+  },
+
+  ARCO: {
+    code: "ARCO",
+    name: "ARCOS DORADOS HOLD",
+  },
+
+  ARD: {
+    code: "ARD",
+    name: "ARDELYX, INC.",
+  },
+
+  ARGD: {
+    code: "ARGD",
+    name: "ONE CHOICE 2060 PO",
+  },
+
+  ARGO: {
+    code: "ARGO",
+    name: "ARGO GRAPHENE SOLU",
+  },
+
+  ARM: {
+    code: "ARM",
+    name: "ARM HOLDINGS PLC",
+  },
+
+  ARQQ: {
+    code: "ARQQ",
+    name: "ARQIT QUANTUM INC.",
+  },
+
+  ARTLW: {
+    code: "ARTLW",
+    name: "",
+  },
+
+  ARVL: {
+    code: "ARVL",
+    name: "ARRIVAL",
+  },
+
+  ARYA: {
+    code: "ARYA",
+    name: "ARYA RESOURCES LTD",
+  },
+
+  ASA: {
+    code: "ASA",
+    name: "ASA  GOLD AND PREC",
+  },
+
+  "ASAQ.U": {
+    code: "ASAQ.U",
+    name: "",
+  },
+
+  "ASAQ.WS": {
+    code: "ASAQ.WS",
+    name: "",
+  },
+
+  ASC: {
+    code: "ASC",
+    name: "ARDMORE SHIPPING C",
+  },
+
+  ASML: {
+    code: "ASML",
+    name: "ASML HOLDING N.V. ",
+  },
+
+  ASPL: {
+    code: "ASPL",
+    name: "",
+  },
+
+  "ASPL.U": {
+    code: "ASPL.U",
+    name: "",
+  },
+
+  "ASPL.WS": {
+    code: "ASPL.WS",
+    name: "",
+  },
+
+  ASPS: {
+    code: "ASPS",
+    name: "ALTISOURCE PORTFOL",
+  },
+
+  ASRVP: {
+    code: "ASRVP",
+    name: "",
+  },
+
+  ASTS: {
+    code: "ASTS",
+    name: "AST SPACEMOBILE, I",
+  },
+
+  ATAC: {
+    code: "ATAC",
+    name: "ATACAMA RESOURCES ",
+  },
+
+  "ATAC.U": {
+    code: "ATAC.U",
+    name: "",
+  },
+
+  "ATAC.WS": {
+    code: "ATAC.WS",
+    name: "",
+  },
+
+  ATCO: {
+    code: "ATCO",
+    name: "ATCO LTD.         ",
+  },
+
+  ATH: {
+    code: "ATH",
+    name: "LULULEMON ATHLETIC",
+  },
+
+  ATIF: {
+    code: "ATIF",
+    name: "ATIF HOLDINGS LIMI",
+  },
+
+  ATNFW: {
+    code: "ATNFW",
+    name: "",
+  },
+
+  ATTO: {
+    code: "ATTO",
+    name: "ATENTO S.A.",
+  },
+
+  ATV: {
+    code: "ATV",
+    name: "AUSTRALIAN VANADIU",
+  },
+
+  AUBAP: {
+    code: "AUBAP",
+    name: "",
+  },
+
+  AUDC: {
+    code: "AUDC",
+    name: "AUDIOCODES LTD.",
+  },
+
+  AUGO: {
+    code: "AUGO",
+    name: "AURA MINERALS INC.",
+  },
+
+  AUR: {
+    code: "AUR",
+    name: "",
+  },
+
+  AUUDW: {
+    code: "AUUDW",
+    name: "",
+  },
+
+  AVAN: {
+    code: "AVAN",
+    name: "AVANTOR, INC.",
+  },
+
+  "AVAN.U": {
+    code: "AVAN.U",
+    name: "",
+  },
+
+  "AVAN.WS": {
+    code: "AVAN.WS",
+    name: "",
+  },
+
+  AVCTW: {
+    code: "AVCTW",
+    name: "",
+  },
+
+  AVGOP: {
+    code: "AVGOP",
+    name: "",
+  },
+
+  AXO: {
+    code: "AXO",
+    name: "AXON ENTERPRISE, I",
+  },
+
+  AXS: {
+    code: "AXS",
+    name: "AXIS CAPITAL HOLDI",
+  },
+
+  AXTA: {
+    code: "AXTA",
+    name: "AXALTA COATING SYS",
+  },
+
+  AY: {
+    code: "AY",
+    name: "AYA GOLD AND SILVE",
+  },
+
+  AYTUP: {
+    code: "AYTUP",
+    name: "",
+  },
+
+  AZRE: {
+    code: "AZRE",
+    name: "",
+  },
+
+  AZUL: {
+    code: "AZUL",
+    name: "AZUL S.A.",
+  },
+
+  BAK: {
+    code: "BAK",
+    name: "BRASKEM SA",
+  },
+
+  BAMH: {
+    code: "BAMH",
+    name: "UBS AMC BAM HUMMIN",
+  },
+
+  BAMI: {
+    code: "BAMI",
+    name: "BLUE ANT MEDIA COR",
+  },
+
+  BANFP: {
+    code: "BANFP",
+    name: "BANCFIRST CORPORAT",
+  },
+
+  BAP: {
+    code: "BAP",
+    name: "CREDICORP LTD.",
+  },
+
+  BBAI: {
+    code: "BBAI",
+    name: "BIGBEAR.AI, INC.",
+  },
+
+  BBD: {
+    code: "BBD",
+    name: "BANCO BRADESCO SA",
+  },
+
+  BBU: {
+    code: "BBU",
+    name: "",
+  },
+
+  BBWI: {
+    code: "BBWI",
+    name: "BATH & BODY WORKS,",
+  },
+
+  BCACW: {
+    code: "BCACW",
+    name: "",
+  },
+
+  BCDAW: {
+    code: "BCDAW",
+    name: "",
+  },
+
+  BCTXW: {
+    code: "BCTXW",
+    name: "",
+  },
+
+  BDGE: {
+    code: "BDGE",
+    name: "0P0001OT73.F",
+  },
+
+  BDORY: {
+    code: "BDORY",
+    name: "BANCO DO BRASIL SA",
+  },
+
+  BDXB: {
+    code: "BDXB",
+    name: "",
+  },
+
+  BEAT: {
+    code: "BEAT",
+    name: "HEARTBEAM, INC.",
+  },
+
+  BEEMW: {
+    code: "BEEMW",
+    name: "",
+  },
+
+  BENER: {
+    code: "BENER",
+    name: "",
+  },
+
+  BENEW: {
+    code: "BENEW",
+    name: "",
+  },
+
+  BEP: {
+    code: "BEP",
+    name: "BROOKFIELD RENEWAB",
+  },
+
+  "BF-A": {
+    code: "BF-A",
+    name: "BROWN FORMAN INC",
+  },
+
+  "BF-B": {
+    code: "BF-B",
+    name: "BROWN FORMAN INC",
+  },
+
+  BFH: {
+    code: "BFH",
+    name: "BREAD FINANCIAL HO",
+  },
+
+  BFIIW: {
+    code: "BFIIW",
+    name: "",
+  },
+
+  "BFT.U": {
+    code: "BFT.U",
+    name: "",
+  },
+
+  "BFT.WS": {
+    code: "BFT.WS",
+    name: "",
+  },
+
+  BG: {
+    code: "BG",
+    name: "BUNGE LIMITED",
+  },
+
+  BHAT: {
+    code: "BHAT",
+    name: "BH NETWORK USD",
+  },
+
+  BHFAL: {
+    code: "BHFAL",
+    name: "BRIGHTHOUSE FINANC",
+  },
+
+  BHFAN: {
+    code: "BHFAN",
+    name: "BRIGHTHOUSE FINANC",
+  },
+
+  BHFAO: {
+    code: "BHFAO",
+    name: "BRIGHTHOUSE FINANC",
+  },
+
+  BHFAP: {
+    code: "BHFAP",
+    name: "BRIGHTHOUSE FINANC",
+  },
+
+  BHG: {
+    code: "BHG",
+    name: "BHG RETAIL REIT",
+  },
+
+  BHSE: {
+    code: "BHSE",
+    name: "",
+  },
+
+  BHSEU: {
+    code: "BHSEU",
+    name: "",
+  },
+
+  BHSEW: {
+    code: "BHSEW",
+    name: "",
+  },
+
+  BHVN: {
+    code: "BHVN",
+    name: "BIOHAVEN LTD.",
+  },
+
+  "BIO-B": {
+    code: "BIO-B",
+    name: "BIO-RAD LABORATORI",
+  },
+
+  BIP: {
+    code: "BIP",
+    name: "BROOKFIELD INFRAST",
+  },
+
+  BKEPP: {
+    code: "BKEPP",
+    name: "",
+  },
+
+  BKKT: {
+    code: "BKKT",
+    name: "BAKKT, INC.",
+  },
+
+  BLND: {
+    code: "BLND",
+    name: "BLEND LABS, INC.",
+  },
+
+  BLNKW: {
+    code: "BLNKW",
+    name: "",
+  },
+
+  BLSA: {
+    code: "BLSA",
+    name: "BLACKROCK ADVANTAG",
+  },
+
+  BLX: {
+    code: "BLX",
+    name: "BANCO LATINOAMERIC",
+  },
+
+  BMCH: {
+    code: "BMCH",
+    name: "BMO CALLABLE CONTI",
+  },
+
+  "BMY.RT": {
+    code: "BMY.RT",
+    name: "",
+  },
+
+  BN: {
+    code: "BN",
+    name: "BROOKFIELD CORPORA",
+  },
+
+  BNGOW: {
+    code: "BNGOW",
+    name: "",
+  },
+
+  BOAC: {
+    code: "BOAC",
+    name: "BANK AMERICADRN ED",
+  },
+
+  "BOAC.U": {
+    code: "BOAC.U",
+    name: "",
+  },
+
+  "BOAC.WS": {
+    code: "BOAC.WS",
+    name: "",
+  },
+
+  BOC: {
+    code: "BOC",
+    name: "BOSTON OMAHA CORPO",
+  },
+
+  BOKFL: {
+    code: "BOKFL",
+    name: "",
+  },
+
+  BORR: {
+    code: "BORR",
+    name: "",
+  },
+
+  BOSC: {
+    code: "BOSC",
+    name: "B.O.S. BETTER ONLI",
+  },
+
+  BOWXW: {
+    code: "BOWXW",
+    name: "",
+  },
+
+  BPOPM: {
+    code: "BPOPM",
+    name: "POPULAR, INC. - PO",
+  },
+
+  BPOPN: {
+    code: "BPOPN",
+    name: "",
+  },
+
+  BPY: {
+    code: "BPY",
+    name: "BROOKFIELD PROPERT",
+  },
+
+  BPYPM: {
+    code: "BPYPM",
+    name: "BROOKFIELD PROPERT",
+  },
+
+  BPYPN: {
+    code: "BPYPN",
+    name: "BROOKFIELD PROPERT",
+  },
+
+  BPYPO: {
+    code: "BPYPO",
+    name: "BROOKFIELD PROPERT",
+  },
+
+  BPYPP: {
+    code: "BPYPP",
+    name: "BROOKFIELD PROPERT",
+  },
+
+  BREZU: {
+    code: "BREZU",
+    name: "",
+  },
+
+  "BRK-A": {
+    code: "BRK-A",
+    name: "BERKSHIRE HATHAWAY",
+  },
+
+  "BRK-B": {
+    code: "BRK-B",
+    name: "BERKSHIRE HATHAWAY",
+  },
+
+  BRLI: {
+    code: "BRLI",
+    name: "BRL/ISX",
+  },
+
+  BRLIR: {
+    code: "BRLIR",
+    name: "",
+  },
+
+  BRLIU: {
+    code: "BRLIU",
+    name: "",
+  },
+
+  BRLIW: {
+    code: "BRLIW",
+    name: "",
+  },
+
+  BRLT: {
+    code: "BRLT",
+    name: "BRILLIANT EARTH GR",
+  },
+
+  BROG: {
+    code: "BROG",
+    name: "BROGENT TECHNOLOGI",
+  },
+
+  BROGW: {
+    code: "BROGW",
+    name: "",
+  },
+
+  BROS: {
+    code: "BROS",
+    name: "DUTCH BROS INC.",
+  },
+
+  BRPAR: {
+    code: "BRPAR",
+    name: "",
+  },
+
+  BRPAW: {
+    code: "BRPAW",
+    name: "",
+  },
+
+  BRQS: {
+    code: "BRQS",
+    name: "BORQS TECHNOLOGIES",
+  },
+
+  BSA: {
+    code: "BSA",
+    name: "SANTANDER CDR (CAD",
+  },
+
+  BSN: {
+    code: "BSN",
+    name: "DANONE S.A.       ",
+  },
+
+  "BSN.U": {
+    code: "BSN.U",
+    name: "",
+  },
+
+  "BSN.WS": {
+    code: "BSN.WS",
+    name: "",
+  },
+
+  BTAQ: {
+    code: "BTAQ",
+    name: "",
+  },
+
+  BTAQU: {
+    code: "BTAQU",
+    name: "",
+  },
+
+  BTAQW: {
+    code: "BTAQW",
+    name: "",
+  },
+
+  BTBT: {
+    code: "BTBT",
+    name: "BIT DIGITAL, INC.",
+  },
+
+  BTCM: {
+    code: "BTCM",
+    name: "MINTO USD",
+  },
+
+  BTWN: {
+    code: "BTWN",
+    name: "",
+  },
+
+  BTWNU: {
+    code: "BTWNU",
+    name: "",
+  },
+
+  BTWNW: {
+    code: "BTWNW",
+    name: "",
+  },
+
+  BUR: {
+    code: "BUR",
+    name: "",
+  },
+
+  BWACU: {
+    code: "BWACU",
+    name: "",
+  },
+
+  BWMX: {
+    code: "BWMX",
+    name: "BETTERWARE DE MEXI",
+  },
+
+  BYSI: {
+    code: "BYSI",
+    name: "BEYONDSPRING, INC.",
+  },
+
+  CAAP: {
+    code: "CAAP",
+    name: "CORPORACION AMERIC",
+  },
+
+  CAMT: {
+    code: "CAMT",
+    name: "CAMTEK LTD.",
+  },
+
+  CAPAW: {
+    code: "CAPAW",
+    name: "",
+  },
+
+  CATM: {
+    code: "CATM",
+    name: "COLUMBIA AGGRESSIV",
+  },
+
+  CAVA: {
+    code: "CAVA",
+    name: "CAVA GROUP, INC.",
+  },
+
+  CB: {
+    code: "CB",
+    name: "CHUBB LIMITED",
+  },
+
+  CBMG: {
+    code: "CBMG",
+    name: "CI CANADIAN ASSET ",
+  },
+
+  CBPO: {
+    code: "CBPO",
+    name: "CI CANADIAN BALANC",
+  },
+
+  CCAC: {
+    code: "CCAC",
+    name: "",
+  },
+
+  CCEP: {
+    code: "CCEP",
+    name: "COCA-COLA EUROPACI",
+  },
+
+  "CCIV.U": {
+    code: "CCIV.U",
+    name: "",
+  },
+
+  "CCIV.WS": {
+    code: "CCIV.WS",
+    name: "",
+  },
+
+  CCNEP: {
+    code: "CCNEP",
+    name: "CNB FINANCIAL CORP",
+  },
+
+  CCR: {
+    code: "CCR",
+    name: "",
+  },
+
+  CCRC: {
+    code: "CCRC",
+    name: "COLUMBIA CONTRARIA",
+  },
+
+  CCZ: {
+    code: "CCZ",
+    name: "COMCAST HOLDINGS Z",
+  },
+
+  CDMOP: {
+    code: "CDMOP",
+    name: "",
+  },
+
+  CEG: {
+    code: "CEG",
+    name: "CONSTELLATION ENER",
+  },
+
+  CEL: {
+    code: "CEL",
+    name: "CEL-SCI CORPORATIO",
+  },
+
+  "CELG.RT": {
+    code: "CELG.RT",
+    name: "",
+  },
+
+  CEREW: {
+    code: "CEREW",
+    name: "",
+  },
+
+  CETXP: {
+    code: "CETXP",
+    name: "CEMTREX, INC.",
+  },
+
+  CETXW: {
+    code: "CETXW",
+    name: "",
+  },
+
+  CFBI: {
+    code: "CFBI",
+    name: "CI MOSAIC BALANCED",
+  },
+
+  CFIIW: {
+    code: "CFIIW",
+    name: "",
+  },
+
+  CFXA: {
+    code: "CFXA",
+    name: "",
+  },
+
+  CGEN: {
+    code: "CGEN",
+    name: "COMPUGEN LTD.",
+  },
+
+  CGNT: {
+    code: "CGNT",
+    name: "COGNYTE SOFTWARE L",
+  },
+
+  CGROW: {
+    code: "CGROW",
+    name: "",
+  },
+
+  CHA: {
+    code: "CHA",
+    name: "CHAGEE HOLDINGS LI",
+  },
+
+  CHEK: {
+    code: "CHEK",
+    name: "CHECKR - COMPANY L",
+  },
+
+  CHEKZ: {
+    code: "CHEKZ",
+    name: "CHECKR - COMPANY L",
+  },
+
+  CHKP: {
+    code: "CHKP",
+    name: "CHECK POINT SOFTWA",
+  },
+
+  CHL: {
+    code: "CHL",
+    name: "CHINA LIFE INSURAN",
+  },
+
+  CHNR: {
+    code: "CHNR",
+    name: "",
+  },
+
+  CHPMW: {
+    code: "CHPMW",
+    name: "",
+  },
+
+  CHPT: {
+    code: "CHPT",
+    name: "CHARGEPOINT HOLDIN",
+  },
+
+  CHSCL: {
+    code: "CHSCL",
+    name: "CHS INC",
+  },
+
+  CHSCM: {
+    code: "CHSCM",
+    name: "CHS INC",
+  },
+
+  CHSCN: {
+    code: "CHSCN",
+    name: "CHS INC - PREFERRE",
+  },
+
+  CHSCO: {
+    code: "CHSCO",
+    name: "CHS INC",
+  },
+
+  CHSCP: {
+    code: "CHSCP",
+    name: "CHS INC - 8%  CUMU",
+  },
+
+  CHU: {
+    code: "CHU",
+    name: "",
+  },
+
+  CIB: {
+    code: "CIB",
+    name: "GRUPO CIBEST S.A.",
+  },
+
+  CIG: {
+    code: "CIG",
+    name: "COMP EN DE MN CEMI",
+  },
+
+  "CIG.C": {
+    code: "CIG.C",
+    name: "",
+  },
+
+  CIICW: {
+    code: "CIICW",
+    name: "",
+  },
+
+  CINT: {
+    code: "CINT",
+    name: "CI&T INC",
+  },
+
+  CIVI: {
+    code: "CIVI",
+    name: "GLOBE CIVIL PROJEC",
+  },
+
+  CLA: {
+    code: "CLA",
+    name: "CLASS IV MILK FUTU",
+  },
+
+  "CLA.U": {
+    code: "CLA.U",
+    name: "",
+  },
+
+  "CLA.WS": {
+    code: "CLA.WS",
+    name: "",
+  },
+
+  CLB: {
+    code: "CLB",
+    name: "CORE LABORATORIES ",
+  },
+
+  CLCT: {
+    code: "CLCT",
+    name: "",
+  },
+
+  CLEU: {
+    code: "CLEU",
+    name: "",
+  },
+
+  "CLII.U": {
+    code: "CLII.U",
+    name: "",
+  },
+
+  "CLII.WS": {
+    code: "CLII.WS",
+    name: "",
+  },
+
+  CLPS: {
+    code: "CLPS",
+    name: "CLPS INCORPORATION",
+  },
+
+  CLRBZ: {
+    code: "CLRBZ",
+    name: "",
+  },
+
+  CLVRW: {
+    code: "CLVRW",
+    name: "",
+  },
+
+  CLVT: {
+    code: "CLVT",
+    name: "CLARIVATE PLC",
+  },
+
+  CLWT: {
+    code: "CLWT",
+    name: "EURO TECH HOLDINGS",
+  },
+
+  CMBM: {
+    code: "CMBM",
+    name: "CAMBIUM NETWORKS C",
+  },
+
+  CMCL: {
+    code: "CMCL",
+    name: "CALEDONIA MINING C",
+  },
+
+  CMFNL: {
+    code: "CMFNL",
+    name: "",
+  },
+
+  CMLFW: {
+    code: "CMLFW",
+    name: "",
+  },
+
+  CMPR: {
+    code: "CMPR",
+    name: "",
+  },
+
+  CMRE: {
+    code: "CMRE",
+    name: "COSTAMARE INC.",
+  },
+
+  CMSA: {
+    code: "CMSA",
+    name: "CMS ENERGY CORPORA",
+  },
+
+  CMSC: {
+    code: "CMSC",
+    name: "CMS ENERGY CORPORA",
+  },
+
+  CMSD: {
+    code: "CMSD",
+    name: "CMS ENERGY CORPORA",
+  },
+
+  CNFRL: {
+    code: "CNFRL",
+    name: "",
+  },
+
+  CNHI: {
+    code: "CNHI",
+    name: "CNH/INR",
+  },
+
+  CNTG: {
+    code: "CNTG",
+    name: "0P0001INII.F",
+  },
+
+  CO: {
+    code: "CO",
+    name: "COPPER JUL 26",
+  },
+
+  COIN: {
+    code: "COIN",
+    name: "COINBASE GLOBAL, I",
+  },
+
+  CONXW: {
+    code: "CONXW",
+    name: "",
+  },
+
+  COOLU: {
+    code: "COOLU",
+    name: "",
+  },
+
+  COUR: {
+    code: "COUR",
+    name: "",
+  },
+
+  COWNL: {
+    code: "COWNL",
+    name: "",
+  },
+
+  COWNZ: {
+    code: "COWNZ",
+    name: "",
+  },
+
+  CPA: {
+    code: "CPA",
+    name: "COPA HOLDINGS, S.A",
+  },
+
+  CPLP: {
+    code: "CPLP",
+    name: "BRADESCO EMPRESAS ",
+  },
+
+  CPNG: {
+    code: "CPNG",
+    name: "COUPANG, INC.",
+  },
+
+  CPRI: {
+    code: "CPRI",
+    name: "CAPRI HOLDINGS LIM",
+  },
+
+  CPTAG: {
+    code: "CPTAG",
+    name: "",
+  },
+
+  CPTAL: {
+    code: "CPTAL",
+    name: "",
+  },
+
+  CRCL: {
+    code: "CRCL",
+    name: "CIRCLE INTERNET GR",
+  },
+
+  "CRD-A": {
+    code: "CRD-A",
+    name: "CRAWFORD & COMPANY",
+  },
+
+  "CRD-B": {
+    code: "CRD-B",
+    name: "CRAWFORD & COMPANY",
+  },
+
+  CRDO: {
+    code: "CRDO",
+    name: "CREDO TECHNOLOGY G",
+  },
+
+  CREXW: {
+    code: "CREXW",
+    name: "",
+  },
+
+  CRHC: {
+    code: "CRHC",
+    name: "",
+  },
+
+  "CRHC.U": {
+    code: "CRHC.U",
+    name: "",
+  },
+
+  "CRHC.WS": {
+    code: "CRHC.WS",
+    name: "",
+  },
+
+  CRNT: {
+    code: "CRNT",
+    name: "CERAGON NETWORKS L",
+  },
+
+  CRSAW: {
+    code: "CRSAW",
+    name: "",
+  },
+
+  CRSP: {
+    code: "CRSP",
+    name: "CRISPR THERAPEUTIC",
+  },
+
+  CRTDW: {
+    code: "CRTDW",
+    name: "",
+  },
+
+  CRWV: {
+    code: "CRWV",
+    name: "COREWEAVE, INC.",
+  },
+
+  CSAN: {
+    code: "CSAN",
+    name: "COSAN S.A.",
+  },
+
+  CSCW: {
+    code: "CSCW",
+    name: "",
+  },
+
+  CSSEN: {
+    code: "CSSEN",
+    name: "",
+  },
+
+  CSSEP: {
+    code: "CSSEP",
+    name: "",
+  },
+
+  CSTE: {
+    code: "CSTE",
+    name: "CAESARSTONE LTD.",
+  },
+
+  CSTM: {
+    code: "CSTM",
+    name: "CONSTELLIUM SE",
+  },
+
+  CSWCL: {
+    code: "CSWCL",
+    name: "",
+  },
+
+  CTAA: {
+    code: "CTAA",
+    name: "CLEARTHINK 1 ACQUI",
+  },
+
+  CTAC: {
+    code: "CTAC",
+    name: "CTAC N.V.         ",
+  },
+
+  "CTAC.U": {
+    code: "CTAC.U",
+    name: "",
+  },
+
+  "CTAC.WS": {
+    code: "CTAC.WS",
+    name: "",
+  },
+
+  CTBB: {
+    code: "CTBB",
+    name: "",
+  },
+
+  CTDD: {
+    code: "CTDD",
+    name: "QWEST CORPORATION ",
+  },
+
+  CTRA: {
+    code: "CTRA",
+    name: "CALAMOS TOTAL RETU",
+  },
+
+  CTRM: {
+    code: "CTRM",
+    name: "CASTOR MARITIME IN",
+  },
+
+  CTXRW: {
+    code: "CTXRW",
+    name: "",
+  },
+
+  CUBB: {
+    code: "CUBB",
+    name: "CUSTOMERS BANCORP,",
+  },
+
+  CURIW: {
+    code: "CURIW",
+    name: "",
+  },
+
+  CVAC: {
+    code: "CVAC",
+    name: "CALAMOS SELECT FUN",
+  },
+
+  CVLB: {
+    code: "CVLB",
+    name: "VALE S.A.         ",
+  },
+
+  CWCO: {
+    code: "CWCO",
+    name: "CONSOLIDATED WATER",
+  },
+
+  CWK: {
+    code: "CWK",
+    name: "CUSHMAN & WAKEFIEL",
+  },
+
+  CXO: {
+    code: "CXO",
+    name: "AMOVAEFUND CHINEXT",
+  },
+
+  CYBR: {
+    code: "CYBR",
+    name: "",
+  },
+
+  CYCCP: {
+    code: "CYCCP",
+    name: "",
+  },
+
+  CYD: {
+    code: "CYD",
+    name: "CHINA YUCHAI INTER",
+  },
+
+  CYRN: {
+    code: "CYRN",
+    name: "CYREN LTD.",
+  },
+
+  CYTHW: {
+    code: "CYTHW",
+    name: "",
+  },
+
+  CZOO: {
+    code: "CZOO",
+    name: "CAZOO GROUP LTD",
+  },
+
+  CZZ: {
+    code: "CZZ",
+    name: "CIZZLE BRANDS CORP",
+  },
+
+  DAC: {
+    code: "DAC",
+    name: "DANAOS CORPORATION",
+  },
+
+  DAVE: {
+    code: "DAVE",
+    name: "DAVE INC.",
+  },
+
+  DB: {
+    code: "DB",
+    name: "DEUTSCHE BANK AG",
+  },
+
+  DBDRW: {
+    code: "DBDRW",
+    name: "",
+  },
+
+  DCOMP: {
+    code: "DCOMP",
+    name: "",
+  },
+
+  DCRBW: {
+    code: "DCRBW",
+    name: "",
+  },
+
+  DCRC: {
+    code: "DCRC",
+    name: "",
+  },
+
+  DDT: {
+    code: "DDT",
+    name: "DILLARD'S CAPITAL ",
+  },
+
+  DEH: {
+    code: "DEH",
+    name: "DEHUA TB NEW DECOR",
+  },
+
+  "DEH.U": {
+    code: "DEH.U",
+    name: "",
+  },
+
+  "DEH.WS": {
+    code: "DEH.WS",
+    name: "",
+  },
+
+  DESP: {
+    code: "DESP",
+    name: "DESPEC BILGISAYAR",
+  },
+
+  DFHTW: {
+    code: "DFHTW",
+    name: "",
+  },
+
+  "DFNS.U": {
+    code: "DFNS.U",
+    name: "",
+  },
+
+  "DFNS.WS": {
+    code: "DFNS.WS",
+    name: "",
+  },
+
+  DFPHU: {
+    code: "DFPHU",
+    name: "",
+  },
+
+  DFPHW: {
+    code: "DFPHW",
+    name: "",
+  },
+
+  DGNR: {
+    code: "DGNR",
+    name: "",
+  },
+
+  "DGNR.U": {
+    code: "DGNR.U",
+    name: "",
+  },
+
+  "DGNR.WS": {
+    code: "DGNR.WS",
+    name: "",
+  },
+
+  DGNS: {
+    code: "DGNS",
+    name: "DIAGNOS LABORATORI",
+  },
+
+  DHT: {
+    code: "DHT",
+    name: "DHT HOLDINGS, INC.",
+  },
+
+  DIBS: {
+    code: "DIBS",
+    name: "1STDIBS.COM, INC.",
+  },
+
+  DIDI: {
+    code: "DIDI",
+    name: "DIDI GLOBAL INC.",
+  },
+
+  DINO: {
+    code: "DINO",
+    name: "HF SINCLAIR CORPOR",
+  },
+
+  DLNG: {
+    code: "DLNG",
+    name: "DYNAGAS LNG PARTNE",
+  },
+
+  DLO: {
+    code: "DLO",
+    name: "DLOCAL LIMITED",
+  },
+
+  DLPNW: {
+    code: "DLPNW",
+    name: "",
+  },
+
+  "DMS.WS": {
+    code: "DMS.WS",
+    name: "",
+  },
+
+  "DMYD.U": {
+    code: "DMYD.U",
+    name: "",
+  },
+
+  "DMYD.WS": {
+    code: "DMYD.WS",
+    name: "",
+  },
+
+  "DMYI.U": {
+    code: "DMYI.U",
+    name: "",
+  },
+
+  DMYT: {
+    code: "DMYT",
+    name: "",
+  },
+
+  DNA: {
+    code: "DNA",
+    name: "GINKGO BIOWORKS HO",
+  },
+
+  DNUT: {
+    code: "DNUT",
+    name: "KRISPY KREME, INC.",
+  },
+
+  DOCN: {
+    code: "DOCN",
+    name: "DIGITALOCEAN HOLDI",
+  },
+
+  DOCS: {
+    code: "DOCS",
+    name: "DOXIMITY, INC.",
+  },
+
+  DOGZ: {
+    code: "DOGZ",
+    name: "DOGNESS (INTERNATI",
+  },
+
+  DOLE: {
+    code: "DOLE",
+    name: "DOLE PLC",
+  },
+
+  DOMA: {
+    code: "DOMA",
+    name: "DOMAN BUILDING MAT",
+  },
+
+  DOX: {
+    code: "DOX",
+    name: "AMDOCS LIMITED",
+  },
+
+  DRAD: {
+    code: "DRAD",
+    name: "",
+  },
+
+  DRADP: {
+    code: "DRADP",
+    name: "",
+  },
+
+  DRIOW: {
+    code: "DRIOW",
+    name: "",
+  },
+
+  DRUA: {
+    code: "DRUA",
+    name: "",
+  },
+
+  DSAC: {
+    code: "DSAC",
+    name: "DAEDALUS SPECIAL A",
+  },
+
+  DSACU: {
+    code: "DSACU",
+    name: "",
+  },
+
+  DSACW: {
+    code: "DSACW",
+    name: "",
+  },
+
+  DSEY: {
+    code: "DSEY",
+    name: "",
+  },
+
+  DSKEW: {
+    code: "DSKEW",
+    name: "",
+  },
+
+  DSSI: {
+    code: "DSSI",
+    name: "",
+  },
+
+  DSX: {
+    code: "DSX",
+    name: "DIANA SHIPPING INC",
+  },
+
+  DTB: {
+    code: "DTB",
+    name: "DTE ENERGY COMPANY",
+  },
+
+  DTJ: {
+    code: "DTJ",
+    name: "DREYFUS TREASURY S",
+  },
+
+  DTW: {
+    code: "DTW",
+    name: "",
+  },
+
+  DTY: {
+    code: "DTY",
+    name: "",
+  },
+
+  DUKB: {
+    code: "DUKB",
+    name: "DUKE ENERGY CORPOR",
+  },
+
+  DUKH: {
+    code: "DUKH",
+    name: "OCEAN PARK HIGH IN",
+  },
+
+  DUOL: {
+    code: "DUOL",
+    name: "DUOLINGO, INC.",
+  },
+
+  DWAC: {
+    code: "DWAC",
+    name: "",
+  },
+
+  DXLG: {
+    code: "DXLG",
+    name: "DESTINATION XL GRO",
+  },
+
+  EAI: {
+    code: "EAI",
+    name: "ENTERGY ARKANSAS, ",
+  },
+
+  EARS: {
+    code: "EARS",
+    name: "",
+  },
+
+  EBAYL: {
+    code: "EBAYL",
+    name: "",
+  },
+
+  EBON: {
+    code: "EBON",
+    name: "EBANG INTERNATIONA",
+  },
+
+  ECCB: {
+    code: "ECCB",
+    name: "",
+  },
+
+  ECCX: {
+    code: "ECCX",
+    name: "EAGLE POINT CREDIT",
+  },
+
+  ECCY: {
+    code: "ECCY",
+    name: "",
+  },
+
+  ECOLW: {
+    code: "ECOLW",
+    name: "",
+  },
+
+  EDRY: {
+    code: "EDRY",
+    name: "EURODRY LTD.",
+  },
+
+  EDTK: {
+    code: "EDTK",
+    name: "SKILLFUL CRAFTSMAN",
+  },
+
+  EGLE: {
+    code: "EGLE",
+    name: "GLOBAL X S&P 500 U",
+  },
+
+  EIDX: {
+    code: "EIDX",
+    name: "",
+  },
+
+  EIGI: {
+    code: "EIGI",
+    name: "EATON VANCE CORE B",
+  },
+
+  ELBM: {
+    code: "ELBM",
+    name: "ELECTRA BATTERY MA",
+  },
+
+  ELC: {
+    code: "ELC",
+    name: "ENTERGY LOUISIANA,",
+  },
+
+  ELP: {
+    code: "ELP",
+    name: "COMPANHIA PARANAEN",
+  },
+
+  ELPC: {
+    code: "ELPC",
+    name: "COMPANHIA PARANAEN",
+  },
+
+  ELTK: {
+    code: "ELTK",
+    name: "ELTEK LTD.",
+  },
+
+  ELV: {
+    code: "ELV",
+    name: "ELEVANCE HEALTH, I",
+  },
+
+  EMBJ: {
+    code: "EMBJ",
+    name: "EMBRAER S.A.",
+  },
+
+  EMP: {
+    code: "EMP",
+    name: "ENTERGY MISSISSIPP",
+  },
+
+  EMPW: {
+    code: "EMPW",
+    name: "",
+  },
+
+  "EMPW.U": {
+    code: "EMPW.U",
+    name: "",
+  },
+
+  "EMPW.WS": {
+    code: "EMPW.WS",
+    name: "",
+  },
+
+  ENBA: {
+    code: "ENBA",
+    name: "",
+  },
+
+  ENDP: {
+    code: "ENDP",
+    name: "EPRA/NAREIT EUROPE",
+  },
+
+  ENJ: {
+    code: "ENJ",
+    name: "ENTERGY NEW ORLEAN",
+  },
+
+  ENLV: {
+    code: "ENLV",
+    name: "ENLIVEX LTD.",
+  },
+
+  ENO: {
+    code: "ENO",
+    name: "ENTERGY NEW ORLEAN",
+  },
+
+  ENTX: {
+    code: "ENTX",
+    name: "ENTERA BIO LTD.",
+  },
+
+  ENTXW: {
+    code: "ENTXW",
+    name: "",
+  },
+
+  EOSEW: {
+    code: "EOSEW",
+    name: "",
+  },
+
+  "EQD.U": {
+    code: "EQD.U",
+    name: "",
+  },
+
+  "EQD.WS": {
+    code: "EQD.WS",
+    name: "",
+  },
+
+  EQOS: {
+    code: "EQOS",
+    name: "",
+  },
+
+  EQOSW: {
+    code: "EQOSW",
+    name: "",
+  },
+
+  ERESW: {
+    code: "ERESW",
+    name: "",
+  },
+
+  ESAB: {
+    code: "ESAB",
+    name: "ESAB CORPORATION",
+  },
+
+  ESEA: {
+    code: "ESEA",
+    name: "EUROSEAS LTD.",
+  },
+
+  ESGC: {
+    code: "ESGC",
+    name: "ENNOGIE SOLAR GROU",
+  },
+
+  ESGR: {
+    code: "ESGR",
+    name: "",
+  },
+
+  ESGRO: {
+    code: "ESGRO",
+    name: "ENSTAR GROUP LIMIT",
+  },
+
+  ESGRP: {
+    code: "ESGRP",
+    name: "ENSTAR GROUP LIMIT",
+  },
+
+  ESLT: {
+    code: "ESLT",
+    name: "ELBIT SYSTEMS LTD.",
+  },
+
+  ESNT: {
+    code: "ESNT",
+    name: "ESSENT GROUP LTD.",
+  },
+
+  ESSC: {
+    code: "ESSC",
+    name: "EVENTIDE SMALL CAP",
+  },
+
+  ESSCR: {
+    code: "ESSCR",
+    name: "",
+  },
+
+  ESSCU: {
+    code: "ESSCU",
+    name: "",
+  },
+
+  ESSCW: {
+    code: "ESSCW",
+    name: "",
+  },
+
+  ESTA: {
+    code: "ESTA",
+    name: "ESTABLISHMENT LABS",
+  },
+
+  ESTC: {
+    code: "ESTC",
+    name: "ELASTIC N.V.",
+  },
+
+  ETACW: {
+    code: "ETACW",
+    name: "",
+  },
+
+  ETN: {
+    code: "ETN",
+    name: "EATON CORPORATION,",
+  },
+
+  EU: {
+    code: "EU",
+    name: "",
+  },
+
+  EUCRU: {
+    code: "EUCRU",
+    name: "",
+  },
+
+  EURN: {
+    code: "EURN",
+    name: "EUR/NOK",
+  },
+
+  EVE: {
+    code: "EVE",
+    name: "EVERCORE INC.",
+  },
+
+  EVEX: {
+    code: "EVEX",
+    name: "EVE HOLDING, INC.",
+  },
+
+  EVGBC: {
+    code: "EVGBC",
+    name: "",
+  },
+
+  EVGN: {
+    code: "EVGN",
+    name: "EVOGENE LTD.",
+  },
+
+  EXPCW: {
+    code: "EXPCW",
+    name: "",
+  },
+
+  EYESW: {
+    code: "EYESW",
+    name: "",
+  },
+
+  FAMI: {
+    code: "FAMI",
+    name: "FARMMI, INC. ORDIN",
+  },
+
+  FATBP: {
+    code: "FATBP",
+    name: "",
+  },
+
+  FATBW: {
+    code: "FATBW",
+    name: "",
+  },
+
+  FBIOP: {
+    code: "FBIOP",
+    name: "FORTRESS BIOTECH, ",
+  },
+
+  FBM: {
+    code: "FBM",
+    name: "SCOTIAGFBM.MX",
+  },
+
+  FCACW: {
+    code: "FCACW",
+    name: "",
+  },
+
+  FCNCP: {
+    code: "FCNCP",
+    name: "FIRST CITIZENS BAN",
+  },
+
+  FCRW: {
+    code: "FCRW",
+    name: "",
+  },
+
+  FCRZ: {
+    code: "FCRZ",
+    name: "BMO ASCENT GROWTH ",
+  },
+
+  FDP: {
+    code: "FDP",
+    name: "DEL MONTE CORPORAT",
+  },
+
+  FDUSG: {
+    code: "FDUSG",
+    name: "",
+  },
+
+  FDUSL: {
+    code: "FDUSL",
+    name: "",
+  },
+
+  FDUSZ: {
+    code: "FDUSZ",
+    name: "",
+  },
+
+  FFHL: {
+    code: "FFHL",
+    name: "GQG PARTNERS EMERG",
+  },
+
+  FFIE: {
+    code: "FFIE",
+    name: "",
+  },
+
+  FGFPP: {
+    code: "FGFPP",
+    name: "FUNDAMENTAL GLOBAL",
+  },
+
+  FIIIW: {
+    code: "FIIIW",
+    name: "",
+  },
+
+  FIT: {
+    code: "FIT",
+    name: "FIFTH THIRD BANCOR",
+  },
+
+  FITBI: {
+    code: "FITBI",
+    name: "FIFTH THIRD BANCOR",
+  },
+
+  FITBO: {
+    code: "FITBO",
+    name: "FIFTH THIRD BANCOR",
+  },
+
+  FITBP: {
+    code: "FITBP",
+    name: "FIFTH THIRD BANCOR",
+  },
+
+  FKWL: {
+    code: "FKWL",
+    name: "FRANKLIN WIRELESS ",
+  },
+
+  FLACU: {
+    code: "FLACU",
+    name: "",
+  },
+
+  FLEX: {
+    code: "FLEX",
+    name: "FLEX LTD.",
+  },
+
+  FLMNW: {
+    code: "FLMNW",
+    name: "",
+  },
+
+  FLNG: {
+    code: "FLNG",
+    name: "FLEX LNG LTD.",
+  },
+
+  FLRZ: {
+    code: "FLRZ",
+    name: "FRANKLIN LIFESMART",
+  },
+
+  FLUT: {
+    code: "FLUT",
+    name: "FLUTTER ENTERTAINM",
+  },
+
+  "FMAC.U": {
+    code: "FMAC.U",
+    name: "",
+  },
+
+  "FMAC.WS": {
+    code: "FMAC.WS",
+    name: "",
+  },
+
+  FMBIO: {
+    code: "FMBIO",
+    name: "",
+  },
+
+  FMBIP: {
+    code: "FMBIP",
+    name: "",
+  },
+
+  FN: {
+    code: "FN",
+    name: "FABRINET",
+  },
+
+  FREEW: {
+    code: "FREEW",
+    name: "",
+  },
+
+  FRGAP: {
+    code: "FRGAP",
+    name: "",
+  },
+
+  FRO: {
+    code: "FRO",
+    name: "FRONTLINE PLC",
+  },
+
+  FROG: {
+    code: "FROG",
+    name: "JFROG LTD.",
+  },
+
+  "FRX.U": {
+    code: "FRX.U",
+    name: "",
+  },
+
+  FSDC: {
+    code: "FSDC",
+    name: "",
+  },
+
+  FSRVW: {
+    code: "FSRVW",
+    name: "",
+  },
+
+  "FST.U": {
+    code: "FST.U",
+    name: "",
+  },
+
+  "FST.WS": {
+    code: "FST.WS",
+    name: "",
+  },
+
+  FTI: {
+    code: "FTI",
+    name: "TECHNIPFMC PLC",
+  },
+
+  FTIVW: {
+    code: "FTIVW",
+    name: "",
+  },
+
+  FTOC: {
+    code: "FTOC",
+    name: "",
+  },
+
+  FTOCU: {
+    code: "FTOCU",
+    name: "",
+  },
+
+  FTOCW: {
+    code: "FTOCW",
+    name: "",
+  },
+
+  FULTP: {
+    code: "FULTP",
+    name: "FULTON FINANCIAL C",
+  },
+
+  "FUSE.U": {
+    code: "FUSE.U",
+    name: "",
+  },
+
+  "FUSE.WS": {
+    code: "FUSE.WS",
+    name: "",
+  },
+
+  FVRR: {
+    code: "FVRR",
+    name: "",
+  },
+
+  G: {
+    code: "G",
+    name: "GENPACT LIMITED",
+  },
+
+  GAINL: {
+    code: "GAINL",
+    name: "",
+  },
+
+  GAINM: {
+    code: "GAINM",
+    name: "",
+  },
+
+  GAMB: {
+    code: "GAMB",
+    name: "GAMBLING.COM GROUP",
+  },
+
+  GAN: {
+    code: "GAN",
+    name: "GANFENG LITHIUM GR",
+  },
+
+  GASS: {
+    code: "GASS",
+    name: "STEALTHGAS, INC.",
+  },
+
+  GB: {
+    code: "GB",
+    name: "GBP/USD",
+  },
+
+  GBLIL: {
+    code: "GBLIL",
+    name: "",
+  },
+
+  GCMGW: {
+    code: "GCMGW",
+    name: "",
+  },
+
+  GCT: {
+    code: "GCT",
+    name: "GIGACLOUD TECHNOLO",
+  },
+
+  GDYNW: {
+    code: "GDYNW",
+    name: "",
+  },
+
+  GEC: {
+    code: "GEC",
+    name: "GECI INTERNATIONAL",
+  },
+
+  GECCL: {
+    code: "GECCL",
+    name: "",
+  },
+
+  GECCM: {
+    code: "GECCM",
+    name: "",
+  },
+
+  GECCN: {
+    code: "GECCN",
+    name: "",
+  },
+
+  "GEF.B": {
+    code: "GEF.B",
+    name: "",
+  },
+
+  GEV: {
+    code: "GEV",
+    name: "GE VERNOVA INC.",
+  },
+
+  GFAI: {
+    code: "GFAI",
+    name: "GUARDFORCE AI CO.,",
+  },
+
+  GFNCP: {
+    code: "GFNCP",
+    name: "",
+  },
+
+  GFNSL: {
+    code: "GFNSL",
+    name: "",
+  },
+
+  GFNSZ: {
+    code: "GFNSZ",
+    name: "",
+  },
+
+  GFS: {
+    code: "GFS",
+    name: "GLOBALFOUNDRIES IN",
+  },
+
+  GGB: {
+    code: "GGB",
+    name: "GERDAU S.A.",
+  },
+
+  GGPI: {
+    code: "GGPI",
+    name: "",
+  },
+
+  GHI: {
+    code: "GHI",
+    name: "GREYSTONE HOUSING ",
+  },
+
+  GHIV: {
+    code: "GHIV",
+    name: "",
+  },
+
+  GHIVU: {
+    code: "GHIVU",
+    name: "",
+  },
+
+  GHIVW: {
+    code: "GHIVW",
+    name: "",
+  },
+
+  GIGM: {
+    code: "GIGM",
+    name: "GIGAMEDIA LIMITED",
+  },
+
+  GILT: {
+    code: "GILT",
+    name: "GILAT SATELLITE NE",
+  },
+
+  GJH: {
+    code: "GJH",
+    name: "SYNTHETIC FIXED-IN",
+  },
+
+  GJO: {
+    code: "GJO",
+    name: "SYNTHETIC FIXED-IN",
+  },
+
+  GJP: {
+    code: "GJP",
+    name: "SYNTHETIC FIXED-IN",
+  },
+
+  GJR: {
+    code: "GJR",
+    name: "",
+  },
+
+  GJS: {
+    code: "GJS",
+    name: "GOLDMAN SACHS GROU",
+  },
+
+  GJT: {
+    code: "GJT",
+    name: "SYNTHETIC FIXED-IN",
+  },
+
+  GLADD: {
+    code: "GLADD",
+    name: "",
+  },
+
+  GLADL: {
+    code: "GLADL",
+    name: "",
+  },
+
+  GLASF: {
+    code: "GLASF",
+    name: "GLASS HOUSE BRANDS",
+  },
+
+  GLBS: {
+    code: "GLBS",
+    name: "GLOBUS MARITIME LI",
+  },
+
+  GLEO: {
+    code: "GLEO",
+    name: "",
+  },
+
+  GLIBA: {
+    code: "GLIBA",
+    name: "LIBERTY CAPITAL CO",
+  },
+
+  GLMD: {
+    code: "GLMD",
+    name: "GALMED PHARMACEUTI",
+  },
+
+  GLNG: {
+    code: "GLNG",
+    name: "GOLAR LNG LIMITED",
+  },
+
+  GLOB: {
+    code: "GLOB",
+    name: "GLOBANT S.A.",
+  },
+
+  GLOG: {
+    code: "GLOG",
+    name: "FII PLURAL LCI",
+  },
+
+  GLOP: {
+    code: "GLOP",
+    name: "GL EVENTS SACA",
+  },
+
+  GLRE: {
+    code: "GLRE",
+    name: "GREENLIGHT REINSUR",
+  },
+
+  GMBLW: {
+    code: "GMBLW",
+    name: "",
+  },
+
+  GMDA: {
+    code: "GMDA",
+    name: "",
+  },
+
+  GMLP: {
+    code: "GMLP",
+    name: "GOLDMAN SACHS MLP ",
+  },
+
+  GMLPP: {
+    code: "GMLPP",
+    name: "",
+  },
+
+  GMTA: {
+    code: "GMTA",
+    name: "GIMAT MAGAZACILIK",
+  },
+
+  GMVD: {
+    code: "GMVD",
+    name: "G MEDICAL INNOVATI",
+  },
+
+  GNK: {
+    code: "GNK",
+    name: "GENCO SHIPPING & T",
+  },
+
+  "GNPK.U": {
+    code: "GNPK.U",
+    name: "",
+  },
+
+  GNRSW: {
+    code: "GNRSW",
+    name: "",
+  },
+
+  GOGL: {
+    code: "GOGL",
+    name: "ALPHABET",
+  },
+
+  GOL: {
+    code: "GOL",
+    name: "GOLD AUG 26",
+  },
+
+  GOTU: {
+    code: "GOTU",
+    name: "",
+  },
+
+  GOVXW: {
+    code: "GOVXW",
+    name: "",
+  },
+
+  GPJA: {
+    code: "GPJA",
+    name: "GEORGIA POWER COMP",
+  },
+
+  GPRK: {
+    code: "GPRK",
+    name: "GEOPARK LTD",
+  },
+
+  GRAB: {
+    code: "GRAB",
+    name: "GRAB HOLDINGS LIMI",
+  },
+
+  GRCY: {
+    code: "GRCY",
+    name: "",
+  },
+
+  GRCYU: {
+    code: "GRCYU",
+    name: "",
+  },
+
+  GRCYW: {
+    code: "GRCYW",
+    name: "",
+  },
+
+  GRIF: {
+    code: "GRIF",
+    name: "GRIFOLS",
+  },
+
+  GRIN: {
+    code: "GRIN",
+    name: "VICTORYSHARES INTE",
+  },
+
+  GRMN: {
+    code: "GRMN",
+    name: "GARMIN LTD",
+  },
+
+  GRNVR: {
+    code: "GRNVR",
+    name: "",
+  },
+
+  GRNVW: {
+    code: "GRNVW",
+    name: "",
+  },
+
+  "GRP.U": {
+    code: "GRP.U",
+    name: "",
+  },
+
+  GRSVW: {
+    code: "GRSVW",
+    name: "",
+  },
+
+  "GSAH.U": {
+    code: "GSAH.U",
+    name: "",
+  },
+
+  "GSAH.WS": {
+    code: "GSAH.WS",
+    name: "",
+  },
+
+  GSL: {
+    code: "GSL",
+    name: "GLOBAL SHIP LEASE ",
+  },
+
+  GSLD: {
+    code: "GSLD",
+    name: "",
+  },
+
+  GSM: {
+    code: "GSM",
+    name: "FERROGLOBE PLC",
+  },
+
+  GSMG: {
+    code: "GSMG",
+    name: "GOLDMAN SACHS SMAL",
+  },
+
+  GSMGW: {
+    code: "GSMGW",
+    name: "",
+  },
+
+  GTEC: {
+    code: "GTEC",
+    name: "GREENLAND TECHNOLO",
+  },
+
+  GTES: {
+    code: "GTES",
+    name: "GATES INDUSTRIAL C",
+  },
+
+  GTLB: {
+    code: "GTLB",
+    name: "GITLAB INC.",
+  },
+
+  GTX: {
+    code: "GTX",
+    name: "GARRETT MOTION INC",
+  },
+
+  GWACW: {
+    code: "GWACW",
+    name: "",
+  },
+
+  GXGXW: {
+    code: "GXGXW",
+    name: "",
+  },
+
+  GYC: {
+    code: "GYC",
+    name: "GRAND CITY PROPERT",
+  },
+
+  HAPP: {
+    code: "HAPP",
+    name: "HAPPINESS AND D CO",
+  },
+
+  HBANN: {
+    code: "HBANN",
+    name: "",
+  },
+
+  HBANO: {
+    code: "HBANO",
+    name: "",
+  },
+
+  HCAC: {
+    code: "HCAC",
+    name: "HALL CHADWICK ACQU",
+  },
+
+  HCACU: {
+    code: "HCACU",
+    name: "",
+  },
+
+  HCACW: {
+    code: "HCACW",
+    name: "",
+  },
+
+  HCAPZ: {
+    code: "HCAPZ",
+    name: "",
+  },
+
+  HCARW: {
+    code: "HCARW",
+    name: "",
+  },
+
+  HCXY: {
+    code: "HCXY",
+    name: "HERCULES CAPITAL, ",
+  },
+
+  HCXZ: {
+    code: "HCXZ",
+    name: "",
+  },
+
+  HDS: {
+    code: "HDS",
+    name: "HUDSON TECHNOLOGIE",
+  },
+
+  HECCW: {
+    code: "HECCW",
+    name: "",
+  },
+
+  "HEI-A": {
+    code: "HEI-A",
+    name: "HEICO CORPORATION",
+  },
+
+  HELE: {
+    code: "HELE",
+    name: "HELEN OF TROY LIMI",
+  },
+
+  HFEN: {
+    code: "HFEN",
+    name: "",
+  },
+
+  HGH: {
+    code: "HGH",
+    name: "HARVEST BROADCOM E",
+  },
+
+  HIGA: {
+    code: "HIGA",
+    name: "HIGASHI HOLDINGS C",
+  },
+
+  "HIGA.U": {
+    code: "HIGA.U",
+    name: "",
+  },
+
+  "HIGA.WS": {
+    code: "HIGA.WS",
+    name: "",
+  },
+
+  HIHO: {
+    code: "HIHO",
+    name: "HIGHWAY HOLDINGS L",
+  },
+
+  HJLIW: {
+    code: "HJLIW",
+    name: "",
+  },
+
+  HLF: {
+    code: "HLF",
+    name: "HERBALIFE LTD.",
+  },
+
+  HLLY: {
+    code: "HLLY",
+    name: "HOLLEY INC.",
+  },
+
+  HLXA: {
+    code: "HLXA",
+    name: "",
+  },
+
+  HMLP: {
+    code: "HMLP",
+    name: "",
+  },
+
+  HNST: {
+    code: "HNST",
+    name: "THE HONEST COMPANY",
+  },
+
+  HOFVW: {
+    code: "HOFVW",
+    name: "",
+  },
+
+  HOLI: {
+    code: "HOLI",
+    name: "HOLITECH TECHNOLOG",
+  },
+
+  HOLUW: {
+    code: "HOLUW",
+    name: "",
+  },
+
+  HOOD: {
+    code: "HOOD",
+    name: "ROBINHOOD MARKETS,",
+  },
+
+  HOVNP: {
+    code: "HOVNP",
+    name: "HOVNANIAN ENTERPRI",
+  },
+
+  HOWL: {
+    code: "HOWL",
+    name: "WEREWOLF THERAPEUT",
+  },
+
+  HPKEW: {
+    code: "HPKEW",
+    name: "",
+  },
+
+  HPX: {
+    code: "HPX",
+    name: "HAI PHAT INVESTMEN",
+  },
+
+  "HPX.U": {
+    code: "HPX.U",
+    name: "",
+  },
+
+  "HPX.WS": {
+    code: "HPX.WS",
+    name: "",
+  },
+
+  HSAQ: {
+    code: "HSAQ",
+    name: "",
+  },
+
+  HTFA: {
+    code: "HTFA",
+    name: "PYXIS TREND FOLLOW",
+  },
+
+  HTLFP: {
+    code: "HTLFP",
+    name: "",
+  },
+
+  HTOO: {
+    code: "HTOO",
+    name: "FUSION FUEL GREEN ",
+  },
+
+  HTOOW: {
+    code: "HTOOW",
+    name: "",
+  },
+
+  HTZ: {
+    code: "HTZ",
+    name: "HERTZ GLOBAL HOLDI",
+  },
+
+  HUSN: {
+    code: "HUSN",
+    name: "",
+  },
+
+  HUT: {
+    code: "HUT",
+    name: "HUT 8 CORP.",
+  },
+
+  "HVT-A": {
+    code: "HVT-A",
+    name: "HAVERTY FURNITURE ",
+  },
+
+  HWCPL: {
+    code: "HWCPL",
+    name: "",
+  },
+
+  HWCPZ: {
+    code: "HWCPZ",
+    name: "HANCOCK WHITNEY CO",
+  },
+
+  HYAC: {
+    code: "HYAC",
+    name: "",
+  },
+
+  HYACU: {
+    code: "HYACU",
+    name: "",
+  },
+
+  HYACW: {
+    code: "HYACW",
+    name: "",
+  },
+
+  HYMCW: {
+    code: "HYMCW",
+    name: "",
+  },
+
+  HYMCZ: {
+    code: "HYMCZ",
+    name: "",
+  },
+
+  HYZN: {
+    code: "HYZN",
+    name: "",
+  },
+
+  HZAC: {
+    code: "HZAC",
+    name: "",
+  },
+
+  "HZAC.U": {
+    code: "HZAC.U",
+    name: "",
+  },
+
+  "HZAC.WS": {
+    code: "HZAC.WS",
+    name: "",
+  },
+
+  HZNP: {
+    code: "HZNP",
+    name: "",
+  },
+
+  HZON: {
+    code: "HZON",
+    name: "",
+  },
+
+  "HZON.U": {
+    code: "HZON.U",
+    name: "",
+  },
+
+  "HZON.WS": {
+    code: "HZON.WS",
+    name: "",
+  },
+
+  IACA: {
+    code: "IACA",
+    name: "",
+  },
+
+  "IACA.U": {
+    code: "IACA.U",
+    name: "",
+  },
+
+  "IACA.WS": {
+    code: "IACA.WS",
+    name: "",
+  },
+
+  IBEX: {
+    code: "IBEX",
+    name: "IBEX LTD",
+  },
+
+  IBRX: {
+    code: "IBRX",
+    name: "IMMUNITYBIO, INC.",
+  },
+
+  ICHR: {
+    code: "ICHR",
+    name: "",
+  },
+
+  ICL: {
+    code: "ICL",
+    name: "ICL GROUP LTD.",
+  },
+
+  ICLR: {
+    code: "ICLR",
+    name: "",
+  },
+
+  IEAWW: {
+    code: "IEAWW",
+    name: "",
+  },
+
+  IFRX: {
+    code: "IFRX",
+    name: "INFLARX N.V.",
+  },
+
+  IFS: {
+    code: "IFS",
+    name: "INTERCORP FINANCIA",
+  },
+
+  IGACW: {
+    code: "IGACW",
+    name: "",
+  },
+
+  IGIC: {
+    code: "IGIC",
+    name: "INTERNATIONAL GENE",
+  },
+
+  IGICW: {
+    code: "IGICW",
+    name: "",
+  },
+
+  IGT: {
+    code: "IGT",
+    name: "IGUATEMI S.APN    ",
+  },
+
+  IHS: {
+    code: "IHS",
+    name: "IHS HOLDING LIMITE",
+  },
+
+  "IIAC.U": {
+    code: "IIAC.U",
+    name: "",
+  },
+
+  IIVIP: {
+    code: "IIVIP",
+    name: "",
+  },
+
+  IMACW: {
+    code: "IMACW",
+    name: "",
+  },
+
+  IMCC: {
+    code: "IMCC",
+    name: "IM CANNABIS CORP.",
+  },
+
+  IMPX: {
+    code: "IMPX",
+    name: "MSILF GOVERNMENT P",
+  },
+
+  IMRNW: {
+    code: "IMRNW",
+    name: "",
+  },
+
+  IMTE: {
+    code: "IMTE",
+    name: "INTEGRATED MEDIA T",
+  },
+
+  IMTX: {
+    code: "IMTX",
+    name: "IMMATICS N.V.",
+  },
+
+  IMTXW: {
+    code: "IMTXW",
+    name: "",
+  },
+
+  INAQ: {
+    code: "INAQ",
+    name: "INVESCO COLLEGEBOU",
+  },
+
+  INAQU: {
+    code: "INAQU",
+    name: "",
+  },
+
+  INAQW: {
+    code: "INAQW",
+    name: "",
+  },
+
+  INBKL: {
+    code: "INBKL",
+    name: "",
+  },
+
+  INBKZ: {
+    code: "INBKZ",
+    name: "FIRST INTERNET BAN",
+  },
+
+  INFO: {
+    code: "INFO",
+    name: "HARBOR PANAGORA DY",
+  },
+
+  INMD: {
+    code: "INMD",
+    name: "INMODE LTD.",
+  },
+
+  INSW: {
+    code: "INSW",
+    name: "",
+  },
+
+  INTA: {
+    code: "INTA",
+    name: "INTAPP, INC.",
+  },
+
+  INTG: {
+    code: "INTG",
+    name: "THE INTERGROUP COR",
+  },
+
+  INTR: {
+    code: "INTR",
+    name: "",
+  },
+
+  IONQ: {
+    code: "IONQ",
+    name: "IONQ, INC.",
+  },
+
+  IOT: {
+    code: "IOT",
+    name: "SAMSARA INC.",
+  },
+
+  IPLDP: {
+    code: "IPLDP",
+    name: "",
+  },
+
+  IPOC: {
+    code: "IPOC",
+    name: "IVY EMERGING MARKE",
+  },
+
+  IPOD: {
+    code: "IPOD",
+    name: "",
+  },
+
+  "IPOD.U": {
+    code: "IPOD.U",
+    name: "",
+  },
+
+  "IPOD.WS": {
+    code: "IPOD.WS",
+    name: "",
+  },
+
+  IPOE: {
+    code: "IPOE",
+    name: "IPOEKO",
+  },
+
+  "IPOE.U": {
+    code: "IPOE.U",
+    name: "",
+  },
+
+  "IPOE.WS": {
+    code: "IPOE.WS",
+    name: "",
+  },
+
+  IPOF: {
+    code: "IPOF",
+    name: "INVESTMENT PARTNER",
+  },
+
+  "IPOF.U": {
+    code: "IPOF.U",
+    name: "",
+  },
+
+  "IPOF.WS": {
+    code: "IPOF.WS",
+    name: "",
+  },
+
+  IREN: {
+    code: "IREN",
+    name: "IREN LIMITED",
+  },
+
+  ITACW: {
+    code: "ITACW",
+    name: "",
+  },
+
+  ITRM: {
+    code: "ITRM",
+    name: "ITERUM THERAPEUTIC",
+  },
+
+  ITRN: {
+    code: "ITRN",
+    name: "ITURAN LOCATION AN",
+  },
+
+  ITUB: {
+    code: "ITUB",
+    name: "ITAU UNIBANCO BANC",
+  },
+
+  IVZ: {
+    code: "IVZ",
+    name: "INVESCO LTD",
+  },
+
+  JAQC: {
+    code: "JAQC",
+    name: "",
+  },
+
+  JAQCU: {
+    code: "JAQCU",
+    name: "",
+  },
+
+  JAQCW: {
+    code: "JAQCW",
+    name: "",
+  },
+
+  JAZZ: {
+    code: "JAZZ",
+    name: "JAZZ PHARMACEUTICA",
+  },
+
+  JBK: {
+    code: "JBK",
+    name: "LEHMAN ABS 3.50 3.",
+  },
+
+  JBS: {
+    code: "JBS",
+    name: "JBS N.V.",
+  },
+
+  JCI: {
+    code: "JCI",
+    name: "JOHNSON CONTROLS I",
+  },
+
+  JCIC: {
+    code: "JCIC",
+    name: "JPMORGAN INTREPID ",
+  },
+
+  JCICU: {
+    code: "JCICU",
+    name: "",
+  },
+
+  JCICW: {
+    code: "JCICW",
+    name: "",
+  },
+
+  JHG: {
+    code: "JHG",
+    name: "JANUS HENDERSON GR",
+  },
+
+  JMPNL: {
+    code: "JMPNL",
+    name: "",
+  },
+
+  JMPNZ: {
+    code: "JMPNZ",
+    name: "",
+  },
+
+  JRVR: {
+    code: "JRVR",
+    name: "",
+  },
+
+  JSM: {
+    code: "JSM",
+    name: "NAVIENT CORPORATIO",
+  },
+
+  JUPWW: {
+    code: "JUPWW",
+    name: "",
+  },
+
+  "JW-A": {
+    code: "JW-A",
+    name: "",
+  },
+
+  "JW-B": {
+    code: "JW-B",
+    name: "",
+  },
+
+  JWS: {
+    code: "JWS",
+    name: "JAWS MUSTANG ACQUI",
+  },
+
+  KBNTW: {
+    code: "KBNTW",
+    name: "",
+  },
+
+  KBSF: {
+    code: "KBSF",
+    name: "",
+  },
+
+  KCAPL: {
+    code: "KCAPL",
+    name: "",
+  },
+
+  KD: {
+    code: "KD",
+    name: "KYNDRYL HOLDINGS, ",
+  },
+
+  KEN: {
+    code: "KEN",
+    name: "KENON HOLDINGS LTD",
+  },
+
+  KERNW: {
+    code: "KERNW",
+    name: "",
+  },
+
+  KLTR: {
+    code: "KLTR",
+    name: "",
+  },
+
+  KMDA: {
+    code: "KMDA",
+    name: "KAMADA LTD.",
+  },
+
+  KNBE: {
+    code: "KNBE",
+    name: "",
+  },
+
+  KNOP: {
+    code: "KNOP",
+    name: "KNOT OFFSHORE PART",
+  },
+
+  KNSA: {
+    code: "KNSA",
+    name: "KINIKSA PHARMACEUT",
+  },
+
+  KRNT: {
+    code: "KRNT",
+    name: "KORNIT DIGITAL LTD",
+  },
+
+  KSMT: {
+    code: "KSMT",
+    name: "",
+  },
+
+  KSMTU: {
+    code: "KSMTU",
+    name: "",
+  },
+
+  KSMTW: {
+    code: "KSMTW",
+    name: "",
+  },
+
+  KTH: {
+    code: "KTH",
+    name: "STRUCTURES PRODUCT",
+  },
+
+  KTN: {
+    code: "KTN",
+    name: "STRUCTURED PRODUCT",
+  },
+
+  KTOV: {
+    code: "KTOV",
+    name: "",
+  },
+
+  KVSA: {
+    code: "KVSA",
+    name: "",
+  },
+
+  KVSC: {
+    code: "KVSC",
+    name: "KVS CASTINGS LIMIT",
+  },
+
+  KVUE: {
+    code: "KVUE",
+    name: "KENVUE INC.",
+  },
+
+  KXIN: {
+    code: "KXIN",
+    name: "KAIXIN HOLDINGS",
+  },
+
+  LACQU: {
+    code: "LACQU",
+    name: "",
+  },
+
+  LACQW: {
+    code: "LACQW",
+    name: "",
+  },
+
+  LAES: {
+    code: "LAES",
+    name: "SEALSQ CORP",
+  },
+
+  LAR: {
+    code: "LAR",
+    name: "",
+  },
+
+  LATN: {
+    code: "LATN",
+    name: "",
+  },
+
+  LATNU: {
+    code: "LATNU",
+    name: "",
+  },
+
+  LATNW: {
+    code: "LATNW",
+    name: "",
+  },
+
+  LAZ: {
+    code: "LAZ",
+    name: "LAZARD, INC.",
+  },
+
+  LAZRW: {
+    code: "LAZRW",
+    name: "",
+  },
+
+  LBRDP: {
+    code: "LBRDP",
+    name: "LIBERTY BROADBAND ",
+  },
+
+  LBTYA: {
+    code: "LBTYA",
+    name: "LIBERTY GLOBAL LTD",
+  },
+
+  LBTYB: {
+    code: "LBTYB",
+    name: "LIBERTY GLOBAL LTD",
+  },
+
+  LBTYK: {
+    code: "LBTYK",
+    name: "LIBERTY GLOBAL LTD",
+  },
+
+  LCA: {
+    code: "LCA",
+    name: "AMUNDI MSCI EM ASI",
+  },
+
+  LCAHU: {
+    code: "LCAHU",
+    name: "",
+  },
+
+  LCAHW: {
+    code: "LCAHW",
+    name: "",
+  },
+
+  LCAPW: {
+    code: "LCAPW",
+    name: "",
+  },
+
+  LCID: {
+    code: "LCID",
+    name: "LUCID GROUP, INC.",
+  },
+
+  LCYAW: {
+    code: "LCYAW",
+    name: "",
+  },
+
+  LDP: {
+    code: "LDP",
+    name: "COHEN & STEERS LIM",
+  },
+
+  LEAP: {
+    code: "LEAP",
+    name: "LEAPMOTOR",
+  },
+
+  "LEAP.U": {
+    code: "LEAP.U",
+    name: "",
+  },
+
+  "LEAP.WS": {
+    code: "LEAP.WS",
+    name: "",
+  },
+
+  LEGO: {
+    code: "LEGO",
+    name: "LEGATO MERGER CORP",
+  },
+
+  LEGOW: {
+    code: "LEGOW",
+    name: "",
+  },
+
+  "LEN.B": {
+    code: "LEN.B",
+    name: "",
+  },
+
+  LEV: {
+    code: "LEV",
+    name: "THEMES ETF TRUST -",
+  },
+
+  LEVLP: {
+    code: "LEVLP",
+    name: "",
+  },
+
+  LFAC: {
+    code: "LFAC",
+    name: "LEAPFROG ACQUISITI",
+  },
+
+  LFACU: {
+    code: "LFACU",
+    name: "",
+  },
+
+  LFACW: {
+    code: "LFACW",
+    name: "",
+  },
+
+  LFTRW: {
+    code: "LFTRW",
+    name: "",
+  },
+
+  "LGF.B": {
+    code: "LGF.B",
+    name: "",
+  },
+
+  LGHLW: {
+    code: "LGHLW",
+    name: "",
+  },
+
+  LGO: {
+    code: "LGO",
+    name: "LARGO INC.",
+  },
+
+  LGVW: {
+    code: "LGVW",
+    name: "",
+  },
+
+  LILA: {
+    code: "LILA",
+    name: "LIBERTY LATIN AMER",
+  },
+
+  LILAK: {
+    code: "LILAK",
+    name: "LIBERTY LATIN AMER",
+  },
+
+  LILM: {
+    code: "LILM",
+    name: "LILIUM N.V.",
+  },
+
+  LIN: {
+    code: "LIN",
+    name: "LINDE PLC",
+  },
+
+  LIVK: {
+    code: "LIVK",
+    name: "BLACKROCK LIFEPATH",
+  },
+
+  LIVKU: {
+    code: "LIVKU",
+    name: "",
+  },
+
+  LIVKW: {
+    code: "LIVKW",
+    name: "",
+  },
+
+  LIVN: {
+    code: "LIVN",
+    name: "LIVANOVA PLC",
+  },
+
+  LIXTW: {
+    code: "LIXTW",
+    name: "",
+  },
+
+  LKCO: {
+    code: "LKCO",
+    name: "LUOKUNG TECHNOLOGY",
+  },
+
+  LLIT: {
+    code: "LLIT",
+    name: "",
+  },
+
+  LLYVK: {
+    code: "LLYVK",
+    name: "LIBERTY LIVE HOLDI",
+  },
+
+  LMRKN: {
+    code: "LMRKN",
+    name: "",
+  },
+
+  LMRKO: {
+    code: "LMRKO",
+    name: "",
+  },
+
+  LMRKP: {
+    code: "LMRKP",
+    name: "",
+  },
+
+  LN: {
+    code: "LN",
+    name: "CHENIERE ENERGY, I",
+  },
+
+  "LNFA.U": {
+    code: "LNFA.U",
+    name: "",
+  },
+
+  LOAC: {
+    code: "LOAC",
+    name: "",
+  },
+
+  LOACR: {
+    code: "LOACR",
+    name: "",
+  },
+
+  LOACU: {
+    code: "LOACU",
+    name: "",
+  },
+
+  LOACW: {
+    code: "LOACW",
+    name: "",
+  },
+
+  LOAK: {
+    code: "LOAK",
+    name: "",
+  },
+
+  LOCL: {
+    code: "LOCL",
+    name: "LOCAL BOUNTI CORPO",
+  },
+
+  LOGI: {
+    code: "LOGI",
+    name: "LOGITECH INTERNATI",
+  },
+
+  LPG: {
+    code: "LPG",
+    name: "DORIAN LPG LTD.",
+  },
+
+  LSAC: {
+    code: "LSAC",
+    name: "",
+  },
+
+  LSACU: {
+    code: "LSACU",
+    name: "",
+  },
+
+  LSACW: {
+    code: "LSACW",
+    name: "",
+  },
+
+  LUNR: {
+    code: "LUNR",
+    name: "",
+  },
+
+  LUXAW: {
+    code: "LUXAW",
+    name: "",
+  },
+
+  LXFR: {
+    code: "LXFR",
+    name: "",
+  },
+
+  LYB: {
+    code: "LYB",
+    name: "LYONDELLBASELL IND",
+  },
+
+  LYL: {
+    code: "LYL",
+    name: "TATE & LYLE, PLC",
+  },
+
+  LYLT: {
+    code: "LYLT",
+    name: "",
+  },
+
+  MAACW: {
+    code: "MAACW",
+    name: "",
+  },
+
+  MACUU: {
+    code: "MACUU",
+    name: "",
+  },
+
+  MACUW: {
+    code: "MACUW",
+    name: "",
+  },
+
+  MAGS: {
+    code: "MAGS",
+    name: "ROUNDHILL MAGNIFIC",
+  },
+
+  MANU: {
+    code: "MANU",
+    name: "",
+  },
+
+  MARKP: {
+    code: "MARKP",
+    name: "",
+  },
+
+  MAXN: {
+    code: "MAXN",
+    name: "MAXNERVA TECH",
+  },
+
+  MBINO: {
+    code: "MBINO",
+    name: "MBINOSC@EC2611A",
+  },
+
+  MBINP: {
+    code: "MBINP",
+    name: "",
+  },
+
+  MBLY: {
+    code: "MBLY",
+    name: "MOBILEYE GLOBAL IN",
+  },
+
+  MBNKP: {
+    code: "MBNKP",
+    name: "",
+  },
+
+  MBRFY: {
+    code: "MBRFY",
+    name: "MARFRIG GLOBAL FOO",
+  },
+
+  MCAC: {
+    code: "MCAC",
+    name: "FIDELITY FUNDS - E",
+  },
+
+  MCACR: {
+    code: "MCACR",
+    name: "",
+  },
+
+  MCACU: {
+    code: "MCACU",
+    name: "",
+  },
+
+  MCC: {
+    code: "MCC",
+    name: "MCCORMICK & COMPAN",
+  },
+
+  MCEP: {
+    code: "MCEP",
+    name: "CANADA LIFE SUSTAI",
+  },
+
+  MCMJW: {
+    code: "MCMJW",
+    name: "",
+  },
+
+  MCV: {
+    code: "MCV",
+    name: "MEDICOVER AB",
+  },
+
+  MDGSW: {
+    code: "MDGSW",
+    name: "",
+  },
+
+  MDJH: {
+    code: "MDJH",
+    name: "",
+  },
+
+  MDLQ: {
+    code: "MDLQ",
+    name: "MACKENZIE BLUEWATE",
+  },
+
+  MDLX: {
+    code: "MDLX",
+    name: "",
+  },
+
+  MDT: {
+    code: "MDT",
+    name: "MEDTRONIC PLC.",
+  },
+
+  MDWD: {
+    code: "MDWD",
+    name: "MEDIWOUND LTD.",
+  },
+
+  ME: {
+    code: "ME",
+    name: "MICRO E-MINI S&P 5",
+  },
+
+  META: {
+    code: "META",
+    name: "META PLATFORMS, IN",
+  },
+
+  METX: {
+    code: "METX",
+    name: "",
+  },
+
+  METXW: {
+    code: "METXW",
+    name: "",
+  },
+
+  MFIC: {
+    code: "MFIC",
+    name: "MIDCAP FINANCIAL I",
+  },
+
+  MFINL: {
+    code: "MFINL",
+    name: "",
+  },
+
+  MGEN: {
+    code: "MGEN",
+    name: "MGEN",
+  },
+
+  MGR: {
+    code: "MGR",
+    name: "",
+  },
+
+  MGRB: {
+    code: "MGRB",
+    name: "AFFILIATED MANAGER",
+  },
+
+  MGTX: {
+    code: "MGTX",
+    name: "MEIRAGTX HOLDINGS ",
+  },
+
+  MHLA: {
+    code: "MHLA",
+    name: "MAIDEN HOLDINGS, L",
+  },
+
+  MHLD: {
+    code: "MHLD",
+    name: "S&P GLOBAL INC",
+  },
+
+  MHNC: {
+    code: "MHNC",
+    name: "MAIDEN HOLDINGS NO",
+  },
+
+  MICC: {
+    code: "MICC",
+    name: "THE MAGNUM ICE CRE",
+  },
+
+  MIME: {
+    code: "MIME",
+    name: "MIMEDX GROUP, INC",
+  },
+
+  MINDP: {
+    code: "MINDP",
+    name: "",
+  },
+
+  "MKC.V": {
+    code: "MKC.V",
+    name: "MCCORMICK & CO-NON",
+  },
+
+  MLAC: {
+    code: "MLAC",
+    name: "MOUNTAIN LAKE ACQU",
+  },
+
+  MLACU: {
+    code: "MLACU",
+    name: "",
+  },
+
+  MLACW: {
+    code: "MLACW",
+    name: "",
+  },
+
+  MLTX: {
+    code: "MLTX",
+    name: "MOONLAKE IMMUNOTHE",
+  },
+
+  MMYT: {
+    code: "MMYT",
+    name: "MAKEMYTRIP LIMITED",
+  },
+
+  MNCL: {
+    code: "MNCL",
+    name: "MFS NORTH CAROLINA",
+  },
+
+  MNCLU: {
+    code: "MNCLU",
+    name: "",
+  },
+
+  MNCLW: {
+    code: "MNCLW",
+    name: "",
+  },
+
+  MNDO: {
+    code: "MNDO",
+    name: "MIND C.T.I. LTD.",
+  },
+
+  MNDY: {
+    code: "MNDY",
+    name: "MONDAY.COM LTD.",
+  },
+
+  MNSBP: {
+    code: "MNSBP",
+    name: "MAINSTREET BANCSHA",
+  },
+
+  "MOG.B": {
+    code: "MOG.B",
+    name: "",
+  },
+
+  MOTNW: {
+    code: "MOTNW",
+    name: "",
+  },
+
+  MQ: {
+    code: "MQ",
+    name: "MARQETA, INC.",
+  },
+
+  MRACU: {
+    code: "MRACU",
+    name: "",
+  },
+
+  MRCCL: {
+    code: "MRCCL",
+    name: "",
+  },
+
+  MRUS: {
+    code: "MRUS",
+    name: "",
+  },
+
+  MRVL: {
+    code: "MRVL",
+    name: "MARVELL TECHNOLOGY",
+  },
+
+  MTBCP: {
+    code: "MTBCP",
+    name: "",
+  },
+
+  MTC: {
+    code: "MTC",
+    name: "MMTEC, INC.",
+  },
+
+  MTCN: {
+    code: "MTCN",
+    name: "ZHEJIANG MTCN TECH",
+  },
+
+  MTSL: {
+    code: "MTSL",
+    name: "",
+  },
+
+  MTTR: {
+    code: "MTTR",
+    name: "",
+  },
+
+  MVC: {
+    code: "MVC",
+    name: "METROVACESA SA",
+  },
+
+  MVCD: {
+    code: "MVCD",
+    name: "",
+  },
+
+  MVNR: {
+    code: "MVNR",
+    name: "",
+  },
+
+  MYOV: {
+    code: "MYOV",
+    name: "",
+  },
+
+  MYT: {
+    code: "MYT",
+    name: "MYTECH",
+  },
+
+  NAKD: {
+    code: "NAKD",
+    name: "MERITAGE TACTICAL ",
+  },
+
+  NAT: {
+    code: "NAT",
+    name: "NORDIC AMERICAN TA",
+  },
+
+  NB: {
+    code: "NB",
+    name: "NIOCORP DEVELOPMEN",
+  },
+
+  NBAC: {
+    code: "NBAC",
+    name: "NBC CALLABLE CONTI",
+  },
+
+  NBACR: {
+    code: "NBACR",
+    name: "",
+  },
+
+  NBACU: {
+    code: "NBACU",
+    name: "",
+  },
+
+  NBACW: {
+    code: "NBACW",
+    name: "",
+  },
+
+  NBIS: {
+    code: "NBIS",
+    name: "NEBIUS GROUP N.V.",
+  },
+
+  NBR: {
+    code: "NBR",
+    name: "",
+  },
+
+  NBRV: {
+    code: "NBRV",
+    name: "NEUBERGER BERMAN M",
+  },
+
+  NCLH: {
+    code: "NCLH",
+    name: "NORWEGIAN CRUISE L",
+  },
+
+  NDRAW: {
+    code: "NDRAW",
+    name: "",
+  },
+
+  NEGG: {
+    code: "NEGG",
+    name: "NEWEGG COMMERCE, I",
+  },
+
+  NESR: {
+    code: "NESR",
+    name: "",
+  },
+
+  NESRW: {
+    code: "NESRW",
+    name: "",
+  },
+
+  NETI: {
+    code: "NETI",
+    name: "NET INSIGHT AB SER",
+  },
+
+  NEWA: {
+    code: "NEWA",
+    name: "NEWAY GROUP",
+  },
+
+  NEWTI: {
+    code: "NEWTI",
+    name: "NEWTEKONE, INC. - ",
+  },
+
+  NEWTL: {
+    code: "NEWTL",
+    name: "",
+  },
+
+  NEXA: {
+    code: "NEXA",
+    name: "NEXA RESOURCES S.A",
+  },
+
+  NFH: {
+    code: "NFH",
+    name: "0P0001KY8Y.SW",
+  },
+
+  "NGA.U": {
+    code: "NGA.U",
+    name: "",
+  },
+
+  "NGA.WS": {
+    code: "NGA.WS",
+    name: "",
+  },
+
+  NGAC: {
+    code: "NGAC",
+    name: "",
+  },
+
+  NGACU: {
+    code: "NGACU",
+    name: "",
+  },
+
+  NGACW: {
+    code: "NGACW",
+    name: "",
+  },
+
+  NGHC: {
+    code: "NGHC",
+    name: "",
+  },
+
+  NGHCN: {
+    code: "NGHCN",
+    name: "",
+  },
+
+  NGHCO: {
+    code: "NGHCO",
+    name: "",
+  },
+
+  NGHCP: {
+    code: "NGHCP",
+    name: "",
+  },
+
+  NGHCZ: {
+    code: "NGHCZ",
+    name: "",
+  },
+
+  NGLOY: {
+    code: "NGLOY",
+    name: "ANGLO AMERICAN PLC",
+  },
+
+  NGMS: {
+    code: "NGMS",
+    name: "",
+  },
+
+  NHA: {
+    code: "NHA",
+    name: "HA NOI SOUTH HOUSI",
+  },
+
+  NHICW: {
+    code: "NHICW",
+    name: "",
+  },
+
+  NHLDW: {
+    code: "NHLDW",
+    name: "",
+  },
+
+  NISN: {
+    code: "NISN",
+    name: "",
+  },
+
+  NLSN: {
+    code: "NLSN",
+    name: "",
+  },
+
+  NLSP: {
+    code: "NLSP",
+    name: "NLS PHARMACEUTICS ",
+  },
+
+  NLSPW: {
+    code: "NLSPW",
+    name: "",
+  },
+
+  NM: {
+    code: "NM",
+    name: "NAVIOS MARITIME PA",
+  },
+
+  NMCI: {
+    code: "NMCI",
+    name: "VOYA MIDCAP OPPORT",
+  },
+
+  NMFCL: {
+    code: "NMFCL",
+    name: "",
+  },
+
+  NMM: {
+    code: "NMM",
+    name: "NAVIOS MARITIME PA",
+  },
+
+  NMMCW: {
+    code: "NMMCW",
+    name: "",
+  },
+
+  NNA: {
+    code: "NNA",
+    name: "MAGELLAN FINANCIAL",
+  },
+
+  NNE: {
+    code: "NNE",
+    name: "NANO NUCLEAR ENERG",
+  },
+
+  NNOX: {
+    code: "NNOX",
+    name: "NANO-X IMAGING LTD",
+  },
+
+  NOMD: {
+    code: "NOMD",
+    name: "NOMAD FOODS LIMITE",
+  },
+
+  NOVS: {
+    code: "NOVS",
+    name: "",
+  },
+
+  NOVSU: {
+    code: "NOVSU",
+    name: "",
+  },
+
+  NOVSW: {
+    code: "NOVSW",
+    name: "",
+  },
+
+  NPAWW: {
+    code: "NPAWW",
+    name: "",
+  },
+
+  NRUC: {
+    code: "NRUC",
+    name: "NATIONAL RURAL UTI",
+  },
+
+  "NSCO.WS": {
+    code: "NSCO.WS",
+    name: "",
+  },
+
+  NSS: {
+    code: "NSS",
+    name: "NUSANTARA SAWIT SE",
+  },
+
+  NTB: {
+    code: "NTB",
+    name: "BANK OF N.T. BUTTE",
+  },
+
+  NTEC: {
+    code: "NTEC",
+    name: "WOOJIN NTEC",
+  },
+
+  NTP: {
+    code: "NTP",
+    name: "NTPM",
+  },
+
+  NTRSO: {
+    code: "NTRSO",
+    name: "NORTHERN TRUST COR",
+  },
+
+  NU: {
+    code: "NU",
+    name: "",
+  },
+
+  NUAI: {
+    code: "NUAI",
+    name: "NEW ERA ENERGY & D",
+  },
+
+  NUM: {
+    code: "NUM",
+    name: "SLEEP NUMBER CORPO",
+  },
+
+  NVCR: {
+    code: "NVCR",
+    name: "",
+  },
+
+  NVGS: {
+    code: "NVGS",
+    name: "NAVIGATOR HOLDINGS",
+  },
+
+  NVMI: {
+    code: "NVMI",
+    name: "NOVA LTD",
+  },
+
+  NVT: {
+    code: "NVT",
+    name: "NVENT ELECTRIC PLC",
+  },
+
+  NVTS: {
+    code: "NVTS",
+    name: "NAVITAS SEMICONDUC",
+  },
+
+  NVUS: {
+    code: "NVUS",
+    name: "",
+  },
+
+  NXMD: {
+    code: "NXMD",
+    name: "",
+  },
+
+  NXMDW: {
+    code: "NXMDW",
+    name: "",
+  },
+
+  NXPI: {
+    code: "NXPI",
+    name: "NXP SEMICONDUCTORS",
+  },
+
+  NXT: {
+    code: "NXT",
+    name: "NEXTPOWER INC.",
+  },
+
+  NYMX: {
+    code: "NYMX",
+    name: "NYMOX PHARMACEUTIC",
+  },
+
+  OAC: {
+    code: "OAC",
+    name: "OAKTREE ACQUISITIO",
+  },
+
+  OACB: {
+    code: "OACB",
+    name: "",
+  },
+
+  "OACB.U": {
+    code: "OACB.U",
+    name: "",
+  },
+
+  "OACB.WS": {
+    code: "OACB.WS",
+    name: "",
+  },
+
+  OBAS: {
+    code: "OBAS",
+    name: "OBASE BILGISAYAR",
+  },
+
+  OBDC: {
+    code: "OBDC",
+    name: "BLUE OWL CAPITAL C",
+  },
+
+  OBSV: {
+    code: "OBSV",
+    name: "",
+  },
+
+  OCCIP: {
+    code: "OCCIP",
+    name: "",
+  },
+
+  OCFCP: {
+    code: "OCFCP",
+    name: "",
+  },
+
+  OCG: {
+    code: "OCG",
+    name: "ORIENTAL CULTURE H",
+  },
+
+  ODD: {
+    code: "ODD",
+    name: "ODDITY TECH LTD.",
+  },
+
+  OEC: {
+    code: "OEC",
+    name: "ORION S.A.",
+  },
+
+  OFSSG: {
+    code: "OFSSG",
+    name: "",
+  },
+
+  OFSSI: {
+    code: "OFSSI",
+    name: "",
+  },
+
+  OFSSL: {
+    code: "OFSSL",
+    name: "",
+  },
+
+  OFSSZ: {
+    code: "OFSSZ",
+    name: "",
+  },
+
+  OGN: {
+    code: "OGN",
+    name: "ORGANON & CO.",
+  },
+
+  "OIBR.C": {
+    code: "OIBR.C",
+    name: "",
+  },
+
+  OKLO: {
+    code: "OKLO",
+    name: "OKLO INC.",
+  },
+
+  OLO: {
+    code: "OLO",
+    name: "NANJING OLO HOME F",
+  },
+
+  OLPX: {
+    code: "OLPX",
+    name: "OLAPLEX HOLDINGS, ",
+  },
+
+  ONON: {
+    code: "ONON",
+    name: "ON HOLDING AG",
+  },
+
+  ONTXW: {
+    code: "ONTXW",
+    name: "",
+  },
+
+  OPENU: {
+    code: "OPENU",
+    name: "",
+  },
+
+  OPENW: {
+    code: "OPENW",
+    name: "",
+  },
+
+  OPTX: {
+    code: "OPTX",
+    name: "SYNTEC OPTICS HOLD",
+  },
+
+  ORGN: {
+    code: "ORGN",
+    name: "ORIGIN MATERIALS, ",
+  },
+
+  OSB: {
+    code: "OSB",
+    name: "OSB GROUP PLC ORD ",
+  },
+
+  OSMT: {
+    code: "OSMT",
+    name: "",
+  },
+
+  OSW: {
+    code: "OSW",
+    name: "",
+  },
+
+  OTLKW: {
+    code: "OTLKW",
+    name: "",
+  },
+
+  OTLY: {
+    code: "OTLY",
+    name: "OATLY GROUP AB",
+  },
+
+  OTRAU: {
+    code: "OTRAU",
+    name: "",
+  },
+
+  OTRAW: {
+    code: "OTRAW",
+    name: "",
+  },
+
+  OTRKP: {
+    code: "OTRKP",
+    name: "",
+  },
+
+  OXBR: {
+    code: "OXBR",
+    name: "",
+  },
+
+  OXBRW: {
+    code: "OXBRW",
+    name: "",
+  },
+
+  OXFD: {
+    code: "OXFD",
+    name: "",
+  },
+
+  OXLCM: {
+    code: "OXLCM",
+    name: "OXFORD LANE CAPITA",
+  },
+
+  OXLCO: {
+    code: "OXLCO",
+    name: "OXFORD LANE CAPITA",
+  },
+
+  OXLCP: {
+    code: "OXLCP",
+    name: "OXFORD LANE CAPITA",
+  },
+
+  OXSQL: {
+    code: "OXSQL",
+    name: "",
+  },
+
+  OXSQZ: {
+    code: "OXSQZ",
+    name: "",
+  },
+
+  "OXY.WS": {
+    code: "OXY.WS",
+    name: "",
+  },
+
+  PACE: {
+    code: "PACE",
+    name: "PACER US CASH COWS",
+  },
+
+  "PACE.U": {
+    code: "PACE.U",
+    name: "",
+  },
+
+  "PACE.WS": {
+    code: "PACE.WS",
+    name: "",
+  },
+
+  PAEWW: {
+    code: "PAEWW",
+    name: "",
+  },
+
+  PAGS: {
+    code: "PAGS",
+    name: "PAGSEGURO DIGITAL ",
+  },
+
+  PAICW: {
+    code: "PAICW",
+    name: "",
+  },
+
+  PANA: {
+    code: "PANA",
+    name: "PANASONIC HOLDINGS",
+  },
+
+  "PANA.U": {
+    code: "PANA.U",
+    name: "",
+  },
+
+  "PANA.WS": {
+    code: "PANA.WS",
+    name: "",
+  },
+
+  PANL: {
+    code: "PANL",
+    name: "PANGAEA LOGISTICS ",
+  },
+
+  PARA: {
+    code: "PARA",
+    name: "PARANOVUS ENTERTAI",
+  },
+
+  PARAA: {
+    code: "PARAA",
+    name: "",
+  },
+
+  PATH: {
+    code: "PATH",
+    name: "UIPATH, INC.",
+  },
+
+  PAVMW: {
+    code: "PAVMW",
+    name: "",
+  },
+
+  PAVMZ: {
+    code: "PAVMZ",
+    name: "",
+  },
+
+  PAX: {
+    code: "PAX",
+    name: "PATRIA INVESTMENTS",
+  },
+
+  PAYAW: {
+    code: "PAYAW",
+    name: "",
+  },
+
+  PBB: {
+    code: "PBB",
+    name: "PBBANK",
+  },
+
+  PBC: {
+    code: "PBC",
+    name: "PLANET LABS PBC",
+  },
+
+  PBCTP: {
+    code: "PBCTP",
+    name: "",
+  },
+
+  PBIO: {
+    code: "PBIO",
+    name: "PRESSURE BIOSCIENC",
+  },
+
+  "PBR.A": {
+    code: "PBR.A",
+    name: "PBR.A JUN 2026 10.",
+  },
+
+  PBTS: {
+    code: "PBTS",
+    name: "",
+  },
+
+  PBY: {
+    code: "PBY",
+    name: "PUMA BIOTECHNOLOGY",
+  },
+
+  PCAR21: {
+    code: "PCAR21",
+    name: "",
+  },
+
+  PCOR: {
+    code: "PCOR",
+    name: "",
+  },
+
+  PCPL: {
+    code: "PCPL",
+    name: "",
+  },
+
+  PDAC: {
+    code: "PDAC",
+    name: "",
+  },
+
+  "PDAC.U": {
+    code: "PDAC.U",
+    name: "",
+  },
+
+  "PDAC.WS": {
+    code: "PDAC.WS",
+    name: "",
+  },
+
+  PDLI: {
+    code: "PDLI",
+    name: "",
+  },
+
+  PE: {
+    code: "PE",
+    name: "PEPE USD",
+  },
+
+  PECK: {
+    code: "PECK",
+    name: "",
+  },
+
+  PEIX: {
+    code: "PEIX",
+    name: "",
+  },
+
+  PERI: {
+    code: "PERI",
+    name: "PERION NETWORK LTD",
+  },
+
+  PETZ: {
+    code: "PETZ",
+    name: "TDH HOLDINGS, INC.",
+  },
+
+  PFH: {
+    code: "PFH",
+    name: "PRUDENTIAL FINANCI",
+  },
+
+  PHCF: {
+    code: "PHCF",
+    name: "PUHUI WEALTH INVES",
+  },
+
+  PHICU: {
+    code: "PHICU",
+    name: "",
+  },
+
+  PHIOW: {
+    code: "PHIOW",
+    name: "",
+  },
+
+  PHUNW: {
+    code: "PHUNW",
+    name: "",
+  },
+
+  PIAI: {
+    code: "PIAI",
+    name: "PING AN INSURANCE ",
+  },
+
+  PIC: {
+    code: "PIC",
+    name: "PICS N.V.",
+  },
+
+  "PIPP.U": {
+    code: "PIPP.U",
+    name: "",
+  },
+
+  PLIN: {
+    code: "PLIN",
+    name: "MSCI PL/INDUSTRIAL",
+  },
+
+  PLYA: {
+    code: "PLYA",
+    name: "",
+  },
+
+  PME: {
+    code: "PME",
+    name: "PMET RESOURCES INC",
+  },
+
+  "PMVC.U": {
+    code: "PMVC.U",
+    name: "",
+  },
+
+  "PMVC.WS": {
+    code: "PMVC.WS",
+    name: "",
+  },
+
+  PNFPP: {
+    code: "PNFPP",
+    name: "",
+  },
+
+  PNNTG: {
+    code: "PNNTG",
+    name: "",
+  },
+
+  PNR: {
+    code: "PNR",
+    name: "",
+  },
+
+  PPX: {
+    code: "PPX",
+    name: "KERING S.A.       ",
+  },
+
+  PRCP: {
+    code: "PRCP",
+    name: "T. ROWE PRICE CRED",
+  },
+
+  PRFX: {
+    code: "PRFX",
+    name: "PRF TECHNOLOGIES L",
+  },
+
+  PRGO: {
+    code: "PRGO",
+    name: "PERRIGO COMPANY PL",
+  },
+
+  PROSY: {
+    code: "PROSY",
+    name: "PROSUS NV",
+  },
+
+  PRPB: {
+    code: "PRPB",
+    name: "",
+  },
+
+  "PRPB.U": {
+    code: "PRPB.U",
+    name: "",
+  },
+
+  "PRPB.WS": {
+    code: "PRPB.WS",
+    name: "",
+  },
+
+  PRQR: {
+    code: "PRQR",
+    name: "",
+  },
+
+  PRS: {
+    code: "PRS",
+    name: "PRUDENTIAL FINANCI",
+  },
+
+  PRSC: {
+    code: "PRSC",
+    name: "T. ROWE PRICE SCIE",
+  },
+
+  PRTA: {
+    code: "PRTA",
+    name: "PROTHENA CORPORATI",
+  },
+
+  PRVL: {
+    code: "PRVL",
+    name: "0P0001P064.F",
+  },
+
+  PRX: {
+    code: "PRX",
+    name: "PROSUS",
+  },
+
+  PSACW: {
+    code: "PSACW",
+    name: "",
+  },
+
+  PSFE: {
+    code: "PSFE",
+    name: "PAYSAFE LIMITED",
+  },
+
+  PSHG: {
+    code: "PSHG",
+    name: "PERFORMANCE SHIPPI",
+  },
+
+  PTAC: {
+    code: "PTAC",
+    name: "PATRIOT ACQUISITIO",
+  },
+
+  PTACU: {
+    code: "PTACU",
+    name: "",
+  },
+
+  PTACW: {
+    code: "PTACW",
+    name: "",
+  },
+
+  PTI: {
+    code: "PTI",
+    name: "TELKOM INDONESIA (",
+  },
+
+  PTRA: {
+    code: "PTRA",
+    name: "PTRANS",
+  },
+
+  PXS: {
+    code: "PXS",
+    name: "PYXIS TANKERS INC.",
+  },
+
+  PXSAP: {
+    code: "PXSAP",
+    name: "",
+  },
+
+  PXSAW: {
+    code: "PXSAW",
+    name: "",
+  },
+
+  PYPD: {
+    code: "PYPD",
+    name: "POLYPID LTD.",
+  },
+
+  PYS: {
+    code: "PYS",
+    name: "PAYSAUCE LIMITED O",
+  },
+
+  PYT: {
+    code: "PYT",
+    name: "PPLUS TR GSC-2 TR ",
+  },
+
+  QBTS: {
+    code: "QBTS",
+    name: "D-WAVE QUANTUM INC",
+  },
+
+  QELL: {
+    code: "QELL",
+    name: "",
+  },
+
+  QELLU: {
+    code: "QELLU",
+    name: "",
+  },
+
+  QELLW: {
+    code: "QELLW",
+    name: "",
+  },
+
+  QGEN: {
+    code: "QGEN",
+    name: "QIAGEN N.V.",
+  },
+
+  QRTEP: {
+    code: "QRTEP",
+    name: "",
+  },
+
+  "QS.WS": {
+    code: "QS.WS",
+    name: "",
+  },
+
+  QTNT: {
+    code: "QTNT",
+    name: "",
+  },
+
+  QUBT: {
+    code: "QUBT",
+    name: "QUANTUM COMPUTING ",
+  },
+
+  QURE: {
+    code: "QURE",
+    name: "UNIQURE N.V.",
+  },
+
+  QVCC: {
+    code: "QVCC",
+    name: "",
+  },
+
+  QVCD: {
+    code: "QVCD",
+    name: "",
+  },
+
+  RACE: {
+    code: "RACE",
+    name: "FERRARI N.V.",
+  },
+
+  RADA: {
+    code: "RADA",
+    name: "MORGAN STANLEY COM",
+  },
+
+  RBAC: {
+    code: "RBAC",
+    name: "AMERICAN FUNDS MOD",
+  },
+
+  "RBAC.U": {
+    code: "RBAC.U",
+    name: "",
+  },
+
+  "RBAC.WS": {
+    code: "RBAC.WS",
+    name: "",
+  },
+
+  RBLX: {
+    code: "RBLX",
+    name: "ROBLOX CORPORATION",
+  },
+
+  RCHGW: {
+    code: "RCHGW",
+    name: "",
+  },
+
+  RCL: {
+    code: "RCL",
+    name: "ROYAL CARIBBEAN CR",
+  },
+
+  RCON: {
+    code: "RCON",
+    name: "RECON TECHNOLOGY, ",
+  },
+
+  RDCM: {
+    code: "RDCM",
+    name: "RADCOM LTD.",
+  },
+
+  RDDT: {
+    code: "RDDT",
+    name: "REDDIT, INC.",
+  },
+
+  "RDS-A": {
+    code: "RDS-A",
+    name: "",
+  },
+
+  "RDS-B": {
+    code: "RDS-B",
+    name: "",
+  },
+
+  RDW: {
+    code: "RDW",
+    name: "",
+  },
+
+  RDWR: {
+    code: "RDWR",
+    name: "",
+  },
+
+  RE: {
+    code: "RE",
+    name: "BRAZILIAN REAL FUT",
+  },
+
+  RELV: {
+    code: "RELV",
+    name: "RELIV INTERNATIONA",
+  },
+
+  RELY: {
+    code: "RELY",
+    name: "REMITLY GLOBAL, IN",
+  },
+
+  RESI: {
+    code: "RESI",
+    name: "ARMOUR RESIDENTIAL",
+  },
+
+  RETO: {
+    code: "RETO",
+    name: "RETO ECO-SOLUTIONS",
+  },
+
+  RGC: {
+    code: "RGC",
+    name: "REGENCELL BIOSCIEN",
+  },
+
+  RGTI: {
+    code: "RGTI",
+    name: "RIGETTI COMPUTING,",
+  },
+
+  "RICE.U": {
+    code: "RICE.U",
+    name: "",
+  },
+
+  "RICE.WS": {
+    code: "RICE.WS",
+    name: "",
+  },
+
+  RIDEW: {
+    code: "RIDEW",
+    name: "",
+  },
+
+  RIG: {
+    code: "RIG",
+    name: "TRANSOCEAN LTD (SW",
+  },
+
+  RILYG: {
+    code: "RILYG",
+    name: "BRC GROUP HOLDINGS",
+  },
+
+  RILYH: {
+    code: "RILYH",
+    name: "",
+  },
+
+  RILYI: {
+    code: "RILYI",
+    name: "",
+  },
+
+  RILYL: {
+    code: "RILYL",
+    name: "BRC GROUP HOLDINGS",
+  },
+
+  RILYM: {
+    code: "RILYM",
+    name: "",
+  },
+
+  RILYN: {
+    code: "RILYN",
+    name: "BRC GROUP HOLDINGS",
+  },
+
+  RILYO: {
+    code: "RILYO",
+    name: "",
+  },
+
+  RILYP: {
+    code: "RILYP",
+    name: "BRC GROUP HOLDINGS",
+  },
+
+  RILYZ: {
+    code: "RILYZ",
+    name: "BRC GROUP HOLDINGS",
+  },
+
+  RIVN: {
+    code: "RIVN",
+    name: "RIVIAN AUTOMOTIVE,",
+  },
+
+  RKLB: {
+    code: "RKLB",
+    name: "ROCKET LAB CORPORA",
+  },
+
+  RMG: {
+    code: "RMG",
+    name: "RMG ML SPORTS HOLD",
+  },
+
+  RMGBU: {
+    code: "RMGBU",
+    name: "",
+  },
+
+  RNR: {
+    code: "RNR",
+    name: "",
+  },
+
+  ROCHW: {
+    code: "ROCHW",
+    name: "",
+  },
+
+  RPLA: {
+    code: "RPLA",
+    name: "RANPLAN GROUP AB",
+  },
+
+  RPRX: {
+    code: "RPRX",
+    name: "ROYALTY PHARMA PLC",
+  },
+
+  RTP: {
+    code: "RTP",
+    name: "RISING RATES OPPOR",
+  },
+
+  "RTP.U": {
+    code: "RTP.U",
+    name: "",
+  },
+
+  "RTP.WS": {
+    code: "RTP.WS",
+    name: "",
+  },
+
+  "RTPZ.U": {
+    code: "RTPZ.U",
+    name: "",
+  },
+
+  RVPHW: {
+    code: "RVPHW",
+    name: "",
+  },
+
+  RWLK: {
+    code: "RWLK",
+    name: "",
+  },
+
+  RZA: {
+    code: "RZA",
+    name: "FIAGRO RIZA CI",
+  },
+
+  RZB: {
+    code: "RZB",
+    name: "REINSURANCE GROUP ",
+  },
+
+  SABRP: {
+    code: "SABRP",
+    name: "",
+  },
+
+  SAF: {
+    code: "SAF",
+    name: "MSA SAFETY INCORPO",
+  },
+
+  SAIIW: {
+    code: "SAIIW",
+    name: "",
+  },
+
+  SAK: {
+    code: "SAK",
+    name: "SAKATA INX CORP",
+  },
+
+  SALT: {
+    code: "SALT",
+    name: "SALTX TECHNOLOGY H",
+  },
+
+  SB: {
+    code: "SB",
+    name: "SAFE BULKERS, INC",
+  },
+
+  SBBA: {
+    code: "SBBA",
+    name: "FRANKLIN MULTI-ASS",
+  },
+
+  SBBP: {
+    code: "SBBP",
+    name: "EURONEXT B BOUYGUE",
+  },
+
+  SBLK: {
+    code: "SBLK",
+    name: "STAR BULK CARRIERS",
+  },
+
+  SBLKZ: {
+    code: "SBLKZ",
+    name: "",
+  },
+
+  SBNYP: {
+    code: "SBNYP",
+    name: "",
+  },
+
+  SCA: {
+    code: "SCA",
+    name: "GRANITESHARES AUTO",
+  },
+
+  SCOAU: {
+    code: "SCOAU",
+    name: "",
+  },
+
+  SCPE: {
+    code: "SCPE",
+    name: "CARILLON REAMS COR",
+  },
+
+  SCVX: {
+    code: "SCVX",
+    name: "",
+  },
+
+  "SEAH.U": {
+    code: "SEAH.U",
+    name: "",
+  },
+
+  "SEAH.WS": {
+    code: "SEAH.WS",
+    name: "",
+  },
+
+  SEED: {
+    code: "SEED",
+    name: "ORIGIN AGRITECH LI",
+  },
+
+  SERV: {
+    code: "SERV",
+    name: "SERVE ROBOTICS INC",
+  },
+
+  SFB: {
+    code: "SFB",
+    name: "STIFEL FINANCIAL C",
+  },
+
+  SFL: {
+    code: "SFL",
+    name: "SFL CORPORATION LT",
+  },
+
+  SFTTW: {
+    code: "SFTTW",
+    name: "",
+  },
+
+  SG: {
+    code: "SG",
+    name: "SWEETGREEN, INC.",
+  },
+
+  SGAMW: {
+    code: "SGAMW",
+    name: "",
+  },
+
+  SGH: {
+    code: "SGH",
+    name: "SUPER GROUP (SGHC)",
+  },
+
+  SGLBW: {
+    code: "SGLBW",
+    name: "",
+  },
+
+  SGML: {
+    code: "SGML",
+    name: "SIGMA LITHIUM CORP",
+  },
+
+  SGOC: {
+    code: "SGOC",
+    name: "",
+  },
+
+  SHEL: {
+    code: "SHEL",
+    name: "SHELL PLC",
+  },
+
+  SHIP: {
+    code: "SHIP",
+    name: "SEANERGY MARITIME ",
+  },
+
+  SHIPW: {
+    code: "SHIPW",
+    name: "",
+  },
+
+  SHIPZ: {
+    code: "SHIPZ",
+    name: "",
+  },
+
+  SIG: {
+    code: "SIG",
+    name: "SIGNET JEWELERS LI",
+  },
+
+  SIGIP: {
+    code: "SIGIP",
+    name: "SELECTIVE INSURANC",
+  },
+
+  SILC: {
+    code: "SILC",
+    name: "SILICOM LTD",
+  },
+
+  SINA: {
+    code: "SINA",
+    name: "SINARAN",
+  },
+
+  SIVBP: {
+    code: "SIVBP",
+    name: "",
+  },
+
+  SJ: {
+    code: "SJ",
+    name: "SCIENJOY HOLDING C",
+  },
+
+  SJIJ: {
+    code: "SJIJ",
+    name: "",
+  },
+
+  SLGL: {
+    code: "SLGL",
+    name: "SOL-GEL TECHNOLOGI",
+  },
+
+  SLMBP: {
+    code: "SLMBP",
+    name: "SLM CORPORATION - ",
+  },
+
+  SMMC: {
+    code: "SMMC",
+    name: "WESTERN ASSET MANA",
+  },
+
+  SMMCU: {
+    code: "SMMCU",
+    name: "",
+  },
+
+  SMMCW: {
+    code: "SMMCW",
+    name: "",
+  },
+
+  SMR: {
+    code: "SMR",
+    name: "",
+  },
+
+  SMWB: {
+    code: "SMWB",
+    name: "SIMILARWEB LTD.",
+  },
+
+  SN: {
+    code: "SN",
+    name: "SHARKNINJA, INC.",
+  },
+
+  SNDK: {
+    code: "SNDK",
+    name: "SANDISK CORPORATIO",
+  },
+
+  SNGXW: {
+    code: "SNGXW",
+    name: "",
+  },
+
+  SNPR: {
+    code: "SNPR",
+    name: "",
+  },
+
+  "SNPR.U": {
+    code: "SNPR.U",
+    name: "",
+  },
+
+  "SNPR.WS": {
+    code: "SNPR.WS",
+    name: "",
+  },
+
+  SNSS: {
+    code: "SNSS",
+    name: "",
+  },
+
+  SOAC: {
+    code: "SOAC",
+    name: "",
+  },
+
+  SOFI: {
+    code: "SOFI",
+    name: "SOFI TECHNOLOGIES,",
+  },
+
+  SOJB: {
+    code: "SOJB",
+    name: "",
+  },
+
+  SOJC: {
+    code: "SOJC",
+    name: "SOUTHERN COMPANY (",
+  },
+
+  SOJD: {
+    code: "SOJD",
+    name: "SOUTHERN COMPANY (",
+  },
+
+  SOJE: {
+    code: "SOJE",
+    name: "SOUTHERN COMPANY (",
+  },
+
+  SOLOW: {
+    code: "SOLOW",
+    name: "",
+  },
+
+  SOLV: {
+    code: "SOLV",
+    name: "SOLVENTUM CORPORAT",
+  },
+
+  SONY: {
+    code: "SONY",
+    name: "SONY GROUP CORPORA",
+  },
+
+  SOUN: {
+    code: "SOUN",
+    name: "SOUNDHOUND AI, INC",
+  },
+
+  SPCB: {
+    code: "SPCB",
+    name: "SUPERCOM, LTD.",
+  },
+
+  SPEL: {
+    code: "SPEL",
+    name: "SIPHON LIFE SPELL ",
+  },
+
+  SPI: {
+    code: "SPI",
+    name: "SPIRE GLOBAL, INC.",
+  },
+
+  SPKEP: {
+    code: "SPKEP",
+    name: "",
+  },
+
+  SPNS: {
+    code: "SPNS",
+    name: "0P0001QLTY.SZ",
+  },
+
+  "SPNV.U": {
+    code: "SPNV.U",
+    name: "",
+  },
+
+  "SPNV.WS": {
+    code: "SPNV.WS",
+    name: "",
+  },
+
+  SPOT: {
+    code: "SPOT",
+    name: "SPOTIFY TECHNOLOGY",
+  },
+
+  "SPRQ.U": {
+    code: "SPRQ.U",
+    name: "",
+  },
+
+  SQSP: {
+    code: "SQSP",
+    name: "",
+  },
+
+  SRACW: {
+    code: "SRACW",
+    name: "",
+  },
+
+  SREA: {
+    code: "SREA",
+    name: "DBA SEMPRA 5.750% ",
+  },
+
+  SRL: {
+    code: "SRL",
+    name: "SCULLY ROYALTY LTD",
+  },
+
+  SRSA: {
+    code: "SRSA",
+    name: "ISHARES MSCI SOUTH",
+  },
+
+  SRSAU: {
+    code: "SRSAU",
+    name: "",
+  },
+
+  SRSAW: {
+    code: "SRSAW",
+    name: "",
+  },
+
+  SSPK: {
+    code: "SSPK",
+    name: "",
+  },
+
+  SSPKU: {
+    code: "SSPKU",
+    name: "",
+  },
+
+  SSPKW: {
+    code: "SSPKW",
+    name: "",
+  },
+
+  SSYS: {
+    code: "SSYS",
+    name: "STRATASYS, LTD.",
+  },
+
+  ST: {
+    code: "ST",
+    name: "SENSATA TECHNOLOGI",
+  },
+
+  STAL: {
+    code: "STAL",
+    name: "STAR ALLIANCE INTE",
+  },
+
+  STE: {
+    code: "STE",
+    name: "STERIS PLC (IRELAN",
+  },
+
+  STEM: {
+    code: "STEM",
+    name: "STEM, INC.",
+  },
+
+  STLA: {
+    code: "STLA",
+    name: "STELLANTIS N.V.",
+  },
+
+  STNE: {
+    code: "STNE",
+    name: "STONECO LTD.",
+  },
+
+  STNG: {
+    code: "STNG",
+    name: "SCORPIO TANKERS IN",
+  },
+
+  "STPK.U": {
+    code: "STPK.U",
+    name: "",
+  },
+
+  "STPK.WS": {
+    code: "STPK.WS",
+    name: "",
+  },
+
+  STR: {
+    code: "STR",
+    name: "",
+  },
+
+  STRC: {
+    code: "STRC",
+    name: "STRATEGY INC - VAR",
+  },
+
+  STWO: {
+    code: "STWO",
+    name: "",
+  },
+
+  STWOU: {
+    code: "STWOU",
+    name: "",
+  },
+
+  STWOW: {
+    code: "STWOW",
+    name: "",
+  },
+
+  STX: {
+    code: "STX",
+    name: "SEAGATE TECHNOLOGY",
+  },
+
+  SV: {
+    code: "SV",
+    name: "SVC/BRX",
+  },
+
+  SVA: {
+    code: "SVA",
+    name: "SINOVAC BIOTECH, L",
+  },
+
+  SVACW: {
+    code: "SVACW",
+    name: "",
+  },
+
+  SVSVU: {
+    code: "SVSVU",
+    name: "",
+  },
+
+  SVSVW: {
+    code: "SVSVW",
+    name: "",
+  },
+
+  SW: {
+    code: "SW",
+    name: "",
+  },
+
+  SXTC: {
+    code: "SXTC",
+    name: "CHINA SXT PHARMACE",
+  },
+
+  SYM: {
+    code: "SYM",
+    name: "SYMBOTIC INC.",
+  },
+
+  SYTAW: {
+    code: "SYTAW",
+    name: "",
+  },
+
+  "TACA.U": {
+    code: "TACA.U",
+    name: "",
+  },
+
+  TANH: {
+    code: "TANH",
+    name: "TANTECH HOLDINGS L",
+  },
+
+  TANNI: {
+    code: "TANNI",
+    name: "",
+  },
+
+  TANNL: {
+    code: "TANNL",
+    name: "",
+  },
+
+  TANNZ: {
+    code: "TANNZ",
+    name: "",
+  },
+
+  TAOP: {
+    code: "TAOP",
+    name: "TAOPING INC.",
+  },
+
+  TARO: {
+    code: "TARO",
+    name: "TAROT USD",
+  },
+
+  TATT: {
+    code: "TATT",
+    name: "TAT TECHNOLOGIES L",
+  },
+
+  TBB: {
+    code: "TBB",
+    name: "AT&T INC. 5.350% G",
+  },
+
+  TBC: {
+    code: "TBC",
+    name: "T. ROWE PRICE BLUE",
+  },
+
+  TBKCP: {
+    code: "TBKCP",
+    name: "",
+  },
+
+  TBLTW: {
+    code: "TBLTW",
+    name: "",
+  },
+
+  TBPH: {
+    code: "TBPH",
+    name: "THERAVANCE BIOPHAR",
+  },
+
+  TCBIL: {
+    code: "TCBIL",
+    name: "",
+  },
+
+  TCBIP: {
+    code: "TCBIP",
+    name: "",
+  },
+
+  TCCO: {
+    code: "TCCO",
+    name: "TECHNICAL COMMUNIC",
+  },
+
+  TCEHY: {
+    code: "TCEHY",
+    name: "TENCENT HOLDING LT",
+  },
+
+  TCFCP: {
+    code: "TCFCP",
+    name: "",
+  },
+
+  TDA: {
+    code: "TDA",
+    name: "USA TODAY CO., INC",
+  },
+
+  TDACW: {
+    code: "TDACW",
+    name: "",
+  },
+
+  TDE: {
+    code: "TDE",
+    name: "TRANSAMERICA US GR",
+  },
+
+  TDI: {
+    code: "TDI",
+    name: "TOUCHSTONE DYNAMIC",
+  },
+
+  TDJ: {
+    code: "TDJ",
+    name: "",
+  },
+
+  "TDW.WS.B": {
+    code: "TDW.WS.B",
+    name: "",
+  },
+
+  TEAM: {
+    code: "TEAM",
+    name: "ATLASSIAN CORPORAT",
+  },
+
+  TECTP: {
+    code: "TECTP",
+    name: "",
+  },
+
+  TEKK: {
+    code: "TEKK",
+    name: "TEKKEN CORP",
+  },
+
+  TEKKU: {
+    code: "TEKKU",
+    name: "",
+  },
+
+  TEKKW: {
+    code: "TEKKW",
+    name: "",
+  },
+
+  TEL: {
+    code: "TEL",
+    name: "TE CONNECTIVITY PL",
+  },
+
+  TEM: {
+    code: "TEM",
+    name: "TEMPUS AI, INC.",
+  },
+
+  TGH: {
+    code: "TGH",
+    name: "THE GROWHUB LIMITE",
+  },
+
+  TGLS: {
+    code: "TGLS",
+    name: "TECNOGLASS INC.",
+  },
+
+  TGP: {
+    code: "TGP",
+    name: "TGPRO_THAI-GERMAN ",
+  },
+
+  THBR: {
+    code: "THBR",
+    name: "",
+  },
+
+  THBRU: {
+    code: "THBRU",
+    name: "",
+  },
+
+  THBRW: {
+    code: "THBRW",
+    name: "",
+  },
+
+  THCAW: {
+    code: "THCAW",
+    name: "",
+  },
+
+  THCBW: {
+    code: "THCBW",
+    name: "",
+  },
+
+  THWWW: {
+    code: "THWWW",
+    name: "",
+  },
+
+  TIF: {
+    code: "TIF",
+    name: "MORGAN STANLEY PAT",
+  },
+
+  TIGO: {
+    code: "TIGO",
+    name: "MILLICOM INTERNATI",
+  },
+
+  "TINV.U": {
+    code: "TINV.U",
+    name: "",
+  },
+
+  TK: {
+    code: "TK",
+    name: "TEEKAY CORPORATION",
+  },
+
+  TLMDW: {
+    code: "TLMDW",
+    name: "",
+  },
+
+  TMPM: {
+    code: "TMPM",
+    name: "",
+  },
+
+  TMPMU: {
+    code: "TMPMU",
+    name: "",
+  },
+
+  TMPMW: {
+    code: "TMPMW",
+    name: "",
+  },
+
+  TMTSW: {
+    code: "TMTSW",
+    name: "",
+  },
+
+  TNAV: {
+    code: "TNAV",
+    name: "",
+  },
+
+  TNK: {
+    code: "TNK",
+    name: "TEEKAY TANKERS LTD",
+  },
+
+  TNP: {
+    code: "TNP",
+    name: "TNPC_THAI NAM PLAS",
+  },
+
+  TOPS: {
+    code: "TOPS",
+    name: "TOP SHIPS, INC.",
+  },
+
+  TOST: {
+    code: "TOST",
+    name: "TOAST, INC.",
+  },
+
+  TOTA: {
+    code: "TOTA",
+    name: "VANGUARD TOTAL STO",
+  },
+
+  TOTAR: {
+    code: "TOTAR",
+    name: "",
+  },
+
+  TOTAU: {
+    code: "TOTAU",
+    name: "",
+  },
+
+  TOTAW: {
+    code: "TOTAW",
+    name: "",
+  },
+
+  TPGY: {
+    code: "TPGY",
+    name: "",
+  },
+
+  "TPGY.U": {
+    code: "TPGY.U",
+    name: "",
+  },
+
+  "TPGY.WS": {
+    code: "TPGY.WS",
+    name: "",
+  },
+
+  TPRE: {
+    code: "TPRE",
+    name: "NUVEEN LIFECYCLE I",
+  },
+
+  TPVY: {
+    code: "TPVY",
+    name: "",
+  },
+
+  TREB: {
+    code: "TREB",
+    name: "0P00012M2Z.F",
+  },
+
+  "TREB.U": {
+    code: "TREB.U",
+    name: "",
+  },
+
+  "TREB.WS": {
+    code: "TREB.WS",
+    name: "",
+  },
+
+  TRIT: {
+    code: "TRIT",
+    name: "$ TRITECH",
+  },
+
+  TRITW: {
+    code: "TRITW",
+    name: "",
+  },
+
+  TRMD: {
+    code: "TRMD",
+    name: "TORM PLC",
+  },
+
+  TROX: {
+    code: "TROX",
+    name: "TRONOX HOLDINGS PL",
+  },
+
+  TRTN: {
+    code: "TRTN",
+    name: "TRITON INTERNATION",
+  },
+
+  TRUE: {
+    code: "TRUE",
+    name: "TRUEBLUE, INC.",
+  },
+
+  TSCAP: {
+    code: "TSCAP",
+    name: "",
+  },
+
+  TSCBP: {
+    code: "TSCBP",
+    name: "",
+  },
+
+  TSE: {
+    code: "TSE",
+    name: "TOWER SEMICONDUCTO",
+  },
+
+  TSEM: {
+    code: "TSEM",
+    name: "TOWER SEMICONDUCTO",
+  },
+
+  TSSI: {
+    code: "TSSI",
+    name: "TSS, INC.",
+  },
+
+  TT: {
+    code: "TT",
+    name: "TRANE TECHNOLOGIES",
+  },
+
+  TTCFW: {
+    code: "TTCFW",
+    name: "",
+  },
+
+  TTE: {
+    code: "TTE",
+    name: "TOTALENERGIES SE",
+  },
+
+  TUFN: {
+    code: "TUFN",
+    name: "",
+  },
+
+  TVC: {
+    code: "TVC",
+    name: "TENNESSEE VALLEY A",
+  },
+
+  TVE: {
+    code: "TVE",
+    name: "TENNESSEE VALLEY A",
+  },
+
+  TWCTW: {
+    code: "TWCTW",
+    name: "",
+  },
+
+  TWKS: {
+    code: "TWKS",
+    name: "",
+  },
+
+  TWNKW: {
+    code: "TWNKW",
+    name: "",
+  },
+
+  UBS: {
+    code: "UBS",
+    name: "UBS GROUP AG REGIS",
+  },
+
+  UCBIO: {
+    code: "UCBIO",
+    name: "",
+  },
+
+  UK: {
+    code: "UK",
+    name: "UCOMMUNE INTERNATI",
+  },
+
+  UKOMW: {
+    code: "UKOMW",
+    name: "",
+  },
+
+  UNMA: {
+    code: "UNMA",
+    name: "UNUM GROUP 6.250% ",
+  },
+
+  URGN: {
+    code: "URGN",
+    name: "UROGEN PHARMA LTD.",
+  },
+
+  UROV: {
+    code: "UROV",
+    name: "SHENZHEN UROVO TEC",
+  },
+
+  UROY: {
+    code: "UROY",
+    name: "URANIUM ROYALTY CO",
+  },
+
+  USAR: {
+    code: "USAR",
+    name: "",
+  },
+
+  USWSW: {
+    code: "USWSW",
+    name: "",
+  },
+
+  UTSI: {
+    code: "UTSI",
+    name: "UTSTARCOM HOLDINGS",
+  },
+
+  "UTZ.WS": {
+    code: "UTZ.WS",
+    name: "",
+  },
+
+  UZA: {
+    code: "UZA",
+    name: "",
+  },
+
+  UZB: {
+    code: "UZB",
+    name: "NATIONAL INVESTMEN",
+  },
+
+  UZC: {
+    code: "UZC",
+    name: "AXIS BANK LTD.    ",
+  },
+
+  UZD: {
+    code: "UZD",
+    name: "ARRAY DIGITAL INFR",
+  },
+
+  UZE: {
+    code: "UZE",
+    name: "ARRAY DIGITAL INFR",
+  },
+
+  VACQ: {
+    code: "VACQ",
+    name: "",
+  },
+
+  VACQU: {
+    code: "VACQU",
+    name: "",
+  },
+
+  VACQW: {
+    code: "VACQW",
+    name: "",
+  },
+
+  VBLT: {
+    code: "VBLT",
+    name: "",
+  },
+
+  VERBW: {
+    code: "VERBW",
+    name: "",
+  },
+
+  "VERT.U": {
+    code: "VERT.U",
+    name: "",
+  },
+
+  VGAC: {
+    code: "VGAC",
+    name: "",
+  },
+
+  VIH: {
+    code: "VIH",
+    name: "VANGUARD INTERNATI",
+  },
+
+  VIHAU: {
+    code: "VIHAU",
+    name: "",
+  },
+
+  VIHAW: {
+    code: "VIHAW",
+    name: "",
+  },
+
+  VIIU: {
+    code: "VIIU",
+    name: "",
+  },
+
+  VIIW: {
+    code: "VIIW",
+    name: "",
+  },
+
+  VINP: {
+    code: "VINP",
+    name: "VINCI COMPASS INVE",
+  },
+
+  VISN: {
+    code: "VISN",
+    name: "VISTANCE NETWORKS,",
+  },
+
+  VKTXW: {
+    code: "VKTXW",
+    name: "",
+  },
+
+  VLDRW: {
+    code: "VLDRW",
+    name: "",
+  },
+
+  VLYPO: {
+    code: "VLYPO",
+    name: "VALLEY NATIONAL BA",
+  },
+
+  VLYPP: {
+    code: "VLYPP",
+    name: "VALLEY NATIONAL BA",
+  },
+
+  VMACW: {
+    code: "VMACW",
+    name: "",
+  },
+
+  VMAR: {
+    code: "VMAR",
+    name: "",
+  },
+
+  VMEO: {
+    code: "VMEO",
+    name: "",
+  },
+
+  VNTR: {
+    code: "VNTR",
+    name: "",
+  },
+
+  VRMEW: {
+    code: "VRMEW",
+    name: "",
+  },
+
+  "VRT.WS": {
+    code: "VRT.WS",
+    name: "",
+  },
+
+  VRTU: {
+    code: "VRTU",
+    name: "",
+  },
+
+  VSCO: {
+    code: "VSCO",
+    name: "JPMORGAN SMALL CAP",
+  },
+
+  VSPRW: {
+    code: "VSPRW",
+    name: "",
+  },
+
+  VSSYW: {
+    code: "VSSYW",
+    name: "",
+  },
+
+  VSTA: {
+    code: "VSTA",
+    name: "VSTA GRP FPO NZX [",
+  },
+
+  VTAQR: {
+    code: "VTAQR",
+    name: "",
+  },
+
+  VTAQW: {
+    code: "VTAQW",
+    name: "",
+  },
+
+  VTEX: {
+    code: "VTEX",
+    name: "VTEX",
+  },
+
+  VTRU: {
+    code: "VTRU",
+    name: "",
+  },
+
+  VTS: {
+    code: "VTS",
+    name: "VITESSE ENERGY, IN",
+  },
+
+  VVPR: {
+    code: "VVPR",
+    name: "",
+  },
+
+  VYGG: {
+    code: "VYGG",
+    name: "",
+  },
+
+  "VYGG.U": {
+    code: "VYGG.U",
+    name: "",
+  },
+
+  "VYGG.WS": {
+    code: "VYGG.WS",
+    name: "",
+  },
+
+  WAFU: {
+    code: "WAFU",
+    name: "",
+  },
+
+  WALA: {
+    code: "WALA",
+    name: "WALAA COOPERATIVE ",
+  },
+
+  WBD: {
+    code: "WBD",
+    name: "WARNER BROS. DISCO",
+  },
+
+  WDS: {
+    code: "WDS",
+    name: "WOODSIDE ENERGY GR",
+  },
+
+  WHFBZ: {
+    code: "WHFBZ",
+    name: "",
+  },
+
+  WILC: {
+    code: "WILC",
+    name: "G. WILLI-FOOD INTE",
+  },
+
+  WIX: {
+    code: "WIX",
+    name: "WIX.COM LTD.",
+  },
+
+  WLTW: {
+    code: "WLTW",
+    name: "",
+  },
+
+  WNW: {
+    code: "WNW",
+    name: "",
+  },
+
+  "WPF.U": {
+    code: "WPF.U",
+    name: "",
+  },
+
+  "WPF.WS": {
+    code: "WPF.WS",
+    name: "",
+  },
+
+  WPX: {
+    code: "WPX",
+    name: "",
+  },
+
+  WSBCP: {
+    code: "WSBCP",
+    name: "",
+  },
+
+  WSG: {
+    code: "WSG",
+    name: "CIT: SMALL CAP GRO",
+  },
+
+  "WSO-B": {
+    code: "WSO-B",
+    name: "WATSCO, INC.",
+  },
+
+  WTFCM: {
+    code: "WTFCM",
+    name: "",
+  },
+
+  WTFCP: {
+    code: "WTFCP",
+    name: "",
+  },
+
+  WTM: {
+    code: "WTM",
+    name: "WHITE MOUNTAINS IN",
+  },
+
+  WTRE: {
+    code: "WTRE",
+    name: "WISDOMTREE NEW ECO",
+  },
+
+  WTREP: {
+    code: "WTREP",
+    name: "",
+  },
+
+  WVE: {
+    code: "WVE",
+    name: "WAVE LIFE SCIENCES",
+  },
+
+  WVVIP: {
+    code: "WVVIP",
+    name: "WILLAMETTE VALLEY ",
+  },
+
+  WYND: {
+    code: "WYND",
+    name: "WYNDHAM HOTELS & R",
+  },
+
+  XBIOW: {
+    code: "XBIOW",
+    name: "",
+  },
+
+  XOMAP: {
+    code: "XOMAP",
+    name: "XOMA ROYALTY CORPO",
+  },
+
+  XP: {
+    code: "XP",
+    name: "XP INC.",
+  },
+
+  "XPOA.U": {
+    code: "XPOA.U",
+    name: "",
+  },
+
+  "XPOA.WS": {
+    code: "XPOA.WS",
+    name: "",
+  },
+
+  XPRO: {
+    code: "XPRO",
+    name: "EXPRO GROUP HOLDIN",
+  },
+
+  XYZ: {
+    code: "XYZ",
+    name: "BLOCK, INC.",
+  },
+
+  YAC: {
+    code: "YAC",
+    name: "YACHOO TECHNOLOGY ",
+  },
+
+  "YAC.U": {
+    code: "YAC.U",
+    name: "",
+  },
+
+  "YAC.WS": {
+    code: "YAC.WS",
+    name: "",
+  },
+
+  YGMZ: {
+    code: "YGMZ",
+    name: "MINGZHU LOGISTICS ",
+  },
+
+  YNDX: {
+    code: "YNDX",
+    name: "",
+  },
+
+  YRCW: {
+    code: "YRCW",
+    name: "",
+  },
+
+  YSACW: {
+    code: "YSACW",
+    name: "",
+  },
+
+  YTRA: {
+    code: "YTRA",
+    name: "YATRA ONLINE, INC.",
+  },
+
+  ZAGG: {
+    code: "ZAGG",
+    name: "ZAGGLE PREPA OCEAN",
+  },
+
+  ZCMD: {
+    code: "ZCMD",
+    name: "ZHONGCHAO INC.",
+  },
+
+  ZENV: {
+    code: "ZENV",
+    name: "ZENVIA INC.",
+  },
+
+  ZETA: {
+    code: "ZETA",
+    name: "ZETA GLOBAL HOLDIN",
+  },
+
+  ZGN: {
+    code: "ZGN",
+    name: "ERMENEGILDO ZEGNA ",
+  },
+
+  ZGYH: {
+    code: "ZGYH",
+    name: "",
+  },
+
+  ZGYHR: {
+    code: "ZGYHR",
+    name: "",
+  },
+
+  ZGYHU: {
+    code: "ZGYHU",
+    name: "",
+  },
+
+  ZGYHW: {
+    code: "ZGYHW",
+    name: "",
+  },
+
+  ZIM: {
+    code: "ZIM",
+    name: "ZIM INTEGRATED SHI",
+  },
+
+  ZIONL: {
+    code: "ZIONL",
+    name: "LON CANADIAN VALUE",
+  },
+
+  ZIONN: {
+    code: "ZIONN",
+    name: "LON CANADIAN VALUE",
+  },
+
+  ZIONO: {
+    code: "ZIONO",
+    name: "LON CANADIAN VALUE",
+  },
+
+  ZIONP: {
+    code: "ZIONP",
+    name: "ZIONS BANCORPORATI",
+  },
+
+  ZKIN: {
+    code: "ZKIN",
+    name: "ZK INTERNATIONAL G",
+  },
+
 } as const;

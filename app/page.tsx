@@ -19,7 +19,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-background relative overflow-hidden">
       <div className="grain" />
 
-      <header className="absolute top-0 left-0 right-0 z-50 px-8 py-6 flex justify-between items-center">
+      <header className="fixed top-0 left-0 right-0 z-50 px-8 py-6 flex justify-between items-center bg-background/80 backdrop-blur-sm">
         <div className="font-display text-xl tracking-widest text-foreground">
           VALUATION MONITOR
         </div>
@@ -278,6 +278,24 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto mt-32 w-full animate-fade-in-up animate-delay-100">
+          <div className="bg-card/50 border border-border p-8 md:p-12 text-center">
+            <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
+              {t("coverageTitle")}
+            </h2>
+            <p className="font-body text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
+              {t("coverageDesc")}
+            </p>
+            <Link
+              href="/coverage"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-display text-lg hover:bg-primary/90 transition-all"
+            >
+              {t("coverageCta")}
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
         </div>
 
