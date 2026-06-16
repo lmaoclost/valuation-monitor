@@ -5700,4 +5700,74 @@ export const brazilianStocksMetadata: Record<
     type: "",
   },
 
+  B1003: {
+    code: "B1003",
+    name: "B100 S.A.",
+    sector: "Financeiro e Outros",
+    subsector: "Outros",
+    segment: "Serviços Diversos",
+    cyclic: "SIM",
+    type: "",
+  },
+
+  CCTY3: {
+    code: "CCTY3",
+    name: "BELORA RDVC CITY DESENVOLVIMENTO IMOBILIÁRIO S.A.",
+    sector: "Consumo cíclico",
+    subsector: "Construção civil",
+    segment: "Incorporações",
+    cyclic: "SIM",
+    type: "TAXA DE JUROS/CRESCIMENTO ECONOMICO",
+  },
+
+  EQMA3: {
+    code: "EQMA3",
+    name: "EQUATORIAL MARANHÃO DISTRIBUIDORA DE ENERGIA S.A.",
+    sector: "Utilidade pública",
+    subsector: "Energia elétrica",
+    segment: "Energia elétrica",
+    cyclic: "NÃO",
+    type: "",
+  },
+
+  SALT3: {
+    code: "SALT3",
+    name: "GRUPO SALTA EDUCAÇÃO S.A.",
+    sector: "Consumo cíclico",
+    subsector: "Diversos",
+    segment: "Serviços educacionais",
+    cyclic: "SIM",
+    type: "TAXA DE JUROS/CRESCIMENTO ECONOMICO",
+  },
+
+  IVPR3: {
+    code: "IVPR3",
+    name: "INVEPAR",
+    sector: "Bens industriais",
+    subsector: "Transporte",
+    segment: "Serviços de Apoio e Armazenagem",
+    cyclic: "SIM",
+    type: "",
+  },
+
+  LTLA3: {
+    code: "LTLA3",
+    name: "LITELA PARTICIPAÇÕES S.A.",
+    sector: "Materiais básicos",
+    subsector: "Mineração",
+    segment: "Minerais metálicos",
+    cyclic: "SIM",
+    type: "MINÉRIO/DÓLAR",
+  },
+
+  PRMN3: {
+    code: "PRMN3",
+    name: "PRODUTORES ENERGET.DE MANSO S.A.- PROMAN",
+    sector: "Utilidade pública",
+    subsector: "Energia elétrica",
+    segment: "Energia elétrica",
+    cyclic: "NÃO",
+    type: "",
+  },
+
 } as const;
