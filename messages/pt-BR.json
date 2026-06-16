@@ -35,7 +35,10 @@
     "previewMarkets": "4 mercados · Filtros por indicador",
     "footer": "ferramenta de apoio à decisão · não substitui análise profissional",
     "builtBy": "built by",
-    "privacy": "Privacidade"
+    "privacy": "Privacidade",
+    "coverageTitle": "Transparência de Cobertura",
+    "coverageDesc": "Não rastreamos todos os ativos. Veja qual percentual de cada mercado nossa base de metadados cobre — e onde estão as lacunas.",
+    "coverageCta": "Ver Cobertura"
   },
   "StocksLayout": {
     "voltar": "← Voltar"
@@ -179,9 +182,9 @@
     "section1Title": "1. Controlador",
     "section1Text": "O Valuation Monitor é uma ferramenta de análise fundamentalista mantida por Renan Oliveira. Para questões relacionadas a esta política, contate via LinkedIn (https://www.linkedin.com/in/renansmoliveira/).",
     "section2Title": "2. Dados Coletados",
-    "section2Text": "Este site não coleta dados pessoais dos usuários. Não solicitamos nome, e-mail, CPF, endereço, telefone ou qualquer informação pessoal identificável. O site processa exclusivamente dados financeiros públicos provenientes de terceiros (StatusInvest, Fundamentus, FGV, B3, Nasdaq Trader) para fins de exibição de indicadores de valuation e estatísticas de cobertura.",
-    "section2Text1": "Este site não coleta dados pessoais dos usuários. Não solicitamos nome, e-mail, CPF, endereço, telefone ou qualquer informação pessoal identificável.",
-    "section2Text2": "O site processa exclusivamente dados financeiros públicos provenientes de terceiros (StatusInvest, Fundamentus, FGV, B3, Nasdaq Trader) para fins de exibição de indicadores de valuation e estatísticas de cobertura.",
+"section2Text": "Este site não coleta dados pessoais dos usuários. Não solicitamos nome, e-mail, CPF, endereço, telefone ou qualquer informação pessoal identificável. O site processa exclusivamente dados financeiros públicos provenientes de terceiros (StatusInvest, Fundamentus, FGV, B3, Nasdaq Trader) para fins de exibição de indicadores de valuation e estatísticas de cobertura.",
+"section2Text1": "Este site não coleta dados pessoais dos usuários. Não solicitamos nome, e-mail, CPF, endereço, telefone ou qualquer informação pessoal identificável.",
+"section2Text2": "O site processa exclusivamente dados financeiros públicos provenientes de terceiros (StatusInvest, Fundamentus, FGV, B3, Nasdaq Trader) para fins de exibição de indicadores de valuation e estatísticas de cobertura.",
     "section3Title": "3. Cookies e Tecnologias de Rastreamento",
     "section3Text": "Este site utiliza exclusivamente o cookie NEXT_LOCALE para armazenar sua preferência de idioma (pt-BR ou en). Este cookie é estritamente funcional, não armazena dados pessoais e não é usado para rastreamento. Nenhuma outra tecnologia de rastreamento é utilizada (web beacons, pixels, fingerprinting, analytics). O único dado de infraestrutura processado é o endereço IP, utilizado exclusivamente para controle de taxa de requisições (rate limiting) e armazenado de forma anonimizada (hash SHA-256 com sal diário) por até 60 segundos.",
     "section4Title": "4. Finalidade do Tratamento",
@@ -194,5 +197,20 @@
     "section7Text": "Adotamos as seguintes medidas técnicas: hashing de endereços IP antes do armazenamento em memória, TTL automático de 60s para dados de rate limiting, e sanitização de logs de erro para remoção de dados pessoais. A aplicação é servida exclusivamente via HTTPS.",
     "section8Title": "8. Alterações nesta Política",
     "section8Text": "Esta política pode ser atualizada periodicamente. A data da última atualização está indicada no topo da página."
+  },
+  "Coverage": {
+    "title": "Cobertura",
+    "whatWeTrack": "O que rastreamos",
+    "description": "Não rastreamos todos os ativos em cada mercado. Esta página mostra qual percentual do universo conhecido nossa base de metadados cobre — e onde estão as lacunas. Todos os números são armazenados em cache por 30 dias.",
+    "tracked": "Rastreados",
+    "knownUniverse": "Universo conhecido",
+    "gap": "Lacuna",
+    "coverage": "cobertura",
+    "methodology": "Metodologia",
+    "metaBrStocks": "Ações BR: Universo = empresas listadas no segmento padrão da B3 Bovespa (Novo Mercado, N1, N2, MB, MA, ED). Rastreados = todas as 569 estão cobertas em nossos metadados após adicionar 7 tickers B3-only ausentes no CSV do StatusInvest.",
+    "metaUsaStocks": "Ações USA: Universo = ações ordinárias na NYSE, Nasdaq, NYSE American, NYSE Arca e BATS (não-ETF, não-preferenciais) dos arquivos Nasdaq Trader. Rastreados = interseção com nossos metadados.",
+    "metaUsaReits": "REITs USA: Universo = ações não-ETF nas mesmas bolsas cujo nome contém palavras-chave REIT (REIT, Real Estate, Realty, Property Trust) e não corresponde a padrões de fundo/ETF. Rastreados = interseção com nossos metadados de REITs.",
+    "metaBrFiis": "FIIs BR: Universo = todos os fundos no registro oficial de FIIs da B3 (CSV de exportação). Rastreados = aqueles que correspondem aos nossos metadados de FIIs por código base.",
+    "lastUpdate": "Fontes: Nasdaq Trader, API B3, CSV B3 FII. Última atualização: {date}."
   }
 }
