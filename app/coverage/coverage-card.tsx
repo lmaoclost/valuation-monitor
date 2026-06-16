@@ -76,6 +76,10 @@ export function CoverageCard({
   const color = marketColors[entry.market] || "var(--primary)";
   const gap = entry.universe - entry.tracked;
 
+  const titleCase = (s: string) => s.replace(/-./g, (m) => m[1].toUpperCase()).replace(/^./, (m) => m.toUpperCase());
+  const labelKey = `label${titleCase(entry.market)}` as const;
+  const descKey = `desc${titleCase(entry.market)}` as const;
+
   return (
     <div
       className="bg-card border border-border p-6 hover:border-primary/30 transition-all animate-fade-in-up"
@@ -85,10 +89,10 @@ export function CoverageCard({
         <DonutRing percentage={entry.percentage} color={color} />
         <div className="min-w-0 flex-1">
           <h3 className="font-display text-lg text-foreground mb-1">
-            {entry.label}
+            {t(labelKey)}
           </h3>
           <p className="font-body text-xs text-muted-foreground mb-4 leading-relaxed">
-            {entry.description}
+            {t(descKey)}
           </p>
             <div className="space-y-1.5">
             <div className="flex items-center justify-between font-mono text-sm">

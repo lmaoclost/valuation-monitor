@@ -5,8 +5,6 @@ import { CoverageEntry } from "@/lib/coverage";
 
 const brEntry: CoverageEntry = {
   market: "br-stocks",
-  label: "BR Stocks",
-  description: "Standard B3 Bovespa listings",
   tracked: 569,
   universe: 569,
   percentage: 100,
@@ -14,18 +12,16 @@ const brEntry: CoverageEntry = {
 
 const usaEntry: CoverageEntry = {
   market: "usa-stocks",
-  label: "USA Stocks",
-  description: "Common stocks on NYSE, Nasdaq",
   tracked: 3985,
   universe: 7051,
   percentage: 57,
 };
 
 describe("CoverageCard", () => {
-  it("renders label and description", () => {
+  it("renders translated label and description", () => {
     render(<CoverageCard entry={brEntry} index={0} />);
-    expect(screen.getByText("BR Stocks")).toBeInTheDocument();
-    expect(screen.getByText("Standard B3 Bovespa listings")).toBeInTheDocument();
+    expect(screen.getByText("Ações BR")).toBeInTheDocument();
+    expect(screen.getByText("Empresas listadas na B3 (Novo Mercado, N1, N2, MB, MA, ED)")).toBeInTheDocument();
   });
 
   it("renders tracked and universe values", () => {

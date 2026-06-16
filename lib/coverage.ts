@@ -12,8 +12,6 @@ export interface CoverageData {
 
 export interface CoverageEntry {
   market: string;
-  label: string;
-  description: string;
   tracked: number;
   universe: number;
   percentage: number;
@@ -226,18 +224,12 @@ export async function getCoverageData(): Promise<CoverageData> {
     entries: [
       {
         market: "br-stocks",
-        label: "BR Stocks",
-        description:
-          "Standard B3 Bovespa listings (Novo Mercado, N1, N2, MB, MA, ED)",
         tracked: 569,
         universe: 569,
         percentage: 100,
       },
       {
         market: "usa-stocks",
-        label: "USA Stocks",
-        description:
-          "Common stocks on NYSE, Nasdaq, NYSE American, NYSE Arca, BATS",
         tracked: usaCommonTracked,
         universe: usa.commonTickers.size,
         percentage:
@@ -247,9 +239,6 @@ export async function getCoverageData(): Promise<CoverageData> {
       },
       {
         market: "usa-reits",
-        label: "USA REITs",
-        description:
-          "Non-ETF REITs identified by name keywords on US exchanges",
         tracked: usaReitTracked,
         universe: usa.reitTickers.size,
         percentage:
@@ -259,8 +248,6 @@ export async function getCoverageData(): Promise<CoverageData> {
       },
       {
         market: "br-fiis",
-        label: "BR FIIs",
-        description: "FIIs listed on B3's official fund registry",
         tracked: b3FiiTracked,
         universe: b3FiiTickers.size,
         percentage:
