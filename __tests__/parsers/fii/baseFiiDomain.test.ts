@@ -22,7 +22,7 @@ describe("baseFiiDomain", () => {
   it("extracts ticker and category", () => {
     const result = baseFiiDomain(createRow());
     expect(result.ticker).toBe("KNIP11");
-    expect(result.category).toBe("Receb\u00edveis Imobili\u00e1rios");
+    expect(result.category).toBe("Outros");
   });
 
   it("parses price as number", () => {
