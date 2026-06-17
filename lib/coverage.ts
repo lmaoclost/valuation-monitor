@@ -15,6 +15,7 @@ export interface CoverageEntry {
   tracked: number;
   universe: number;
   percentage: number;
+  source: string;
 }
 
 const NYSE_URL = "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt";
@@ -219,14 +220,19 @@ export async function getCoverageData(): Promise<CoverageData> {
     metaFiiBaseCodes.has(t),
   ).length;
 
+  const brTracked = 359;
+  const brUniverse = 365;
+  const brPct = Math.round((brTracked / brUniverse) * 100);
+
   return {
     lastUpdated: new Date().toISOString(),
     entries: [
       {
         market: "br-stocks",
-        tracked: 569,
-        universe: 569,
-        percentage: 100,
+        tracked: brTracked,
+        universe: brUniverse,
+        percentage: brPct,
+        source: "Yahoo Finance screener (region=br, stock-only, ex-FII/ETF/BDR)",
       },
       {
         market: "usa-stocks",
@@ -236,6 +242,7 @@ export async function getCoverageData(): Promise<CoverageData> {
           usa.commonTickers.size > 0
             ? Math.round((usaCommonTracked / usa.commonTickers.size) * 100)
             : 0,
+        source: "Nasdaq Trader daily files (NYSE, Nasdaq, NYSE American, NYSE Arca, BATS)",
       },
       {
         market: "usa-reits",
@@ -245,6 +252,7 @@ export async function getCoverageData(): Promise<CoverageData> {
           usa.reitTickers.size > 0
             ? Math.round((usaReitTracked / usa.reitTickers.size) * 100)
             : 0,
+        source: "Nasdaq Trader + name-based REIT filter (REIT, Real Estate, Realty, Property Trust)",
       },
       {
         market: "br-fiis",
@@ -254,6 +262,7 @@ export async function getCoverageData(): Promise<CoverageData> {
           b3FiiTickers.size > 0
             ? Math.round((b3FiiTracked / b3FiiTickers.size) * 100)
             : 0,
+        source: "B3 official fund registry API + Yahoo Finance + Fundamentus cross-reference",
       },
     ],
   };
