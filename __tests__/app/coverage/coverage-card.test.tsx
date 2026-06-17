@@ -8,6 +8,7 @@ const brEntry: CoverageEntry = {
   tracked: 569,
   universe: 569,
   percentage: 100,
+  source: "Yahoo Finance",
 };
 
 const usaEntry: CoverageEntry = {
@@ -15,6 +16,7 @@ const usaEntry: CoverageEntry = {
   tracked: 3985,
   universe: 7051,
   percentage: 57,
+  source: "Nasdaq Trader",
 };
 
 describe("CoverageCard", () => {
