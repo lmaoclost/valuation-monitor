@@ -1,137 +1,66 @@
 # Valuation Monitor
 
-O **Valuation Monitor** é uma aplicação construída em **Next.js** com o objetivo de auxiliar investidores a **filtrar ações** da bolsa de valores utilizando **indicadores clássicos de valuation**.
+[![CI](https://github.com/lmaoclost/valuation-monitor/actions/workflows/ci.yml/badge.svg)](https://github.com/lmaoclost/valuation-monitor/actions/workflows/ci.yml)
 
-A proposta do projeto não é recomendar compra ou venda de ativos, mas sim **servir como um radar fundamentalista**, ajudando o investidor a decidir **quais ações merecem uma análise mais profunda**, especialmente quando combinadas com **análise gráfica posterior**.
+**Radar fundamentalista para value investing.** Filtre ações BR, USA, FIIs e REITs usando indicadores clássicos de valuation.
 
----
+A ferramenta não recomenda compra ou venda — ela ajuda a decidir **quais ativos merecem análise mais profunda**.
 
-## 🎯 Objetivo do Projeto
-
-Facilitar a análise inicial de ações a partir de:
-
-* Dados fundamentalistas obtidos via **CSV do Status Invest**
-* Indicadores adicionais coletados por **raspagem de dados**
-* Cálculo de preços justos com base em modelos consagrados
-
-Tudo isso com foco em **investimento em valor (Value Investing)**, mantendo uma abordagem conservadora e transparente.
-
----
-
-## 📊 Indicadores Utilizados
-
-O projeto calcula e exibe parâmetros baseados em metodologias clássicas:
-
-### 🔹 Desconto de Bazin
-
-Utiliza dividendos históricos para estimar um preço justo baseado em retorno desejado.
-
-### 🔹 Modelo de Graham
-
-Avalia o preço justo considerando lucro por ação (LPA) e valor patrimonial por ação (VPA).
-
-### 🔹 Modelo de Gordon (Dividend Discount Model)
-
-Projeta o valor da ação com base no crescimento esperado dos dividendos.
-
-> ⚠️ Importante: Todos os cálculos são **estimativas** e dependem diretamente da qualidade dos dados de entrada.
-
----
-
-## 👥 Público-Alvo
-
-* Investidores pessoa física
-* Interessados em **value investing**
-* Usuários que já possuem noções básicas de mercado financeiro
-
-Este projeto **não é voltado para traders de curto prazo** nem para iniciantes absolutos.
-
----
-
-## 🚫 O Que Este Projeto NÃO Faz
-
-* ❌ Não fornece recomendações de compra ou venda
-* ❌ Não substitui análise gráfica
-* ❌ Não substitui avaliação de riscos individuais
-* ❌ Não garante rentabilidade ou previsões de mercado
-
-O uso da ferramenta é de **inteira responsabilidade do usuário**.
-
----
-
-## 🧱 Arquitetura Geral
-
-De forma simplificada, o fluxo do projeto é:
-
-1. Entrada de dados via CSV (Status Invest)
-2. Coleta complementar de dados via scraping
-3. Processamento e cálculo dos indicadores
-4. Exibição dos resultados para análise do usuário
-
-A aplicação foi estruturada para manter **separação clara entre coleta, processamento e visualização**.
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-* **Next.js**
-* **TypeScript**
-* Processamento de CSV
-* Raspagem de dados (web scraping)
-
----
-
-## ▶️ Como Executar o Projeto
+## Quick Start
 
 ```bash
-# instalar dependências
 npm install
-
-# rodar em ambiente de desenvolvimento
-npm run dev
+npm run dev        # localhost:3000
 ```
 
-A aplicação ficará disponível em:
+Ou use os scripts padronizados:
+
+```bash
+bin/setup          # copia .env + npm install
+bin/dev            # dev server
+bin/test run       # testes
+```
+
+> Variáveis de ambiente necessárias em produção na Vercel: ver `.env.example`.
+
+## Indicadores
+
+- **Bazin** — preço justo por dividendos históricos
+- **Graham** — preço justo por LPA + VPA
+- **Gordon (DDM)** — valor presente de dividendos futuros
+- **FII DCF** — fluxo de caixa descontado para tijolo, papel, fiagro, fi-infra, fof
+
+## Mercados
+
+| Mercado | Prêmio de Risco | Bazin | Moeda |
+|---------|----------------|-------|-------|
+| BR Stocks | ERP + IPCA (dinâmico) | 6% | BRL |
+| USA Stocks | 6% (fixo) | 3% | USD |
+| USA REITs | 6% (fixo) | 3% | USD |
+
+## O Que Este Projeto NÃO Faz
+
+- Não recomenda compra/venda
+- Não substitui análise gráfica
+- Não avalia riscos individuais
+- Não garante rentabilidade
+
+## Stack
+
+Next.js 16, TypeScript, Tailwind CSS v4, shadcn/ui, TanStack Table/Query/Virtual, Zod, next-intl, Vitest, Playwright.
+
+## Estrutura
 
 ```
-http://localhost:3000
+services/   → coleta de dados externos
+parsers/    → parsing CSV/HTML com Zod
+utils/      → cálculos financeiros
+components/ → UI (TanStack Table + shadcn/ui)
+app/        → páginas e API routes (App Router)
 ```
 
----
+Ver `docs/architecture.md` para detalhes.
 
-## 📌 Limitações Conhecidas
+## Licença
 
-* Dependência de fontes externas (CSV e sites raspados)
-* Mudanças nos sites podem quebrar o scraping
-* Resultados dependem da atualização e consistência dos dados
-
----
-
-## 📈 Próximos Passos (Ideias Futuras)
-
-* Melhorar tratamento de erros na coleta de dados
-* Histórico de resultados por ativo
-* Comparação entre múltiplos ativos
-* Exportação dos dados analisados
-
----
-
-## 📄 Aviso Legal
-
-Este projeto possui **caráter educacional e informativo**.
-
-Nenhuma informação apresentada deve ser interpretada como recomendação de investimento. Sempre faça sua própria análise e, se necessário, consulte um profissional certificado.
-
----
-
-## 📜 Licença
-
-AGPL v3 - GNU Affero General Public License v3
-
-Copyright (C) 2026 Renan Oliveira
-
-Este programa é software livre: você pode redistribuí-lo e/ou modificá-lo sob os termos da [GNU Affero General Public License v3](https://www.gnu.org/licenses/agpl-3.0.html) publicada pela Free Software Foundation, seja versão 3 da Licença, ou (à sua opção) qualquer versão posterior.
-
-Este programa é distribuído na esperança de que seja útil, mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de COMERCIABILIDADE ou ADEQUAÇÃO A UM PROPÓSITO PARTICULAR. Veja a GNU Affero General Public License para mais detalhes.
-
-Você deve ter recebido uma cópia da GNU Affero General Public License junto com este programa. Se não, veja [LICENSE](LICENSE) ou <https://www.gnu.org/licenses/>.
+AGPL-3.0. Copyright (C) 2026 Renan Oliveira.
