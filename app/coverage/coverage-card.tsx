@@ -98,19 +98,19 @@ export function CoverageCard({
             <div className="flex items-center justify-between font-mono text-sm">
               <span className="text-muted-foreground">{t("tracked")}</span>
               <span className="text-foreground font-medium">
-                {entry.tracked.toLocaleString()}
+                {new Intl.NumberFormat("pt-BR").format(entry.tracked)}
               </span>
             </div>
             <div className="flex items-center justify-between font-mono text-sm">
               <span className="text-muted-foreground">{t("knownUniverse")}</span>
               <span className="text-foreground">
-                {entry.universe.toLocaleString()}
+                {new Intl.NumberFormat("pt-BR").format(entry.universe)}
               </span>
             </div>
             {gap > 0 && (
               <div className="flex items-center justify-between font-mono text-sm">
                 <span className="text-muted-foreground">{t("gap")}</span>
-                <span style={{ color }}>{gap.toLocaleString()}</span>
+                <span style={{ color }}>{new Intl.NumberFormat("pt-BR").format(gap)}</span>
               </div>
             )}
           </div>

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+case "${1:-}" in
+  run)
+    shift
+    exec npm run test:run "$@"
+    ;;
+  coverage)
+    exec npm run test:coverage
+    ;;
+  e2e)
+    shift
+    exec npm run test:e2e "$@"
+    ;;
+  *)
+    exec npm run test "$@"
+    ;;
+esac

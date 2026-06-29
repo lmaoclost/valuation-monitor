@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Lora, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "./providers";
 import { LgpdBannerWrapper } from "@/components/lgpd-banner-wrapper";
@@ -39,6 +41,8 @@ export default function RootLayout({
             <LgpdBannerWrapper />
           </Providers>
         </I18nClientProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

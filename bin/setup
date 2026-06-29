@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ ! -f .env ]; then
+  if [ -f .env.example ]; then
+    cp .env.example .env
+    echo "Created .env from .env.example — edit it to add your secrets."
+  else
+    echo "No .env.example found. Create .env manually."
+  fi
+fi
+
+npm install
+echo "Setup complete. Run bin/dev to start."
