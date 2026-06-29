@@ -6,19 +6,22 @@ describe("Privacy Page", () => {
   it("should render LGPD privacy policy heading", () => {
     render(<PrivacyPage />);
 
-    expect(screen.getByText(/política de privacidade/i)).toBeDefined();
+    const headings = screen.getAllByText(/política de privacidade/i);
+    expect(headings.length).toBeGreaterThan(0);
   });
 
   it("should mention no personal data collection", () => {
     render(<PrivacyPage />);
 
-    expect(screen.getByText(/não coleta.*dados pessoais/i)).toBeDefined();
+    const matches = screen.getAllByText(/não coleta.*dados pessoais/i);
+    expect(matches.length).toBeGreaterThan(0);
   });
 
-  it("should mention cookies usage", () => {
+  it("should mention Vercel Analytics disclosure", () => {
     render(<PrivacyPage />);
 
-    expect(screen.getAllByText(/cookies/i).length).toBeGreaterThan(0);
+    const matches = screen.getAllByText(/Vercel Web Analytics/i);
+    expect(matches.length).toBeGreaterThan(0);
   });
 
   it("should render language toggle", () => {
