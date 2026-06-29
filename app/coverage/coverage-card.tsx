@@ -124,6 +124,9 @@ export function CoverageCard({
             <span className="font-body text-xs text-muted-foreground ml-2">
               {t("coverage")}
             </span>
+            <div className="font-mono text-[10px] text-muted-foreground/50 mt-1.5 leading-tight">
+              {entry.source}
+            </div>
           </div>
         </div>
       </div>
