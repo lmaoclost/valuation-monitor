@@ -119,9 +119,19 @@ vi.mock('@vercel/analytics/next', () => ({
   Analytics: () => null,
 }));
 
+vi.mock('@vercel/analytics/react', () => ({
+  Analytics: () => null,
+  track: vi.fn(),
+}));
+
 // Mock @vercel/speed-insights
 vi.mock('@vercel/speed-insights/next', () => ({
   SpeedInsights: () => null,
+}));
+
+vi.mock('@vercel/speed-insights/react', () => ({
+  SpeedInsights: () => null,
+  computeRoute: vi.fn(),
 }));
 
 // Mock next-intl to provide translation context

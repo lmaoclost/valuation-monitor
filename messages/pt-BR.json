@@ -87,9 +87,10 @@
     "Recebiveis Outros": "Outros Recebíveis"
   },
   "Lgpd": {
-    "message": "Este site não coleta dados pessoais. Utiliza apenas um cookie de preferência de idioma.",
+    "message": "Para melhorar sua experiência, utilizamos Vercel Analytics para coleta anônima de dados de navegação (page views, performance). Você pode aceitar ou recusar.",
     "privacyLink": "Política de Privacidade",
-    "dismiss": "Entendido"
+    "accept": "Aceitar",
+    "reject": "Recusar"
   },
   "Columns": {
     "ticker": "CODIGO",
@@ -182,15 +183,13 @@
     "section1Title": "1. Controlador",
     "section1Text": "O Valuation Monitor é uma ferramenta de análise fundamentalista mantida por Renan Oliveira. Para questões relacionadas a esta política, contate via LinkedIn (https://www.linkedin.com/in/renansmoliveira/).",
     "section2Title": "2. Dados Coletados",
-"section2Text": "Este site não coleta dados pessoais dos usuários. Não solicitamos nome, e-mail, CPF, endereço, telefone ou qualquer informação pessoal identificável. O site processa exclusivamente dados financeiros públicos provenientes de terceiros (StatusInvest, Fundamentus, FGV, B3, Nasdaq Trader) para fins de exibição de indicadores de valuation e estatísticas de cobertura.",
-"section2Text1": "Este site não coleta dados pessoais dos usuários. Não solicitamos nome, e-mail, CPF, endereço, telefone ou qualquer informação pessoal identificável.",
-"section2Text2": "O site processa exclusivamente dados financeiros públicos provenientes de terceiros (StatusInvest, Fundamentus, FGV, B3, Nasdaq Trader) para fins de exibição de indicadores de valuation e estatísticas de cobertura.",
+    "section2Text": "Este site não coleta dados pessoais identificáveis dos usuários. Não solicitamos nome, e-mail, CPF, endereço, telefone ou qualquer informação pessoal identificável. O site processa exclusivamente dados financeiros públicos provenientes de terceiros (StatusInvest, Fundamentus, FGV, B3, Nasdaq Trader) para fins de exibição de indicadores de valuation e estatísticas de cobertura.",
     "section3Title": "3. Cookies e Tecnologias de Rastreamento",
-    "section3Text": "Este site utiliza exclusivamente o cookie NEXT_LOCALE para armazenar sua preferência de idioma (pt-BR ou en). Este cookie é estritamente funcional, não armazena dados pessoais e não é usado para rastreamento. Nenhuma outra tecnologia de rastreamento é utilizada (web beacons, pixels, fingerprinting, analytics). O único dado de infraestrutura processado é o endereço IP, utilizado exclusivamente para controle de taxa de requisições (rate limiting) e armazenado de forma anonimizada (hash SHA-256 com sal diário) por até 60 segundos.",
+    "section3Text": "Este site utiliza o cookie NEXT_LOCALE para armazenar sua preferência de idioma (pt-BR ou en). Este cookie é estritamente funcional e não armazena dados pessoais.\n\nO Valuation Monitor também utiliza Vercel Web Analytics e Vercel Speed Insights para coleta anônima de visualizações de página, origem do tráfego (referrer), país aproximado (inferido do IP) e métricas de performance (LCP, CLS, INP, FCP, TTFB). Estes serviços não armazenam cookies próprios nem coletam dados pessoais identificáveis. Os dados são processados pela Vercel Inc. sob sua política de privacidade.\n\nO endereço IP é processado exclusivamente para controle de taxa de requisições (rate limiting) e armazenado de forma anonimizada (hash SHA-256 com sal diário) por até 60 segundos. Nenhuma outra tecnologia de rastreamento é utilizada (web beacons, pixels, fingerprinting).",
     "section4Title": "4. Finalidade do Tratamento",
-    "section4Text": "Os dados processados têm como única finalidade exibir cálculos de valuation (Bazin, Graham, Gordon) e estatísticas de cobertura para ações brasileiras, americanas, FIIs e REITs. Não há tomada de decisão automatizada baseada em perfis de usuários.",
+    "section4Text": "Os dados processados têm como única finalidade exibir cálculos de valuation (Bazin, Graham, Gordon) e estatísticas de cobertura para ações brasileiras, americanas, FIIs e REITs. O Vercel Analytics coleta dados anônimos de navegação para melhoria do serviço. Não há tomada de decisão automatizada baseada em perfis de usuários.",
     "section5Title": "5. Compartilhamento com Terceiros",
-    "section5Text": "Não compartilhamos dados pessoais com terceiros. Dados financeiros exibidos são obtidos diretamente de fontes públicas (StatusInvest, Fundamentus, FGV, B3, Nasdaq Trader) via suas APIs públicas e páginas web.",
+    "section5Text": "Não compartilhamos dados pessoais identificáveis com terceiros. Dados financeiros exibidos são obtidos diretamente de fontes públicas (StatusInvest, Fundamentus, FGV, B3, Nasdaq Trader) via suas APIs públicas e páginas web. Dados anônimos de navegação (visualizações de página, métricas de performance) são processados pela Vercel Inc. por meio do Vercel Web Analytics e Vercel Speed Insights para fins de melhoria do serviço.",
     "section6Title": "6. Direitos do Titular (LGPD Art. 18)",
     "section6Text": "A Lei Geral de Proteção de Dados (Lei 13.709/2018) garante a você os direitos de confirmar a existência de tratamento, acessar dados, corrigir dados incompletos, anonimizar, bloquear ou eliminar dados desnecessários, e revogar o consentimento. Como não armazenamos dados pessoais, estes direitos são automaticamente satisfeitos pela ausência de coleta. Para qualquer questão, entre em contato pelo LinkedIn do controlador.",
     "section7Title": "7. Medidas de Segurança",

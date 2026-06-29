@@ -12,40 +12,51 @@ describe("LgpdBanner", () => {
   it("should render the banner on first visit (pt-BR)", () => {
     render(<LgpdBanner />);
 
-    expect(screen.getByText(/dados pessoais/i)).toBeDefined();
-    expect(screen.getByRole("button", { name: /entendido/i })).toBeDefined();
+    expect(screen.getByText(/Vercel Analytics/i)).toBeDefined();
+    expect(screen.getByRole("button", { name: /aceitar/i })).toBeDefined();
+    expect(screen.getByRole("button", { name: /recusar/i })).toBeDefined();
   });
 
   it("should render the banner in English when locale is en", () => {
     vi.mocked(useLocale).mockReturnValue("en");
     render(<LgpdBanner />);
 
-    expect(screen.getByText(/personal data/i)).toBeDefined();
-    expect(screen.getByRole("button", { name: /got it/i })).toBeDefined();
+    expect(screen.getByText(/Vercel Analytics/i)).toBeDefined();
+    expect(screen.getByRole("button", { name: /accept/i })).toBeDefined();
+    expect(screen.getByRole("button", { name: /reject/i })).toBeDefined();
   });
 
-  it("should not render after user clicks 'Got it' in English", () => {
-    vi.mocked(useLocale).mockReturnValue("en");
+  it("should store 'accepted' and hide banner on accept", () => {
     render(<LgpdBanner />);
 
-    fireEvent.click(screen.getByRole("button", { name: /got it/i }));
+    fireEvent.click(screen.getByRole("button", { name: /aceitar/i }));
 
-    expect(screen.queryByText(/privacy/i)).toBeNull();
+    expect(localStorage.getItem("lgpd-consent")).toBe("accepted");
+    expect(screen.queryByText(/Vercel Analytics/i)).toBeNull();
   });
 
-  it("should not render after user clicks 'Entendido' in pt-BR", () => {
+  it("should store 'rejected' and hide banner on reject", () => {
     render(<LgpdBanner />);
 
-    fireEvent.click(screen.getByRole("button", { name: /entendido/i }));
+    fireEvent.click(screen.getByRole("button", { name: /recusar/i }));
 
-    expect(screen.queryByText(/privacidade/i)).toBeNull();
+    expect(localStorage.getItem("lgpd-consent")).toBe("rejected");
+    expect(screen.queryByText(/Vercel Analytics/i)).toBeNull();
   });
 
-  it("should not render if already dismissed", () => {
-    localStorage.setItem("lgpd-consent", "true");
+  it("should not render if already accepted", () => {
+    localStorage.setItem("lgpd-consent", "accepted");
 
     render(<LgpdBanner />);
 
-    expect(screen.queryByText(/privacidade/i)).toBeNull();
+    expect(screen.queryByText(/Vercel Analytics/i)).toBeNull();
+  });
+
+  it("should not render if already rejected", () => {
+    localStorage.setItem("lgpd-consent", "rejected");
+
+    render(<LgpdBanner />);
+
+    expect(screen.queryByText(/Vercel Analytics/i)).toBeNull();
   });
 });
