@@ -114,6 +114,16 @@ vi.mock('@/components/DataTable/VirtualizedTableBody', async () => {
   };
 });
 
+// Mock @vercel/analytics
+vi.mock('@vercel/analytics/next', () => ({
+  Analytics: () => null,
+}));
+
+// Mock @vercel/speed-insights
+vi.mock('@vercel/speed-insights/next', () => ({
+  SpeedInsights: () => null,
+}));
+
 // Mock next-intl to provide translation context
 vi.mock('next-intl', async () => {
   const actual = await vi.importActual('next-intl');
