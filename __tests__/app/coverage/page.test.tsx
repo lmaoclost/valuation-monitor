@@ -57,7 +57,7 @@ describe("Coverage Page", () => {
   it("renders last update line with sources", async () => {
     const Page = await CoveragePage();
     render(Page);
-    expect(screen.getByText(/Fontes: Yahoo Finance/)).toBeInTheDocument();
+    expect(screen.getByText(/Fontes: Nasdaq Trader/)).toBeInTheDocument();
     expect(screen.getByText(/Última atualização:/)).toBeInTheDocument();
   });
 });

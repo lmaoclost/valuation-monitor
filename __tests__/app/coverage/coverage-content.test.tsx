@@ -72,7 +72,7 @@ describe("CoverageContent", () => {
 
   it("renders last update line with sources", () => {
     render(<CoverageContent entries={entries} lastUpdated="2026-06-16T00:00:00.000Z" />);
-    expect(screen.getByText(/Fontes: Yahoo Finance/)).toBeInTheDocument();
+    expect(screen.getByText(/Fontes: Nasdaq Trader/)).toBeInTheDocument();
     expect(screen.getByText(/Última atualização:/)).toBeInTheDocument();
   });
 });
