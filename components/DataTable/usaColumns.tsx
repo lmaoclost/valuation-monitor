@@ -13,10 +13,11 @@ export const createUSAColumns = (t: (key: string) => string): ColumnDef<StocksFo
     sortingFn: sortNullsLast,
     cell: ({ row }) => {
       return (
-        <Link
-          className="truncate uppercase font-semibold"
-          target="_blank"
-          href={`https://br.tradingview.com/chart/?symbol=NASDAQ%3A${row.getValue("ticker")}`}
+          <Link
+            className="truncate uppercase font-semibold"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://br.tradingview.com/chart/?symbol=NASDAQ%3A${row.getValue("ticker")}`}
         >
           {row.getValue("ticker")}
         </Link>
