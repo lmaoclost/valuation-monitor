@@ -25,6 +25,7 @@ export const createColumns = (
           <Link
             className="truncate uppercase font-semibold"
             target="_blank"
+            rel="noopener noreferrer"
             href={`https://br.tradingview.com/chart/?symbol=BMFBOVESPA%3A${row.getValue("ticker")}`}
           >
             {row.getValue("ticker")}
