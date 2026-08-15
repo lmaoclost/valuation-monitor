@@ -4,7 +4,7 @@ import { BackLink } from '@/components/BackLink';
 import { useLocale } from 'next-intl';
 
 vi.mock('next/link', () => ({
-  default: ({ children, href, ...props }: Record<string, unknown>) => (
+  default: ({ children, href, ...props }: any) => (
     <a href={href as string} {...props}>{children}</a>
   ),
 }));

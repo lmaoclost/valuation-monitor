@@ -3,22 +3,22 @@
 "use client";
 
 import { memo } from "react";
-import { flexRender } from "@tanstack/react-table";
+import { flexRender, type HeaderGroup, type Header, type RowData } from "@tanstack/react-table";
 import { ArrowUp } from "lucide-react";
 import { TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import type { GenericTanStackHeaderGroup, GenericTanStackHeader } from "@/@types/TanStackTableTypes";
+import type { AppTableFeatures } from "./tableFeatures";
 
-interface TableHeaderProps {
-  headerGroups: GenericTanStackHeaderGroup[];
+interface TableHeaderProps<TData extends RowData> {
+  headerGroups: HeaderGroup<AppTableFeatures, TData>[];
   sticky?: boolean;
 }
 
-function DataTableHeaderInner({ headerGroups, sticky = false }: TableHeaderProps) {
+function DataTableHeaderInner<TData extends RowData>({ headerGroups, sticky = false }: TableHeaderProps<TData>) {
   return (
     <TableHeader className={sticky ? "sticky top-0 z-10" : ""}>
       {headerGroups.map((headerGroup) => (
         <TableRow key={headerGroup.id} className={sticky ? "bg-background" : ""}>
-          {headerGroup.headers.map((header: GenericTanStackHeader) => {
+          {headerGroup.headers.map((header: Header<AppTableFeatures, TData>) => {
             return (
               <TableHead
                 key={header.id}
@@ -51,4 +51,4 @@ function DataTableHeaderInner({ headerGroups, sticky = false }: TableHeaderProps
   );
 };
 
-export const DataTableHeader = memo(DataTableHeaderInner);
+export const DataTableHeader = memo(DataTableHeaderInner) as typeof DataTableHeaderInner;

@@ -31,7 +31,7 @@ vi.mock('@radix-ui/react-dropdown-menu', () => ({
   Sub: ({ children, 'data-slot': slot, ...props }: any) => <div data-slot="dropdown-menu-sub" {...props}>{children}</div>,
   SubTrigger: ({ children, 'data-slot': slot, 'data-inset': inset, ...props }: any) => <div data-slot="dropdown-menu-sub-trigger" data-inset={inset} {...props}>{children}</div>,
   SubContent: ({ children, 'data-slot': slot, ...props }: any) => <div data-slot="dropdown-menu-sub-content" {...props}>{children}</div>,
-  ItemIndicator: ({ children }) => <>{children}</>,
+  ItemIndicator: ({ children }: any) => <>{children}</>,
 }));
 
 import {

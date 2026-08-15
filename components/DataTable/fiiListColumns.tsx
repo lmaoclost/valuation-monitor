@@ -1,6 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
+import type { AppTableFeatures } from "./tableFeatures";
 import Link from "next/link";
 import type { FiiListFormattedDataType } from "@/@types/FiiListFormattedDataType";
 import { sortNullsLast } from "@/utils";
@@ -18,13 +19,13 @@ const getPvpListColor = (val: string): string => {
 };
 
 export const createFiiListColumns =
-  (t: (key: string) => string, locale?: string): ColumnDef<FiiListFormattedDataType>[] => {
+  (t: (key: string) => string, locale?: string): ColumnDef<AppTableFeatures, FiiListFormattedDataType>[] => {
   const isEn = locale === "en";
   return [
     {
       accessorKey: "ticker",
       header: t("ticker"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return (
           <Link
@@ -41,12 +42,12 @@ export const createFiiListColumns =
     {
       accessorKey: "price",
       header: t("price"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "dy",
       header: t("dy"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => (
         <span className={getDyListColor(row.getValue("dy") as string)}>
           {row.getValue("dy")}
@@ -56,7 +57,7 @@ export const createFiiListColumns =
     {
       accessorKey: "pvp",
       header: t("pvp"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => (
         <span className={getPvpListColor(row.getValue("pvp") as string)}>
           {row.getValue("pvp")}
@@ -66,7 +67,7 @@ export const createFiiListColumns =
     {
       accessorKey: "category",
       header: t("category"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const val = row.getValue("category") as string;
         return <div>{isEn ? (categoryTranslations[val] ?? val) : val}</div>;
@@ -75,12 +76,12 @@ export const createFiiListColumns =
     {
       accessorKey: "caixa",
       header: t("caixa"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "cagrDividendos3Anos",
       header: t("cagrDiv3a"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => (
         <span
           className={
@@ -94,7 +95,7 @@ export const createFiiListColumns =
     {
       accessorKey: "cagrValorCota3Anos",
       header: t("cagrCota3a"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => (
         <span
           className={
@@ -108,12 +109,12 @@ export const createFiiListColumns =
     {
       accessorKey: "gestor",
       header: t("gestor"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "isTopManager",
       header: t("topManagers"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const val = row.getValue("isTopManager") as string;
         const labels: Record<string, string> = { "SIM": t("yes"), "NAO": t("no") };
@@ -123,21 +124,21 @@ export const createFiiListColumns =
     {
       accessorKey: "gestao",
       header: t("management"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "cotistas",
       header: t("cotistas"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "liquidezDiaria",
       header: t("liquidezDiaria"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "patrimonio",
       header: t("patrimonio"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
   ]; };

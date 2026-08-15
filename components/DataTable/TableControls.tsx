@@ -13,10 +13,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
-import type { GenericTanStackTable, GenericTanStackColumn } from "@/@types/TanStackTableTypes";
+import type { Column, RowData, Table } from "@tanstack/react-table";
+import type { AppTableFeatures } from "./tableFeatures";
 
-interface TableControlsProps {
-  table: GenericTanStackTable;
+interface TableControlsProps<TData extends RowData> {
+  table: Table<AppTableFeatures, TData>;
   globalFilter?: string;
   onGlobalFilterChange?: (value: string) => void;
   complementarData?: {
@@ -33,7 +34,7 @@ interface TableControlsProps {
 
 const CLEAR_KEY = "Limpar";
 
-function TableControlsInner({
+function TableControlsInner<TData extends RowData>({
   table,
   globalFilter,
   onGlobalFilterChange,
@@ -43,7 +44,7 @@ function TableControlsInner({
   selectedPresets = [],
   onSelectedPresetsChange,
   presets,
-}: TableControlsProps) {
+}: TableControlsProps<TData>) {
   const t = useTranslations("TableControls");
   const tPresets = useTranslations("Presets");
   const activePresets = presets;
@@ -112,8 +113,8 @@ function TableControlsInner({
           <DropdownMenuContent align="end">
             {table
               .getAllColumns()
-              .filter((column: GenericTanStackColumn) => column.getCanHide())
-              .map((column: GenericTanStackColumn) => {
+              .filter((column: Column<AppTableFeatures, TData>) => column.getCanHide())
+              .map((column: Column<AppTableFeatures, TData>) => {
                 return (
                   <DropdownMenuCheckboxItem
                     key={column.id}
@@ -136,4 +137,4 @@ function TableControlsInner({
   );
 };
 
-export const TableControls = memo(TableControlsInner);
+export const TableControls = memo(TableControlsInner) as typeof TableControlsInner;

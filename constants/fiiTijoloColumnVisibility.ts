@@ -1,6 +1,6 @@
-import { VisibilityState } from "@tanstack/react-table";
+import { ColumnVisibilityState } from "@tanstack/react-table";
 
-export const fiiTijoloColumnVisibility: VisibilityState = {
+export const fiiTijoloColumnVisibility: ColumnVisibilityState = {
   dy: true,
   category: true,
   dividendYear1: false,

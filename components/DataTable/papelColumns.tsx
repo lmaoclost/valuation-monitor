@@ -1,6 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
+import type { AppTableFeatures } from "./tableFeatures";
 import Link from "next/link";
 import type { FiiPapelFormattedDataType } from "@/@types/FiiPapelFormattedDataType";
 import { sortNullsLast } from "@/utils";
@@ -18,13 +19,13 @@ const getPvpPapelColor = (val: string): string => {
 };
 
 export const createPapelColumns =
-  (t: (key: string) => string, locale?: string): ColumnDef<FiiPapelFormattedDataType>[] => {
+  (t: (key: string) => string, locale?: string): ColumnDef<AppTableFeatures, FiiPapelFormattedDataType>[] => {
   const isEn = locale === "en";
   return [
     {
       accessorKey: "ticker",
       header: t("ticker"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return (
           <Link
@@ -41,12 +42,12 @@ export const createPapelColumns =
     {
       accessorKey: "price",
       header: t("price"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "dy",
       header: t("dy"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => (
         <span className={getDyPapelColor(row.getValue("dy") as string)}>
           {row.getValue("dy")}
@@ -56,7 +57,7 @@ export const createPapelColumns =
     {
       accessorKey: "pvp",
       header: t("pvp"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => (
         <span className={getPvpPapelColor(row.getValue("pvp") as string)}>
           {row.getValue("pvp")}
@@ -66,12 +67,12 @@ export const createPapelColumns =
     {
       accessorKey: "caixa",
       header: t("caixa"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "cagrDividendos3Anos",
       header: t("cagrDiv3a"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => (
         <span
           className={
@@ -85,7 +86,7 @@ export const createPapelColumns =
     {
       accessorKey: "cagrValorCota3Anos",
       header: t("cagrCota3a"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => (
         <span
           className={
@@ -99,12 +100,12 @@ export const createPapelColumns =
     {
       accessorKey: "patrimonio",
       header: t("patrimonio"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "gestor",
       header: t("gestor"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const gestor = row.getValue("gestor") as string;
         return <span title={gestor}>{gestor.substring(0, 12)}</span>;
@@ -113,7 +114,7 @@ export const createPapelColumns =
     {
       accessorKey: "isTopManager",
       header: t("topManagers"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const val = row.getValue("isTopManager") as string;
         const labels: Record<string, string> = { "SIM": t("yes"), "NAO": t("no") };
@@ -123,22 +124,22 @@ export const createPapelColumns =
     {
       accessorKey: "gestao",
       header: t("management"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "cotistas",
       header: t("cotistas"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "liquidezDiaria",
       header: t("liquidezDiaria"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
     },
     {
       accessorKey: "subcategoria",
       header: t("subcategoria"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const val = row.getValue("subcategoria") as string;
         return <div>{isEn ? (subcategoryTranslations[val] ?? val) : val}</div>;

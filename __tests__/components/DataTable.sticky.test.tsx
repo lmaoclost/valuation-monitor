@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { DataTable } from '@/components/DataTable/DataTable';
 import { StocksFormattedDataType } from '@/@types/StocksFormattedDataType';
 import { ColumnDef } from '@tanstack/react-table';
+import type { AppTableFeatures } from '@/components/DataTable/tableFeatures';
 
 // Mock next/link
 vi.mock('next/link', () => ({
@@ -15,7 +16,7 @@ vi.mock('next/link', () => ({
 }));
 
 // Create mock columns for testing
-const createMockColumns = (): ColumnDef<StocksFormattedDataType>[] => [
+const createMockColumns = (): ColumnDef<AppTableFeatures, StocksFormattedDataType>[] => [
   {
     accessorKey: 'ticker',
     header: 'Ações',
@@ -59,7 +60,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
 
   it('should render table header', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
     const stockData = createMockStockData(20);
 
     render(
@@ -67,7 +67,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
         columns={columns}
         data={stockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -80,7 +79,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
 
   it('should have sticky positioning classes on table header', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
     const stockData = createMockStockData(20);
 
     const { container } = render(
@@ -88,7 +86,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
         columns={columns}
         data={stockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -108,7 +105,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
 
   it('should have z-index on sticky header for layering', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
     const stockData = createMockStockData(20);
 
     const { container } = render(
@@ -116,7 +112,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
         columns={columns}
         data={stockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -133,7 +128,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
 
   it('should have background color on header rows for opaque appearance', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
     const stockData = createMockStockData(20);
 
     const { container } = render(
@@ -141,7 +135,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
         columns={columns}
         data={stockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -159,7 +152,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
 
   it('should have background color on individual header cells', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
     const stockData = createMockStockData(20);
 
     const { container } = render(
@@ -167,7 +159,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
         columns={columns}
         data={stockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -188,7 +179,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
 
   it('should maintain sticky header visibility with large dataset', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
     const stockData = createMockStockData(100);
 
     const { container } = render(
@@ -196,7 +186,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
         columns={columns}
         data={stockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -216,7 +205,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
 
   it('should render header row with correct structure for virtualization', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
     const stockData = createMockStockData(20);
 
     const { container } = render(
@@ -224,7 +212,6 @@ describe('DataTable Sticky Header with Virtualization', () => {
         columns={columns}
         data={stockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 

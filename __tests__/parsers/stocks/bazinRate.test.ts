@@ -29,11 +29,11 @@ describe('stocksDomain with bazinRate', () => {
     'GIRO ATIVOS': 1,
     'CAGR RECEITAS 5 ANOS': 0.10,
     'CAGR LUCROS 5 ANOS': 0.12,
-    'LIQUIDEZ MEDIA DIARIA': 5000000,
-    'VPA': 30,
-    'LPA': 7.5,
-    'PEG Ratio': 1.5,
-    'VALOR DE MERCADO': 3000000000,
+    ' LIQUIDEZ MEDIA DIARIA': 5000000,
+    ' VPA': 30,
+    ' LPA': 7.5,
+    ' PEG Ratio': 1.5,
+    ' VALOR DE MERCADO': 3000000000,
   };
 
   describe('default bazinRate (0.06)', () => {

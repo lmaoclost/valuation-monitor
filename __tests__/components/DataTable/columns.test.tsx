@@ -1,5 +1,12 @@
 import { describe, it, expect, vi } from 'vitest';
+import type { ColumnDef } from '@tanstack/react-table';
+import type { AppTableFeatures } from '@/components/DataTable/tableFeatures';
+import type { StocksFormattedDataType } from '@/@types/StocksFormattedDataType';
 import { createColumns } from '@/components/DataTable/columns';
+
+const getAccessorKey = (
+  col: ColumnDef<AppTableFeatures, StocksFormattedDataType>,
+): string | undefined => ('accessorKey' in col ? col.accessorKey : undefined);
 
 const mockT = (key: string) => {
   const msgs: Record<string, string> = {
@@ -44,7 +51,7 @@ const mockT = (key: string) => {
 };
 
 vi.mock('next/link', () => ({
-  default: ({ children, href, ...props }: Record<string, unknown>) => (
+  default: ({ children, href, ...props }: any) => (
     <a href={href as string} {...props}>{children}</a>
   ),
 }));
@@ -101,7 +108,7 @@ describe('DataTable Columns', () => {
 
   it('creates ticker column', () => {
     const columns = createColumns(mockT);
-    const tickerColumn = columns.find(col => col.accessorKey === 'ticker');
+    const tickerColumn = columns.find(col => getAccessorKey(col) === 'ticker');
     
     expect(tickerColumn).toBeDefined();
     expect(tickerColumn?.header).toBe('CODIGO');
@@ -109,49 +116,49 @@ describe('DataTable Columns', () => {
 
   it('creates companyname column', () => {
     const columns = createColumns(mockT);
-    const companyColumn = columns.find(col => col.accessorKey === 'companyname');
+    const companyColumn = columns.find(col => getAccessorKey(col) === 'companyname');
     
     expect(companyColumn).toBeDefined();
   });
 
   it('creates sectorname column', () => {
     const columns = createColumns(mockT);
-    const sectorColumn = columns.find(col => col.accessorKey === 'sectorname');
+    const sectorColumn = columns.find(col => getAccessorKey(col) === 'sectorname');
     
     expect(sectorColumn).toBeDefined();
   });
 
   it('creates segmentname column', () => {
     const columns = createColumns(mockT);
-    const segmentColumn = columns.find(col => col.accessorKey === 'segmentname');
+    const segmentColumn = columns.find(col => getAccessorKey(col) === 'segmentname');
     
     expect(segmentColumn).toBeDefined();
   });
 
   it('creates pl column', () => {
     const columns = createColumns(mockT);
-    const plColumn = columns.find(col => col.accessorKey === 'pl');
+    const plColumn = columns.find(col => getAccessorKey(col) === 'pl');
     
     expect(plColumn).toBeDefined();
   });
 
   it('creates lpa column', () => {
     const columns = createColumns(mockT);
-    const lpaColumn = columns.find(col => col.accessorKey === 'lpa');
+    const lpaColumn = columns.find(col => getAccessorKey(col) === 'lpa');
     
     expect(lpaColumn).toBeDefined();
   });
 
   it('creates vpa column', () => {
     const columns = createColumns(mockT);
-    const vpaColumn = columns.find(col => col.accessorKey === 'vpa');
+    const vpaColumn = columns.find(col => getAccessorKey(col) === 'vpa');
     
     expect(vpaColumn).toBeDefined();
   });
 
   it('creates valuation columns', () => {
     const columns = createColumns(mockT);
-    const columnKeys = columns.map(col => col.accessorKey);
+    const columnKeys = columns.map(col => getAccessorKey(col));
     
     expect(columnKeys).toContain('bazinFairPrice');
     expect(columnKeys).toContain('grahamFairPrice');
@@ -160,21 +167,21 @@ describe('DataTable Columns', () => {
 
   it('creates discount columns', () => {
     const columns = createColumns(mockT);
-    const columnKeys = columns.map(col => col.accessorKey);
+    const columnKeys = columns.map(col => getAccessorKey(col));
     
     expect(columnKeys).toContain('bazinDiscount');
   });
 
   it('has sorting function for columns', () => {
     const columns = createColumns(mockT);
-    const tickerColumn = columns.find(col => col.accessorKey === 'ticker');
+    const tickerColumn = columns.find(col => getAccessorKey(col) === 'ticker');
     
-    expect(tickerColumn?.sortingFn).toBeDefined();
+    expect(tickerColumn?.sortFn).toBeDefined();
   });
 
   it('has cell renderers for main columns', () => {
     const columns = createColumns(mockT);
-    const tickerColumn = columns.find(col => col.accessorKey === 'ticker');
+    const tickerColumn = columns.find(col => getAccessorKey(col) === 'ticker');
     
     expect(tickerColumn?.cell).toBeDefined();
   });
@@ -189,13 +196,13 @@ describe('DataTable Columns', () => {
     const columns = createColumns(mockT);
     
     columns.forEach(col => {
-      expect(col.accessorKey).toBeDefined();
+      expect(getAccessorKey(col)).toBeDefined();
     });
   });
 
   it('ticker cell renders Link with correct href', () => {
     const columns = createColumns(mockT);
-    const tickerColumn = columns.find(col => col.accessorKey === 'ticker');
+    const tickerColumn = columns.find(col => getAccessorKey(col) === 'ticker');
     const cell = tickerColumn?.cell as Function;
     
     const mockRow = {
@@ -213,7 +220,7 @@ describe('DataTable Columns', () => {
 
   it('companyname cell truncates to 15 chars', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'companyname');
+    const col = columns.find(c => getAccessorKey(c) === 'companyname');
     const cell = col?.cell as Function;
     
     const mockRow = {
@@ -227,7 +234,7 @@ describe('DataTable Columns', () => {
 
   it('segmentname cell truncates to 15 chars', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'segmentname');
+    const col = columns.find(c => getAccessorKey(c) === 'segmentname');
     const cell = col?.cell as Function;
     
     const mockRow = {
@@ -241,7 +248,7 @@ describe('DataTable Columns', () => {
 
   it('growthAverageColor cell applies fieldColor class', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'growthAverage');
+    const col = columns.find(c => getAccessorKey(c) === 'growthAverage');
     const cell = col?.cell as Function;
     
     const mockRow = {
@@ -261,7 +268,7 @@ describe('DataTable Columns', () => {
 
   it('bazinDiscountColor cell returns null', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'bazinDiscountColor');
+    const col = columns.find(c => getAccessorKey(c) === 'bazinDiscountColor');
     const cell = col?.cell as Function;
     
     const result = cell({ row: {} } as any);
@@ -270,7 +277,7 @@ describe('DataTable Columns', () => {
 
   it('grahamDiscountColor cell returns null', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'grahamDiscountColor');
+    const col = columns.find(c => getAccessorKey(c) === 'grahamDiscountColor');
     const cell = col?.cell as Function;
     
     const result = cell({ row: {} } as any);
@@ -279,7 +286,7 @@ describe('DataTable Columns', () => {
 
   it('gordonDiscountColor cell returns null', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'gordonDiscountColor');
+    const col = columns.find(c => getAccessorKey(c) === 'gordonDiscountColor');
     const cell = col?.cell as Function;
     
     const result = cell({ row: {} } as any);
@@ -288,7 +295,7 @@ describe('DataTable Columns', () => {
 
   it('pegColor cell returns null', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'pegColor');
+    const col = columns.find(c => getAccessorKey(c) === 'pegColor');
     const cell = col?.cell as Function;
     
     const result = cell({ row: {} } as any);
@@ -297,7 +304,7 @@ describe('DataTable Columns', () => {
 
   it('psrColor cell returns null', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'psrColor');
+    const col = columns.find(c => getAccessorKey(c) === 'psrColor');
     const cell = col?.cell as Function;
     
     const result = cell({ row: {} } as any);
@@ -306,7 +313,7 @@ describe('DataTable Columns', () => {
 
   it('bazinDiscount cell applies color class', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'bazinDiscount');
+    const col = columns.find(c => getAccessorKey(c) === 'bazinDiscount');
     const cell = col?.cell as Function;
     
     const mockRow = {
@@ -325,7 +332,7 @@ describe('DataTable Columns', () => {
 
   it('grahamDiscount cell applies color class', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'grahamDiscount');
+    const col = columns.find(c => getAccessorKey(c) === 'grahamDiscount');
     const cell = col?.cell as Function;
     
     const mockRow = {
@@ -344,7 +351,7 @@ describe('DataTable Columns', () => {
 
   it('gordonDiscount cell applies color class', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'gordonDiscount');
+    const col = columns.find(c => getAccessorKey(c) === 'gordonDiscount');
     const cell = col?.cell as Function;
     
     const mockRow = {
@@ -363,7 +370,7 @@ describe('DataTable Columns', () => {
 
   it('peg cell applies color class', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'peg');
+    const col = columns.find(c => getAccessorKey(c) === 'peg');
     const cell = col?.cell as Function;
     
     const mockRow = {
@@ -382,7 +389,7 @@ describe('DataTable Columns', () => {
 
   it('psr cell applies color class', () => {
     const columns = createColumns(mockT);
-    const col = columns.find(c => c.accessorKey === 'psr');
+    const col = columns.find(c => getAccessorKey(c) === 'psr');
     const cell = col?.cell as Function;
     
     const mockRow = {
@@ -401,17 +408,17 @@ describe('DataTable Columns', () => {
 
   it('all columns with sortingFn have sortNullsLast', () => {
     const columns = createColumns(mockT);
-    const sortableColumns = columns.filter(col => col.sortingFn);
+    const sortableColumns = columns.filter(col => col.sortFn);
     
     sortableColumns.forEach(col => {
-      expect(col.sortingFn).toBeDefined();
+      expect(col.sortFn).toBeDefined();
     });
   });
 
   describe('EN locale cell translations', () => {
     it('sector cell translates Portuguese sector to English', () => {
       const columns = createColumns(enMockT, 'en');
-      const col = columns.find(c => c.accessorKey === 'sectorname');
+      const col = columns.find(c => getAccessorKey(c) === 'sectorname');
       const cell = col?.cell as Function;
 
       const mockRow = {
@@ -425,7 +432,7 @@ describe('DataTable Columns', () => {
 
     it('sector cell keeps Portuguese when locale is not "en"', () => {
       const columns = createColumns(mockT);
-      const col = columns.find(c => c.accessorKey === 'sectorname');
+      const col = columns.find(c => getAccessorKey(c) === 'sectorname');
       const cell = col?.cell as Function;
 
       const mockRow = {
@@ -439,7 +446,7 @@ describe('DataTable Columns', () => {
 
     it('segment cell translates Portuguese segment to English', () => {
       const columns = createColumns(enMockT, 'en');
-      const col = columns.find(c => c.accessorKey === 'segmentname');
+      const col = columns.find(c => getAccessorKey(c) === 'segmentname');
       const cell = col?.cell as Function;
 
       const mockRow = {
@@ -453,7 +460,7 @@ describe('DataTable Columns', () => {
 
     it('segment cell keeps Portuguese when locale is not "en"', () => {
       const columns = createColumns(mockT);
-      const col = columns.find(c => c.accessorKey === 'segmentname');
+      const col = columns.find(c => getAccessorKey(c) === 'segmentname');
       const cell = col?.cell as Function;
 
       const mockRow = {
@@ -467,7 +474,7 @@ describe('DataTable Columns', () => {
 
     it('cicle cell translates SIM to YES in English locale', () => {
       const columns = createColumns(enMockT, 'en');
-      const col = columns.find(c => c.accessorKey === 'cicle');
+      const col = columns.find(c => getAccessorKey(c) === 'cicle');
       const cell = col?.cell as Function;
 
       const mockRow = {
@@ -481,7 +488,7 @@ describe('DataTable Columns', () => {
 
     it('cicle cell translates NÃO to NO in English locale', () => {
       const columns = createColumns(enMockT, 'en');
-      const col = columns.find(c => c.accessorKey === 'cicle');
+      const col = columns.find(c => getAccessorKey(c) === 'cicle');
       const cell = col?.cell as Function;
 
       const mockRow = {
@@ -495,7 +502,7 @@ describe('DataTable Columns', () => {
 
     it('growthDividend cell translates Crescimento to Growth in English locale', () => {
       const columns = createColumns(enMockT, 'en');
-      const col = columns.find(c => c.accessorKey === 'growthDividend');
+      const col = columns.find(c => getAccessorKey(c) === 'growthDividend');
       const cell = col?.cell as Function;
 
       const mockRow = {
@@ -509,7 +516,7 @@ describe('DataTable Columns', () => {
 
     it('growthDividend cell translates Dividendos to Dividends in English locale', () => {
       const columns = createColumns(enMockT, 'en');
-      const col = columns.find(c => c.accessorKey === 'growthDividend');
+      const col = columns.find(c => getAccessorKey(c) === 'growthDividend');
       const cell = col?.cell as Function;
 
       const mockRow = {

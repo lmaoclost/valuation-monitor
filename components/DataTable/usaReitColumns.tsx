@@ -1,18 +1,19 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
+import type { AppTableFeatures } from "./tableFeatures";
 import Link from "next/link";
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 import { sortNullsLast } from "@/utils";
 
 export const createUSAReitColumns = (
   t: (key: string) => string,
-): ColumnDef<StocksFormattedDataType>[] => {
+): ColumnDef<AppTableFeatures, StocksFormattedDataType>[] => {
   return [
     {
       accessorKey: "ticker",
       header: t("ticker"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return (
           <Link
@@ -29,61 +30,61 @@ export const createUSAReitColumns = (
     {
       accessorKey: "price",
       header: t("price"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("price")}</div>,
     },
     {
       accessorKey: "dy",
       header: t("dy"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("dy")}</div>,
     },
     {
       accessorKey: "pl",
       header: t("pl"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("pl")}</div>,
     },
     {
       accessorKey: "lpa",
       header: t("lpa"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("lpa")}</div>,
     },
     {
       accessorKey: "vpa",
       header: t("vpa"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("vpa")}</div>,
     },
     {
       accessorKey: "dpa",
       header: t("dpa"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("dpa")}</div>,
     },
     {
       accessorKey: "risk",
       header: t("risk"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("risk")}</div>,
     },
     {
       accessorKey: "discount_margin",
       header: t("discountMargin"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("discount_margin")}</div>,
     },
     {
       accessorKey: "payout",
       header: t("payout"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("payout")}</div>,
     },
     {
       accessorKey: "growthDividend",
       header: t("growthDividends"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const val = row.getValue("growthDividend") as string;
         const labels: Record<string, string> = {
@@ -97,25 +98,25 @@ export const createUSAReitColumns = (
     {
       accessorKey: "roe",
       header: t("roe"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("roe")}</div>,
     },
     {
       accessorKey: "cagrProfit",
       header: t("cagrProfit5y"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("cagrProfit")}</div>,
     },
     {
       accessorKey: "damodaramGrowth",
       header: t("damodaranGrowth"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("damodaramGrowth")}</div>,
     },
     {
       accessorKey: "growthAverage",
       header: t("avgGrowth"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("growthAverage") as string;
         const fieldColor = row.getValue("growthAverageColor") as string;
@@ -131,7 +132,7 @@ export const createUSAReitColumns = (
     {
       accessorKey: "bazinDiscount",
       header: t("descBazin"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("bazinDiscount") as string;
         const fieldColor = row.getValue("bazinDiscountColor") as string;
@@ -147,19 +148,19 @@ export const createUSAReitColumns = (
     {
       accessorKey: "bazinFairPrice",
       header: t("bazinFairPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("bazinFairPrice")}</div>,
     },
     {
       accessorKey: "bazinCeelingPrice",
       header: t("bazinCeilingPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("bazinCeelingPrice")}</div>,
     },
     {
       accessorKey: "grahamDiscount",
       header: t("descGraham"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("grahamDiscount") as string;
         const fieldColor = row.getValue("grahamDiscountColor") as string;
@@ -175,19 +176,19 @@ export const createUSAReitColumns = (
     {
       accessorKey: "grahamFairPrice",
       header: t("grahamFairPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("grahamFairPrice")}</div>,
     },
     {
       accessorKey: "grahamCeelingPrice",
       header: t("grahamCeilingPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("grahamCeelingPrice")}</div>,
     },
     {
       accessorKey: "gordonDiscount",
       header: t("descGordon"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("gordonDiscount") as string;
         const fieldColor = row.getValue("gordonDiscountColor") as string;
@@ -203,25 +204,25 @@ export const createUSAReitColumns = (
     {
       accessorKey: "d1",
       header: t("d1"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("d1")}</div>,
     },
     {
       accessorKey: "gordonFairPrice",
       header: t("gordonFairPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("gordonFairPrice")}</div>,
     },
     {
       accessorKey: "gordonCeelingPrice",
       header: t("gordonCeilingPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("gordonCeelingPrice")}</div>,
     },
     {
       accessorKey: "peg",
       header: t("peg"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("peg") as string;
         const fieldColor = row.getValue("pegColor") as string;
@@ -237,7 +238,7 @@ export const createUSAReitColumns = (
     {
       accessorKey: "psr",
       header: t("psr"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("psr") as string;
         const fieldColor = row.getValue("psrColor") as string;

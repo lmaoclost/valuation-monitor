@@ -1,3 +1,3 @@
-import { VisibilityState } from "@tanstack/react-table";
+import { ColumnVisibilityState } from "@tanstack/react-table";
 
-export const fiiPapelColumnVisibility: VisibilityState = {};
+export const fiiPapelColumnVisibility: ColumnVisibilityState = {};

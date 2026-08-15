@@ -1,4 +1,4 @@
-import { SortingFn } from "@tanstack/react-table";
+import { SortFn } from "@tanstack/react-table";
 
 function parsePossibleNumber(raw?: unknown): number | null {
   if (raw == null) return null;
@@ -17,7 +17,7 @@ function parsePossibleNumber(raw?: unknown): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-export const sortNullsLast: SortingFn<any> = (
+export const sortNullsLast: SortFn<any, any> = (
   rowA,
   rowB,
   columnId,

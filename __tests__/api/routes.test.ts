@@ -1,5 +1,9 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { NextRequest } from 'next/server';
+import type { StocksFormattedDataType } from '@/@types/StocksFormattedDataType';
+import type { FiiTijoloFormattedDataType } from '@/@types/FiiTijoloFormattedDataType';
+import type { FiiPapelFormattedDataType } from '@/@types/FiiPapelFormattedDataType';
+import type { FiiListFormattedDataType } from '@/@types/FiiListFormattedDataType';
 
 // Setup mocks BEFORE importing routes
 vi.mock('@/services', () => ({
@@ -75,7 +79,7 @@ describe('API Routes - Integration Tests', () => {
       const mockData = [
         { TICKER: 'PETR4', PRECO: 25.5 },
         { TICKER: 'VALE5', PRECO: 65.0 },
-      ];
+      ] as unknown as StocksFormattedDataType[];
 
       const { getStocksData } = await import('@/services');
       vi.mocked(getStocksData).mockResolvedValueOnce(mockData);
@@ -114,6 +118,7 @@ describe('API Routes - Integration Tests', () => {
     it('should return formatted complementar data', async () => {
       const { getComplementarData: service } = await import('@/services');
       vi.mocked(service).mockResolvedValueOnce({
+        csv: [],
         erp: 750,
         ipca: 450,
         risk: 0.08,
@@ -142,13 +147,13 @@ describe('API Routes - Integration Tests', () => {
   describe('GET /api/fetch-erp', () => {
     it('should return ERP data', async () => {
       const { getERPData: service } = await import('@/services');
-      vi.mocked(service).mockResolvedValueOnce({ value: 750 });
+      vi.mocked(service).mockResolvedValueOnce(750);
 
       const response = await getERPData();
       const result = await response.json();
 
       expect(response.status).toBe(200);
-      expect(result).toHaveProperty('value');
+      expect(result).toBe(750);
     });
 
     it('should handle errors', async () => {
@@ -165,13 +170,13 @@ describe('API Routes - Integration Tests', () => {
   describe('GET /api/fetch-ipca', () => {
     it('should return IPCA data', async () => {
       const { getIPCAData: service } = await import('@/services');
-      vi.mocked(service).mockResolvedValueOnce({ value: 450 });
+      vi.mocked(service).mockResolvedValueOnce(450);
 
       const response = await getIPCAData();
       const result = await response.json();
 
       expect(response.status).toBe(200);
-      expect(result).toHaveProperty('value');
+      expect(result).toBe(450);
     });
 
     it('should handle errors', async () => {
@@ -191,9 +196,9 @@ describe('API Routes - Integration Tests', () => {
         '@/services'
       );
 
-      vi.mocked(getIPCAData).mockResolvedValueOnce({ value: 450 });
-      vi.mocked(getERPData).mockResolvedValueOnce({ value: 750 });
-      vi.mocked(service).mockReturnValueOnce({ risk: 0.08 });
+      vi.mocked(getIPCAData).mockResolvedValueOnce(450);
+      vi.mocked(getERPData).mockResolvedValueOnce(750);
+      vi.mocked(service).mockReturnValueOnce(0.08);
 
       const response = await getRiskData();
       const result = await response.json();
@@ -213,7 +218,7 @@ describe('API Routes - Integration Tests', () => {
 
     it('should handle ERP fetch error', async () => {
       const { getIPCAData, getERPData } = await import('@/services');
-      vi.mocked(getIPCAData).mockResolvedValueOnce({ value: 450 });
+      vi.mocked(getIPCAData).mockResolvedValueOnce(450);
       vi.mocked(getERPData).mockRejectedValueOnce(new Error('Error'));
 
       const response = await getRiskData();
@@ -225,7 +230,7 @@ describe('API Routes - Integration Tests', () => {
 
   describe('GET /api/fetch-fii/tijolo', () => {
     it('should return tijolo FII data', async () => {
-      const mockData = [{ ticker: 'HGLG11', category: 'Logisticos', price: 'R$ 150,00' }];
+      const mockData = [{ ticker: 'HGLG11', category: 'Logisticos', price: 'R$ 150,00' }] as unknown as FiiTijoloFormattedDataType[];
       const { getFiiTijoloData: service } = await import('@/services');
       vi.mocked(service).mockResolvedValueOnce(mockData);
 
@@ -250,7 +255,7 @@ describe('API Routes - Integration Tests', () => {
 
   describe('GET /api/fetch-fii/papel', () => {
     it('should return papel FII data', async () => {
-      const mockData = [{ ticker: 'KNIP11', category: 'Recebíveis Imobiliários' }];
+      const mockData = [{ ticker: 'KNIP11', category: 'Recebíveis Imobiliários' }] as unknown as FiiPapelFormattedDataType[];
       const { getFiiPapelData: service } = await import('@/services');
       vi.mocked(service).mockResolvedValueOnce(mockData);
 
@@ -274,7 +279,7 @@ describe('API Routes - Integration Tests', () => {
 
   describe('GET /api/fetch-fii/fiagro', () => {
     it('should return agronegócio FII data', async () => {
-      const mockData = [{ ticker: 'KNCA11', category: 'Agronegócio' }];
+      const mockData = [{ ticker: 'KNCA11', category: 'Agronegócio' }] as unknown as FiiListFormattedDataType[];
       const { getFiiListData: service } = await import('@/services');
       vi.mocked(service).mockResolvedValueOnce(mockData);
 
@@ -298,7 +303,7 @@ describe('API Routes - Integration Tests', () => {
 
   describe('GET /api/fetch-fii/fi-infra', () => {
     it('should return infra FII data', async () => {
-      const mockData = [{ ticker: 'KDIF11', category: 'Recebíveis de Infraestrutura' }];
+      const mockData = [{ ticker: 'KDIF11', category: 'Recebíveis de Infraestrutura' }] as unknown as FiiListFormattedDataType[];
       const { getFiiListData: service } = await import('@/services');
       vi.mocked(service).mockResolvedValueOnce(mockData);
 
@@ -312,7 +317,7 @@ describe('API Routes - Integration Tests', () => {
 
   describe('GET /api/fetch-fii/fof', () => {
     it('should return fundo de fundos data', async () => {
-      const mockData = [{ ticker: 'BCFF11', category: 'Fundo de Fundos' }];
+      const mockData = [{ ticker: 'BCFF11', category: 'Fundo de Fundos' }] as unknown as FiiListFormattedDataType[];
       const { getFiiListData: service } = await import('@/services');
       vi.mocked(service).mockResolvedValueOnce(mockData);
 

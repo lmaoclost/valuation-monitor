@@ -3,40 +3,46 @@ import { tijoloParser } from "@/parsers/fii/tijoloParser";
 import type { FiiCSVRow } from "@/parsers/fii/tijoloSchema";
 import type { FundamentusRow } from "@/parsers/fii/fundamentusSchema";
 
-const createCSVRow = (overrides: Partial<FiiCSVRow> & { TICKER: string }): FiiCSVRow => ({
-  TICKER: overrides.TICKER,
-  PRECO: 100,
-  DY: 0.06,
-  "VALOR PATRIMONIAL COTA": 90,
-  "P/VP": 1.11,
-  "LIQUIDEZ MEDIA DIARIA": 500000,
-  "PERCENTUAL EM CAIXA": 5,
-  "CAGR DIVIDENDOS 3 ANOS": 0.05,
-  " CAGR VALOR CORA 3 ANOS": 0.03,
-  PATRIMONIO: 500000000,
-  "N COTISTAS": 5000,
-  GESTAO: "GESTORA ABC",
-  ...overrides,
-});
+const createCSVRow = (overrides: Partial<FiiCSVRow> & { TICKER: string }): FiiCSVRow => {
+  const { TICKER, ...rest } = overrides;
+  return {
+    TICKER,
+    PRECO: 100,
+    DY: 0.06,
+    "VALOR PATRIMONIAL COTA": 90,
+    "P/VP": 1.11,
+    "LIQUIDEZ MEDIA DIARIA": 500000,
+    "PERCENTUAL EM CAIXA": 5,
+    "CAGR DIVIDENDOS 3 ANOS": 0.05,
+    " CAGR VALOR CORA 3 ANOS": 0.03,
+    PATRIMONIO: 500000000,
+    "N COTISTAS": 5000,
+    GESTAO: "GESTORA ABC",
+    ...rest,
+  };
+};
 
 const createFundamentusRow = (
   overrides: Partial<FundamentusRow> & { Papel: string; Segmento: string },
-): FundamentusRow => ({
-  Papel: overrides.Papel,
-  Segmento: overrides.Segmento,
-  Cotação: 100,
-  "FFO Yield": 0.08,
-  "Dividend Yield": 0.06,
-  "P/VP": 1.1,
-  "Valor de Mercado": 500000000,
-  Liquidez: 500000,
-  "Qtd de imóveis": 10,
-  "Preço do m2": 5000,
-  "Aluguel por m2": 50,
-  "Cap Rate": 0.07,
-  "Vacância Média": 0.05,
-  ...overrides,
-});
+): FundamentusRow => {
+  const { Papel, Segmento, ...rest } = overrides;
+  return {
+    Papel,
+    Segmento,
+    Cotação: 100,
+    "FFO Yield": 0.08,
+    "Dividend Yield": 0.06,
+    "P/VP": 1.1,
+    "Valor de Mercado": 500000000,
+    Liquidez: 500000,
+    "Qtd de imóveis": 10,
+    "Preço do m2": 5000,
+    "Aluguel por m2": 50,
+    "Cap Rate": 0.07,
+    "Vacância Média": 0.05,
+    ...rest,
+  };
+};
 
 describe("tijoloParser", () => {
   it("should process Tijolo-type FIIs and filter out other types", async () => {
