@@ -70,14 +70,12 @@ describe('DataTable Component', () => {
 
   it('should render the table with data', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
 
     render(
       <DataTable
         columns={columns}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -90,14 +88,12 @@ describe('DataTable Component', () => {
 
   it('should render column headers', () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
 
     render(
       <DataTable
         columns={columns}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -108,14 +104,12 @@ describe('DataTable Component', () => {
 
   it('should render empty state when no data', () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
 
     render(
       <DataTable
         columns={columns}
         data={[]}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -125,7 +119,6 @@ describe('DataTable Component', () => {
 
   it('should handle preset application', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
     const user = userEvent.setup();
 
     render(
@@ -133,7 +126,6 @@ describe('DataTable Component', () => {
         columns={columns}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -145,14 +137,12 @@ describe('DataTable Component', () => {
 
   it('should display complementar data (risk, ipca, erp)', () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
 
     render(
       <DataTable
         columns={columns}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 
@@ -164,14 +154,12 @@ describe('DataTable Component', () => {
 
   it('should render correct number of rows', async () => {
     const columns = createMockColumns();
-    const handlePreset = vi.fn();
 
     render(
       <DataTable
         columns={columns}
         data={mockStockData}
         complementarData={mockComplementarData}
-        onApplyPreset={handlePreset}
       />
     );
 

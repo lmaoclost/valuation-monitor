@@ -2,21 +2,24 @@ import { describe, it, expect } from "vitest";
 import { fiiListParser } from "@/parsers/fii/fiiListParser";
 import type { FiiCSVRow } from "@/parsers/fii/tijoloSchema";
 
-const createCSVRow = (overrides: Partial<FiiCSVRow> & { TICKER: string }): FiiCSVRow => ({
-  TICKER: overrides.TICKER,
-  PRECO: 100,
-  DY: 0.06,
-  "VALOR PATRIMONIAL COTA": 90,
-  "P/VP": 1.11,
-  "LIQUIDEZ MEDIA DIARIA": 500000,
-  "PERCENTUAL EM CAIXA": 5,
-  "CAGR DIVIDENDOS 3 ANOS": 0.05,
-  " CAGR VALOR CORA 3 ANOS": 0.03,
-  PATRIMONIO: 500000000,
-  "N COTISTAS": 5000,
-  GESTAO: "GESTORA ABC",
-  ...overrides,
-});
+const createCSVRow = (overrides: Partial<FiiCSVRow> & { TICKER: string }): FiiCSVRow => {
+  const { TICKER, ...rest } = overrides;
+  return {
+    TICKER,
+    PRECO: 100,
+    DY: 0.06,
+    "VALOR PATRIMONIAL COTA": 90,
+    "P/VP": 1.11,
+    "LIQUIDEZ MEDIA DIARIA": 500000,
+    "PERCENTUAL EM CAIXA": 5,
+    "CAGR DIVIDENDOS 3 ANOS": 0.05,
+    " CAGR VALOR CORA 3 ANOS": 0.03,
+    PATRIMONIO: 500000000,
+    "N COTISTAS": 5000,
+    GESTAO: "GESTORA ABC",
+    ...rest,
+  };
+};
 
 describe("fiiListParser", () => {
   it("should filter agronegócio FIIs by type", async () => {
