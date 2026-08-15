@@ -3,6 +3,7 @@ import { render, screen, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { DataTable } from '../../components/DataTable/DataTable';
 import { ColumnDef } from '@tanstack/react-table';
+import type { AppTableFeatures } from '@/components/DataTable/tableFeatures';
 
 describe('DataTable - Additional Coverage', () => {
   interface StockData {
@@ -12,7 +13,7 @@ describe('DataTable - Additional Coverage', () => {
     change: number;
   }
 
-  const columns: ColumnDef<StockData>[] = [
+  const columns: ColumnDef<AppTableFeatures, StockData>[] = [
     { accessorKey: 'id', header: 'ID' },
     { accessorKey: 'ticker', header: 'Ticker' },
     { accessorKey: 'price', header: 'Price' },

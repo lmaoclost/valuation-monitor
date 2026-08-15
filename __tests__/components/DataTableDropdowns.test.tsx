@@ -5,6 +5,7 @@ import '@testing-library/jest-dom';
 import { DataTable } from '@/components/DataTable/DataTable';
 import { StocksFormattedDataType } from '@/@types/StocksFormattedDataType';
 import { ColumnDef } from '@tanstack/react-table';
+import type { AppTableFeatures } from '@/components/DataTable/tableFeatures';
 
 // Mock next/link
 vi.mock('next/link', () => ({
@@ -15,7 +16,7 @@ vi.mock('next/link', () => ({
   ),
 }));
 
-const createMockColumns = (): ColumnDef<StocksFormattedDataType>[] => [
+const createMockColumns = (): ColumnDef<AppTableFeatures, StocksFormattedDataType>[] => [
   {
     accessorKey: 'ticker',
     header: 'Ticker',

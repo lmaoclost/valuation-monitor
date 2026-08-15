@@ -3,18 +3,17 @@
 import { useState, useMemo, memo } from "react";
 import {
   ColumnDef,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getSortedRowModel,
+  ColumnVisibilityState,
+  RowData,
   SortingState,
-  useReactTable,
-  VisibilityState,
+  useTable,
 } from "@tanstack/react-table";
+import { AppTableFeatures, features } from "./tableFeatures";
 import { TableControls } from "./TableControls";
 import { VirtualizedTableBody } from "./VirtualizedTableBody";
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
+interface DataTableProps<TData extends RowData> {
+  columns: ColumnDef<AppTableFeatures, TData>[];
   data: TData[];
   complementarData?: {
     risk: string;
@@ -26,10 +25,10 @@ interface DataTableProps<TData, TValue> {
   selectedPresets?: string[];
   onSelectedPresetsChange?: (presets: string[]) => void;
   presets?: Record<string, unknown>;
-  initialColumnVisibility?: VisibilityState;
+  initialColumnVisibility?: ColumnVisibilityState;
 }
 
-function DataTableInner<TData, TValue>({
+function DataTableInner<TData extends RowData>({
   columns,
   data,
   complementarData,
@@ -39,23 +38,21 @@ function DataTableInner<TData, TValue>({
   onSelectedPresetsChange,
   presets,
   initialColumnVisibility,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [globalFilter, setGlobalFilter] = useState("");
-  const defaultVisibility: VisibilityState = {
+  const defaultVisibility: ColumnVisibilityState = {
     ...(initialColumnVisibility ?? {}),
   };
   const [columnVisibility, setColumnVisibility] =
-    useState<VisibilityState>(defaultVisibility);
+    useState<ColumnVisibilityState>(defaultVisibility);
   const [rowSelection, setRowSelection] = useState({});
 
-  const table = useReactTable({
+  const table = useTable({
+    features,
     data,
     columns,
     onSortingChange: setSorting,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
     state: {

@@ -1,6 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
+import type { AppTableFeatures } from "./tableFeatures";
 import Link from "next/link";
 import { StocksFormattedDataType } from "@/@types/StocksFormattedDataType";
 import { sortNullsLast } from "@/utils";
@@ -12,14 +13,14 @@ import {
 export const createColumns = (
   t: (key: string) => string,
   locale?: string,
-): ColumnDef<StocksFormattedDataType>[] => {
+): ColumnDef<AppTableFeatures, StocksFormattedDataType>[] => {
   const isEn = locale === "en";
 
   return [
     {
       accessorKey: "ticker",
       header: t("ticker"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return (
           <Link
@@ -36,7 +37,7 @@ export const createColumns = (
     {
       accessorKey: "companyname",
       header: t("companyName"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const companyName = row.getValue("companyname") as string;
         return (
@@ -49,7 +50,7 @@ export const createColumns = (
     {
       accessorKey: "sectorname",
       header: t("sector"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const val = row.getValue("sectorname") as string;
         return (
@@ -62,7 +63,7 @@ export const createColumns = (
     {
       accessorKey: "segmentname",
       header: t("segment"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const segmentName = row.getValue("segmentname") as string;
         const display = isEn
@@ -87,13 +88,13 @@ export const createColumns = (
     {
       accessorKey: "price",
       header: t("price"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("price")}</div>,
     },
     {
       accessorKey: "dy",
       header: t("dy"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return <div>{row.getValue("dy")}</div>;
       },
@@ -101,7 +102,7 @@ export const createColumns = (
     {
       accessorKey: "pl",
       header: t("pl"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return <div>{row.getValue("pl")}</div>;
       },
@@ -109,37 +110,37 @@ export const createColumns = (
     {
       accessorKey: "lpa",
       header: t("lpa"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("lpa")}</div>,
     },
     {
       accessorKey: "vpa",
       header: t("vpa"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("vpa")}</div>,
     },
     {
       accessorKey: "dpa",
       header: t("dpa"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("dpa")}</div>,
     },
     {
       accessorKey: "risk",
       header: t("risk"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("risk")}</div>,
     },
     {
       accessorKey: "discount_margin",
       header: t("discountMargin"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => <div>{row.getValue("discount_margin")}</div>,
     },
     {
       accessorKey: "payout",
       header: t("payout"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return <div>{row.getValue("payout")}</div>;
       },
@@ -147,7 +148,7 @@ export const createColumns = (
     {
       accessorKey: "growthDividend",
       header: t("growthDividends"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const val = row.getValue("growthDividend") as string;
         const labels: Record<string, string> = {
@@ -161,7 +162,7 @@ export const createColumns = (
     {
       accessorKey: "roe",
       header: t("roe"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return <div>{row.getValue("roe")}</div>;
       },
@@ -169,7 +170,7 @@ export const createColumns = (
     {
       accessorKey: "cagrProfit",
       header: t("cagrProfit5y"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return <div>{row.getValue("cagrProfit")}</div>;
       },
@@ -177,7 +178,7 @@ export const createColumns = (
     {
       accessorKey: "damodaramGrowth",
       header: t("damodaranGrowth"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         return <div>{row.getValue("damodaramGrowth")}</div>;
       },
@@ -185,7 +186,7 @@ export const createColumns = (
     {
       accessorKey: "growthAverage",
       header: t("avgGrowth"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("growthAverage") as string;
         const fieldColor = row.getValue("growthAverageColor") as string;
@@ -202,7 +203,7 @@ export const createColumns = (
     {
       accessorKey: "bazinDiscount",
       header: t("descBazin"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("bazinDiscount") as string;
         const fieldColor = row.getValue("bazinDiscountColor") as string;
@@ -219,7 +220,7 @@ export const createColumns = (
     {
       accessorKey: "bazinFairPrice",
       header: t("bazinFairPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const bazinFairPrice = row.getValue("bazinFairPrice");
         return (
@@ -232,7 +233,7 @@ export const createColumns = (
     {
       accessorKey: "bazinCeelingPrice",
       header: t("bazinCeilingPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const bazinCeelingPrice = row.getValue("bazinCeelingPrice");
         return (
@@ -245,7 +246,7 @@ export const createColumns = (
     {
       accessorKey: "grahamDiscount",
       header: t("descGraham"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("grahamDiscount") as string;
         const fieldColor = row.getValue("grahamDiscountColor") as string;
@@ -262,7 +263,7 @@ export const createColumns = (
     {
       accessorKey: "grahamFairPrice",
       header: t("grahamFairPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const grahamFairPrice = row.getValue("grahamFairPrice");
         return (
@@ -275,7 +276,7 @@ export const createColumns = (
     {
       accessorKey: "grahamCeelingPrice",
       header: t("grahamCeilingPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const grahamCeelingPrice = row.getValue("grahamCeelingPrice");
         return (
@@ -288,7 +289,7 @@ export const createColumns = (
     {
       accessorKey: "gordonDiscount",
       header: t("descGordon"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("gordonDiscount") as string;
         const fieldColor = row.getValue("gordonDiscountColor") as string;
@@ -305,7 +306,7 @@ export const createColumns = (
     {
       accessorKey: "d1",
       header: t("d1"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const d1 = row.getValue("d1");
         return (
@@ -318,7 +319,7 @@ export const createColumns = (
     {
       accessorKey: "gordonFairPrice",
       header: t("gordonFairPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const gordonFairPrice = row.getValue("gordonFairPrice");
         return (
@@ -331,7 +332,7 @@ export const createColumns = (
     {
       accessorKey: "gordonCeelingPrice",
       header: t("gordonCeilingPrice"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const gordonCeelingPrice = row.getValue("gordonCeelingPrice");
         return (
@@ -344,7 +345,7 @@ export const createColumns = (
     {
       accessorKey: "peg",
       header: t("peg"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("peg") as number;
         const fieldColor = row.getValue("pegColor") as string;
@@ -364,7 +365,7 @@ export const createColumns = (
     {
       accessorKey: "psr",
       header: t("psr"),
-      sortingFn: sortNullsLast,
+      sortFn: sortNullsLast,
       cell: ({ row }) => {
         const value = row.getValue("psr") as number;
         const fieldColor = row.getValue("psrColor") as string;

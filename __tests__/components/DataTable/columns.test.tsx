@@ -169,7 +169,7 @@ describe('DataTable Columns', () => {
     const columns = createColumns(mockT);
     const tickerColumn = columns.find(col => col.accessorKey === 'ticker');
     
-    expect(tickerColumn?.sortingFn).toBeDefined();
+    expect(tickerColumn?.sortFn).toBeDefined();
   });
 
   it('has cell renderers for main columns', () => {
@@ -401,10 +401,10 @@ describe('DataTable Columns', () => {
 
   it('all columns with sortingFn have sortNullsLast', () => {
     const columns = createColumns(mockT);
-    const sortableColumns = columns.filter(col => col.sortingFn);
+    const sortableColumns = columns.filter(col => col.sortFn);
     
     sortableColumns.forEach(col => {
-      expect(col.sortingFn).toBeDefined();
+      expect(col.sortFn).toBeDefined();
     });
   });
 

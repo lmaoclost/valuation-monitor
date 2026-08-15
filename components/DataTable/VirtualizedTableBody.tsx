@@ -4,28 +4,28 @@
 
 import { useRef, memo } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { flexRender } from "@tanstack/react-table";
+import { Table as ShadcnTable, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { flexRender, ColumnDef, RowData, type Row, type Table, type HeaderGroup, type Cell } from "@tanstack/react-table";
 import { DataTableHeader } from "./TableHeader";
-import type { GenericTanStackTable, GenericTanStackRow, GenericTanStackHeaderGroup, GenericTanStackCell } from "@/@types/TanStackTableTypes";
+import type { AppTableFeatures } from "./tableFeatures";
 
 const ROW_HEIGHT = 45;
 const CONTAINER_HEIGHT = '80vh';
 const OVERSCAN_COUNT = 10;
 
-interface VirtualizedTableBodyProps {
-  table: GenericTanStackTable;
-  rows: GenericTanStackRow[];
-  columns: readonly any[];
-  headerGroups: GenericTanStackHeaderGroup[];
+interface VirtualizedTableBodyProps<TData extends RowData> {
+  table: Table<AppTableFeatures, TData>;
+  rows: Row<AppTableFeatures, TData>[];
+  columns: readonly ColumnDef<AppTableFeatures, TData>[];
+  headerGroups: HeaderGroup<AppTableFeatures, TData>[];
 }
 
-function VirtualizedTableBodyInner({
+function VirtualizedTableBodyInner<TData extends RowData>({
   table,
   rows,
   columns,
   headerGroups,
-}: VirtualizedTableBodyProps) {
+}: VirtualizedTableBodyProps<TData>) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
   const virtualizer = useVirtualizer({
@@ -52,7 +52,7 @@ function VirtualizedTableBodyInner({
       }}
       className="relative"
     >
-      <Table className="min-w-300 w-full caption-bottom text-sm border-collapse">
+      <ShadcnTable className="min-w-300 w-full caption-bottom text-sm border-collapse">
         <DataTableHeader headerGroups={headerGroups} sticky={true} />
         <TableBody>
           {paddingTop > 0 && (
@@ -72,7 +72,7 @@ function VirtualizedTableBodyInner({
                 className="cursor-pointer"
                 style={{ height: `${ROW_HEIGHT}px` }}
               >
-                {row.getVisibleCells().map((cell: GenericTanStackCell) => (
+                {row.getVisibleCells().map((cell: Cell<AppTableFeatures, TData>) => (
                   <TableCell key={cell.id}>
                     {flexRender(
                       cell.column.columnDef.cell,
@@ -92,9 +92,9 @@ function VirtualizedTableBodyInner({
             </TableRow>
           )}
         </TableBody>
-      </Table>
+      </ShadcnTable>
     </div>
   );
 };
 
-export const VirtualizedTableBody = memo(VirtualizedTableBodyInner);
+export const VirtualizedTableBody = memo(VirtualizedTableBodyInner) as typeof VirtualizedTableBodyInner;
