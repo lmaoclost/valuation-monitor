@@ -1,17 +1,27 @@
 import type { OpenApiSpec } from "@/lib/openapi";
 
-function exampleFor(path: string): string {
-  const base = "https://valuation-monitor.vercel.app";
+export const DEFAULT_BASE_URL = "https://valuation-monitor.vercel.app";
+
+function exampleFor(path: string, base: string): string {
   const query =
     path === "/api/fetch-fii/tijolo"
       ? "fairPrice.gte=150&dy.gte=0.06"
       : path.startsWith("/api/fetch-fii")
         ? "dy.gte=0.06&price.lte=150"
         : "bazinDiscount.gte=0.3&grahamDiscount.gte=0";
-  return `curl -H "x-app-secret: $PRIVATE_API_SECRET" "${base}${path}?${query}"`;
+  return `curl -H "x-app-secret: $PRIVATE_API_SECRET" \\\n  "${base}${path}?${query}"`;
 }
 
-export function DocsContent({ spec }: { spec: OpenApiSpec }) {
+const CODE_BLOCK =
+  "mt-2 overflow-x-auto rounded bg-zinc-900 p-3 font-mono text-xs whitespace-pre-wrap break-all text-zinc-100";
+
+export function DocsContent({
+  spec,
+  baseUrl,
+}: {
+  spec: OpenApiSpec;
+  baseUrl: string;
+}) {
   return (
     <main className="mx-auto max-w-4xl px-4 py-8 font-body">
       <h1 className="font-display text-2xl">API Docs</h1>
@@ -27,9 +37,8 @@ export function DocsContent({ spec }: { spec: OpenApiSpec }) {
         <code>x-app-secret</code>. Raw spec: <a href="/api/openapi">/api/openapi</a>{" "}
         (public, no secret needed).
       </p>
-      <pre className="mt-2 overflow-x-auto rounded bg-zinc-100 p-3 font-mono text-xs">
-        curl -H &quot;x-app-secret: $PRIVATE_API_SECRET&quot;
-        https://valuation-monitor.vercel.app/api/fetch-stocks?bazinDiscount.gte=0.3
+      <pre className={CODE_BLOCK}>
+        {`curl -H "x-app-secret: $PRIVATE_API_SECRET" \\\n  "${baseUrl}/api/fetch-stocks?bazinDiscount.gte=0.3"`}
       </pre>
 
       <h2 className="font-display mt-6 text-lg">Filter syntax / Sintaxe</h2>
@@ -66,12 +75,10 @@ export function DocsContent({ spec }: { spec: OpenApiSpec }) {
         <section key={path} className="mt-6 border-t pt-4">
           <h3 className="font-mono text-sm font-semibold">GET {path}</h3>
           <p className="mt-1 text-sm">{item.get.description}</p>
-          <pre className="mt-2 overflow-x-auto rounded bg-zinc-100 p-3 font-mono text-xs">
-            {exampleFor(path)}
-          </pre>
+          <pre className={CODE_BLOCK}>{exampleFor(path, baseUrl)}</pre>
           <details className="mt-2">
             <summary className="cursor-pointer text-sm underline">
-              Columns / Colunas ({item.get.parameters.length - 2})
+              Parameters / Parâmetros ({item.get.parameters.length})
             </summary>
             <table className="mt-2 w-full text-left text-xs">
               <thead>
