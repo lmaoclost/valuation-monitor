@@ -219,5 +219,29 @@
     "metaUsaReits": "USA REITs: Universe = non-ETF equities on the same exchanges whose company name contains REIT keywords (REIT, Real Estate, Realty, Property Trust) and doesn't match fund/ETF patterns. Tracked = intersection with our REIT metadata.",
     "metaBrFiis": "BR FIIs: Universe = all funds in B3's official fund registry export CSV. Tracked = those matching our FII metadata by base ticker code.",
     "lastUpdate": "Data sources: Nasdaq Trader, B3 API, B3 FII registry CSV. Last updated: {date}."
+  },
+  "Docs": {
+    "title": "API Docs",
+    "subtitle": "Filterable valuation tables.",
+    "authTitle": "Auth / Autenticação",
+    "authA": "All endpoints require the",
+    "authB": "header with your private secret. Raw spec:",
+    "authC": "(public, no secret needed).",
+    "syntaxTitle": "Syntax / Sintaxe",
+    "b1a": "Use",
+    "b1b": "or",
+    "b1c": "with ops",
+    "b2a": "Bare numeric value means",
+    "b2b": "bare string means",
+    "b3a": "Numbers accept raw fractions (",
+    "b3b": ") or percent (",
+    "b3c": "). Plain",
+    "b3d": "means thirty, not 30%.",
+    "b4a": "takes comma-separated values (",
+    "b4b": ").",
+    "b4c": "is case-insensitive, string columns only.",
+    "b5": "Multiple filters combine with AND. Empty cells never match numeric filters. Unknown column or bad value returns 400 '{error, allowedColumns}'.",
+    "b6": "?sort=column:asc|desc and ?limit=n (1–10000) also supported.",
+    "params": "Parameters"
   }
 }

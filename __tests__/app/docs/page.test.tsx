@@ -1,5 +1,6 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { useLocale } from "next-intl";
 import { buildOpenApiSpec } from "@/lib/openapi";
 import { DocsContent } from "@/app/docs/docs-content";
 
@@ -22,5 +23,25 @@ describe("DocsContent", () => {
     expect(
       screen.getAllByText(/https:\/\/api\.example\.com\/api\/fetch-/).length,
     ).toBeGreaterThan(0);
+  });
+
+  it("renders language toggle and translated subtitle like the privacidade page", () => {
+    const spec = buildOpenApiSpec();
+    render(<DocsContent spec={spec} baseUrl="https://api.example.com" />);
+
+    expect(
+      screen.getByText("Tabelas de valuation filtráveis por coluna."),
+    ).toBeInTheDocument();
+    expect(screen.getByText("EN")).toBeInTheDocument();
+  });
+
+  it("translates chrome strings to English when locale is en", () => {
+    vi.mocked(useLocale).mockReturnValue("en");
+    const spec = buildOpenApiSpec();
+    render(<DocsContent spec={spec} baseUrl="https://api.example.com" />);
+
+    expect(screen.getByText("Filterable valuation tables.")).toBeInTheDocument();
+    expect(screen.getByText("PT")).toBeInTheDocument();
+    vi.mocked(useLocale).mockReturnValue("pt-BR");
   });
 });

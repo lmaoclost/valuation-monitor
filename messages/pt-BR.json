@@ -219,5 +219,29 @@
     "metaUsaReits": "REITs USA: Universo = ações não-ETF nas mesmas bolsas cujo nome contém palavras-chave REIT (REIT, Real Estate, Realty, Property Trust) e não corresponde a padrões de fundo/ETF. Rastreados = interseção com nossos metadados de REITs.",
     "metaBrFiis": "FIIs BR: Universo = todos os fundos no registro oficial de FIIs da B3 (CSV de exportação). Rastreados = aqueles que correspondem aos nossos metadados de FIIs por código base.",
     "lastUpdate": "Fontes: Nasdaq Trader, API B3, CSV B3 FII. Última atualização: {date}."
+  },
+  "Docs": {
+    "title": "API Docs",
+    "subtitle": "Tabelas de valuation filtráveis por coluna.",
+    "authTitle": "Autenticação / Auth",
+    "authA": "Todos os endpoints exigem o header",
+    "authB": "com seu segredo privado. Spec bruto:",
+    "authC": "(público, sem segredo).",
+    "syntaxTitle": "Sintaxe / Syntax",
+    "b1a": "Use",
+    "b1b": "ou",
+    "b1c": "com os ops",
+    "b2a": "Valor numérico avulso significa",
+    "b2b": "texto avulso significa",
+    "b3a": "Números aceitam frações puras (",
+    "b3b": ") ou percentual (",
+    "b3c": ").",
+    "b3d": "30 puro significa trinta, não 30%.",
+    "b4a": "aceita valores separados por vírgula (",
+    "b4b": ").",
+    "b4c": "não diferencia maiúsculas/minúsculas, só colunas de texto.",
+    "b5": "Múltiplos filtros combinam com AND. Células vazias nunca passam em filtros numéricos. Coluna desconhecida ou valor inválido retorna 400 '{error, allowedColumns}'.",
+    "b6": "?sort=coluna:asc|desc e ?limit=n (1–10000) também suportados.",
+    "params": "Parâmetros"
   }
 }
