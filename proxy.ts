@@ -34,6 +34,10 @@ export function proxy(request: NextRequest) {
 
   const authError = authValidator.validate(request);
   if (authError) {
+    // Public spec for the API docs page; rate limit above still applies.
+    if (request.nextUrl.pathname === "/api/openapi") {
+      return NextResponse.next();
+    }
     return authError;
   }
 

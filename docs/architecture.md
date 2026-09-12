@@ -66,6 +66,8 @@ Each market type defines its risk model:
 ## Security
 
 - API proxy (`proxy.ts`) validates `origin` header against `NEXT_PUBLIC_API_URL` and `x-app-secret` against `PRIVATE_API_SECRET`
+- Exception: `GET /api/openapi` is public (rate limit still applies) so external users can read the spec
+- Table routes (`fetch-stocks`, `fetch-fii/*`, ...) filter in-memory after the cached service call; see `docs/api-filtering.md`
 - Rate limiter (`rate-limiter.ts`) protects against abuse
 - `auth-validator.ts` centralizes auth checks
 

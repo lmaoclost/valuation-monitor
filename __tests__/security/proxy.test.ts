@@ -80,8 +80,7 @@ describe("Security - Proxy/Middleware", () => {
     });
   });
 
-  describe("Error messages", () => {
-    it('should return "Unauthorized" for missing secret', async () => {
+  describe("Error messages", () => {    it('should return "Unauthorized" for missing secret', async () => {
       const request = new NextRequest("http://localhost/api/test", {
         headers: { origin: allowedOrigin },
       });
@@ -99,6 +98,24 @@ describe("Security - Proxy/Middleware", () => {
       const text = await response?.text();
 
       expect(text).toContain("Forbidden");
+    });
+  });
+
+  describe("Public /api/openapi spec", () => {
+    it("should allow openapi without secret", async () => {
+      const request = new NextRequest("http://localhost/api/openapi");
+      const response = proxy(request);
+
+      expect(response?.status).toBe(200);
+    });
+
+    it("should still protect other endpoints without secret", async () => {
+      const request = new NextRequest(
+        "http://localhost/api/fetch-stocks?bazinDiscount.gte=0.3",
+      );
+      const response = proxy(request);
+
+      expect(response?.status).toBe(401);
     });
   });
 });

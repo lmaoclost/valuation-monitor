@@ -61,6 +61,16 @@ app/        → páginas e API routes (App Router)
 
 Ver `docs/architecture.md` para detalhes.
 
+## API
+
+Table endpoints accept column filters: `?bazinDiscount.gte=0.3&sort=price:desc&limit=50`.
+Docs interativos em `/docs`, spec em `/api/openapi`. Detalhes em `docs/api-filtering.md`.
+
+```bash
+curl -H "x-app-secret: $PRIVATE_API_SECRET" \
+  "https://valuation-monitor.vercel.app/api/fetch-stocks?bazinDiscount.gte=0.3"
+```
+
 ## Licença
 
 AGPL-3.0. Copyright (C) 2026 Renan Oliveira.
