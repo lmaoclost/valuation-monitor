@@ -7,10 +7,12 @@ import { fetchWithTimeout } from "@/lib/fetch-timeout";
 const LOCAL_CSV_PATH = join(process.cwd(), "data", "br-stocks.csv");
 
 const readLocalCsv = (): string | null => {
+  // Path is bounded to data/ (or a test fixture via env); opt out of
+  // Turbopack's whole-project tracing for this call.
   const localPath = process.env.BR_STOCKS_CSV_PATH ?? LOCAL_CSV_PATH;
   try {
-    if (!existsSync(localPath)) return null;
-    return readFileSync(localPath, "utf-8");
+    if (!existsSync(/*turbopackIgnore: true*/ localPath)) return null;
+    return readFileSync(/*turbopackIgnore: true*/ localPath, "utf-8");
   } catch {
     return null;
   }

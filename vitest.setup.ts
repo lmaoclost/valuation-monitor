@@ -62,6 +62,15 @@ vi.mock('next/navigation', () => ({
   useSearchParams: () => new URLSearchParams(),
 }));
 
+// connection() opts routes out of static prerendering; no-op in tests
+vi.mock('next/server', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('next/server')>();
+  return {
+    ...actual,
+    connection: vi.fn(async () => {}),
+  };
+});
+
 // Mock VirtualizedTableBody to render all rows for testing
 // The real implementation uses @tanstack/react-virtual which doesn't measure properly in test environment
 vi.mock('@/components/DataTable/VirtualizedTableBody', async () => {
