@@ -11,6 +11,7 @@ describe("getFiiListData Service", () => {
 
   it("should return parsed data for agronegócio type", async () => {
     global.fetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
       text: vi.fn().mockResolvedValueOnce(mockCSV),
     });
 

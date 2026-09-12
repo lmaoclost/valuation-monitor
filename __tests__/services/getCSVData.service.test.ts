@@ -17,16 +17,29 @@ describe("getCSVData Service", () => {
       expect(Array.isArray(result)).toBe(true);
     });
 
-    it("should call fetch with correct URL", async () => {
+    it("should call fetch with a browser User-Agent", async () => {
       global.fetch = vi.fn().mockResolvedValueOnce({
+        ok: true,
         text: vi.fn().mockResolvedValueOnce("TICKER,PRECO"),
       });
 
       await getCSVData();
       expect(global.fetch).toHaveBeenCalledWith(
         "https://example.com/stocks.csv",
-        expect.anything(),
+        expect.objectContaining({
+          headers: expect.objectContaining({
+            "User-Agent": expect.stringContaining("Mozilla"),
+          }),
+        }),
       );
+    });
+
+    it("should return empty array on non-OK response without parsing", async () => {
+      const text = vi.fn();
+      global.fetch = vi.fn().mockResolvedValueOnce({ ok: false, status: 403, text });
+      const result = await getCSVData();
+      expect(result).toEqual([]);
+      expect(text).not.toHaveBeenCalled();
     });
 
     it("should handle multiple stock records", async () => {

@@ -10,6 +10,11 @@ export const getFiiCSVData = async () => {
   try {
     const csvUrl = process.env.FII_CSV_URL!;
     const response = await fetchWithTimeout(csvUrl);
+
+    if (!response.ok) {
+      throw new Error(`FII CSV request failed with status ${response.status}`);
+    }
+
     const csvText = await response.text();
 
     const parsedData = Papa.parse(csvText, {

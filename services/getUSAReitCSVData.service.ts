@@ -12,6 +12,12 @@ export const getUSAReitCSVData = async () => {
 
     const response = await fetchWithTimeout(csvUrl);
 
+    if (!response.ok) {
+      throw new Error(
+        `USA REIT CSV request failed with status ${response.status}`,
+      );
+    }
+
     const csvText = await response.text();
 
     const parsedData = Papa.parse(csvText, {

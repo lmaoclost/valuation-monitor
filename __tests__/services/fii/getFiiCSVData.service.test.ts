@@ -12,6 +12,7 @@ describe("getFiiCSVData Service", () => {
   describe("successful CSV fetch", () => {
     it("should return parsed CSV data array", async () => {
       global.fetch = vi.fn().mockResolvedValueOnce({
+        ok: true,
         text: vi.fn().mockResolvedValueOnce(mockCSV),
       });
 
@@ -23,6 +24,7 @@ describe("getFiiCSVData Service", () => {
 
     it("should call fetch with correct URL", async () => {
       global.fetch = vi.fn().mockResolvedValueOnce({
+        ok: true,
         text: vi.fn().mockResolvedValueOnce(mockCSV),
       });
 
@@ -36,6 +38,7 @@ describe("getFiiCSVData Service", () => {
 
     it("should handle empty CSV", async () => {
       global.fetch = vi.fn().mockResolvedValueOnce({
+        ok: true,
         text: vi.fn().mockResolvedValueOnce(""),
       });
 

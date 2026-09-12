@@ -12,6 +12,10 @@ export const getCSVData = async () => {
 
     const response = await fetchWithTimeout(csvUrl);
 
+    if (!response.ok) {
+      throw new Error(`CSV request failed with status ${response.status}`);
+    }
+
     const csvText = await response.text();
 
     const parsedData = Papa.parse(csvText, {
