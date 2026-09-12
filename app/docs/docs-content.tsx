@@ -17,6 +17,18 @@ function exampleFor(path: string, base: string): string {
   return `curl -H "x-app-secret: $PRIVATE_API_SECRET" \\\n  "${base}${path}?${query}"`;
 }
 
+const ENDPOINT_DESC_KEY: Record<string, string> = {
+  "/api/fetch-stocks": "epStocksDesc",
+  "/api/fetch-usa-stocks": "epUsaStocksDesc",
+  "/api/fetch-usa-reit": "epUsaReitDesc",
+  "/api/fetch-fii/tijolo": "epTijoloDesc",
+  "/api/fetch-fii/papel": "epPapelDesc",
+  "/api/fetch-fii/fiagro": "epFiagroDesc",
+  "/api/fetch-fii/fi-infra": "epFiInfraDesc",
+  "/api/fetch-fii/fof": "epFofDesc",
+  "/api/fetch-fii": "epFiiDesc",
+};
+
 const CODE_BLOCK =
   "mt-2 overflow-x-auto rounded bg-zinc-900 p-3 font-mono text-xs whitespace-pre-wrap break-all text-zinc-100";
 
@@ -97,7 +109,9 @@ export function DocsContent({
                 GET {path}
               </h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                {item.get.description}
+                {ENDPOINT_DESC_KEY[path]
+                  ? t(ENDPOINT_DESC_KEY[path])
+                  : item.get.description}
               </p>
               <pre className={CODE_BLOCK}>{exampleFor(path, baseUrl)}</pre>
               <details className="mt-2">
@@ -107,8 +121,8 @@ export function DocsContent({
                 <table className="mt-2 w-full text-left text-xs text-muted-foreground">
                   <thead>
                     <tr>
-                      <th className="pr-2">Parameter</th>
-                      <th>Description</th>
+                      <th className="pr-2">{t("paramCol")}</th>
+                      <th>{t("descCol")}</th>
                     </tr>
                   </thead>
                   <tbody>

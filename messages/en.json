@@ -223,11 +223,11 @@
   "Docs": {
     "title": "API Docs",
     "subtitle": "Filterable valuation tables.",
-    "authTitle": "Auth / Autenticação",
+    "authTitle": "Auth",
     "authA": "All endpoints require the",
     "authB": "header with your private secret. Raw spec:",
     "authC": "(public, no secret needed).",
-    "syntaxTitle": "Syntax / Sintaxe",
+    "syntaxTitle": "Syntax",
     "b1a": "Use",
     "b1b": "or",
     "b1c": "with ops",
@@ -242,6 +242,17 @@
     "b4c": "is case-insensitive, string columns only.",
     "b5": "Multiple filters combine with AND. Empty cells never match numeric filters. Unknown column or bad value returns 400 '{error, allowedColumns}'.",
     "b6": "?sort=column:asc|desc and ?limit=n (1–10000) also supported.",
-    "params": "Parameters"
+    "params": "Parameters",
+    "paramCol": "Parameter",
+    "descCol": "Description",
+    "epStocksDesc": "Full BR stocks table (Bazin/Graham/Gordon discounts included). Filter with \"column\" or \"column.op\".",
+    "epUsaStocksDesc": "Full USA stocks table in USD. Same filter syntax as BR stocks.",
+    "epUsaReitDesc": "Full USA REIT table in USD. Same filter syntax as stocks.",
+    "epTijoloDesc": "Tijolo FII table (fairPrice, ceelingPrice, expectativaCrescimento, dy, pvp, ...).",
+    "epPapelDesc": "Papel FII table including subcategoria.",
+    "epFiagroDesc": "Agronegócio FII list.",
+    "epFiInfraDesc": "Infrastructure receivables FII list.",
+    "epFofDesc": "Fundo de fundos FII list.",
+    "epFiiDesc": "Returns '{tijolo, papel}'. Filters apply leniently: conditions on columns an array lacks are ignored for that array."
   }
 }

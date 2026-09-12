@@ -223,11 +223,11 @@
   "Docs": {
     "title": "API Docs",
     "subtitle": "Tabelas de valuation filtráveis por coluna.",
-    "authTitle": "Autenticação / Auth",
+    "authTitle": "Autenticação",
     "authA": "Todos os endpoints exigem o header",
     "authB": "com seu segredo privado. Spec bruto:",
     "authC": "(público, sem segredo).",
-    "syntaxTitle": "Sintaxe / Syntax",
+    "syntaxTitle": "Sintaxe",
     "b1a": "Use",
     "b1b": "ou",
     "b1c": "com os ops",
@@ -242,6 +242,17 @@
     "b4c": "não diferencia maiúsculas/minúsculas, só colunas de texto.",
     "b5": "Múltiplos filtros combinam com AND. Células vazias nunca passam em filtros numéricos. Coluna desconhecida ou valor inválido retorna 400 '{error, allowedColumns}'.",
     "b6": "?sort=coluna:asc|desc e ?limit=n (1–10000) também suportados.",
-    "params": "Parâmetros"
+    "params": "Parâmetros",
+    "paramCol": "Parâmetro",
+    "descCol": "Descrição",
+    "epStocksDesc": "Tabela completa de ações BR (descontos Bazin/Graham/Gordon incluídos). Filtre com \"coluna\" ou \"coluna.operador\".",
+    "epUsaStocksDesc": "Tabela completa de ações USA em USD. Mesma sintaxe de filtro das ações BR.",
+    "epUsaReitDesc": "Tabela completa de REITs USA em USD. Mesma sintaxe de filtro das ações.",
+    "epTijoloDesc": "Tabela de FIIs de tijolo (fairPrice, ceelingPrice, expectativaCrescimento, dy, pvp, ...).",
+    "epPapelDesc": "Tabela de FIIs de papel, incluindo subcategoria.",
+    "epFiagroDesc": "Lista de FIIs do agronegócio.",
+    "epFiInfraDesc": "Lista de FIIs de recebíveis de infraestrutura.",
+    "epFofDesc": "Lista de FIIs de fundo de fundos.",
+    "epFiiDesc": "Retorna '{tijolo, papel}'. Filtros aplicam-se com tolerância: condições sobre colunas que um array não tem são ignoradas naquele array."
   }
 }
