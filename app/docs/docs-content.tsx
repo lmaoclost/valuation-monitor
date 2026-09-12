@@ -5,8 +5,6 @@ import { useTranslations } from "next-intl";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import type { OpenApiSpec } from "@/lib/openapi";
 
-export const DEFAULT_BASE_URL = "https://valuation-monitor.vercel.app";
-
 function exampleFor(path: string, base: string): string {
   const query =
     path === "/api/fetch-fii/tijolo"
