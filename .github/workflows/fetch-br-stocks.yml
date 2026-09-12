@@ -1,0 +1,37 @@
+name: Fetch BR stocks CSV
+
+on:
+  schedule:
+    # 19:30 BRT (UTC-3, no DST) — after B3 close
+    - cron: "30 22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Fetch BR stocks CSV
+        run: node scripts/fetch-br-csv.mjs
+
+      - name: Commit CSV if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/br-stocks.csv
+          git diff --cached --quiet || git commit -m "data: daily BR stocks CSV"
+          git push
